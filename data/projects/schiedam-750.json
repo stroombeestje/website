@@ -1,0 +1,19 @@
+{
+  "slug": "schiedam-750",
+  "title": "Schiedam 750",
+  "year": "2025",
+  "category": "Installation",
+  "featured": false,
+  "order": 22,
+  "role": "Concept & TouchDesigner",
+  "location": "Schiedam",
+  "cover": "",
+  "excerpt": "Real-time generative video mapping on the Alevitisch Cultureel Centrum for Schiedam's 750th anniversary.",
+  "description": "For Schiedam's 750th anniversary I created a custom video mapping on the Alevitisch Cultureel Centrum. Using the building's own geometry, I designed a real-time TouchDesigner patch to bring the facade to life — projected with a 30,000-lumen Epson laser projector and reflected in the water below.",
+  "images": [],
+  "videos": [
+    "https://www.instagram.com/reel/DHTt3x_tpNq/"
+  ],
+  "credits": "Produced and commissioned by LightUp Collective.",
+  "link": "https://www.instagram.com/reel/DHTt3x_tpNq/"
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "anonymous-project-2023",
+  "title": "The Anonymous Project",
+  "year": "2023",
+  "category": "Live Show",
+  "featured": true,
+  "order": 6,
+  "role": "Visual commission — scenography & projections",
+  "location": "Le Guess Who?, Utrecht",
+  "cover": "media/projects/anonymous-project-2023/cover.jpg",
+  "excerpt": "A white cube on stage where artists perform in total anonymity — a special visual commission for Le Guess Who? 2023.",
+  "description": "The Anonymous Project is a stage where artists perform inside a white cube, remaining anonymous at all times — before, during and after the performance. It is an avenue for artists to present new work, and for audiences to discover it free of reputation or expectation, focused purely on the sound.\nFor Le Guess Who? 2023 I was commissioned to create the special visual work that wraps the cube: projection and scenography that conceal the performer while turning the cube itself into a shifting, luminous instrument. The result is an unfiltered, sonic-first experience in which the visuals carry the room.",
+  "images": [
+    "media/projects/anonymous-project-2023/01.jpg"
+  ],
+  "videos": [],
+  "credits": "Commissioned by Le Guess Who? 2023. Visual work by Jaco Schilp.",
+  "link": "https://leguesswho.com/lineup/the-anonymous-project"
+}

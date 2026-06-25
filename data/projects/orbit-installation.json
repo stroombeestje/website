@@ -1,0 +1,16 @@
+{
+  "slug": "orbit-installation",
+  "title": "Orbit — Interactive Installation",
+  "year": "2025",
+  "category": "Installation",
+  "featured": false,
+  "order": 15,
+  "role": "Concept & TouchDesigner",
+  "location": "",
+  "cover": "media/projects/orbit-installation/cover.jpg",
+  "excerpt": "An interactive installation that reimagines drone-tracking AI as a tool for play and connection.",
+  "description": "A project especially close to me: an interactive installation commissioned by Orbit Festival, alongside the light design for all stages.\n\nBuilt in TouchDesigner and guided by an AI model once developed for military drones to track bodies and objects, the work seeks to shift perspective — to reimagine technology born from conflict as a tool for connection and play. As an artist, I feel it is important to explore how these systems can transform when placed in a different light.",
+  "images": [],
+  "credits": "Film by Guillaume Versteeg.",
+  "link": ""
+}

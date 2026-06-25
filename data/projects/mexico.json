@@ -1,0 +1,22 @@
+{
+  "slug": "mexico",
+  "title": "Mexico — Point Clouds",
+  "year": "",
+  "category": "Artwork",
+  "featured": true,
+  "order": 23,
+  "role": "Artist",
+  "location": "Mexico City",
+  "cover": "media/projects/mexico/cover.jpg",
+  "excerpt": "Iconic Mexican architecture captured and dissolved into luminous 3D point clouds.",
+  "description": "An ongoing series translating iconic Mexican architecture into light. Through 3D scanning and point-cloud data, landmarks such as the Palacio de Bellas Artes in Mexico City are dissolved into millions of luminous points — buildings rebuilt from data, hovering between the physical and the digital.",
+  "images": [
+    "media/projects/mexico/01.jpg",
+    "media/projects/mexico/02.jpg"
+  ],
+  "videos": [
+    "media/projects/mexico/clip.mp4"
+  ],
+  "credits": "",
+  "link": ""
+}

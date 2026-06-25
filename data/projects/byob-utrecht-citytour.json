@@ -1,0 +1,25 @@
+{
+  "slug": "byob-utrecht-citytour",
+  "title": "BYOB Utrecht Citytour",
+  "year": "2020",
+  "category": "Curated",
+  "featured": false,
+  "order": 13,
+  "role": "Organizer",
+  "location": "Utrecht",
+  "cover": "media/projects/byob-utrecht-citytour/cover.jpg",
+  "excerpt": "BYOB's tenth anniversary — a one-night city tour of projections across nine pop-up galleries in Utrecht.",
+  "description": "Bring Your Own Beamer 2020 — for BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries.\n\nBYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors — all within the strict COVID-19 regulations of the time.",
+  "images": [
+    "media/projects/byob-utrecht-citytour/01.jpg",
+    "media/projects/byob-utrecht-citytour/02.jpg",
+    "media/projects/byob-utrecht-citytour/03.jpg",
+    "media/projects/byob-utrecht-citytour/04.jpg",
+    "media/projects/byob-utrecht-citytour/05.jpg"
+  ],
+  "videos": [
+    "https://youtu.be/ZGUNubml9_o"
+  ],
+  "credits": "",
+  "link": ""
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "archive-mirror",
+  "title": "Archive Mirror",
+  "year": "2025",
+  "category": "Installation",
+  "featured": true,
+  "order": 20,
+  "role": "With Santiago Pani",
+  "location": "",
+  "cover": "media/projects/archive-mirror/cover.jpg",
+  "excerpt": "A physical-digital collaboration with painter Santiago Pani — faces from dreams, surfacing and dissolving in light.",
+  "description": "A collaboration with the Mexican painter Santiago Pani. Archive Mirror brings Santiago's expressionist faces — anonymous characters glimpsed in dreams and the subconscious, hovering at the threshold where recognition fades into abstraction — together with my own work in light and point-cloud data.\n\nOn a large luminous panel the faces surface, shift and dissolve, staged within the gothic architecture of a historic church. The work sits between control and chaos, line and stain, the remembered and the imagined. First shown as a try-out in 2025.",
+  "images": [
+    "media/projects/archive-mirror/01.jpg",
+    "media/projects/archive-mirror/02.jpg",
+    "media/projects/archive-mirror/03.jpg",
+    "media/projects/archive-mirror/04.jpg"
+  ],
+  "videos": [
+    "media/projects/archive-mirror/clip.mp4"
+  ],
+  "credits": "Painting: Santiago Pani. Documentary: Guillaume Versteeg.",
+  "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
+}

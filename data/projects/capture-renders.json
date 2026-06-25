@@ -1,0 +1,25 @@
+{
+  "slug": "capture-renders",
+  "title": "Captures & Renders",
+  "year": "",
+  "category": "Artwork",
+  "featured": false,
+  "order": 11,
+  "role": "3D & light design",
+  "location": "",
+  "cover": "media/projects/capture-renders/cover.jpg",
+  "excerpt": "Pre-visualisation renders from the light-design process.",
+  "description": "Pre-visualisation renders and captures from my light-design practice — sketching atmospheres, beams and volumetrics in TouchDesigner and Cinema 4D before they are built in real space.",
+  "images": [
+    "media/projects/capture-renders/01.jpg",
+    "media/projects/capture-renders/02.jpg",
+    "media/projects/capture-renders/03.jpg",
+    "media/projects/capture-renders/04.jpg",
+    "media/projects/capture-renders/05.jpg"
+  ],
+  "videos": [
+    "media/projects/capture-renders/street.mp4"
+  ],
+  "credits": "",
+  "link": ""
+}

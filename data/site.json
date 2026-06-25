@@ -1,0 +1,38 @@
+{
+  "name": "Jaco Schilp",
+  "tagline": "Media artist, light designer & curator",
+  "intro": "I create art that lets you step inside the image.",
+  "about": "I'm Jaco Schilp, and this is Studio Schilp. I create art that lets you step inside the image. Studio Schilp was once my grandfather's photo studio in the 1950s — he taught me that light tells stories. Now I tell them differently: in motion, in space. Light, video and immersion are my tools.\n\nI'm a media artist, light designer and curator based in Utrecht. In 2016 I graduated from the Reinwardt Academie with a BA in Cultural Heritage, specialising in exhibition design and narrative space — a background that still shapes how I build immersive, site-specific environments.\n\nMy work has been exhibited and presented at museums, galleries and festivals including the Van Gogh Museum, No Es Una Galería, Boiler Room, Le Guess Who? and Dekmantel. As a live visual and light artist I've created large-scale projections on buildings including the Kunsthal Rotterdam, Museum de Fundatie, the St Bavo Cathedral in Haarlem, the Centraal Museum Utrecht and the NCCA in Nizhny Novgorod, Russia.\n\nTogether with Skander Jaïbi I co-founded Uncloud, a foundation and platform for interdisciplinary art and experimental sound in Utrecht. I'm also Co-Director of Data Uotan (Mexico City) and an artist with No Es Una Galería.",
+  "email": "jacoschilp@gmail.com",
+  "instagram": "https://www.instagram.com/studioschilp/",
+  "portrait": "media/about/portrait.jpg",
+  "categories": [
+    "Installation",
+    "Curated",
+    "Artwork",
+    "Performance",
+    "Live Show"
+  ],
+  "services": [
+    "Light design for festivals, performances and venues",
+    "Immersive & interactive installations — concept to realisation (TouchDesigner)",
+    "Large-scale architectural projection mapping",
+    "Curatorial projects & artistic direction",
+    "Site-specific commissions"
+  ],
+  "cv": [
+    { "year": "2025", "entry": "Orbit Festival — light design & interactive installation" },
+    { "year": "2025", "entry": "Mutek Mexico & Cervantino — Circle of Live (Pantha du Prince, Sebastian Mullaert)" },
+    { "year": "2025", "entry": "Buy or Burn — Brutus, Rotterdam" },
+    { "year": "2024", "entry": "Ka 'An — Data Uotan festival, No Es Una Galería, Mexico City" },
+    { "year": "2025", "entry": "Dekmantel, Rader stage — light operator (design by Studio Raito)" },
+    { "year": "2022", "entry": "Panorama Utrecht — 900th anniversary of the city" },
+    { "year": "2022", "entry": "No Art Festival 'Synergy' — curator, NDSM Amsterdam" },
+    { "year": "2022", "entry": "Jacobikerk, Le Guess Who? — Utrecht" },
+    { "year": "2021", "entry": "Uncloud 'Transliminal' — Pieter Baan Centrum, Utrecht" },
+    { "year": "2021", "entry": "3FM Awards — projections & live visuals" },
+    { "year": "2020", "entry": "Uncloud 'Unshaping' & Bring Your Own Beamer — Utrecht" },
+    { "year": "2019", "entry": "NCCA, Nizhny Novgorod (RU); Boiler Room, ADE" },
+    { "year": "2016", "entry": "BA Cultural Heritage, Reinwardt Academie, Amsterdam" }
+  ]
+}

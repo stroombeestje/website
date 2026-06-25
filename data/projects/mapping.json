@@ -1,0 +1,24 @@
+{
+  "slug": "mapping",
+  "title": "Projection Mapping",
+  "year": "",
+  "category": "Installation",
+  "featured": false,
+  "order": 10,
+  "role": "Projection mapping",
+  "location": "",
+  "cover": "media/projects/mapping/cover.jpg",
+  "excerpt": "Large-scale projection mapping on landmark architecture.",
+  "description": "Large-scale projection mapping on architecture. Over the years I've projected on landmark buildings including the Kunsthal Rotterdam, Museum de Fundatie in Zwolle, the St Bavo Cathedral in Haarlem, the Centraal Museum Utrecht and the National Centre for Contemporary Arts in Nizhny Novgorod, Russia — using Resolume, TouchDesigner and point-cloud data to wrap content around facades.",
+  "images": [
+    "media/projects/mapping/01.png",
+    "media/projects/mapping/02.jpg",
+    "media/projects/mapping/03.png",
+    "media/projects/mapping/04.png"
+  ],
+  "videos": [
+    "media/projects/mapping/clip.mp4"
+  ],
+  "credits": "",
+  "link": ""
+}

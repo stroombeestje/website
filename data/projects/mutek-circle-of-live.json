@@ -1,0 +1,29 @@
+{
+  "slug": "mutek-circle-of-live",
+  "title": "Circle of Live — MUTEK Mexico",
+  "year": "2025",
+  "category": "Live Show",
+  "featured": false,
+  "order": 19,
+  "role": "Real-time visuals & light",
+  "location": "Maravilla Studios, Mexico City",
+  "cover": "media/projects/mutek-circle-of-live/cover.jpg",
+  "excerpt": "An immersive real-time visual environment for the four-hour Circle of Live session at MUTEK Mexico 2025.",
+  "description": "For the four-hour Circle of Live session at MUTEK MX 21 (October 2025), I created an immersive visual and light environment in Hall A of Maravilla Studios, Mexico City — together with Pavel Zmuchila and choreographer Alejandra Metztli.\n\nUsing TouchDesigner for real-time image generation and four LiDAR scanners placed around the venue, pre-recorded 3D scans of the city were brought to life — data captured by cycling through Mexico City on an Ecobici with cameras attached, from the Angel of Independence to Roma and Chapultepec. The digital content was always enriched by what was physically happening on stage, creating perspectives impossible with a traditional camera.\n\nThe circular set placed eight dancer platforms around a central space of screens, light and live visuals; Metztli's Butoh choreography drew on natural elements — fog, rain, lightning — turning the room into a theatrical, performative environment.",
+  "images": [
+    "media/projects/mutek-circle-of-live/01.jpg",
+    "media/projects/mutek-circle-of-live/02.jpg",
+    "media/projects/mutek-circle-of-live/03.jpg",
+    "media/projects/mutek-circle-of-live/04.jpg",
+    "media/projects/mutek-circle-of-live/05.jpg",
+    "media/projects/mutek-circle-of-live/06.jpg",
+    "media/projects/mutek-circle-of-live/07.jpg",
+    "media/projects/mutek-circle-of-live/08.jpg",
+    "media/projects/mutek-circle-of-live/09.jpg",
+    "media/projects/mutek-circle-of-live/10.jpg",
+    "media/projects/mutek-circle-of-live/11.jpg",
+    "media/projects/mutek-circle-of-live/12.jpg"
+  ],
+  "credits": "Visuals & light: Studio Schilp, with Pavel Zmuchila. Choreography: Alejandra Metztli. Part of Circle of Live (incl. Sebastian Mullaert, Pantha du Prince). Photos: Diego Figueroa, Leo Luna & David Barajas. MUTEK MX 21, Maravilla Studios.",
+  "link": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live"
+}

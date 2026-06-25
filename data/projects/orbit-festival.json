@@ -1,0 +1,26 @@
+{
+  "slug": "orbit-festival",
+  "title": "Orbit Festival",
+  "year": "2025",
+  "category": "Live Show",
+  "featured": true,
+  "order": 12,
+  "role": "Light Design",
+  "location": "",
+  "cover": "media/projects/orbit-festival/cover.jpg",
+  "excerpt": "Light design for all stages of Orbit Festival.",
+  "description": "For Orbit Festival I created the light design for all stages — light as the connective tissue between music, architecture and crowd, operated live to shape the energy of each space as the night unfolded. Towering luminous totems, glowing canopies and beams cut through the haze of the festival's wooded grounds.",
+  "images": [
+    "media/projects/orbit-festival/01.jpg",
+    "media/projects/orbit-festival/02.jpg",
+    "media/projects/orbit-festival/03.jpg",
+    "media/projects/orbit-festival/04.jpg",
+    "media/projects/orbit-festival/05.jpg",
+    "media/projects/orbit-festival/06.jpg"
+  ],
+  "videos": [
+    "https://youtu.be/zGtgkZMK3SA"
+  ],
+  "credits": "Production: ESWA licht en geluid. Photography: TB.",
+  "link": ""
+}

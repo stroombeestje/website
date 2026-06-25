@@ -1,0 +1,25 @@
+{
+  "slug": "panorama-utrecht",
+  "title": "Panorama Utrecht",
+  "year": "2022",
+  "category": "Installation",
+  "featured": true,
+  "order": 9,
+  "role": "Artist",
+  "location": "Utrecht",
+  "cover": "media/projects/panorama-utrecht/cover.jpg",
+  "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, for the city's 900th anniversary.",
+  "description": "Panorama Utrecht was a highlight of the city's 900th-anniversary celebrations in 2022. We captured 1.1 billion digital data points and transformed them into an immersive feeling — the city, completely exposed.\n\nThe light sculpture shows Utrecht from a digital perspective: a panorama of small luminous points where every wall dissolves. The composition is an artistic interpretation of aerial LiDAR data of the city, drawn from the Actueel Hoogtebestand Nederland dataset of roughly 1.1 billion points.\n\nWalking into the sculpture opens a world of light, paired with field recordings collected by cycling and walking through Utrecht — shifting between recognisable daily city sounds and composed textures.",
+  "images": [
+    "media/projects/panorama-utrecht/01.jpg",
+    "media/projects/panorama-utrecht/02.jpg",
+    "media/projects/panorama-utrecht/03.jpg",
+    "media/projects/panorama-utrecht/04.jpg",
+    "media/projects/panorama-utrecht/05.jpg"
+  ],
+  "videos": [
+    "media/projects/panorama-utrecht/clip.mp4"
+  ],
+  "credits": "",
+  "link": ""
+}

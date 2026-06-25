@@ -1,0 +1,25 @@
+{
+  "slug": "3fm-awards",
+  "title": "3FM Awards",
+  "year": "2022",
+  "category": "Live Show",
+  "featured": false,
+  "order": 26,
+  "role": "Projections, content & live visuals",
+  "location": "",
+  "cover": "media/projects/3fm-awards/cover.jpg",
+  "excerpt": "The first sensor-driven holographic visuals on Dutch TV — a pepper-scrim cube responding live to the performance.",
+  "description": "The first-ever sensor-driven visuals on Dutch television. For the 3FM Awards I created the projections, a holographic installation and the live visuals — an open cube of pepper scrim producing holographic effects, with sensor-driven technology making the imagery respond in real time to the movements of DI-RECT's singer during their live performance.\n\nBuilt with a combination of Resolume, TouchDesigner, Unreal Engine, Kinect and point-cloud satellite data, it offered a new way to experience live music on television.",
+  "images": [
+    "media/projects/3fm-awards/01.jpg",
+    "media/projects/3fm-awards/02.jpg",
+    "media/projects/3fm-awards/03.jpg",
+    "media/projects/3fm-awards/04.jpg",
+    "media/projects/3fm-awards/05.jpg"
+  ],
+  "videos": [
+    "https://youtu.be/GDx5zPV2LSc"
+  ],
+  "credits": "In collaboration with LiGHT-UP Collective.",
+  "link": ""
+}

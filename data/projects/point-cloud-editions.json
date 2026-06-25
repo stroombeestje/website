@@ -1,0 +1,26 @@
+{
+  "slug": "point-cloud-editions",
+  "title": "Point Cloud Editions",
+  "year": "2024",
+  "category": "Artwork",
+  "featured": true,
+  "order": 24,
+  "role": "Artist",
+  "location": "Arthouse Pani, Tequisquiapan, Mexico",
+  "cover": "media/projects/point-cloud-editions/cover.jpg",
+  "excerpt": "Laser-cut 3D point-cloud editions of Mexican flora, made on residency in Tequisquiapan.",
+  "description": "A series of laser-cut 3D point-cloud editions made during a residency at Arthouse Pani in Tequisquiapan, Mexico, and shown in the group exhibition Aquí y Ahora (Here and Now), curated by Santiago Pani.\n\nLocal flora — succulents, agave, nopal and maguey — is 3D-scanned and translated into point-cloud data, then laser-cut into wood, black plexiglas, white-painted wood, brass and aluminium, each piece mounted in a backlit frame. The series extends into acid-etched metal works and the paper prints pulled from each acid bath — part of the same point-cloud body of work as 11.1 Rotterdam.",
+  "images": [
+    "media/projects/point-cloud-editions/01.jpg",
+    "media/projects/point-cloud-editions/02.jpg",
+    "media/projects/point-cloud-editions/03.jpg",
+    "media/projects/point-cloud-editions/04.jpg",
+    "media/projects/point-cloud-editions/05.jpg",
+    "media/projects/point-cloud-editions/06.jpg",
+    "media/projects/point-cloud-editions/07.jpg",
+    "media/projects/point-cloud-editions/08.jpg"
+  ],
+  "videos": [],
+  "credits": "Techniques: laser-cut 3D point-cloud data in wood, black plexiglas, brass and aluminium with backlit frames; acid-etched metal editions and process prints. Shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan — curated by Santiago Pani.",
+  "link": "https://www.arthouseholland.com/aquiyahora"
+}

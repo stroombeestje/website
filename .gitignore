@@ -1,0 +1,20 @@
+# intermediate / working files (not part of the site)
+scripts/_*.json
+scripts/_*.md
+scripts/serve_test.log
+oldsite.html
+tmp_*.html
+ig.html
+
+# Local tooling / large binaries (not part of the website)
+scripts/cloudflared.exe
+
+# Build / packaging artifacts & scratch
+*.zip
+media/_*/
+media/_*.jpg
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini

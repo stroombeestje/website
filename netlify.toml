@@ -1,0 +1,18 @@
+# Netlify configuration for the Jaco Schilp site.
+#
+# On every deploy, Netlify runs the build command, which stitches the
+# per-project files in data/projects/ back into data/projects.json (the
+# file the website reads). Then it publishes the whole folder as-is.
+#
+# This is what lets the back office store one file per project (grouped by
+# year, each with its own media folder) while the live site stays no-build.
+
+[build]
+  command = "python3 scripts/build_site_data.py"
+  publish = "."
+
+# Send /admin to the back office (Sveltia CMS) cleanly.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200

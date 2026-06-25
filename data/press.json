@@ -1,0 +1,75 @@
+{
+  "intro": "Selected press & coverage — from newspaper features on my Utrecht work to international reviews of the audiovisual collaboration Points of Inaccessibility with composer Rafael Anton Irisarri.",
+  "items": [
+    {
+      "outlet": "Stationary Travels",
+      "title": "Through a Musical Lens: Points of Inaccessibility",
+      "date": "May 2026",
+      "quote": "Schilp processed the material through point-cloud software, generating abstract imagery in a state of constant flux.",
+      "url": "https://stationarytravels.wordpress.com/2026/05/25/through-a-musical-lens-points-of-inaccessibility-by-rafael-anton-irisarri/"
+    },
+    {
+      "outlet": "oowlr music magazine",
+      "title": "Rafael Anton Irisarri — interview",
+      "date": "Feb 2026",
+      "quote": "Points of Inaccessibility began organically out of a chance encounter with Dutch media artist Jaco Schilp.",
+      "url": "https://oowlr.gr/rafael-anton-irisarri-interview/"
+    },
+    {
+      "outlet": "a closer listen",
+      "title": "Rafael Anton Irisarri ~ Points of Inaccessibility",
+      "date": "Feb 2026",
+      "quote": "Jaco Schilp was developing real-time, reactive, audio-driven point cloud projections, some of which adorn the album's artwork.",
+      "url": "https://acloserlisten.com/2026/02/05/rafael-anton-irisarri-points-of-inaccessibility/"
+    },
+    {
+      "outlet": "Magnetic Magazine",
+      "title": "Points of Inaccessibility Marks a New Phase for Rafael Anton Irisarri",
+      "date": "Dec 2025",
+      "quote": "Live visuals by Dutch artist Jaco Schilp, whose point cloud system reacts to the sound in real time.",
+      "url": "https://magneticmag.com/2025/12/rafael-anton-irisarri-interview/"
+    },
+    {
+      "outlet": "KLOF Mag",
+      "title": "Echoes from the Digital Void: Points of Inaccessibility",
+      "date": "Dec 2025",
+      "quote": "Irisarri transformed bowed guitar textures into vaporous scaffolding, fueling Schilp's custom point-cloud software.",
+      "url": "https://klofmag.com/2025/12/echoes-from-the-digital-void-rafael-anton-irisarris-points-of-inaccessibility/"
+    },
+    {
+      "outlet": "La Jornada",
+      "title": "Data Uotan confirma la posibilidad de coexistencia entre el arte clásico y el digital",
+      "date": "2024",
+      "quote": "Expresiones de performance, danza, fotografía, pintura y escultura se fusionan con la IA en el espacio cultural No Es Una Galería.",
+      "image": "media/press/lajornada-2024.jpg"
+    },
+    {
+      "outlet": "RTV Utrecht",
+      "title": "In het panorama van Jaco zie je Utrecht zonder muren en zijn bomen net sterren",
+      "date": "Sep 2022",
+      "quote": "Het staat er gewoon — super fijn.",
+      "url": "https://www.rtvutrecht.nl/nieuws/3476811/in-het-panorama-van-jaco-zie-je-utrecht-zonder-muren-en-zijn-bomen-net-sterren"
+    },
+    {
+      "outlet": "RTV Utrecht",
+      "title": "Jaco maakt lichtsculptuur op Utrecht Centraal voor 900-jarige stad",
+      "date": "Jul 2022",
+      "quote": "Die iconische stadsgezichten komen uiteindelijk bij elkaar op één groot paneel.",
+      "url": "https://www.rtvutrecht.nl/nieuws/3442879/jaco-maakt-lichtsculptuur-op-utrecht-centraal-voor-900-jarige-stad-nog-veel-te-doen-maar-het-komt-af"
+    },
+    {
+      "outlet": "Newspaper review",
+      "title": "Indrukwekkende installaties en performances in het voormalige Pieter Baan Centrum",
+      "date": "Nov 2021",
+      "quote": "A press review of Uncloud's Transliminal, staged in the former Pieter Baan Centrum, Utrecht.",
+      "image": "media/press/transliminal-2021.jpg"
+    },
+    {
+      "outlet": "Le Guess Who?",
+      "title": "Watch: Uncloud — Contemporary art & music, by Juri Hiensch",
+      "date": "Nov 2022",
+      "quote": "A short documentary on Uncloud — the Utrecht art & music organisation co-founded by Jaco Schilp.",
+      "url": "https://leguesswho.com/news/watch-uncloud-contemporary-art-music-by-juri-hiensch"
+    }
+  ]
+}

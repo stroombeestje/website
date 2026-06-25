@@ -1,0 +1,27 @@
+{
+  "slug": "soenda-presents",
+  "title": "Soenda Presents",
+  "year": "2025",
+  "category": "Live Show",
+  "featured": false,
+  "order": 16,
+  "role": "Light Design",
+  "location": "Utrecht",
+  "cover": "media/projects/soenda-presents/cover.jpg",
+  "excerpt": "Light design for the dance floor — capturing the energy and impression of light in motion.",
+  "description": "Light design and atmosphere for Soenda Presents. These moments capture the energy and impression of the lights on the dance floor — built and operated live for the night.",
+  "images": [
+    "media/projects/soenda-presents/01.jpg",
+    "media/projects/soenda-presents/02.jpg",
+    "media/projects/soenda-presents/03.jpg",
+    "media/projects/soenda-presents/04.jpg",
+    "media/projects/soenda-presents/05.jpg"
+  ],
+  "videos": [
+    "media/projects/soenda-presents/clip.mp4",
+    "media/projects/soenda-presents/clip2.mp4",
+    "media/projects/soenda-presents/clip3.mp4"
+  ],
+  "credits": "Light & design: Jaco Schilp. Photos: Elske Nissen. Production: ESWA licht en geluid. With Lammer at Soenda.",
+  "link": ""
+}

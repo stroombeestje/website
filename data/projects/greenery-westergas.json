@@ -1,0 +1,23 @@
+{
+  "slug": "greenery-westergas",
+  "title": "The Greenery — Westergas",
+  "year": "",
+  "category": "Installation",
+  "featured": false,
+  "order": 28,
+  "role": "Projection design & content",
+  "location": "Westergasfabriek, Amsterdam",
+  "cover": "media/projects/greenery-westergas/cover.jpg",
+  "excerpt": "An immersive 360° dining experience — ingredients filmed in macro and projected across 400 m² of canvas.",
+  "description": "An immersive 360° dining experience. For a pop-up restaurant commissioned by the Greenery in the Westergasfabriek, Amsterdam, each course was accompanied by custom visual content — ingredients filmed with a high-speed macro camera and projected across a 400-square-metre wrap-around canvas.\n\nA box projection driven by seven projectors, custom mediaservers and a combination of Unreal Engine, Blender and TouchDesigner generating real-time 3D content. In co-creation with LiGHT-UP Collective.",
+  "images": [
+    "media/projects/greenery-westergas/01.jpg",
+    "media/projects/greenery-westergas/02.jpg",
+    "media/projects/greenery-westergas/03.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/539585157"
+  ],
+  "credits": "Photos: Dennis Bouman. In co-creation with LiGHT-UP Collective. Sponsored by Panasonic.",
+  "link": ""
+}

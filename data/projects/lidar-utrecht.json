@@ -1,0 +1,22 @@
+{
+  "slug": "lidar-utrecht",
+  "title": "LiDAR — Utrecht",
+  "year": "2022",
+  "category": "Artwork",
+  "featured": false,
+  "order": 9.5,
+  "role": "Artist",
+  "location": "Utrecht (CCU)",
+  "cover": "media/projects/lidar-utrecht/cover.jpg",
+  "excerpt": "A series of light sculptures that translate raw LiDAR point clouds of Utrecht landmarks into laser-cut, backlit wood.",
+  "description": "On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nEach piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points — every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it — exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.",
+  "images": [
+    "media/projects/lidar-utrecht/5-1-tivoli-vredenburg.jpg",
+    "media/projects/lidar-utrecht/5-2-stadskantoor.jpg",
+    "media/projects/lidar-utrecht/5-3-bibliotheek-neude.jpg",
+    "media/projects/lidar-utrecht/5-6-nijverheid-havenloods.jpg"
+  ],
+  "videos": [],
+  "credits": "Physical NFT series — laser-cut wood, engraved LiDAR point cloud, LED light, aluminium frame, 300×300mm. Point clouds derived from aerial LiDAR data of Utrecht.",
+  "link": ""
+}

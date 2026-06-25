@@ -1,0 +1,118 @@
+# ---------------------------------------------------------------------------
+# Sveltia / Decap CMS configuration  (your no-code "back office")
+#
+# After deploying, set `repo` below to "your-github-username/your-repo-name".
+# Open the back office at  yoursite.com/admin
+#
+# How it's organised:
+#   • Projects  — one file per project (data/projects/<slug>.json),
+#                 grouped BY YEAR in the list. Each project uploads its
+#                 images/videos into its OWN folder (media/projects/<slug>/).
+#   • Press     — the press / coverage list.
+#   • Site & About — name, tagline, about text, CV, services, contact.
+#
+# When you publish, the site rebuilds data/projects.json automatically
+# (see netlify.toml -> scripts/build_site_data.py). You never touch that file.
+# ---------------------------------------------------------------------------
+backend:
+  name: github
+  repo: USERNAME/REPO        # <-- change to your GitHub repo, e.g. jacoschilp/website
+  branch: main
+
+# Default upload location (used by Press / Site). Projects override this
+# with their own per-project folder, see the collection below.
+media_folder: "media/uploads"
+public_folder: "media/uploads"
+
+collections:
+  # ===== PROJECTS — one file per project, grouped by year =================
+  - name: "projects"
+    label: "Projects"
+    label_singular: "Project"
+    folder: "data/projects"
+    extension: "json"
+    format: "json"
+    create: true
+    delete: true
+    identifier_field: "title"
+    slug: "{{fields.slug}}"
+    summary: "{{fields.title}}  ·  {{fields.year}}"
+    # Each project keeps its OWN media folder — the image picker is scoped to it.
+    media_folder: "/media/projects/{{fields.slug}}"
+    public_folder: "/media/projects/{{fields.slug}}"
+    # Sort + group the list BY YEAR in the back office.
+    sortable_fields: ["year", "title", "order"]
+    view_groups:
+      - label: "Year"
+        field: "year"
+    view_filters:
+      - label: "Featured on homepage"
+        field: "featured"
+        pattern: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL slug", name: "slug", widget: "string", hint: "Lowercase, no spaces, e.g. ka-an. This becomes the page address AND the project's media folder name. Set it once and don't change it later." }
+      - { label: "Year", name: "year", widget: "string", required: false, hint: "Used to group projects into year folders." }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Installation", "Curated", "Artwork", "Performance", "Live Show"]
+      - { label: "Featured on homepage?", name: "featured", widget: "boolean", default: false }
+      - { label: "Role", name: "role", widget: "string", required: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Cover image", name: "cover", widget: "image", required: false, hint: "Uploads into this project's own folder." }
+      - { label: "Short excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Description", name: "description", widget: "text", required: false, hint: "Use blank lines for paragraphs." }
+      - { label: "Gallery images", name: "images", widget: "list", field: { label: "Image", name: "image", widget: "image" }, required: false }
+      - { label: "Videos", name: "videos", widget: "list", field: { label: "Video", name: "video", widget: "string" }, required: false, hint: "Paste a Vimeo or YouTube link, or upload a video file." }
+      - { label: "Credits", name: "credits", widget: "text", required: false }
+      - { label: "External link", name: "link", widget: "string", required: false }
+      - { label: "Sort order (advanced)", name: "order", widget: "number", required: false, default: 9999, hint: "Lower numbers appear first across the whole site. Leave as-is unless you want to hand-reorder." }
+
+  # ===== PRESS — coverage & articles =====================================
+  - name: "press"
+    label: "Press"
+    files:
+      - name: "press"
+        label: "Press coverage"
+        file: "data/press.json"
+        description: "Add or edit press items. Use a link for online articles, or upload an image for a scanned clipping."
+        fields:
+          - { label: "Intro line", name: "intro", widget: "text", required: false }
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            label_singular: "Press item"
+            summary: "{{fields.outlet}} — {{fields.title}}"
+            fields:
+              - { label: "Outlet / publication", name: "outlet", widget: "string" }
+              - { label: "Title / headline", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "string", required: false, hint: "e.g. Feb 2026" }
+              - { label: "Pull quote", name: "quote", widget: "text", required: false }
+              - { label: "Article link", name: "url", widget: "string", required: false, hint: "Leave empty for a scanned clipping." }
+              - { label: "Clipping image", name: "image", widget: "image", required: false, hint: "Use for press with no online link." }
+
+  # ===== SITE & ABOUT ====================================================
+  - name: "site"
+    label: "Site & About"
+    files:
+      - name: "site"
+        label: "Site settings"
+        file: "data/site.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Intro line", name: "intro", widget: "string" }
+          - { label: "Portrait photo", name: "portrait", widget: "image", required: false }
+          - { label: "About text", name: "about", widget: "text", hint: "Use blank lines for paragraphs." }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+          - { label: "Categories", name: "categories", widget: "list", field: { label: "Category", name: "category", widget: "string" } }
+          - { label: "Services", name: "services", widget: "list", field: { label: "Service", name: "service", widget: "string" } }
+          - label: "CV"
+            name: "cv"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.entry}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Entry", name: "entry", widget: "string" }

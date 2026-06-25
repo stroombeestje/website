@@ -1,0 +1,686 @@
+{
+  "projects": [
+    {
+      "slug": "ka-an",
+      "title": "Ka 'An",
+      "year": "2024",
+      "category": "Installation",
+      "featured": true,
+      "order": 0,
+      "role": "Artist",
+      "location": "Mexico City",
+      "cover": "media/projects/ka-an/cover.jpg",
+      "excerpt": "A light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere.",
+      "description": "Ka'An is a light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere. The piece reflects the multi-layered structure of the Mayan sky, mirroring the building's open architecture.\n\nFeaturing 16 dynamic lights controlled by a custom TouchDesigner patch, all converging in 3D space, Ka'An creates a dreamlike atmosphere. It offers a unique experience of walking into the air, harmonised with the building's architecture and an Ableton-composed soundscape.\n\nThe site-specific work was presented during the Data Uotan festival at No Es Una Galería, Mexico City, in 2024.",
+      "images": [
+        "media/projects/ka-an/01.jpg",
+        "media/projects/ka-an/02.jpg"
+      ],
+      "videos": [
+        "https://youtu.be/AC7VqpXkVYo"
+      ],
+      "credits": "Created by Jaco Schilp.",
+      "link": ""
+    },
+    {
+      "slug": "somnia",
+      "title": "Somnia",
+      "year": "2024",
+      "category": "Performance",
+      "featured": true,
+      "order": 1,
+      "role": "Concept & immersive design",
+      "location": "Uncloud, Utrecht & Le Guess Who? 2024",
+      "cover": "media/projects/somnia/cover.jpg",
+      "excerpt": "An interdisciplinary audiovisual dance performance exploring dream states and the human body.",
+      "description": "Somnia is an interdisciplinary audiovisual dance performance created by Mexican contemporary dancer and choreographer Alejandra Metztli and Dutch immersive digital artist Jaco Schilp. It explores the poetic processes within the human body and the dream states we experience during sleep.\nThe language of movement is based multidimensionally in an energetic body that interprets a timeless reality. The piece is inspired by the chemical substances secreted by the human brain, neuronal frequencies, and the subtle body that connects with the narratives we experience while dreaming — expressed through motion tracking, video mapping and an immersive stage design.\nSomnia is the result of an international artistic residency supported by the Sistema de Apoyos a la Creación y Proyectos Culturales of the Mexican government, held at Uncloud in Utrecht, and presented at the Le Guess Who? festival 2024 in Utrecht.",
+      "images": [
+        "media/projects/somnia/01.jpg",
+        "media/projects/somnia/02.jpg",
+        "media/projects/somnia/03.jpg",
+        "media/projects/somnia/04.jpg",
+        "media/projects/somnia/05.jpg",
+        "media/projects/somnia/06.jpg",
+        "media/projects/somnia/07.jpg"
+      ],
+      "videos": [
+        "media/projects/somnia/clip.mp4",
+        "media/projects/somnia/clip2.mp4"
+      ],
+      "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
+      "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia"
+    },
+    {
+      "slug": "points-of-inaccessibility",
+      "title": "Points of Inaccessibility",
+      "year": "2025",
+      "category": "Artwork",
+      "featured": true,
+      "order": 2,
+      "role": "Real-time point-cloud visuals & cover artwork",
+      "location": "Uncloud residency, Utrecht",
+      "cover": "media/projects/points-of-inaccessibility/cover.jpg",
+      "excerpt": "An audiovisual collaboration with composer Rafael Anton Irisarri — real-time, audio-reactive point-cloud projections.",
+      "description": "Points of Inaccessibility is an audiovisual collaboration with Ibero-American composer Rafael Anton Irisarri. It began with a chance meeting at MUTEK in Mexico City in 2024 and took shape during a spring 2025 residency at Uncloud in Utrecht — the studio housed inside the former Pieter Baan Centrum, a forensic psychiatric institution whose silence and containment shaped the work.\nIrisarri performed bowed-guitar pieces through pedals and looping systems while I processed the material through a custom, real-time point-cloud software patch — images in continuous flux that flicker, dissolve and reform like memories resisting coherence. The album explores how digital systems create new forms of isolation despite promising connection.\nThe point-cloud visuals adorn the record’s artwork, released on Black Knoll Editions in 2026 with a closing vocal by Karen Vogt.",
+      "images": [],
+      "videos": [],
+      "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions.",
+      "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility"
+    },
+    {
+      "slug": "uncloud-transliminal",
+      "title": "Uncloud Transliminal",
+      "year": "2021",
+      "category": "Curated",
+      "featured": true,
+      "order": 3,
+      "role": "Art Director, Curator, Producer",
+      "location": "Pieter Baan Centrum, Utrecht",
+      "cover": "media/projects/uncloud-transliminal/cover.jpg",
+      "excerpt": "Uncloud's sixth edition — a pop-up museum of multi-sensory perception inside a former forensic institute.",
+      "description": "For their sixth edition, Uncloud opened the doors of a pop-up digital and contemporary art museum and took visitors through a transformational process of multi-sensory perception. For three weeks the former Pieter Baan Centrum — once the Netherlands' forensic psychiatric observation institute — became the setting for a spectacle combining space, visual art and sound.\n\n'Transliminal' refers to the temporary estrangement that takes place during the intermediate phase of a transformation, of which the final destination is unknown. With this theme, Uncloud presents a metaphor for the current state of the world, in which we all experience estrangement from our old realities.\n\nTransliminal art is intrinsically connected to the context in which it is made and presented. Based on modern knowledge and contemporary technology, it takes the form of an abstract multi-sensory experience where the visitor forms their own narrative, reflection and interpretation — bringing a digitised, isolated and transitional world back into tangible physical reality.",
+      "images": [
+        "media/projects/uncloud-transliminal/01.jpg",
+        "media/projects/uncloud-transliminal/02.jpg",
+        "media/projects/uncloud-transliminal/03.jpg",
+        "media/projects/uncloud-transliminal/04.jpg",
+        "media/projects/uncloud-transliminal/05.jpg",
+        "media/projects/uncloud-transliminal/06.jpg"
+      ],
+      "credits": "A project by Uncloud (Jaco Schilp & Skander Jaïbi).",
+      "link": ""
+    },
+    {
+      "slug": "jacobikerk-le-guess-who",
+      "title": "Jacobikerk — Le Guess Who?",
+      "year": "2022",
+      "category": "Curated",
+      "featured": true,
+      "order": 4,
+      "role": "Light design",
+      "location": "Jacobikerk, Utrecht",
+      "cover": "media/projects/jacobikerk-le-guess-who/cover.jpg",
+      "excerpt": "A site-specific light intervention for Le Guess Who? festival in the historic Jacobikerk, Utrecht.",
+      "description": "A site-specific light intervention for the Le Guess Who? festival, staged in the historic Jacobikerk in Utrecht. Working with the church's gothic architecture, the design wrapped the nave and its chandeliers in slow, shifting light — turning the building itself into an instrument of atmosphere for the festival's program of concerts.",
+      "images": [
+        "media/projects/jacobikerk-le-guess-who/01.jpg",
+        "media/projects/jacobikerk-le-guess-who/02.jpg",
+        "media/projects/jacobikerk-le-guess-who/03.jpg",
+        "media/projects/jacobikerk-le-guess-who/04.jpg",
+        "media/projects/jacobikerk-le-guess-who/05.jpg",
+        "media/projects/jacobikerk-le-guess-who/06.jpg"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "le-guess-who-2019",
+      "title": "Le Guess Who? 2019",
+      "year": "2019",
+      "category": "Live Show",
+      "featured": false,
+      "order": 5,
+      "role": "Projections & light mapping (LiGHT-UP collective)",
+      "location": "TivoliVredenburg & club WAS, Utrecht",
+      "cover": "media/projects/lgw2019/cover.jpg",
+      "excerpt": "City-wide festival projections for Le Guess Who? 2019, turning Utrecht's venues into light.",
+      "description": "City-wide festival projections for Le Guess Who? 2019, the annual Utrecht festival celebrating music and the arts. Working with the LiGHT-UP collective, we wove large-scale projections into the festival's venues so that each space offered its own distinct visual experience.\nEach location was treated on its own terms — light installations and projection mapping tailored to the interior and exterior of iconic spaces like TivoliVredenburg and club WAS. Projecting onto the architecture itself, the work infused the streets and buildings of Utrecht with a dynamic, festive atmosphere and connected the audience to the city on a visual level.",
+      "images": [
+        "media/projects/lgw2019/02.jpg",
+        "media/projects/lgw2019/03.jpg",
+        "media/projects/lgw2019/04.jpg",
+        "media/projects/lgw2019/05.jpg"
+      ],
+      "videos": [
+        "https://vimeo.com/384488425"
+      ],
+      "credits": "Projections by the LiGHT-UP collective, with decor contributions from Triomf Utrecht.",
+      "link": "https://www.lightupcollective.com/le-guess-who-2"
+    },
+    {
+      "slug": "anonymous-project-2023",
+      "title": "The Anonymous Project",
+      "year": "2023",
+      "category": "Live Show",
+      "featured": true,
+      "order": 6,
+      "role": "Visual commission — scenography & projections",
+      "location": "Le Guess Who?, Utrecht",
+      "cover": "media/projects/anonymous-project-2023/cover.jpg",
+      "excerpt": "A white cube on stage where artists perform in total anonymity — a special visual commission for Le Guess Who? 2023.",
+      "description": "The Anonymous Project is a stage where artists perform inside a white cube, remaining anonymous at all times — before, during and after the performance. It is an avenue for artists to present new work, and for audiences to discover it free of reputation or expectation, focused purely on the sound.\nFor Le Guess Who? 2023 I was commissioned to create the special visual work that wraps the cube: projection and scenography that conceal the performer while turning the cube itself into a shifting, luminous instrument. The result is an unfiltered, sonic-first experience in which the visuals carry the room.",
+      "images": [
+        "media/projects/anonymous-project-2023/01.jpg"
+      ],
+      "videos": [],
+      "credits": "Commissioned by Le Guess Who? 2023. Visual work by Jaco Schilp.",
+      "link": "https://leguesswho.com/lineup/the-anonymous-project"
+    },
+    {
+      "slug": "rats-on-rafts-chapter-3",
+      "title": "Rats on Rafts — Visions of Chapter 3",
+      "year": "2022",
+      "category": "Live Show",
+      "featured": false,
+      "order": 7,
+      "role": "Visual artist",
+      "location": "Le Guess Who?, Utrecht",
+      "cover": "media/projects/rats-on-rafts/cover.jpg",
+      "excerpt": "A one-off multidisciplinary performance bringing Rats on Rafts’ album Chapter 3 to life through video, theatre and dance.",
+      "description": "A one-off multidisciplinary performance at Le Guess Who? 2022, bringing Rotterdam band Rats on Rafts’ album “Chapter 3: The Mind Runs A Net Of Rabbit Paths” to life through video, theatre and dance.\nI worked as one of the visual artists on the piece, building the projected imagery that immerses the audience in the world of Chapter 3 alongside a full creative team of decor, costume and film.",
+      "images": [],
+      "videos": [],
+      "credits": "Visual artists: Jordi Cardenas & Jaco Schilp. Video material: A Small Production Company. Decor: Jochen Lange Studio. Clothing: Eva Arends. Photography: Jasmijn Slegh.",
+      "link": "https://leguesswho.com/lineup/rats-on-rafts-visions-of-chapter-3-live"
+    },
+    {
+      "slug": "data-utan",
+      "title": "Data Uotan",
+      "year": "2024",
+      "category": "Curated",
+      "featured": false,
+      "order": 8,
+      "role": "Co-Director, Curator",
+      "location": "Mexico City",
+      "cover": "media/projects/data-utan/cover.jpg",
+      "excerpt": "A festival and exhibition platform in Mexico City bringing together Dutch and Mexican digital artists.",
+      "description": "Data Uotan is a festival and exhibition platform in Mexico City, presented with No Es Una Galería, where I work as Co-Director. It brings together Dutch and Mexican digital artists around immersive installation, light and sound — the context in which my work Ka'An was first shown.\n\nMexico City has become a second home for my practice: every return brings a new rhythm, a new kind of chaos, and a deep connection with its artistic community.",
+      "images": [],
+      "videos": [
+        "media/projects/data-utan/clip.mp4"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "panorama-utrecht",
+      "title": "Panorama Utrecht",
+      "year": "2022",
+      "category": "Installation",
+      "featured": true,
+      "order": 9,
+      "role": "Artist",
+      "location": "Utrecht",
+      "cover": "media/projects/panorama-utrecht/cover.jpg",
+      "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, for the city's 900th anniversary.",
+      "description": "Panorama Utrecht was a highlight of the city's 900th-anniversary celebrations in 2022. We captured 1.1 billion digital data points and transformed them into an immersive feeling — the city, completely exposed.\n\nThe light sculpture shows Utrecht from a digital perspective: a panorama of small luminous points where every wall dissolves. The composition is an artistic interpretation of aerial LiDAR data of the city, drawn from the Actueel Hoogtebestand Nederland dataset of roughly 1.1 billion points.\n\nWalking into the sculpture opens a world of light, paired with field recordings collected by cycling and walking through Utrecht — shifting between recognisable daily city sounds and composed textures.",
+      "images": [
+        "media/projects/panorama-utrecht/01.jpg",
+        "media/projects/panorama-utrecht/02.jpg",
+        "media/projects/panorama-utrecht/03.jpg",
+        "media/projects/panorama-utrecht/04.jpg",
+        "media/projects/panorama-utrecht/05.jpg"
+      ],
+      "videos": [
+        "media/projects/panorama-utrecht/clip.mp4"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "lidar-utrecht",
+      "title": "LiDAR — Utrecht",
+      "year": "2022",
+      "category": "Artwork",
+      "featured": false,
+      "order": 9.5,
+      "role": "Artist",
+      "location": "Utrecht (CCU)",
+      "cover": "media/projects/lidar-utrecht/cover.jpg",
+      "excerpt": "A series of light sculptures that translate raw LiDAR point clouds of Utrecht landmarks into laser-cut, backlit wood.",
+      "description": "On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nEach piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points — every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it — exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.",
+      "images": [
+        "media/projects/lidar-utrecht/5-1-tivoli-vredenburg.jpg",
+        "media/projects/lidar-utrecht/5-2-stadskantoor.jpg",
+        "media/projects/lidar-utrecht/5-3-bibliotheek-neude.jpg",
+        "media/projects/lidar-utrecht/5-6-nijverheid-havenloods.jpg"
+      ],
+      "videos": [],
+      "credits": "Physical NFT series — laser-cut wood, engraved LiDAR point cloud, LED light, aluminium frame, 300×300mm. Point clouds derived from aerial LiDAR data of Utrecht.",
+      "link": ""
+    },
+    {
+      "slug": "mapping",
+      "title": "Projection Mapping",
+      "year": "",
+      "category": "Installation",
+      "featured": false,
+      "order": 10,
+      "role": "Projection mapping",
+      "location": "",
+      "cover": "media/projects/mapping/cover.jpg",
+      "excerpt": "Large-scale projection mapping on landmark architecture.",
+      "description": "Large-scale projection mapping on architecture. Over the years I've projected on landmark buildings including the Kunsthal Rotterdam, Museum de Fundatie in Zwolle, the St Bavo Cathedral in Haarlem, the Centraal Museum Utrecht and the National Centre for Contemporary Arts in Nizhny Novgorod, Russia — using Resolume, TouchDesigner and point-cloud data to wrap content around facades.",
+      "images": [
+        "media/projects/mapping/01.png",
+        "media/projects/mapping/02.jpg",
+        "media/projects/mapping/03.png",
+        "media/projects/mapping/04.png"
+      ],
+      "videos": [
+        "media/projects/mapping/clip.mp4"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "capture-renders",
+      "title": "Captures & Renders",
+      "year": "",
+      "category": "Artwork",
+      "featured": false,
+      "order": 11,
+      "role": "3D & light design",
+      "location": "",
+      "cover": "media/projects/capture-renders/cover.jpg",
+      "excerpt": "Pre-visualisation renders from the light-design process.",
+      "description": "Pre-visualisation renders and captures from my light-design practice — sketching atmospheres, beams and volumetrics in TouchDesigner and Cinema 4D before they are built in real space.",
+      "images": [
+        "media/projects/capture-renders/01.jpg",
+        "media/projects/capture-renders/02.jpg",
+        "media/projects/capture-renders/03.jpg",
+        "media/projects/capture-renders/04.jpg",
+        "media/projects/capture-renders/05.jpg"
+      ],
+      "videos": [
+        "media/projects/capture-renders/street.mp4"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "orbit-festival",
+      "title": "Orbit Festival",
+      "year": "2025",
+      "category": "Live Show",
+      "featured": true,
+      "order": 12,
+      "role": "Light Design",
+      "location": "",
+      "cover": "media/projects/orbit-festival/cover.jpg",
+      "excerpt": "Light design for all stages of Orbit Festival.",
+      "description": "For Orbit Festival I created the light design for all stages — light as the connective tissue between music, architecture and crowd, operated live to shape the energy of each space as the night unfolded. Towering luminous totems, glowing canopies and beams cut through the haze of the festival's wooded grounds.",
+      "images": [
+        "media/projects/orbit-festival/01.jpg",
+        "media/projects/orbit-festival/02.jpg",
+        "media/projects/orbit-festival/03.jpg",
+        "media/projects/orbit-festival/04.jpg",
+        "media/projects/orbit-festival/05.jpg",
+        "media/projects/orbit-festival/06.jpg"
+      ],
+      "videos": [
+        "https://youtu.be/zGtgkZMK3SA"
+      ],
+      "credits": "Production: ESWA licht en geluid. Photography: TB.",
+      "link": ""
+    },
+    {
+      "slug": "byob-utrecht-citytour",
+      "title": "BYOB Utrecht Citytour",
+      "year": "2020",
+      "category": "Curated",
+      "featured": false,
+      "order": 13,
+      "role": "Organizer",
+      "location": "Utrecht",
+      "cover": "media/projects/byob-utrecht-citytour/cover.jpg",
+      "excerpt": "BYOB's tenth anniversary — a one-night city tour of projections across nine pop-up galleries in Utrecht.",
+      "description": "Bring Your Own Beamer 2020 — for BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries.\n\nBYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors — all within the strict COVID-19 regulations of the time.",
+      "images": [
+        "media/projects/byob-utrecht-citytour/01.jpg",
+        "media/projects/byob-utrecht-citytour/02.jpg",
+        "media/projects/byob-utrecht-citytour/03.jpg",
+        "media/projects/byob-utrecht-citytour/04.jpg",
+        "media/projects/byob-utrecht-citytour/05.jpg"
+      ],
+      "videos": [
+        "https://youtu.be/ZGUNubml9_o"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "uncloud-2019",
+      "title": "Uncloud 2019",
+      "year": "2019",
+      "category": "Curated",
+      "featured": false,
+      "order": 14,
+      "role": "Curator, Organizer",
+      "location": "EKKO, Utrecht",
+      "cover": "media/projects/uncloud-2019/cover.jpg",
+      "excerpt": "The third edition of the Uncloud festival at EKKO, Utrecht.",
+      "description": "The third edition of the Uncloud festival at EKKO, Utrecht. Line-up included Deena Abdelwahed, Zoë McPherson, Bendik Giske, Renick Bell, GNOD (R&D), Mark IJzerman, Modulation and Stranded FM.",
+      "images": [],
+      "videos": [
+        "https://youtu.be/UCJaJSnyA_8"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "orbit-installation",
+      "title": "Orbit — Interactive Installation",
+      "year": "2025",
+      "category": "Installation",
+      "featured": false,
+      "order": 15,
+      "role": "Concept & TouchDesigner",
+      "location": "",
+      "cover": "media/projects/orbit-installation/cover.jpg",
+      "excerpt": "An interactive installation that reimagines drone-tracking AI as a tool for play and connection.",
+      "description": "A project especially close to me: an interactive installation commissioned by Orbit Festival, alongside the light design for all stages.\n\nBuilt in TouchDesigner and guided by an AI model once developed for military drones to track bodies and objects, the work seeks to shift perspective — to reimagine technology born from conflict as a tool for connection and play. As an artist, I feel it is important to explore how these systems can transform when placed in a different light.",
+      "images": [],
+      "credits": "Film by Guillaume Versteeg.",
+      "link": ""
+    },
+    {
+      "slug": "soenda-presents",
+      "title": "Soenda Presents",
+      "year": "2025",
+      "category": "Live Show",
+      "featured": false,
+      "order": 16,
+      "role": "Light Design",
+      "location": "Utrecht",
+      "cover": "media/projects/soenda-presents/cover.jpg",
+      "excerpt": "Light design for the dance floor — capturing the energy and impression of light in motion.",
+      "description": "Light design and atmosphere for Soenda Presents. These moments capture the energy and impression of the lights on the dance floor — built and operated live for the night.",
+      "images": [
+        "media/projects/soenda-presents/01.jpg",
+        "media/projects/soenda-presents/02.jpg",
+        "media/projects/soenda-presents/03.jpg",
+        "media/projects/soenda-presents/04.jpg",
+        "media/projects/soenda-presents/05.jpg"
+      ],
+      "videos": [
+        "media/projects/soenda-presents/clip.mp4",
+        "media/projects/soenda-presents/clip2.mp4",
+        "media/projects/soenda-presents/clip3.mp4"
+      ],
+      "credits": "Light & design: Jaco Schilp. Photos: Elske Nissen. Production: ESWA licht en geluid. With Lammer at Soenda.",
+      "link": ""
+    },
+    {
+      "slug": "buy-or-burn",
+      "title": "Buy or Burn — 11.1 Rotterdam",
+      "year": "2025",
+      "category": "Artwork",
+      "featured": false,
+      "order": 17,
+      "role": "Artist",
+      "location": "Brutus, Rotterdam",
+      "cover": "media/projects/buy-or-burn/cover.jpg",
+      "excerpt": "\"Between Physical and Digital: An Abstract Interpretation of Rotterdam.\" Laser-cut point-cloud data of the city.",
+      "description": "Presented at Brutus, Rotterdam, with No Es Una Galería. This artwork exists at the intersection of the physical and digital, where technology and human intuition merge to create a new visual language.\n\nThe creation began with the urban landscape of Rotterdam, captured through 3D scanning. These scans, transformed into point-cloud data, serve as the foundation for an artistic reinterpretation of the city. A laser cutter — acting as both tool and an agent of chance — introduces a layer of unpredictability, ensuring the result is shaped not only by precision but also by material resistance and machine limitations. This interplay of control and randomness mirrors the tension between order and chaos within the city itself.",
+      "images": [
+        "media/projects/buy-or-burn/01.jpg",
+        "media/projects/buy-or-burn/02.jpg"
+      ],
+      "credits": "Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
+      "link": ""
+    },
+    {
+      "slug": "no-art-synergy",
+      "title": "No Art Festival — Synergy",
+      "year": "2022",
+      "category": "Curated",
+      "featured": false,
+      "order": 18,
+      "role": "Curator",
+      "location": "NDSM, Amsterdam",
+      "cover": "",
+      "excerpt": "A large-scale open-air exhibition of 10 installations at the NDSM werf, Amsterdam.",
+      "description": "For the first edition of No Art Festival, I curated my first large-scale open-air exhibition at the NDSM werf in Amsterdam. The exhibition brought together 10 large-scale art installations in collaboration with music label No Art, with more than fifteen young contemporary visual artists and collectives from Amsterdam-North and surroundings.\n\nThe centrepiece was Boris Acket's WAAIWERK — 60 by 10 metres — an interactive work of sound and light controlled by the wind.",
+      "images": [],
+      "credits": "In collaboration with No Art.",
+      "link": ""
+    },
+    {
+      "slug": "mutek-circle-of-live",
+      "title": "Circle of Live — MUTEK Mexico",
+      "year": "2025",
+      "category": "Live Show",
+      "featured": false,
+      "order": 19,
+      "role": "Real-time visuals & light",
+      "location": "Maravilla Studios, Mexico City",
+      "cover": "media/projects/mutek-circle-of-live/cover.jpg",
+      "excerpt": "An immersive real-time visual environment for the four-hour Circle of Live session at MUTEK Mexico 2025.",
+      "description": "For the four-hour Circle of Live session at MUTEK MX 21 (October 2025), I created an immersive visual and light environment in Hall A of Maravilla Studios, Mexico City — together with Pavel Zmuchila and choreographer Alejandra Metztli.\n\nUsing TouchDesigner for real-time image generation and four LiDAR scanners placed around the venue, pre-recorded 3D scans of the city were brought to life — data captured by cycling through Mexico City on an Ecobici with cameras attached, from the Angel of Independence to Roma and Chapultepec. The digital content was always enriched by what was physically happening on stage, creating perspectives impossible with a traditional camera.\n\nThe circular set placed eight dancer platforms around a central space of screens, light and live visuals; Metztli's Butoh choreography drew on natural elements — fog, rain, lightning — turning the room into a theatrical, performative environment.",
+      "images": [
+        "media/projects/mutek-circle-of-live/01.jpg",
+        "media/projects/mutek-circle-of-live/02.jpg",
+        "media/projects/mutek-circle-of-live/03.jpg",
+        "media/projects/mutek-circle-of-live/04.jpg",
+        "media/projects/mutek-circle-of-live/05.jpg",
+        "media/projects/mutek-circle-of-live/06.jpg",
+        "media/projects/mutek-circle-of-live/07.jpg",
+        "media/projects/mutek-circle-of-live/08.jpg",
+        "media/projects/mutek-circle-of-live/09.jpg",
+        "media/projects/mutek-circle-of-live/10.jpg",
+        "media/projects/mutek-circle-of-live/11.jpg",
+        "media/projects/mutek-circle-of-live/12.jpg"
+      ],
+      "credits": "Visuals & light: Studio Schilp, with Pavel Zmuchila. Choreography: Alejandra Metztli. Part of Circle of Live (incl. Sebastian Mullaert, Pantha du Prince). Photos: Diego Figueroa, Leo Luna & David Barajas. MUTEK MX 21, Maravilla Studios.",
+      "link": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live"
+    },
+    {
+      "slug": "archive-mirror",
+      "title": "Archive Mirror",
+      "year": "2025",
+      "category": "Installation",
+      "featured": true,
+      "order": 20,
+      "role": "With Santiago Pani",
+      "location": "",
+      "cover": "media/projects/archive-mirror/cover.jpg",
+      "excerpt": "A physical-digital collaboration with painter Santiago Pani — faces from dreams, surfacing and dissolving in light.",
+      "description": "A collaboration with the Mexican painter Santiago Pani. Archive Mirror brings Santiago's expressionist faces — anonymous characters glimpsed in dreams and the subconscious, hovering at the threshold where recognition fades into abstraction — together with my own work in light and point-cloud data.\n\nOn a large luminous panel the faces surface, shift and dissolve, staged within the gothic architecture of a historic church. The work sits between control and chaos, line and stain, the remembered and the imagined. First shown as a try-out in 2025.",
+      "images": [
+        "media/projects/archive-mirror/01.jpg",
+        "media/projects/archive-mirror/02.jpg",
+        "media/projects/archive-mirror/03.jpg",
+        "media/projects/archive-mirror/04.jpg"
+      ],
+      "videos": [
+        "media/projects/archive-mirror/clip.mp4"
+      ],
+      "credits": "Painting: Santiago Pani. Documentary: Guillaume Versteeg.",
+      "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
+    },
+    {
+      "slug": "points-of-light",
+      "title": "Points of Light",
+      "year": "2025",
+      "category": "Installation",
+      "featured": true,
+      "order": 21,
+      "role": "Concept, video & calibration",
+      "location": "Grote Kerk, Den Haag",
+      "cover": "media/projects/points-of-light/cover.jpg",
+      "excerpt": "10 years of research, 14 million data points, 14 laser projectors — the Grote Kerk as a real-time light environment.",
+      "description": "Ten years of research. 14 million data points. 14 laser projectors.\n\nWhat started a decade ago as a research project between Jaco Schilp and Jan Willem Campmans has finally pushed through the technical ceiling, turning the historic Grote Kerk in Den Haag into a real-time data environment. Using TouchDesigner's POP operators, the work runs a full LiDAR 3D scan of the cathedral — 14 million particles calibrated in real time. No pre-renders, no loops: raw architecture translated into light.\n\nVisitors experience the intersection of history and high-performance code — presented in January 2025 in 20-minute cycles, free entry.",
+      "images": [
+        "media/projects/points-of-light/scan-01.jpg",
+        "media/projects/points-of-light/scan-02.jpg",
+        "media/projects/points-of-light/scan-03.jpg",
+        "media/projects/points-of-light/scan-04.jpg"
+      ],
+      "videos": [
+        "media/projects/points-of-light/clip.mp4"
+      ],
+      "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Metz. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
+      "link": ""
+    },
+    {
+      "slug": "schiedam-750",
+      "title": "Schiedam 750",
+      "year": "2025",
+      "category": "Installation",
+      "featured": false,
+      "order": 22,
+      "role": "Concept & TouchDesigner",
+      "location": "Schiedam",
+      "cover": "",
+      "excerpt": "Real-time generative video mapping on the Alevitisch Cultureel Centrum for Schiedam's 750th anniversary.",
+      "description": "For Schiedam's 750th anniversary I created a custom video mapping on the Alevitisch Cultureel Centrum. Using the building's own geometry, I designed a real-time TouchDesigner patch to bring the facade to life — projected with a 30,000-lumen Epson laser projector and reflected in the water below.",
+      "images": [],
+      "videos": [
+        "https://www.instagram.com/reel/DHTt3x_tpNq/"
+      ],
+      "credits": "Produced and commissioned by LightUp Collective.",
+      "link": "https://www.instagram.com/reel/DHTt3x_tpNq/"
+    },
+    {
+      "slug": "mexico",
+      "title": "Mexico — Point Clouds",
+      "year": "",
+      "category": "Artwork",
+      "featured": true,
+      "order": 23,
+      "role": "Artist",
+      "location": "Mexico City",
+      "cover": "media/projects/mexico/cover.jpg",
+      "excerpt": "Iconic Mexican architecture captured and dissolved into luminous 3D point clouds.",
+      "description": "An ongoing series translating iconic Mexican architecture into light. Through 3D scanning and point-cloud data, landmarks such as the Palacio de Bellas Artes in Mexico City are dissolved into millions of luminous points — buildings rebuilt from data, hovering between the physical and the digital.",
+      "images": [
+        "media/projects/mexico/01.jpg",
+        "media/projects/mexico/02.jpg"
+      ],
+      "videos": [
+        "media/projects/mexico/clip.mp4"
+      ],
+      "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "point-cloud-editions",
+      "title": "Point Cloud Editions",
+      "year": "2024",
+      "category": "Artwork",
+      "featured": true,
+      "order": 24,
+      "role": "Artist",
+      "location": "Arthouse Pani, Tequisquiapan, Mexico",
+      "cover": "media/projects/point-cloud-editions/cover.jpg",
+      "excerpt": "Laser-cut 3D point-cloud editions of Mexican flora, made on residency in Tequisquiapan.",
+      "description": "A series of laser-cut 3D point-cloud editions made during a residency at Arthouse Pani in Tequisquiapan, Mexico, and shown in the group exhibition Aquí y Ahora (Here and Now), curated by Santiago Pani.\n\nLocal flora — succulents, agave, nopal and maguey — is 3D-scanned and translated into point-cloud data, then laser-cut into wood, black plexiglas, white-painted wood, brass and aluminium, each piece mounted in a backlit frame. The series extends into acid-etched metal works and the paper prints pulled from each acid bath — part of the same point-cloud body of work as 11.1 Rotterdam.",
+      "images": [
+        "media/projects/point-cloud-editions/01.jpg",
+        "media/projects/point-cloud-editions/02.jpg",
+        "media/projects/point-cloud-editions/03.jpg",
+        "media/projects/point-cloud-editions/04.jpg",
+        "media/projects/point-cloud-editions/05.jpg",
+        "media/projects/point-cloud-editions/06.jpg",
+        "media/projects/point-cloud-editions/07.jpg",
+        "media/projects/point-cloud-editions/08.jpg"
+      ],
+      "videos": [],
+      "credits": "Techniques: laser-cut 3D point-cloud data in wood, black plexiglas, brass and aluminium with backlit frames; acid-etched metal editions and process prints. Shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan — curated by Santiago Pani.",
+      "link": "https://www.arthouseholland.com/aquiyahora"
+    },
+    {
+      "slug": "the-grid-embodied",
+      "title": "The Grid — Embodied",
+      "year": "2025",
+      "category": "Installation",
+      "featured": false,
+      "order": 25,
+      "role": "Light installation",
+      "location": "ADE, Amsterdam",
+      "cover": "media/projects/the-grid-embodied/cover.jpg",
+      "excerpt": "A field of glowing LED-grid panels on steel totems — a physical, embodied grid of light.",
+      "description": "The Grid — Embodied, presented at ADE (Amsterdam Dance Event) 2025. Modular grid panels of light, mounted on slender steel totems, fill the space as a field of glowing screens — turning the digital grid into something physical and embodied, bathing the room in deep red.",
+      "images": [
+        "media/projects/the-grid-embodied/01.jpg",
+        "media/projects/the-grid-embodied/02.jpg"
+      ],
+      "videos": [],
+      "credits": "Photography: Alex Heuvink. ADE — Amsterdam Dance Event, 2025.",
+      "link": ""
+    },
+    {
+      "slug": "3fm-awards",
+      "title": "3FM Awards",
+      "year": "2022",
+      "category": "Live Show",
+      "featured": false,
+      "order": 26,
+      "role": "Projections, content & live visuals",
+      "location": "",
+      "cover": "media/projects/3fm-awards/cover.jpg",
+      "excerpt": "The first sensor-driven holographic visuals on Dutch TV — a pepper-scrim cube responding live to the performance.",
+      "description": "The first-ever sensor-driven visuals on Dutch television. For the 3FM Awards I created the projections, a holographic installation and the live visuals — an open cube of pepper scrim producing holographic effects, with sensor-driven technology making the imagery respond in real time to the movements of DI-RECT's singer during their live performance.\n\nBuilt with a combination of Resolume, TouchDesigner, Unreal Engine, Kinect and point-cloud satellite data, it offered a new way to experience live music on television.",
+      "images": [
+        "media/projects/3fm-awards/01.jpg",
+        "media/projects/3fm-awards/02.jpg",
+        "media/projects/3fm-awards/03.jpg",
+        "media/projects/3fm-awards/04.jpg",
+        "media/projects/3fm-awards/05.jpg"
+      ],
+      "videos": [
+        "https://youtu.be/GDx5zPV2LSc"
+      ],
+      "credits": "In collaboration with LiGHT-UP Collective.",
+      "link": ""
+    },
+    {
+      "slug": "reports-from-other-continents",
+      "title": "Reports from Other Continents",
+      "year": "2021",
+      "category": "Installation",
+      "featured": false,
+      "order": 27,
+      "role": "Media installation",
+      "location": "Utrecht",
+      "cover": "",
+      "excerpt": "A public media installation for Le Guess Who? 2021, bringing thirty global reports to the streets of Utrecht.",
+      "description": "For Le Guess Who? 2021, I created — together with Roel Weerdenburg — a public media installation presenting thirty reports from all over the world to the shopping public of the city of Utrecht.",
+      "images": [],
+      "videos": [],
+      "credits": "With Roel Weerdenburg. Le Guess Who? 2021.",
+      "link": ""
+    },
+    {
+      "slug": "greenery-westergas",
+      "title": "The Greenery — Westergas",
+      "year": "",
+      "category": "Installation",
+      "featured": false,
+      "order": 28,
+      "role": "Projection design & content",
+      "location": "Westergasfabriek, Amsterdam",
+      "cover": "media/projects/greenery-westergas/cover.jpg",
+      "excerpt": "An immersive 360° dining experience — ingredients filmed in macro and projected across 400 m² of canvas.",
+      "description": "An immersive 360° dining experience. For a pop-up restaurant commissioned by the Greenery in the Westergasfabriek, Amsterdam, each course was accompanied by custom visual content — ingredients filmed with a high-speed macro camera and projected across a 400-square-metre wrap-around canvas.\n\nA box projection driven by seven projectors, custom mediaservers and a combination of Unreal Engine, Blender and TouchDesigner generating real-time 3D content. In co-creation with LiGHT-UP Collective.",
+      "images": [
+        "media/projects/greenery-westergas/01.jpg",
+        "media/projects/greenery-westergas/02.jpg",
+        "media/projects/greenery-westergas/03.jpg"
+      ],
+      "videos": [
+        "https://vimeo.com/539585157"
+      ],
+      "credits": "Photos: Dennis Bouman. In co-creation with LiGHT-UP Collective. Sponsored by Panasonic.",
+      "link": ""
+    },
+    {
+      "slug": "sonaural",
+      "title": "Sonaural",
+      "year": "",
+      "category": "Performance",
+      "featured": false,
+      "order": 29,
+      "role": "Concept & visuals",
+      "location": "",
+      "cover": "",
+      "excerpt": "An immersive site-specific AV performance with Skander Jaïbi — from drone to brutalist intensity.",
+      "description": "An immersive, site-specific audiovisual performance — a personal project with Skander Jaïbi. Combining modular synthesizers, projectors, TouchDesigner, local satellite data and 3D scanning, the piece begins as a drone and soon develops into a brutalist, intense experience.",
+      "images": [],
+      "videos": [],
+      "credits": "With Skander Jaïbi.",
+      "link": ""
+    }
+  ]
+}

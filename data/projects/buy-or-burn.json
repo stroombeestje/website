@@ -1,0 +1,19 @@
+{
+  "slug": "buy-or-burn",
+  "title": "Buy or Burn — 11.1 Rotterdam",
+  "year": "2025",
+  "category": "Artwork",
+  "featured": false,
+  "order": 17,
+  "role": "Artist",
+  "location": "Brutus, Rotterdam",
+  "cover": "media/projects/buy-or-burn/cover.jpg",
+  "excerpt": "\"Between Physical and Digital: An Abstract Interpretation of Rotterdam.\" Laser-cut point-cloud data of the city.",
+  "description": "Presented at Brutus, Rotterdam, with No Es Una Galería. This artwork exists at the intersection of the physical and digital, where technology and human intuition merge to create a new visual language.\n\nThe creation began with the urban landscape of Rotterdam, captured through 3D scanning. These scans, transformed into point-cloud data, serve as the foundation for an artistic reinterpretation of the city. A laser cutter — acting as both tool and an agent of chance — introduces a layer of unpredictability, ensuring the result is shaped not only by precision but also by material resistance and machine limitations. This interplay of control and randomness mirrors the tension between order and chaos within the city itself.",
+  "images": [
+    "media/projects/buy-or-burn/01.jpg",
+    "media/projects/buy-or-burn/02.jpg"
+  ],
+  "credits": "Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
+  "link": ""
+}

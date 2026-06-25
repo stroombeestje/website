@@ -1,0 +1,28 @@
+{
+  "slug": "somnia",
+  "title": "Somnia",
+  "year": "2024",
+  "category": "Performance",
+  "featured": true,
+  "order": 1,
+  "role": "Concept & immersive design",
+  "location": "Uncloud, Utrecht & Le Guess Who? 2024",
+  "cover": "media/projects/somnia/cover.jpg",
+  "excerpt": "An interdisciplinary audiovisual dance performance exploring dream states and the human body.",
+  "description": "Somnia is an interdisciplinary audiovisual dance performance created by Mexican contemporary dancer and choreographer Alejandra Metztli and Dutch immersive digital artist Jaco Schilp. It explores the poetic processes within the human body and the dream states we experience during sleep.\nThe language of movement is based multidimensionally in an energetic body that interprets a timeless reality. The piece is inspired by the chemical substances secreted by the human brain, neuronal frequencies, and the subtle body that connects with the narratives we experience while dreaming — expressed through motion tracking, video mapping and an immersive stage design.\nSomnia is the result of an international artistic residency supported by the Sistema de Apoyos a la Creación y Proyectos Culturales of the Mexican government, held at Uncloud in Utrecht, and presented at the Le Guess Who? festival 2024 in Utrecht.",
+  "images": [
+    "media/projects/somnia/01.jpg",
+    "media/projects/somnia/02.jpg",
+    "media/projects/somnia/03.jpg",
+    "media/projects/somnia/04.jpg",
+    "media/projects/somnia/05.jpg",
+    "media/projects/somnia/06.jpg",
+    "media/projects/somnia/07.jpg"
+  ],
+  "videos": [
+    "media/projects/somnia/clip.mp4",
+    "media/projects/somnia/clip2.mp4"
+  ],
+  "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
+  "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia"
+}

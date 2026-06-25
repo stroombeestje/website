@@ -1,0 +1,22 @@
+{
+  "slug": "ka-an",
+  "title": "Ka 'An",
+  "year": "2024",
+  "category": "Installation",
+  "featured": true,
+  "order": 0,
+  "role": "Artist",
+  "location": "Mexico City",
+  "cover": "media/projects/ka-an/cover.jpg",
+  "excerpt": "A light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere.",
+  "description": "Ka'An is a light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere. The piece reflects the multi-layered structure of the Mayan sky, mirroring the building's open architecture.\n\nFeaturing 16 dynamic lights controlled by a custom TouchDesigner patch, all converging in 3D space, Ka'An creates a dreamlike atmosphere. It offers a unique experience of walking into the air, harmonised with the building's architecture and an Ableton-composed soundscape.\n\nThe site-specific work was presented during the Data Uotan festival at No Es Una Galería, Mexico City, in 2024.",
+  "images": [
+    "media/projects/ka-an/01.jpg",
+    "media/projects/ka-an/02.jpg"
+  ],
+  "videos": [
+    "https://youtu.be/AC7VqpXkVYo"
+  ],
+  "credits": "Created by Jaco Schilp.",
+  "link": ""
+}
