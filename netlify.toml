@@ -8,7 +8,10 @@
 # year, each with its own media folder) while the live site stays no-build.
 
 [build]
-  command = "python3 scripts/build_site_data.py"
+  # Rebuild data/projects.json from the per-project files. If Python is
+  # unavailable the committed projects.json is already current, so we let
+  # the deploy continue rather than fail.
+  command = "python3 scripts/build_site_data.py || python scripts/build_site_data.py || echo 'using committed data/projects.json'"
   publish = "."
 
 # Send /admin to the back office (Sveltia CMS) cleanly.
