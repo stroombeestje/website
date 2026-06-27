@@ -16,7 +16,7 @@
 # ---------------------------------------------------------------------------
 backend:
   name: github
-  repo: USERNAME/REPO        # <-- change to your GitHub repo, e.g. jacoschilp/website
+  repo: stroombeestje/website
   branch: main
 
 # Default upload location (used by Press / Site). Projects override this
