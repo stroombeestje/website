@@ -355,16 +355,16 @@
     },
     {
       "slug": "loreal",
-      "title": "L'Oréal × Kinki Kappers",
+      "title": "Human Nature — Kinki × L'Oréal",
       "year": "2023",
       "category": "Live Show",
       "featured": false,
       "order": 12.5,
-      "role": "Projections & live visuals",
+      "role": "Visual content & projection mapping (with Cris Molle)",
       "location": "Netherlands",
       "cover": "media/projects/loreal/cover.jpg",
-      "excerpt": "Immersive forest projections and live visuals for a large-scale Kinki Kappers show, in collaboration with L'Oréal.",
-      "description": "Live visuals and immersive projections for a large-scale Kinki Kappers show, created in collaboration with L'Oréal. Towering “sequoia” forest imagery and shifting colour wrapped the stage, runway and hall — turning a hair-and-fashion spectacle into an enveloping environment of projected light.\nModels, dancers and aerial performers moved through the projections, the audience surrounded on all sides by forest, colour and motion.",
+      "excerpt": "“Human Nature” — a Kinki Kappers show for L'Oréal Pro: 3D-scanned models, four chapters, and projection-mapped digital worlds.",
+      "description": "Human Nature is a show created by Kinki Kappers for L'Oréal Pro, telling a story about the relationship between our human nature and the Metaverse — the light and darkness in us all as we build the digital world.\nThe show is built on 3D scans of the catwalk models, processed in TouchDesigner into four chapters, each with its own digital scenery and timecode-automated light. I created the visual content and projection mapping together with Cris Molle (LiGHT-UP Collective), wrapping the runway and stage in shifting digital landscapes for models, dancers and aerial performers.",
       "images": [
         "media/projects/loreal/01.jpg",
         "media/projects/loreal/02.jpg",
@@ -377,7 +377,7 @@
         "media/projects/loreal/09.jpg"
       ],
       "videos": [],
-      "credits": "A Kinki Kappers show, in collaboration with L'Oréal. Projections & live visuals: Studio Schilp.",
+      "credits": "A Kinki Kappers show for L'Oréal Pro — “Human Nature”. Art direction: Casper. Projection mapping & content: Jaco Schilp & Cris Molle (LiGHT-UP Collective). Choreography: Virgil Moreno & Meyline. Music: The Shirley Temple. Photography: Fabrice Debatty.",
       "link": ""
     },
     {
