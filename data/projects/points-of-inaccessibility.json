@@ -14,7 +14,9 @@
     "media/projects/points-of-inaccessibility/01.jpg",
     "media/projects/points-of-inaccessibility/02.jpg"
   ],
-  "videos": [],
+  "videos": [
+    "https://www.youtube.com/watch?v=YZj-Fqyg33g"
+  ],
   "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions. Live photography: Jota Martínez (Volumens Festival, Valencia).",
   "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility"
 }
