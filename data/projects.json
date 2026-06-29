@@ -152,7 +152,9 @@
       "images": [
         "media/projects/anonymous-project-2023/01.jpg"
       ],
-      "videos": [],
+      "videos": [
+        "media/projects/anonymous-project-2023/cube.mp4"
+      ],
       "credits": "Commissioned by Le Guess Who? 2023. Visual work by Jaco Schilp.",
       "link": "https://leguesswho.com/lineup/the-anonymous-project"
     },
@@ -168,9 +170,18 @@
       "cover": "media/projects/rats-on-rafts/cover.jpg",
       "excerpt": "A one-off multidisciplinary performance bringing Rats on Rafts’ album Chapter 3 to life through video, theatre and dance.",
       "description": "A one-off multidisciplinary performance at Le Guess Who? 2022, bringing Rotterdam band Rats on Rafts’ album “Chapter 3: The Mind Runs A Net Of Rabbit Paths” to life through video, theatre and dance.\nI worked as one of the visual artists on the piece, building the projected imagery that immerses the audience in the world of Chapter 3 alongside a full creative team of decor, costume and film.",
-      "images": [],
+      "images": [
+        "media/projects/rats-on-rafts/01.jpg",
+        "media/projects/rats-on-rafts/02.jpg",
+        "media/projects/rats-on-rafts/03.jpg",
+        "media/projects/rats-on-rafts/04.jpg",
+        "media/projects/rats-on-rafts/05.jpg",
+        "media/projects/rats-on-rafts/06.jpg",
+        "media/projects/rats-on-rafts/07.jpg",
+        "media/projects/rats-on-rafts/promo.jpg"
+      ],
       "videos": [],
-      "credits": "Visual artists: Jordi Cardenas & Jaco Schilp. Video material: A Small Production Company. Decor: Jochen Lange Studio. Clothing: Eva Arends. Photography: Jasmijn Slegh.",
+      "credits": "Visual artists: Jordi Cardenas & Jaco Schilp. Video material: A Small Production Company. Decor: Jochen Lange Studio. Clothing: Eva Arends. Photography: Tess Janssen & Jasmijn Slegh.",
       "link": "https://leguesswho.com/lineup/rats-on-rafts-visions-of-chapter-3-live"
     },
     {
@@ -190,6 +201,29 @@
         "media/projects/data-utan/clip.mp4"
       ],
       "credits": "",
+      "link": ""
+    },
+    {
+      "slug": "momentum",
+      "title": "MoMentNu",
+      "year": "2021",
+      "category": "Installation",
+      "featured": false,
+      "order": 8.5,
+      "role": "Video & projections",
+      "location": "Netherlands",
+      "cover": "media/projects/momentum/cover.jpg",
+      "excerpt": "Video and projections for MoMentNu — an immersive light installation with artist Willem Geerts.",
+      "description": "Video and projections for MoMentNu, an installation by artist Willem Geerts. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\nVisitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture — a quiet, immersive meditation on the present moment.",
+      "images": [
+        "media/projects/momentum/01.jpg",
+        "media/projects/momentum/02.jpg",
+        "media/projects/momentum/03.jpg",
+        "media/projects/momentum/04.jpg",
+        "media/projects/momentum/05.jpg"
+      ],
+      "videos": [],
+      "credits": "Installation by Willem Geerts. Video & projections: Studio Schilp.",
       "link": ""
     },
     {
@@ -312,6 +346,27 @@
         "https://youtu.be/zGtgkZMK3SA"
       ],
       "credits": "Production: ESWA licht en geluid. Photography: TB.",
+      "link": ""
+    },
+    {
+      "slug": "loreal",
+      "title": "L'Oréal",
+      "year": "2023",
+      "category": "Live Show",
+      "featured": false,
+      "order": 12.5,
+      "role": "Projections & live visuals",
+      "location": "Netherlands",
+      "cover": "media/projects/loreal/cover.jpg",
+      "excerpt": "Immersive forest projections and live visuals for a large-scale L'Oréal event, produced with Kinki.",
+      "description": "Large-scale live visuals and immersive projections for an L'Oréal event, produced together with Kinki. Towering “sequoia” forest imagery and abstract nature projections wrapped the stage and the hall, framing the performances in a shifting woodland of light.\nThe visuals turned a corporate stage into an enveloping environment — the audience surrounded on all sides by projected forest, colour and motion.",
+      "images": [
+        "media/projects/loreal/01.jpg",
+        "media/projects/loreal/02.jpg",
+        "media/projects/loreal/03.jpg"
+      ],
+      "videos": [],
+      "credits": "Produced with Kinki. Projections & live visuals: Studio Schilp.",
       "link": ""
     },
     {
@@ -680,6 +735,26 @@
       "images": [],
       "videos": [],
       "credits": "With Skander Jaïbi.",
+      "link": ""
+    },
+    {
+      "slug": "universum",
+      "title": "Universum",
+      "year": "2018",
+      "category": "Installation",
+      "featured": false,
+      "order": 29.5,
+      "role": "Projection mapping",
+      "location": "Museum van Geluid",
+      "cover": "media/projects/universum/cover.jpg",
+      "excerpt": "A projection-mapped polyhedron — an early sculptural light work for Museum van Geluid.",
+      "description": "Universum is a projection-mapped sculpture: a faceted polyhedron suspended in a darkened hall, its surfaces washed with shifting, marbled light. It hangs like a small planet of projected texture, turning slowly in the dark.\nPresented as part of Museum van Geluid (Museum of Sound) in 2018, it is one of the earliest pieces in this body of light work — an early step toward the immersive, projection-mapped environments that followed.",
+      "images": [
+        "media/projects/universum/01.jpg",
+        "media/projects/universum/02.jpg"
+      ],
+      "videos": [],
+      "credits": "Presented at Museum van Geluid, 2018.",
       "link": ""
     }
   ]

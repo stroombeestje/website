@@ -13,7 +13,9 @@
   "images": [
     "media/projects/anonymous-project-2023/01.jpg"
   ],
-  "videos": [],
+  "videos": [
+    "media/projects/anonymous-project-2023/cube.mp4"
+  ],
   "credits": "Commissioned by Le Guess Who? 2023. Visual work by Jaco Schilp.",
   "link": "https://leguesswho.com/lineup/the-anonymous-project"
 }

@@ -1,0 +1,21 @@
+{
+  "slug": "loreal",
+  "title": "L'Oréal",
+  "year": "2023",
+  "category": "Live Show",
+  "featured": false,
+  "order": 12.5,
+  "role": "Projections & live visuals",
+  "location": "Netherlands",
+  "cover": "media/projects/loreal/cover.jpg",
+  "excerpt": "Immersive forest projections and live visuals for a large-scale L'Oréal event, produced with Kinki.",
+  "description": "Large-scale live visuals and immersive projections for an L'Oréal event, produced together with Kinki. Towering “sequoia” forest imagery and abstract nature projections wrapped the stage and the hall, framing the performances in a shifting woodland of light.\nThe visuals turned a corporate stage into an enveloping environment — the audience surrounded on all sides by projected forest, colour and motion.",
+  "images": [
+    "media/projects/loreal/01.jpg",
+    "media/projects/loreal/02.jpg",
+    "media/projects/loreal/03.jpg"
+  ],
+  "videos": [],
+  "credits": "Produced with Kinki. Projections & live visuals: Studio Schilp.",
+  "link": ""
+}

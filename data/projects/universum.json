@@ -1,0 +1,20 @@
+{
+  "slug": "universum",
+  "title": "Universum",
+  "year": "2018",
+  "category": "Installation",
+  "featured": false,
+  "order": 29.5,
+  "role": "Projection mapping",
+  "location": "Museum van Geluid",
+  "cover": "media/projects/universum/cover.jpg",
+  "excerpt": "A projection-mapped polyhedron — an early sculptural light work for Museum van Geluid.",
+  "description": "Universum is a projection-mapped sculpture: a faceted polyhedron suspended in a darkened hall, its surfaces washed with shifting, marbled light. It hangs like a small planet of projected texture, turning slowly in the dark.\nPresented as part of Museum van Geluid (Museum of Sound) in 2018, it is one of the earliest pieces in this body of light work — an early step toward the immersive, projection-mapped environments that followed.",
+  "images": [
+    "media/projects/universum/01.jpg",
+    "media/projects/universum/02.jpg"
+  ],
+  "videos": [],
+  "credits": "Presented at Museum van Geluid, 2018.",
+  "link": ""
+}

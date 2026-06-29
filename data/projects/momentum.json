@@ -1,0 +1,23 @@
+{
+  "slug": "momentum",
+  "title": "MoMentNu",
+  "year": "2021",
+  "category": "Installation",
+  "featured": false,
+  "order": 8.5,
+  "role": "Video & projections",
+  "location": "Netherlands",
+  "cover": "media/projects/momentum/cover.jpg",
+  "excerpt": "Video and projections for MoMentNu — an immersive light installation with artist Willem Geerts.",
+  "description": "Video and projections for MoMentNu, an installation by artist Willem Geerts. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\nVisitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture — a quiet, immersive meditation on the present moment.",
+  "images": [
+    "media/projects/momentum/01.jpg",
+    "media/projects/momentum/02.jpg",
+    "media/projects/momentum/03.jpg",
+    "media/projects/momentum/04.jpg",
+    "media/projects/momentum/05.jpg"
+  ],
+  "videos": [],
+  "credits": "Installation by Willem Geerts. Video & projections: Studio Schilp.",
+  "link": ""
+}

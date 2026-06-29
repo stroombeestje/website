@@ -14,6 +14,12 @@ scripts/cloudflared.exe
 media/_*/
 media/_*.jpg
 
+# Personal / non-website documents — DO NOT publish
+/*.txt
+.claude/
+oldsite.html
+briefing_agent.txt
+
 # OS noise
 Thumbs.db
 .DS_Store
