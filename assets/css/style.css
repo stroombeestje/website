@@ -441,6 +441,6 @@ p { margin: 0 0 1.2em; }
   /* 3 squares across on phones — compact, legible one-line captions */
   .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 0.7rem 0.45rem; }
   .card-meta { gap: 0.1rem; margin-top: 0.4rem; }
-  .card-title { font-size: 0.82rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card-cat { font-size: 0.7rem; letter-spacing: 0; text-transform: none; color: #595955; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-title { font-size: 0.7rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-cat { font-size: 0.62rem; letter-spacing: 0; text-transform: none; color: #4f4f4b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
