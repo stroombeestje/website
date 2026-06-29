@@ -1,0 +1,28 @@
+{
+  "slug": "circuitry",
+  "title": "Circuitry (Live A/V)",
+  "year": "2023",
+  "category": "Performance",
+  "featured": false,
+  "order": 11.5,
+  "role": "A/V live performance & visuals (with Skander Jaïbi)",
+  "location": "Etmaal Festival, Utrecht",
+  "cover": "media/projects/circuitry/cover.jpg",
+  "excerpt": "A live audiovisual performance with Skander Jaïbi — modular synthesis and real-time 3D visuals — premiered at Modulation / Etmaal Festival.",
+  "description": "Circuitry is a live audiovisual performance created with Skander Jaïbi, built around modular synthesis and real-time 3D visuals. Sound and image are wired together — the music drives the visuals and the visuals feed back into the performance, an evolving circuit of light and electronics.\nIt premiered for Modulation — the modular-synthesizer series run by Sonar Traffic at Kytopia in Utrecht — and at Etmaal, the 24-hour festival curated by Colin Benders.",
+  "images": [
+    "media/projects/circuitry/01.jpg",
+    "media/projects/circuitry/02.jpg",
+    "media/projects/circuitry/03.jpg",
+    "media/projects/circuitry/04.jpg",
+    "media/projects/circuitry/05.jpg",
+    "media/projects/circuitry/06.jpg",
+    "media/projects/circuitry/07.jpg",
+    "media/projects/circuitry/08.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=UtkdIMA_250"
+  ],
+  "credits": "A/V live performance: Jaco Schilp & Skander Jaïbi. Premiered for Modulation (Sonar Traffic) at Etmaal Festival, curated by Colin Benders. Photography: Paulus van Dorsten. Recording: Sonar Traffic.",
+  "link": "https://www.youtube.com/watch?v=UtkdIMA_250"
+}
