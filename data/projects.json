@@ -44,8 +44,7 @@
         "media/projects/somnia/07.jpg"
       ],
       "videos": [
-        "media/projects/somnia/clip.mp4",
-        "media/projects/somnia/clip2.mp4"
+        "https://vimeo.com/1022000661"
       ],
       "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
       "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia"
@@ -251,6 +250,7 @@
         "media/projects/panorama-utrecht/05.jpg"
       ],
       "videos": [
+        "https://vimeo.com/798354360",
         "media/projects/panorama-utrecht/clip.mp4"
       ],
       "credits": "",
@@ -334,11 +334,11 @@
       "category": "Performance",
       "featured": false,
       "order": 11.5,
-      "role": "A/V live performance & visuals (with Skander Jaïbi)",
+      "role": "A/V live performance & visuals (with Skander Jaïbi & Skander Ben Yahia)",
       "location": "Etmaal Festival, Utrecht",
       "cover": "media/projects/circuitry/cover.jpg",
       "excerpt": "A live audiovisual performance with Skander Jaïbi — modular synthesis and real-time 3D visuals — premiered at Modulation / Etmaal Festival.",
-      "description": "Circuitry is a live audiovisual performance created with Skander Jaïbi, built around modular synthesis and real-time 3D visuals. Sound and image are wired together — the music drives the visuals and the visuals feed back into the performance, an evolving circuit of light and electronics.\nIt premiered for Modulation — the modular-synthesizer series run by Sonar Traffic at Kytopia in Utrecht — and at Etmaal, the 24-hour festival curated by Colin Benders.",
+      "description": "Circuitry is a live audiovisual performance created with Skander Jaïbi and Skander Ben Yahia, built around modular synthesis and real-time 3D visuals. Sound and image are wired together — the music drives the visuals and the visuals feed back into the performance, an evolving circuit of light and electronics.\nIt premiered for Modulation — the modular-synthesizer series run by Sonar Traffic at Kytopia in Utrecht — and at Etmaal, the 24-hour festival curated by Colin Benders.",
       "images": [
         "media/projects/circuitry/01.jpg",
         "media/projects/circuitry/02.jpg",
@@ -352,7 +352,7 @@
       "videos": [
         "https://www.youtube.com/watch?v=UtkdIMA_250"
       ],
-      "credits": "A/V live performance: Jaco Schilp & Skander Jaïbi. Premiered for Modulation (Sonar Traffic) at Etmaal Festival, curated by Colin Benders. Photography: Paulus van Dorsten. Recording: Sonar Traffic.",
+      "credits": "A/V live performance: Jaco Schilp, Skander Jaïbi & Skander Ben Yahia (sound & music). Premiered for Modulation (Sonar Traffic) at Etmaal Festival, curated by Colin Benders. Photography: Paulus van Dorsten. Recording: Sonar Traffic.",
       "link": "https://www.youtube.com/watch?v=UtkdIMA_250"
     },
     {
