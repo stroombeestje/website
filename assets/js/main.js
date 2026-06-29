@@ -103,14 +103,14 @@
   }
 
   function cardHTML(p, i) {
+    const sub = [p.year, p.category].filter(Boolean).join(" · ");
     return `
       <a class="card reveal" href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
         ${mediaHTML(p.cover, p.title, false)}
         <div class="card-meta">
           <span class="card-title">${esc(p.title)}</span>
-          <span class="card-sub">${esc(p.year || "")}</span>
+          <span class="card-cat">${esc(sub)}</span>
         </div>
-        <div class="card-cat">${esc(p.category || "")}</div>
       </a>`;
   }
 
