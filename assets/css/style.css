@@ -439,5 +439,7 @@ p { margin: 0 0 1.2em; }
   .nav-links.open { transform: none; }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
-  .grid, .grid.cols-3 { grid-template-columns: 1fr; }
+  /* Instagram-style grid on phones: 3 squares across, tight gaps, no captions */
+  .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .card-meta, .card-cat { display: none; }
 }
