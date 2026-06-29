@@ -439,7 +439,10 @@ p { margin: 0 0 1.2em; }
   .nav-links.open { transform: none; }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
-  /* Instagram-style grid on phones: 3 squares across, tight gaps, no captions */
-  .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 3px; }
-  .card-meta, .card-cat { display: none; }
+  /* 3 squares across on phones, with compact captions */
+  .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.5rem; }
+  .card-meta { flex-direction: column; align-items: flex-start; gap: 0.1rem; margin-top: 0.45rem; }
+  .card-title { font-size: 0.74rem; line-height: 1.2; }
+  .card-sub { font-size: 0.6rem; letter-spacing: 0.06em; }
+  .card-cat { font-size: 0.58rem; margin-top: 0.15rem; }
 }
