@@ -438,9 +438,9 @@ p { margin: 0 0 1.2em; }
   .nav-links.open { transform: none; }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
-  /* 3 squares across on phones — compact one-line captions */
-  .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 0.55rem 0.4rem; }
-  .card-meta { gap: 0.05rem; margin-top: 0.3rem; }
-  .card-title { font-size: 0.72rem; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .card-cat { font-size: 0.58rem; letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* 3 squares across on phones — compact, legible one-line captions */
+  .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 0.7rem 0.45rem; }
+  .card-meta { gap: 0.1rem; margin-top: 0.4rem; }
+  .card-title { font-size: 0.82rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-cat { font-size: 0.7rem; letter-spacing: 0; text-transform: none; color: #595955; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
