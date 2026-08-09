@@ -124,20 +124,33 @@
     let W = 0, H = 0, pts = [];
     const mouse = { x: -9999, y: -9999 };
 
+    // organic ink-like clustering (inspired by the point-cloud renders)
+    function field(x, y) {
+      return (
+        Math.sin(x * 0.010 + 1.7) * Math.sin(y * 0.013 + 4.1) +
+        Math.sin((x + y) * 0.006 + 2.3) * 0.7 +
+        Math.sin(Math.hypot(x - W * 0.62, y - H * 0.38) * 0.008) * 0.5
+      );
+    }
+
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = hero.clientWidth; H = hero.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const gap = W < 600 ? 24 : 20;
+      const gap = W < 600 ? 12 : 9;
       pts = [];
       for (let x = gap / 2; x < W; x += gap) {
         for (let y = gap / 2; y < H; y += gap) {
+          const n = field(x, y);
+          if (n < -0.1) continue; // keep only the "ink" — organic wisps, not a grid
+          const w = Math.min(1, (n + 0.1) / 1.4);
           pts.push({
-            bx: x + (Math.random() - 0.5) * gap * 0.7,
-            by: y + (Math.random() - 0.5) * gap * 0.7,
+            bx: x + (Math.random() - 0.5) * gap,
+            by: y + (Math.random() - 0.5) * gap,
             p: Math.random() * Math.PI * 2,
-            s: 1 + Math.random() * 1.2,
+            s: 0.9 + w * 1.8 + Math.random() * 0.6,
+            w: w,
           });
         }
       }
@@ -146,24 +159,26 @@
     function draw(t) {
       ctx.clearRect(0, 0, W, H);
       ctx.fillStyle = "#141414";
-      const R = 130;
+      const R = 160;
       for (let i = 0; i < pts.length; i++) {
         const pt = pts[i];
         let x = pt.bx, y = pt.by;
         if (!reduced) {
-          y += Math.sin(t * 0.0004 + pt.bx * 0.012 + pt.p) * 6;
-          x += Math.cos(t * 0.0003 + pt.by * 0.010 + pt.p) * 4;
+          const m = 0.5 + pt.w;
+          y += Math.sin(t * 0.0005 + pt.bx * 0.012 + pt.p) * 8 * m;
+          x += Math.cos(t * 0.0004 + pt.by * 0.010 + pt.p) * 6 * m;
         }
         const dx = x - mouse.x, dy = y - mouse.y;
         const d2 = dx * dx + dy * dy;
         if (d2 < R * R) {
           const d = Math.sqrt(d2) || 1;
-          const f = (1 - d / R) * 30;
-          x += (dx / d) * f;
-          y += (dy / d) * f;
-          ctx.globalAlpha = 0.5 - (d / R) * 0.3; // points light up near the cursor
+          const k = 1 - d / R;
+          x += (dx / d) * k * 55;
+          y += (dy / d) * k * 55;
+          ctx.globalAlpha = Math.min(0.85, 0.15 + pt.w * 0.45 + k * 0.5);
         } else {
-          ctx.globalAlpha = reduced ? 0.16 : 0.10 + 0.08 * (0.5 + 0.5 * Math.sin(t * 0.0006 + pt.p));
+          const shimmer = reduced ? 0 : 0.08 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
+          ctx.globalAlpha = 0.10 + pt.w * 0.42 + shimmer;
         }
         ctx.fillRect(x, y, pt.s, pt.s);
       }
