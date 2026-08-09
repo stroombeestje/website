@@ -134,8 +134,7 @@
 
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const hero = canvas.parentElement;
-      W = hero.clientWidth; H = hero.clientHeight;
+      W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails

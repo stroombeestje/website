@@ -93,12 +93,15 @@ p { margin: 0 0 1.2em; }
   position: sticky;
   top: 0;
   z-index: 50;
+  background: transparent; /* lets the point cloud flow underneath at the top */
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.site-header.scrolled {
+  border-bottom-color: var(--line);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(1.2) blur(10px);
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--t-fast);
 }
-.site-header.scrolled { border-bottom-color: var(--line); }
 
 .nav {
   display: flex;
@@ -157,18 +160,24 @@ p { margin: 0 0 1.2em; }
   padding-bottom: clamp(2rem, 5vw, 3.5rem);
   padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
-.hero .display { max-width: 16ch; }
-.hero .lead { margin-top: 1.75rem; color: var(--muted); }
+.hero .display { max-width: 16ch; text-shadow: 0 0 14px var(--bg); }
+.hero .eyebrow { color: #45453f; text-shadow: 0 0 10px var(--bg), 0 0 4px var(--bg); }
+.hero .lead {
+  margin-top: 1.75rem;
+  color: #3d3d3a;
+  text-shadow: 0 0 12px var(--bg), 0 0 5px var(--bg), 0 0 2px var(--bg);
+}
 
-/* interactive point-cloud behind the hero, fading out above the work grid */
+/* interactive point-cloud behind hero + top bar, vignetted top and bottom */
 .hero-canvas {
   position: absolute;
-  inset: 0;
+  top: -72px; /* reaches up underneath the sticky header */
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 72px);
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 16%, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, black 16%, black 70%, transparent 100%);
 }
 .hero > :not(.hero-canvas) { position: relative; }
 
