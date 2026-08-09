@@ -134,7 +134,8 @@
 
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = window.innerWidth; H = window.innerHeight;
+      const hero = canvas.parentElement;
+      W = hero.clientWidth; H = hero.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails
@@ -151,6 +152,7 @@
             p: Math.random() * Math.PI * 2,
             s: 0.9 + w * 1.8 + Math.random() * 0.6,
             w: w,
+            ox: 0, oy: 0, // magnetic offset (springs back on release)
           });
         }
       }
@@ -162,7 +164,7 @@
       ctx.fillStyle = "rgba(247, 246, 244, 0.09)";
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = "#141414";
-      const R = 160;
+      const R = 210;
       const TAU = Math.PI * 2;
       for (let i = 0; i < pts.length; i++) {
         const pt = pts[i];
@@ -172,18 +174,21 @@
           y += Math.sin(t * 0.0005 + pt.bx * 0.012 + pt.p) * 8 * m;
           x += Math.cos(t * 0.0004 + pt.by * 0.010 + pt.p) * 6 * m;
         }
-        const dx = x - mouse.x, dy = y - mouse.y;
+        // magnetic cursor: points are pulled toward the pointer, released with a soft spring
+        const dx = mouse.x - x, dy = mouse.y - y;
         const d2 = dx * dx + dy * dy;
+        let k = 0;
         if (d2 < R * R) {
           const d = Math.sqrt(d2) || 1;
-          const k = 1 - d / R;
-          x += (dx / d) * k * 55;
-          y += (dy / d) * k * 55;
-          ctx.globalAlpha = Math.min(0.5, 0.07 + pt.w * 0.18 + k * 0.35);
-        } else {
-          const shimmer = reduced ? 0 : 0.04 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
-          ctx.globalAlpha = 0.05 + pt.w * 0.16 + shimmer;
+          k = 1 - d / R;
         }
+        const ease = k > 0 ? 0.16 : 0.055; // grab quickly, let go slowly
+        pt.ox += (dx * k - pt.ox) * ease;
+        pt.oy += (dy * k - pt.oy) * ease;
+        x += pt.ox; y += pt.oy;
+        const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / 60);
+        const shimmer = reduced ? 0 : 0.04 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
+        ctx.globalAlpha = Math.min(0.6, 0.05 + pt.w * 0.16 + shimmer + pull * 0.35);
         ctx.beginPath();
         ctx.arc(x, y, pt.s * 0.7, 0, TAU);
         ctx.fill();
@@ -198,8 +203,9 @@
     }
 
     window.addEventListener("pointermove", (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
     });
     window.addEventListener("pointerout", (e) => {
       if (!e.relatedTarget) { mouse.x = -9999; mouse.y = -9999; }
