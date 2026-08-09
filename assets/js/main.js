@@ -123,37 +123,56 @@
     let W = 0, H = 0, pts = [];
     const mouse = { x: -9999, y: -9999 };
 
-    // organic ink-like clustering (inspired by the point-cloud renders)
-    function field(x, y) {
-      return (
-        Math.sin(x * 0.010 + 1.7) * Math.sin(y * 0.013 + 4.1) +
-        Math.sin((x + y) * 0.006 + 2.3) * 0.7 +
-        Math.sin(Math.hypot(x - W * 0.62, y - H * 0.38) * 0.008) * 0.5
-      );
-    }
-
+    // organic 3D "fur ball": a slowly rotating point sphere with hairy strands
+    // (after the TouchDesigner renders — dense body, fine radiating fur)
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails
-      const gap = W < 600 ? 13 : 10;
+      const mobile = W < 600;
+      const STRANDS = mobile ? 420 : 780;
       pts = [];
-      for (let x = gap / 2; x < W; x += gap) {
-        for (let y = gap / 2; y < H; y += gap) {
-          const n = field(x, y);
-          if (n < -0.1) continue; // keep only the "ink" — organic wisps, not a grid
-          const w = Math.min(1, (n + 0.1) / 1.4);
+      for (let i = 0; i < STRANDS; i++) {
+        // random direction on the sphere
+        const z = Math.random() * 2 - 1;
+        const a = Math.random() * Math.PI * 2;
+        const rxz = Math.sqrt(1 - z * z);
+        const ux = rxz * Math.cos(a), uy = z, uz = rxz * Math.sin(a);
+        // hair length varies organically around the body
+        const org = 0.5 + 0.5 * Math.sin(ux * 3.1 + 1.2) * Math.sin(uy * 2.7 + 4.0) * Math.sin(uz * 3.6 + 2.1);
+        const hair = 0.10 + 0.38 * org + Math.random() * 0.08;
+        const n = 4 + Math.floor(Math.random() * 4); // points per strand
+        const phase = Math.random() * Math.PI * 2;
+        for (let j = 0; j < n; j++) {
+          const f = j / (n - 1);
           pts.push({
-            bx: x + (Math.random() - 0.5) * gap,
-            by: y + (Math.random() - 0.5) * gap,
-            p: Math.random() * Math.PI * 2,
-            s: 0.9 + w * 1.8 + Math.random() * 0.6,
-            w: w,
+            ux: ux + (Math.random() - 0.5) * 0.06,
+            uy: uy + (Math.random() - 0.5) * 0.06,
+            uz: uz + (Math.random() - 0.5) * 0.06,
+            r: 0.97 + f * hair,
+            w: 0.85 - f * 0.6, // dark at the body, fading toward the fur tips
+            s: 1.5 - f * 0.7 + Math.random() * 0.5,
+            p: phase + f * 0.9,
             ox: 0, oy: 0, // magnetic offset (springs back on release)
           });
         }
+      }
+      // inner body fill
+      const CORE = mobile ? 320 : 620;
+      for (let i = 0; i < CORE; i++) {
+        const z = Math.random() * 2 - 1;
+        const a = Math.random() * Math.PI * 2;
+        const rxz = Math.sqrt(1 - z * z);
+        pts.push({
+          ux: rxz * Math.cos(a), uy: z, uz: rxz * Math.sin(a),
+          r: 0.35 + Math.random() * 0.6,
+          w: 0.5,
+          s: 1 + Math.random() * 0.8,
+          p: Math.random() * Math.PI * 2,
+          ox: 0, oy: 0,
+        });
       }
     }
 
@@ -165,14 +184,24 @@
       ctx.fillStyle = "#141414";
       const R = 210;
       const TAU = Math.PI * 2;
+      // slow 3D rotation of the whole field
+      const ay = reduced ? 0.6 : t * 0.00006;
+      const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 + 1.0);
+      const cyr = Math.cos(ay), syr = Math.sin(ay);
+      const cxr = Math.cos(axr), sxr = Math.sin(axr);
+      const SR = Math.min(W, H) * (W < 600 ? 0.34 : 0.30); // sphere radius
+      const CX = W * 0.64, CY = H * 0.44;                  // sphere centre
+      const F = SR * 3.2;                                  // perspective depth
       for (let i = 0; i < pts.length; i++) {
         const pt = pts[i];
-        let x = pt.bx, y = pt.by;
-        if (!reduced) {
-          const m = 0.5 + pt.w;
-          y += Math.sin(t * 0.0005 + pt.bx * 0.012 + pt.p) * 8 * m;
-          x += Math.cos(t * 0.0004 + pt.by * 0.010 + pt.p) * 6 * m;
-        }
+        const breathe = reduced ? 1 : 1 + 0.035 * Math.sin(t * 0.0005 + pt.p);
+        const rr = pt.r * breathe * SR;
+        const X = pt.ux * rr, Y = pt.uy * rr, Z = pt.uz * rr;
+        const X1 = X * cyr + Z * syr, Z1 = -X * syr + Z * cyr;
+        const Y1 = Y * cxr - Z1 * sxr, Z2 = Y * sxr + Z1 * cxr;
+        const persp = F / (F + Z2);
+        let x = CX + X1 * persp;
+        let y = CY + Y1 * persp;
         // magnetic cursor: points are pulled toward the pointer, released with a soft spring
         const dx = mouse.x - x, dy = mouse.y - y;
         const d2 = dx * dx + dy * dy;
@@ -186,10 +215,10 @@
         pt.oy += (dy * k - pt.oy) * ease;
         x += pt.ox; y += pt.oy;
         const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / 60);
-        const shimmer = reduced ? 0 : 0.04 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
-        ctx.globalAlpha = Math.min(0.6, 0.05 + pt.w * 0.16 + shimmer + pull * 0.35);
+        const depth = 0.55 + 0.45 * Math.max(0, Math.min(1, (1 - Z2 / SR) * 0.5)); // nearer = darker
+        ctx.globalAlpha = Math.min(0.6, pt.w * 0.26 * depth + pull * 0.35);
         ctx.beginPath();
-        ctx.arc(x, y, pt.s * 0.7, 0, TAU);
+        ctx.arc(x, y, pt.s * persp * 0.8, 0, TAU);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
