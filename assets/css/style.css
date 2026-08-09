@@ -149,6 +149,7 @@ p { margin: 0 0 1.2em; }
    Hero
    ========================================================================== */
 .hero {
+  position: relative;
   min-height: 56vh;
   display: flex;
   flex-direction: column;
@@ -158,6 +159,16 @@ p { margin: 0 0 1.2em; }
 }
 .hero .display { max-width: 16ch; }
 .hero .lead { margin-top: 1.75rem; color: var(--muted); }
+
+/* interactive point-cloud behind the hero text */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.hero > :not(.hero-canvas) { position: relative; }
 
 /* ==========================================================================
    Work grid

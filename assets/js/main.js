@@ -114,6 +114,90 @@
       </a>`;
   }
 
+  /* ---- home: interactive point cloud in the hero ---- */
+  function initHeroPoints() {
+    const canvas = $("#hero-points");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const hero = canvas.parentElement;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let W = 0, H = 0, pts = [];
+    const mouse = { x: -9999, y: -9999 };
+
+    function build() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = hero.clientWidth; H = hero.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const gap = W < 600 ? 24 : 20;
+      pts = [];
+      for (let x = gap / 2; x < W; x += gap) {
+        for (let y = gap / 2; y < H; y += gap) {
+          pts.push({
+            bx: x + (Math.random() - 0.5) * gap * 0.7,
+            by: y + (Math.random() - 0.5) * gap * 0.7,
+            p: Math.random() * Math.PI * 2,
+            s: 1 + Math.random() * 1.2,
+          });
+        }
+      }
+    }
+
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#141414";
+      const R = 130;
+      for (let i = 0; i < pts.length; i++) {
+        const pt = pts[i];
+        let x = pt.bx, y = pt.by;
+        if (!reduced) {
+          y += Math.sin(t * 0.0004 + pt.bx * 0.012 + pt.p) * 6;
+          x += Math.cos(t * 0.0003 + pt.by * 0.010 + pt.p) * 4;
+        }
+        const dx = x - mouse.x, dy = y - mouse.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < R * R) {
+          const d = Math.sqrt(d2) || 1;
+          const f = (1 - d / R) * 30;
+          x += (dx / d) * f;
+          y += (dy / d) * f;
+          ctx.globalAlpha = 0.5 - (d / R) * 0.3; // points light up near the cursor
+        } else {
+          ctx.globalAlpha = reduced ? 0.16 : 0.10 + 0.08 * (0.5 + 0.5 * Math.sin(t * 0.0006 + pt.p));
+        }
+        ctx.fillRect(x, y, pt.s, pt.s);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    let raf;
+    function loop(t) {
+      draw(t);
+      raf = requestAnimationFrame(loop);
+    }
+
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener("pointerleave", () => { mouse.x = -9999; mouse.y = -9999; });
+
+    let rto;
+    window.addEventListener("resize", () => {
+      clearTimeout(rto);
+      rto = setTimeout(build, 150);
+    });
+
+    build();
+    if (reduced) {
+      draw(0); // static field; still redraw on pointer interaction
+      hero.addEventListener("pointermove", () => draw(0));
+    } else {
+      raf = requestAnimationFrame(loop);
+    }
+  }
+
   /* ---- home: featured works ---- */
   async function initHome() {
     const mount = $("#featured-grid");
@@ -298,6 +382,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     initHeader();
     initChrome();
+    initHeroPoints();
     initHome();
     initWork();
     initProject();
