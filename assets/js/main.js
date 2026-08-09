@@ -121,57 +121,56 @@
     const ctx = canvas.getContext("2d");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let W = 0, H = 0, pts = [];
+    let dot; // pre-rendered round-dot sprite (fast to draw in bulk)
     const mouse = { x: -9999, y: -9999 };
 
-    // organic 3D "fur ball": a slowly rotating point sphere with hairy strands
-    // (after the TouchDesigner renders — dense body, fine radiating fur)
+    // organic granular nebula — soft 3D dust lobes that rotate slowly
+    // (after the TouchDesigner renders: dense charcoal cores dissolving into stray grain)
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails
+
+      // tiny round-dot sprite (drawImage is much faster than arc() in bulk)
+      dot = document.createElement("canvas");
+      dot.width = dot.height = 16;
+      const dctx = dot.getContext("2d");
+      dctx.fillStyle = "#141414";
+      dctx.beginPath(); dctx.arc(8, 8, 7, 0, Math.PI * 2); dctx.fill();
+
       const mobile = W < 600;
-      const STRANDS = mobile ? 420 : 780;
-      pts = [];
-      for (let i = 0; i < STRANDS; i++) {
-        // random direction on the sphere
-        const z = Math.random() * 2 - 1;
-        const a = Math.random() * Math.PI * 2;
-        const rxz = Math.sqrt(1 - z * z);
-        const ux = rxz * Math.cos(a), uy = z, uz = rxz * Math.sin(a);
-        // hair length varies organically around the body
-        const org = 0.5 + 0.5 * Math.sin(ux * 3.1 + 1.2) * Math.sin(uy * 2.7 + 4.0) * Math.sin(uz * 3.6 + 2.1);
-        const hair = 0.10 + 0.38 * org + Math.random() * 0.08;
-        const n = 4 + Math.floor(Math.random() * 4); // points per strand
-        const phase = Math.random() * Math.PI * 2;
-        for (let j = 0; j < n; j++) {
-          const f = j / (n - 1);
-          pts.push({
-            ux: ux + (Math.random() - 0.5) * 0.06,
-            uy: uy + (Math.random() - 0.5) * 0.06,
-            uz: uz + (Math.random() - 0.5) * 0.06,
-            r: 0.97 + f * hair,
-            w: 0.85 - f * 0.6, // dark at the body, fading toward the fur tips
-            s: 1.5 - f * 0.7 + Math.random() * 0.5,
-            p: phase + f * 0.9,
-            ox: 0, oy: 0, // magnetic offset (springs back on release)
-          });
-        }
+      const N = mobile ? 3800 : 9000;
+      // overlapping 3D lobes give the cloud its multi-form organic shape
+      const K = 5;
+      const LOBES = [];
+      for (let i = 0; i < K; i++) {
+        const za = Math.random() * 2 - 1, aa = Math.random() * Math.PI * 2;
+        const rz = Math.sqrt(1 - za * za);
+        const d = 0.15 + Math.random() * 0.5;
+        LOBES.push({
+          x: rz * Math.cos(aa) * d, y: za * d * 0.8, z: rz * Math.sin(aa) * d,
+          r: 0.35 + Math.random() * 0.4,
+          ph: Math.random() * Math.PI * 2,
+        });
       }
-      // inner body fill
-      const CORE = mobile ? 320 : 620;
-      for (let i = 0; i < CORE; i++) {
-        const z = Math.random() * 2 - 1;
-        const a = Math.random() * Math.PI * 2;
+      pts = [];
+      for (let i = 0; i < N; i++) {
+        const L = LOBES[i % K];
+        const z = Math.random() * 2 - 1, a = Math.random() * Math.PI * 2;
         const rxz = Math.sqrt(1 - z * z);
+        let rad = L.r * Math.pow(Math.random(), 0.45); // dense core, soft falloff
+        let edge = 1 - rad / (L.r * 1.05);
+        if (Math.random() < 0.10) { rad *= 1.35 + Math.random() * 0.5; edge = 0.06; } // stray dust
         pts.push({
+          bcx: L.x, bcy: L.y, bcz: L.z,
           ux: rxz * Math.cos(a), uy: z, uz: rxz * Math.sin(a),
-          r: 0.35 + Math.random() * 0.6,
-          w: 0.5,
-          s: 1 + Math.random() * 0.8,
-          p: Math.random() * Math.PI * 2,
-          ox: 0, oy: 0,
+          rad: rad,
+          w: 0.12 + 0.8 * Math.pow(Math.max(0, edge), 1.3),
+          s: 0.7 + Math.random() * 0.9,
+          p: L.ph + Math.random() * 0.8,
+          ox: 0, oy: 0, // magnetic offset (springs back on release)
         });
       }
     }
@@ -189,14 +188,14 @@
       const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 + 1.0);
       const cyr = Math.cos(ay), syr = Math.sin(ay);
       const cxr = Math.cos(axr), sxr = Math.sin(axr);
-      const SR = Math.min(W, H) * (W < 600 ? 0.34 : 0.30); // sphere radius
-      const CX = W * 0.64, CY = H * 0.44;                  // sphere centre
-      const F = SR * 3.2;                                  // perspective depth
+      const SR = Math.min(W, H) * (W < 600 ? 0.62 : 0.58); // cloud scale
+      const CX = W * 0.58, CY = H * 0.47;                  // cloud centre
+      const F = SR * 3.4;                                  // perspective depth
       for (let i = 0; i < pts.length; i++) {
         const pt = pts[i];
-        const breathe = reduced ? 1 : 1 + 0.035 * Math.sin(t * 0.0005 + pt.p);
-        const rr = pt.r * breathe * SR;
-        const X = pt.ux * rr, Y = pt.uy * rr, Z = pt.uz * rr;
+        const breathe = reduced ? 1 : 1 + 0.05 * Math.sin(t * 0.0004 + pt.p);
+        const rr = pt.rad * breathe * SR;
+        const X = pt.bcx * SR + pt.ux * rr, Y = pt.bcy * SR + pt.uy * rr, Z = pt.bcz * SR + pt.uz * rr;
         const X1 = X * cyr + Z * syr, Z1 = -X * syr + Z * cyr;
         const Y1 = Y * cxr - Z1 * sxr, Z2 = Y * sxr + Z1 * cxr;
         const persp = F / (F + Z2);
@@ -216,10 +215,9 @@
         x += pt.ox; y += pt.oy;
         const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / 60);
         const depth = 0.55 + 0.45 * Math.max(0, Math.min(1, (1 - Z2 / SR) * 0.5)); // nearer = darker
-        ctx.globalAlpha = Math.min(0.6, pt.w * 0.26 * depth + pull * 0.35);
-        ctx.beginPath();
-        ctx.arc(x, y, pt.s * persp * 0.8, 0, TAU);
-        ctx.fill();
+        ctx.globalAlpha = Math.min(0.72, pt.w * 0.36 * depth + pull * 0.35);
+        const pr = pt.s * persp;
+        ctx.drawImage(dot, x - pr, y - pr, pr * 2, pr * 2);
       }
       ctx.globalAlpha = 1;
     }
