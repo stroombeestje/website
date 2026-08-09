@@ -119,7 +119,6 @@
     const canvas = $("#hero-points");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    const hero = canvas.parentElement;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let W = 0, H = 0, pts = [];
     const mouse = { x: -9999, y: -9999 };
@@ -135,10 +134,11 @@
 
     function build() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = hero.clientWidth; H = hero.clientHeight;
+      W = window.innerWidth; H = window.innerHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const gap = W < 600 ? 12 : 9;
+      ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails
+      const gap = W < 600 ? 13 : 10;
       pts = [];
       for (let x = gap / 2; x < W; x += gap) {
         for (let y = gap / 2; y < H; y += gap) {
@@ -157,9 +157,13 @@
     }
 
     function draw(t) {
-      ctx.clearRect(0, 0, W, H);
+      // fade the previous frame instead of clearing -> motion trails
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "rgba(247, 246, 244, 0.09)";
+      ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = "#141414";
       const R = 160;
+      const TAU = Math.PI * 2;
       for (let i = 0; i < pts.length; i++) {
         const pt = pts[i];
         let x = pt.bx, y = pt.by;
@@ -175,12 +179,14 @@
           const k = 1 - d / R;
           x += (dx / d) * k * 55;
           y += (dy / d) * k * 55;
-          ctx.globalAlpha = Math.min(0.85, 0.15 + pt.w * 0.45 + k * 0.5);
+          ctx.globalAlpha = Math.min(0.5, 0.07 + pt.w * 0.18 + k * 0.35);
         } else {
-          const shimmer = reduced ? 0 : 0.08 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
-          ctx.globalAlpha = 0.10 + pt.w * 0.42 + shimmer;
+          const shimmer = reduced ? 0 : 0.04 * (0.5 + 0.5 * Math.sin(t * 0.0007 + pt.p));
+          ctx.globalAlpha = 0.05 + pt.w * 0.16 + shimmer;
         }
-        ctx.fillRect(x, y, pt.s, pt.s);
+        ctx.beginPath();
+        ctx.arc(x, y, pt.s * 0.7, 0, TAU);
+        ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
@@ -191,12 +197,13 @@
       raf = requestAnimationFrame(loop);
     }
 
-    hero.addEventListener("pointermove", (e) => {
-      const r = hero.getBoundingClientRect();
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
+    window.addEventListener("pointermove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     });
-    hero.addEventListener("pointerleave", () => { mouse.x = -9999; mouse.y = -9999; });
+    window.addEventListener("pointerout", (e) => {
+      if (!e.relatedTarget) { mouse.x = -9999; mouse.y = -9999; }
+    });
 
     let rto;
     window.addEventListener("resize", () => {
@@ -207,7 +214,7 @@
     build();
     if (reduced) {
       draw(0); // static field; still redraw on pointer interaction
-      hero.addEventListener("pointermove", () => draw(0));
+      window.addEventListener("pointermove", () => draw(0));
     } else {
       raf = requestAnimationFrame(loop);
     }
