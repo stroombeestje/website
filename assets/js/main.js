@@ -316,8 +316,13 @@
     const fact = (label, val) =>
       val ? `<div><div class="fact-label">${esc(label)}</div><div class="fact-value">${esc(val)}</div></div>` : "";
 
+    // Lines starting with "> " render as a styled artist statement (italic, set apart)
     const paras = (txt = "") =>
-      txt.split("\n").filter((l) => l.trim()).map((l) => `<p>${esc(l)}</p>`).join("");
+      txt.split("\n").filter((l) => l.trim()).map((l) => {
+        const t = l.trim();
+        if (t.startsWith("> ")) return `<p class="statement">${esc(t.slice(2))}</p>`;
+        return `<p>${esc(t)}</p>`;
+      }).join("");
 
     const gallery = (p.images || [])
       .map((src) => `<img class="reveal" src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)

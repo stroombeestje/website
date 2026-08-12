@@ -372,6 +372,14 @@ p { margin: 0 0 1.2em; }
 .about-text { font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.6; font-family: var(--font-serif); }
 .about-text p { margin-bottom: 1em; }
 
+/* artist statement inside a project description — set apart from the info text */
+.project-body .statement {
+  font-style: italic;
+  color: #4a4a47;
+  border-left: 2px solid var(--line);
+  padding-left: 1.25em;
+}
+
 /* ---- press ---- */
 #press .lead { color: var(--muted); margin-top: 1.25rem; }
 .press-list { list-style: none; margin: clamp(2rem, 5vw, 3.5rem) 0 0; padding: 0; border-top: 1px solid var(--line); }
