@@ -316,13 +316,24 @@
     const fact = (label, val) =>
       val ? `<div><div class="fact-label">${esc(label)}</div><div class="fact-value">${esc(val)}</div></div>` : "";
 
-    // Lines starting with "> " render as a styled artist statement (italic, set apart)
-    const paras = (txt = "") =>
-      txt.split("\n").filter((l) => l.trim()).map((l) => {
-        const t = l.trim();
-        if (t.startsWith("> ")) return `<p class="statement">${esc(t.slice(2))}</p>`;
-        return `<p>${esc(t)}</p>`;
-      }).join("");
+    // Lines starting with "> " form the artist statement. When present, the
+    // description renders two-column: info left, statement right (italic).
+    const lines = (p.description || "").split("\n").filter((l) => l.trim());
+    const stHTML = lines
+      .filter((l) => l.trim().startsWith("> "))
+      .map((l) => `<p class="statement">${esc(l.trim().slice(2))}</p>`)
+      .join("");
+    const infoHTML = lines
+      .filter((l) => !l.trim().startsWith("> "))
+      .map((l) => `<p>${esc(l.trim())}</p>`)
+      .join("");
+    const creditsHTML = p.credits ? `<p style="color:var(--muted);font-size:0.9rem">${esc(p.credits)}</p>` : "";
+    const bodyHTML = stHTML
+      ? `<div class="project-body has-statement">
+          <div class="project-info">${infoHTML}${creditsHTML}</div>
+          <aside class="project-statement">${stHTML}</aside>
+        </div>`
+      : `<div class="project-body">${infoHTML}${creditsHTML}</div>`;
 
     const gallery = (p.images || [])
       .map((src) => `<img class="reveal" src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)
@@ -346,7 +357,7 @@
       </div>
       ${p.cover ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>` : ""}
       <div class="wrap">
-        <div class="project-body">${paras(p.description)}${p.credits ? `<p style="color:var(--muted);font-size:0.9rem">${esc(p.credits)}</p>` : ""}</div>
+        ${bodyHTML}
         ${videos ? `<div class="project-videos">${videos}</div>` : ""}
         ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
         <nav class="project-nav">
