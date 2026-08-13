@@ -8,7 +8,7 @@
   "role": "Concept & visuals",
   "location": "WORM, Rotterdam",
   "cover": "media/projects/sonaural/cover.jpg",
-  "excerpt": "An immersive site-specific AV performance with Skander Jaïbi at WORM, Rotterdam — from drone to brutalist intensity.",
+  "excerpt": "An immersive site-specific AV performance with Skander Jaïbi at WORM, Rotterdam, moving from drone to brutalist intensity.",
   "description": "An immersive, site-specific audiovisual performance with Skander Jaïbi, presented at WORM in Rotterdam as part of Sonaural (2020). Combining modular synthesizers, projectors, TouchDesigner, local satellite data and 3D scanning, the piece begins as a slow drone and builds into a brutalist, intense crescendo of sound and light.",
   "images": [
     "media/projects/sonaural/01.jpg",
@@ -18,6 +18,6 @@
   "videos": [
     "media/projects/sonaural/worm.mp4"
   ],
-  "credits": "With Skander Jaïbi. Presented at WORM, Rotterdam — Sonaural, 2020.",
+  "credits": "With Skander Jaïbi. Presented at Sonaural, WORM, Rotterdam, 2020.",
   "link": ""
 }

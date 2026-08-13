@@ -1,6 +1,6 @@
 {
   "slug": "mutek-circle-of-live",
-  "title": "Circle of Live — MUTEK Mexico",
+  "title": "Circle of Live at MUTEK Mexico",
   "year": "2025",
   "category": "Live Show",
   "featured": false,
@@ -9,7 +9,7 @@
   "location": "Maravilla Studios, Mexico City",
   "cover": "media/projects/mutek-circle-of-live/cover.jpg",
   "excerpt": "An immersive real-time visual environment for the four-hour Circle of Live session at MUTEK Mexico 2025.",
-  "description": "For the four-hour Circle of Live session at MUTEK MX 21 (October 2025), I created an immersive visual and light environment in Hall A of Maravilla Studios, Mexico City — together with Pavel Zmuchila and choreographer Alejandra Metztli.\n\nUsing TouchDesigner for real-time image generation and four LiDAR scanners placed around the venue, pre-recorded 3D scans of the city were brought to life — data captured by cycling through Mexico City on an Ecobici with cameras attached, from the Angel of Independence to Roma and Chapultepec. The digital content was always enriched by what was physically happening on stage, creating perspectives impossible with a traditional camera.\n\n> The circular set placed eight dancer platforms around a central space of screens, light and live visuals; Metztli's Butoh choreography drew on natural elements — fog, rain, lightning — turning the room into a theatrical, performative environment.",
+  "description": "For the four-hour Circle of Live session at MUTEK MX 21 (October 2025), I created an immersive visual and light environment in Hall A of Maravilla Studios, Mexico City, together with Pavel Zmuchila and choreographer Alejandra Metztli.\n\nUsing TouchDesigner for real-time image generation and four LiDAR scanners placed around the venue, pre-recorded 3D scans of the city were brought to life. That data was captured by cycling through Mexico City on an Ecobici with cameras attached, from the Angel of Independence to Roma and Chapultepec. The digital content was always enriched by what was physically happening on stage, creating perspectives impossible with a traditional camera.\n\n> The circular set placed eight dancer platforms around a central space of screens, light and live visuals; Metztli's Butoh choreography drew on natural elements like fog, rain and lightning, turning the room into a theatrical, performative environment.",
   "images": [
     "media/projects/mutek-circle-of-live/01.jpg",
     "media/projects/mutek-circle-of-live/02.jpg",
