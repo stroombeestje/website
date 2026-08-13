@@ -223,6 +223,7 @@ p { margin: 0 0 1.2em; }
   font-size: clamp(1.15rem, 1.7vw, 1.45rem);
   font-weight: 600;
   letter-spacing: -0.01em;
+  text-wrap: pretty; /* avoid stranded runt words in titles */
 }
 .card-sub { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .card-cat { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -268,7 +269,7 @@ p { margin: 0 0 1.2em; }
    Project detail
    ========================================================================== */
 .project-head { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
-.project-head .display { font-size: clamp(2.4rem, 7vw, 5.5rem); max-width: 18ch; }
+.project-head .display { font-size: clamp(2.4rem, 7vw, 5.5rem); max-width: 18ch; text-wrap: balance; }
 .project-facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));

@@ -60,6 +60,25 @@
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
 
+  // Escape + typographic tidy for titles: keep an em dash with the word before it,
+  // and glue short words (Le, of, a...) to the next word, so a line never ends on a
+  // runt like "Le". Walks tokens, so chained short words are all handled.
+  const DASH = /^[—–-]+$/;
+  const escTitle = (s = "") => {
+    const parts = esc(s).split(/(\s+)/);
+    let out = "";
+    for (let i = 0; i < parts.length; i++) {
+      const tok = parts[i];
+      if (!/^\s+$/.test(tok)) { out += tok; continue; }
+      const prev = parts[i - 1] || "";
+      const next = parts[i + 1] || "";
+      const prevLen = prev.replace(/&[a-z]+;|&#\d+;/g, "x").length;
+      const glue = next && (DASH.test(next) || (prevLen <= 3 && !DASH.test(prev)));
+      out += glue ? " " : tok;
+    }
+    return out;
+  };
+
   // swap a broken/missing image for the styled text placeholder
   window.__phErr = function (img) {
     const t = img.getAttribute("alt") || "";
@@ -108,7 +127,7 @@
       <a class="card reveal" href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
         ${mediaHTML(p.cover, p.title, false)}
         <div class="card-meta">
-          <span class="card-title">${esc(p.title)}</span>
+          <span class="card-title">${escTitle(p.title)}</span>
           <span class="card-cat">${esc(sub)}</span>
         </div>
       </a>`;
@@ -347,7 +366,7 @@
     mount.innerHTML = `
       <div class="wrap project-head">
         <p class="eyebrow">${esc(p.category || "")}</p>
-        <h1 class="display">${esc(p.title)}</h1>
+        <h1 class="display">${escTitle(p.title)}</h1>
         <div class="project-facts">
           ${fact("Year", p.year)}
           ${fact("Role", p.role)}
@@ -361,8 +380,8 @@
         ${videos ? `<div class="project-videos">${videos}</div>` : ""}
         ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
         <nav class="project-nav">
-          <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${esc(prev.title)}</a>
-          <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${esc(next.title)} →</a>
+          <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
+          <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${escTitle(next.title)} →</a>
         </nav>
       </div>`;
     observeReveals(mount);
@@ -416,7 +435,7 @@
               <span class="press-outlet">${esc(it.outlet)}</span>
               <span class="press-date">${esc(it.date || "")}</span>
             </div>
-            <p class="press-title">${esc(it.title)}</p>
+            <p class="press-title">${escTitle(it.title)}</p>
             ${it.quote ? `<p class="press-quote">“${esc(it.quote)}”</p>` : ""}
             ${it.image ? `<img class="press-clip" src="${asset(esc(it.image))}" alt="${esc(it.outlet)} — ${esc(it.title)}" loading="lazy" onerror="window.__phErr(this)">` : ""}
             ${cta ? `<span class="press-cta">${cta}</span>` : ""}`;
