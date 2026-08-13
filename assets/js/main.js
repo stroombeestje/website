@@ -96,6 +96,10 @@
     return `<div class="${cls}"><div class="ph">${esc(title)}</div></div>`;
   }
 
+  // A project can sit in more than one category: "categories" wins, "category" is the fallback.
+  const catsOf = (p) =>
+    (Array.isArray(p.categories) && p.categories.length ? p.categories : [p.category]).filter(Boolean);
+
   // Balance the photo gallery into columns by picture height, so no column runs long.
   function layoutGallery(el) {
     if (!el) return;
@@ -312,7 +316,7 @@
     const filtersEl = $("#filters");
     const { projects } = await loadJSON("data/projects.json");
 
-    const cats = ["All", ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean)))];
+    const cats = ["All", ...Array.from(new Set(projects.flatMap(catsOf)))];
     if (filtersEl) {
       filtersEl.innerHTML = cats
         .map(
@@ -323,7 +327,7 @@
     }
 
     const render = (cat) => {
-      const list = cat === "All" ? projects : projects.filter((p) => p.category === cat);
+      const list = cat === "All" ? projects : projects.filter((p) => catsOf(p).includes(cat));
       mount.innerHTML = list.map(cardHTML).join("");
       observeReveals(mount);
     };
