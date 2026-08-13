@@ -1,12 +1,12 @@
 {
   "slug": "archive-mirror",
   "title": "Archive Mirror",
-  "year": "2025",
+  "year": "2025–2026",
   "category": "Installation",
   "featured": true,
   "order": 20,
   "role": "Interactive installation with Santiago Pani",
-  "location": "Treehouse Amsterdam · Pieterskerk, Leiden · Mexico City",
+  "location": "Treehouse NDSM, Amsterdam · Pieterskerk, Leiden · Público, Mexico City",
   "cover": "media/projects/archive-mirror/cover.jpg",
   "excerpt": "An interactive installation with painter Santiago Pani, where a camera and an AI model trained on his archive turn visitors into evolving portraits.",
   "description": "Archive Mirror is an interactive installation by Jaco Schilp and Santiago Pani that explores the meeting point between traditional painting and digital technology. A live camera captures participants, while a custom-trained AI model built on an archive of Pani's abstract portraits translates their presence into evolving visual compositions.\n> As visitors stand before the system, they become both subject and collaborator, triggering a real-time feedback loop between body, camera, and algorithm. The work reflects Pani's exploration of the human figure as fragmented memory, while extending it into a dynamic, generative space shaped by Schilp's digital practice.\n> By training the AI on past works, the installation questions authorship, originality, and control. Rather than replacing the artist, the system acts as an unpredictable partner, revealing new forms that exist between intention and autonomy, where the archive continuously meets the present.",
@@ -19,6 +19,6 @@
   "videos": [
     "media/projects/archive-mirror/film.mp4"
   ],
-  "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Shown at Treehouse Amsterdam, the Pieterskerk in Leiden, and in Mexico City. Documentary: Guillaume Versteeg.",
+  "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Shown in Two Suns At Once at Treehouse NDSM, Amsterdam, 2026, co-curated by Vico Persson and supported by AFK; in the Pieterskerk, Leiden; and in Todo pasa at Público, Mexico City, January 2026, presented with Lagom Studio Galería with the support of JC Tradicional and Grupo Modelo. Documentary: Guillaume Versteeg.",
   "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
 }
