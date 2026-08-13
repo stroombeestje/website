@@ -9,7 +9,7 @@
   "location": "Utrecht",
   "cover": "media/projects/byob-utrecht-citytour/cover.jpg",
   "excerpt": "BYOB's tenth anniversary: a one-night city tour of projections across nine pop-up galleries in Utrecht.",
-  "description": "Bring Your Own Beamer 2020. For BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries.\n> BYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors, all within the strict COVID-19 regulations of the time.",
+  "description": "Bring Your Own Beamer 2020. For BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries, on 26 September 2020. The edition ran as part of NFF interactive, the Dutch Film Festival programme for trans-medial and interactive work, and because of the covid measures the whole thing moved into the public space: an evening walk through the city, from location to location.\n> BYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors, all within the strict COVID-19 regulations of the time.",
   "images": [
     "media/projects/byob-utrecht-citytour/01.jpg",
     "media/projects/byob-utrecht-citytour/02.jpg",
@@ -18,8 +18,9 @@
     "media/projects/byob-utrecht-citytour/05.jpg"
   ],
   "videos": [
-    "https://youtu.be/ZGUNubml9_o"
+    "https://youtu.be/ZGUNubml9_o",
+    "https://vimeo.com/454125895"
   ],
-  "credits": "Organised by Jaco Schilp.",
+  "credits": "Organised by Jaco Schilp. Part of NFF interactive at the Nederlands Film Festival, Utrecht, 2020.",
   "link": ""
 }
