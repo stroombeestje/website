@@ -229,7 +229,7 @@
       "category": "Curated",
       "featured": false,
       "order": 8,
-      "role": "Co-Director, Curator",
+      "role": "Co-Director & Curator (with Alejandra Metztli)",
       "location": "Mexico City",
       "cover": "media/projects/data-utan/cover.jpg",
       "excerpt": "A festival and exhibition platform in Mexico City bringing together Dutch and Mexican digital artists.",
@@ -238,7 +238,7 @@
       "videos": [
         "media/projects/data-utan/clip.mp4"
       ],
-      "credits": "",
+      "credits": "Data Uotan — co-directed and curated by Jaco Schilp with Alejandra Metztli. Presented at No Es Una Galería, Mexico City.",
       "link": ""
     },
     {
@@ -643,7 +643,7 @@
       "videos": [
         "media/projects/points-of-light/clip.mp4"
       ],
-      "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Metz. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
+      "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
       "link": ""
     },
     {
