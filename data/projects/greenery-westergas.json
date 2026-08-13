@@ -1,23 +1,24 @@
 {
   "slug": "greenery-westergas",
   "title": "The Greenery, Westergas",
-  "year": "",
+  "year": "2021",
   "category": "Installation",
   "featured": false,
   "order": 28,
   "role": "Projection design & content",
-  "location": "Westergasfabriek, Amsterdam",
+  "location": "Gashouder, Westergasfabriek, Amsterdam",
   "cover": "media/projects/greenery-westergas/cover.jpg",
   "excerpt": "An immersive 360° dining experience, with ingredients filmed in macro and projected across 400 m² of canvas.",
-  "description": "An immersive 360° dining experience. For a pop-up restaurant commissioned by the Greenery in the Westergasfabriek, Amsterdam, each course was accompanied by custom visual content, with ingredients filmed by a high-speed macro camera and projected across a 400-square-metre wrap-around canvas.\n\nA box projection driven by seven projectors, custom mediaservers and a combination of Unreal Engine, Blender and TouchDesigner generating real-time 3D content. In co-creation with LiGHT-UP Collective.",
+  "description": "An immersive 360 degree dining experience. For a pop-up restaurant in the Gashouder at the Westergasfabriek in Amsterdam, the whole room was video mapped and transformed completely with each course, with custom content for every dish. Ingredients were filmed with a high-speed macro camera and projected across a 400 square metre wrap-around canvas.\nA box projection driven by eight 20,000 lumen projectors in collaboration with Beamsystems, running on custom mediaservers, with real-time 3D content generated in Unreal Engine, Blender and TouchDesigner.\n> Dinner became somewhere to be rather than something to look at. As each plate arrived the room went with it, so the guests were eating inside the ingredient.",
   "images": [
     "media/projects/greenery-westergas/01.jpg",
     "media/projects/greenery-westergas/02.jpg",
     "media/projects/greenery-westergas/03.jpg"
   ],
   "videos": [
-    "https://vimeo.com/539585157"
+    "https://vimeo.com/539585157",
+    "https://vimeo.com/529929650"
   ],
-  "credits": "Photos: Dennis Bouman. In co-creation with LiGHT-UP Collective. Sponsored by Panasonic.",
+  "credits": "In co-creation with LiGHT-UP Collective. Projection in collaboration with Beamsystems, eight 20,000 lumen projectors. Sponsored by Panasonic. Photos: Dennis Bouman.",
   "link": ""
 }
