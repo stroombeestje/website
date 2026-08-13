@@ -402,8 +402,8 @@
       </div>
       ${p.cover ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>` : ""}
       <div class="wrap">
-        ${bodyHTML}
         ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
+        ${bodyHTML}
         ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         <nav class="project-nav">
