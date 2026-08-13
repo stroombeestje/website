@@ -1,0 +1,26 @@
+{
+  "slug": "orbit-2022",
+  "title": "Orbit 2022 — Art Programme",
+  "year": "2022",
+  "category": "Curated",
+  "featured": false,
+  "order": 7.5,
+  "role": "Curator",
+  "location": "Orbit Festival",
+  "cover": "media/projects/orbit-2022/cover.jpg",
+  "excerpt": "Curating the art programme for Orbit Festival 2022, with works by SouRCe, re:gen and c55h72mgn4o5.",
+  "description": "For the 2022 edition of Orbit Festival I curated the art programme, bringing three installations into the festival grounds: SouRCe, re:gen and c55h72mgn4o5.\n> Rather than designing the light myself that year, my work was the selection and the staging — choosing works that would hold their own among the trees and the crowd, and placing them so each found its own space in the festival.",
+  "images": [
+    "media/projects/orbit-2022/01.jpg",
+    "media/projects/orbit-2022/02.jpg",
+    "media/projects/orbit-2022/03.jpg",
+    "media/projects/orbit-2022/04.jpg",
+    "media/projects/orbit-2022/05.jpg"
+  ],
+  "videos": [
+    "https://www.youtube.com/watch?v=UuBeyAuNCfA",
+    "media/projects/orbit-2022/clip.mp4"
+  ],
+  "credits": "Curator: Jaco Schilp. Works by SouRCe, re:gen and c55h72mgn4o5. Presented at Orbit Festival 2022.",
+  "link": ""
+}
