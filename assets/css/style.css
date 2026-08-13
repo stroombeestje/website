@@ -330,6 +330,17 @@ p { margin: 0 0 1.2em; }
 .project-video-ig { width: 100%; max-width: 480px; margin: 0 auto; }
 .project-video-ig iframe { width: 100%; min-height: 600px; border: 0; background: #fff; }
 
+/* the first video plays full width, on its own row */
+.project-videos.is-main { grid-template-columns: 1fr; }
+
+/* further clips sit inside the photo gallery and behave like pictures */
+.project-gallery .project-video-file,
+.project-gallery .project-video {
+  width: 100%;
+  margin: 0 0 clamp(0.6rem, 1.6vw, 1.1rem);
+  break-inside: avoid;
+}
+
 /* local video files fill their grid cell, natural height */
 .project-video-file {
   display: block;
