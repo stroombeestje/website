@@ -5,11 +5,11 @@
   "category": "Installation",
   "featured": true,
   "order": 20,
-  "role": "With Santiago Pani",
+  "role": "Interactive installation with Santiago Pani",
   "location": "",
   "cover": "media/projects/archive-mirror/cover.jpg",
-  "excerpt": "A physical-digital collaboration with painter Santiago Pani. Faces from dreams, surfacing and dissolving in light.",
-  "description": "A collaboration with the Mexican painter Santiago Pani. Archive Mirror brings Santiago's expressionist faces together with my own work in light and point-cloud data. They are anonymous characters glimpsed in dreams and the subconscious, hovering at the threshold where recognition fades into abstraction.\n> On a large luminous panel the faces surface, shift and dissolve, staged within the gothic architecture of a historic church. The work sits between control and chaos, line and stain, the remembered and the imagined. First shown as a try-out in 2025.",
+  "excerpt": "An interactive installation with painter Santiago Pani, where a camera and an AI model trained on his archive turn visitors into evolving portraits.",
+  "description": "Archive Mirror is an interactive installation by Jaco Schilp and Santiago Pani that explores the meeting point between traditional painting and digital technology. A live camera captures participants, while a custom-trained AI model built on an archive of Pani's abstract portraits translates their presence into evolving visual compositions.\n> As visitors stand before the system, they become both subject and collaborator, triggering a real-time feedback loop between body, camera, and algorithm. The work reflects Pani's exploration of the human figure as fragmented memory, while extending it into a dynamic, generative space shaped by Schilp's digital practice.\n> By training the AI on past works, the installation questions authorship, originality, and control. Rather than replacing the artist, the system acts as an unpredictable partner, revealing new forms that exist between intention and autonomy, where the archive continuously meets the present.",
   "images": [
     "media/projects/archive-mirror/01.jpg",
     "media/projects/archive-mirror/02.jpg",
@@ -19,6 +19,6 @@
   "videos": [
     "media/projects/archive-mirror/film.mp4"
   ],
-  "credits": "Painting: Santiago Pani. Documentary: Guillaume Versteeg.",
+  "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Documentary: Guillaume Versteeg.",
   "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
 }
