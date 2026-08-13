@@ -856,7 +856,9 @@
         "media/projects/universum/01.jpg",
         "media/projects/universum/02.jpg"
       ],
-      "videos": [],
+      "videos": [
+        "media/projects/universum/film.mp4"
+      ],
       "credits": "Presented at Museum van Geluid, 2018.",
       "link": ""
     },
