@@ -874,6 +874,25 @@
       "videos": [],
       "credits": "Presented at Museum van Geluid, 2018.",
       "link": ""
+    },
+    {
+      "slug": "kunsthal-museumnacht-2017",
+      "title": "Kunsthal Rotterdam, Museumnacht",
+      "year": "2017",
+      "category": "Installation",
+      "featured": false,
+      "order": 29.7,
+      "role": "Projection mapping",
+      "location": "Kunsthal Rotterdam",
+      "cover": "",
+      "excerpt": "My first large outdoor projection mapping: the facade of the Kunsthal Rotterdam for Museumnacht 2017.",
+      "description": "For Museumnacht 2017 I mapped the facade of the Kunsthal Rotterdam. It was my first large outdoor projection mapping project, and the start of the building-scale work that followed.\n> The Kunsthal's facade is already a composition of planes and materials, so the mapping followed the building rather than covering it, letting content run along its own lines and edges until the architecture read as something built out of light.",
+      "images": [],
+      "videos": [
+        "https://vimeo.com/210345203"
+      ],
+      "credits": "Projection mapping: Jaco Schilp. Presented during Museumnacht at the Kunsthal Rotterdam, 2017.",
+      "link": ""
     }
   ]
 }
