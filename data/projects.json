@@ -11,7 +11,7 @@
       "location": "Mexico City",
       "cover": "media/projects/ka-an/cover.jpg",
       "excerpt": "A light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere.",
-      "description": "Ka'An is a light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere. The piece reflects the multi-layered structure of the Mayan sky, mirroring the building's open architecture.\n\nFeaturing 16 dynamic lights controlled by a custom TouchDesigner patch, all converging in 3D space, Ka'An creates a dreamlike atmosphere. It offers a unique experience of walking into the air, harmonised with the building's architecture and an Ableton-composed soundscape.\n\nThe site-specific work was presented during the Data Uotan festival at No Es Una Galería, Mexico City, in 2024.",
+      "description": "> Ka'An is a light installation inspired by Mayan cosmology, where \"Ka'An\" means sky or atmosphere. The piece reflects the multi-layered structure of the Mayan sky, mirroring the building's open architecture.\nFeaturing 16 dynamic lights controlled by a custom TouchDesigner patch, all converging in 3D space, Ka'An creates a dreamlike atmosphere. It offers a unique experience of walking into the air, harmonised with the building's architecture and an Ableton-composed soundscape.\nThe site-specific work was presented during the Data Uotan festival at No Es Una Galería, Mexico City, in 2024.",
       "images": [
         "media/projects/ka-an/01.jpg",
         "media/projects/ka-an/02.jpg"
@@ -33,7 +33,7 @@
       "location": "Le Guess Who? Utrecht · MUTEK MX · Artweek Mexico · Inspace Mexico · Het Houtenhuis",
       "cover": "media/projects/somnia/cover.jpg",
       "excerpt": "An interdisciplinary audiovisual dance performance exploring dream states and the human body.",
-      "description": "Somnia is an interdisciplinary audiovisual dance performance collaboratively created by Mexican contemporary dancer and choreographer Alejandra Metztli and Dutch immersive digital artist Jaco Schilp. The project delves into the poetic processes within the human body and explores the dream states experienced during sleep. It presents a multidimensional approach to movement language, reflecting a non-linear and energetic interpretation of timeless realities.\nInspired by the chemical substances secreted by the human brain, neuronal frequencies, and the subtle body connected to dream narratives, Somnia integrates these elements to craft a unique artistic expression.\nThe piece is a collaboration between a dancer and interactive visuals with sound, controlled by digital scanners. It is driven by the interaction between body movement and real-time processes in the computer, which together create the complete performance. The sound design for the performance was developed in collaboration with Ben Spaander (Cosmic Force) and Noah Zurhaar, adding a layered auditory dimension to the experience.\nSomnia is the result of an international artistic residency, supported by the Sistema de Apoyos a la Creación y Proyectos Culturales of the Mexican government. The residency took place at Uncloud, Netherlands, in 2024.",
+      "description": "> Somnia is an interdisciplinary audiovisual dance performance collaboratively created by Mexican contemporary dancer and choreographer Alejandra Metztli and Dutch immersive digital artist Jaco Schilp. The project delves into the poetic processes within the human body and explores the dream states experienced during sleep. It presents a multidimensional approach to movement language, reflecting a non-linear and energetic interpretation of timeless realities.\n> Inspired by the chemical substances secreted by the human brain, neuronal frequencies, and the subtle body connected to dream narratives, Somnia integrates these elements to craft a unique artistic expression.\nThe piece is a collaboration between a dancer and interactive visuals with sound, controlled by digital scanners. It is driven by the interaction between body movement and real-time processes in the computer, which together create the complete performance. The sound design for the performance was developed in collaboration with Ben Spaander (Cosmic Force) and Noah Zurhaar, adding a layered auditory dimension to the experience.\nSomnia is the result of an international artistic residency, supported by the Sistema de Apoyos a la Creación y Proyectos Culturales of the Mexican government. The residency took place at Uncloud, Netherlands, in 2024.",
       "images": [
         "media/projects/somnia/01.jpg",
         "media/projects/somnia/02.jpg",
@@ -153,7 +153,7 @@
       "location": "Le Guess Who?, Utrecht",
       "cover": "media/projects/anonymous-project-2023/cover.jpg",
       "excerpt": "A white cube on stage where artists perform in total anonymity — a special visual commission for Le Guess Who? 2023.",
-      "description": "The Anonymous Project is a stage where artists perform inside a white cube, remaining anonymous at all times — before, during and after the performance. It is an avenue for artists to present new work, and for audiences to discover it free of reputation or expectation, focused purely on the sound.\nFor Le Guess Who? 2023 I was commissioned to create the special visual work that wraps the cube: projection and scenography that conceal the performer while turning the cube itself into a shifting, luminous instrument. The result is an unfiltered, sonic-first experience in which the visuals carry the room.",
+      "description": "> The Anonymous Project is a stage where artists perform inside a white cube, remaining anonymous at all times — before, during and after the performance. It is an avenue for artists to present new work, and for audiences to discover it free of reputation or expectation, focused purely on the sound.\nFor Le Guess Who? 2023 I was commissioned to create the special visual work that wraps the cube: projection and scenography that conceal the performer while turning the cube itself into a shifting, luminous instrument. The result is an unfiltered, sonic-first experience in which the visuals carry the room.",
       "images": [
         "media/projects/anonymous-project-2023/01.jpg"
       ],
@@ -203,7 +203,7 @@
       "location": "Mexico City",
       "cover": "media/projects/data-utan/cover.jpg",
       "excerpt": "A festival and exhibition platform in Mexico City bringing together Dutch and Mexican digital artists.",
-      "description": "Data Uotan is a festival and exhibition platform in Mexico City, presented with No Es Una Galería, where I work as Co-Director. It brings together Dutch and Mexican digital artists around immersive installation, light and sound — the context in which my work Ka'An was first shown.\n\nMexico City has become a second home for my practice: every return brings a new rhythm, a new kind of chaos, and a deep connection with its artistic community.",
+      "description": "Data Uotan is a festival and exhibition platform in Mexico City, presented with No Es Una Galería, where I work as Co-Director. It brings together Dutch and Mexican digital artists around immersive installation, light and sound — the context in which my work Ka'An was first shown.\n> Mexico City has become a second home for my practice: every return brings a new rhythm, a new kind of chaos, and a deep connection with its artistic community.",
       "images": [],
       "videos": [
         "media/projects/data-utan/clip.mp4"
@@ -222,7 +222,7 @@
       "location": "Netherlands",
       "cover": "media/projects/momentum/cover.jpg",
       "excerpt": "Video and projections for MoMentNu — an immersive light installation with artist Willem Geerts.",
-      "description": "Video and projections for MoMentNu, an installation by artist Willem Geerts. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\nVisitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture — a quiet, immersive meditation on the present moment.",
+      "description": "Video and projections for MoMentNu, an installation by artist Willem Geerts. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\n> Visitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture — a quiet, immersive meditation on the present moment.",
       "images": [
         "media/projects/momentum/01.jpg",
         "media/projects/momentum/02.jpg",
@@ -245,7 +245,7 @@
       "location": "Utrecht",
       "cover": "media/projects/panorama-utrecht/cover.jpg",
       "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, for the city's 900th anniversary.",
-      "description": "Panorama Utrecht was a highlight of the city's 900th-anniversary celebrations in 2022. We captured 1.1 billion digital data points and transformed them into an immersive feeling — the city, completely exposed.\n\nThe light sculpture shows Utrecht from a digital perspective: a panorama of small luminous points where every wall dissolves. The composition is an artistic interpretation of aerial LiDAR data of the city, drawn from the Actueel Hoogtebestand Nederland dataset of roughly 1.1 billion points.\n\nWalking into the sculpture opens a world of light, paired with field recordings collected by cycling and walking through Utrecht — shifting between recognisable daily city sounds and composed textures.",
+      "description": "Panorama Utrecht was a highlight of the city's 900th-anniversary celebrations in 2022. We captured 1.1 billion digital data points and transformed them into an immersive feeling — the city, completely exposed.\n> The light sculpture shows Utrecht from a digital perspective: a panorama of small luminous points where every wall dissolves. The composition is an artistic interpretation of aerial LiDAR data of the city, drawn from the Actueel Hoogtebestand Nederland dataset of roughly 1.1 billion points.\n> Walking into the sculpture opens a world of light, paired with field recordings collected by cycling and walking through Utrecht — shifting between recognisable daily city sounds and composed textures.",
       "images": [
         "media/projects/panorama-utrecht/01.jpg",
         "media/projects/panorama-utrecht/02.jpg",
@@ -271,7 +271,7 @@
       "location": "Utrecht (CCU)",
       "cover": "media/projects/lidar-utrecht/cover.jpg",
       "excerpt": "A series of light sculptures that translate raw LiDAR point clouds of Utrecht landmarks into laser-cut, backlit wood.",
-      "description": "On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nEach piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points — every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it — exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.",
+      "description": "> On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nEach piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points — every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it — exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.",
       "images": [
         "media/projects/lidar-utrecht/5-1-tivoli-vredenburg.jpg",
         "media/projects/lidar-utrecht/5-2-stadskantoor.jpg",
@@ -342,7 +342,7 @@
       "location": "Etmaal Festival, Utrecht",
       "cover": "media/projects/circuitry/cover.jpg",
       "excerpt": "A live audiovisual performance with Skander Jaïbi — modular synthesis and real-time 3D visuals — premiered at Modulation / Etmaal Festival.",
-      "description": "Circuitry is a live audiovisual performance created with Skander Jaïbi and Skander Ben Yahia, built around modular synthesis and real-time 3D visuals. Sound and image are wired together — the music drives the visuals and the visuals feed back into the performance, an evolving circuit of light and electronics.\nIt premiered for Modulation — the modular-synthesizer series run by Sonar Traffic at Kytopia in Utrecht — and at Etmaal, the 24-hour festival curated by Colin Benders.",
+      "description": "> Circuitry is a live audiovisual performance created with Skander Jaïbi and Skander Ben Yahia, built around modular synthesis and real-time 3D visuals. Sound and image are wired together — the music drives the visuals and the visuals feed back into the performance, an evolving circuit of light and electronics.\nIt premiered for Modulation — the modular-synthesizer series run by Sonar Traffic at Kytopia in Utrecht — and at Etmaal, the 24-hour festival curated by Colin Benders.",
       "images": [
         "media/projects/circuitry/01.jpg",
         "media/projects/circuitry/02.jpg",
@@ -397,7 +397,7 @@
       "location": "Netherlands",
       "cover": "media/projects/loreal/cover.jpg",
       "excerpt": "“Human Nature” — a Kinki Kappers show for L'Oréal Pro: 3D-scanned models, four chapters, and projection-mapped digital worlds.",
-      "description": "Human Nature is a show created by Kinki Kappers for L'Oréal Pro, telling a story about the relationship between our human nature and the Metaverse — the light and darkness in us all as we build the digital world.\nThe show is built on 3D scans of the catwalk models, processed in TouchDesigner into four chapters, each with its own digital scenery and timecode-automated light. I created the visual content and projection mapping together with Cris Molle (LiGHT-UP Collective), wrapping the runway and stage in shifting digital landscapes for models, dancers and aerial performers.",
+      "description": "> Human Nature is a show created by Kinki Kappers for L'Oréal Pro, telling a story about the relationship between our human nature and the Metaverse — the light and darkness in us all as we build the digital world.\nThe show is built on 3D scans of the catwalk models, processed in TouchDesigner into four chapters, each with its own digital scenery and timecode-automated light. I created the visual content and projection mapping together with Cris Molle (LiGHT-UP Collective), wrapping the runway and stage in shifting digital landscapes for models, dancers and aerial performers.",
       "images": [
         "media/projects/loreal/01.jpg",
         "media/projects/loreal/02.jpg",
@@ -424,7 +424,7 @@
       "location": "Utrecht",
       "cover": "media/projects/byob-utrecht-citytour/cover.jpg",
       "excerpt": "BYOB's tenth anniversary — a one-night city tour of projections across nine pop-up galleries in Utrecht.",
-      "description": "Bring Your Own Beamer 2020 — for BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries.\n\nBYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors — all within the strict COVID-19 regulations of the time.",
+      "description": "Bring Your Own Beamer 2020 — for BYOB's tenth anniversary we turned the city of Utrecht into a one-night tour of projections, installations and performances across nine pop-up public galleries.\n> BYOB is a non-hierarchical, open-call format: participants aren't curated but facilitated, choosing where and how to show their work. Made possible by more than 50 participants and over 1,000 visitors — all within the strict COVID-19 regulations of the time.",
       "images": [
         "media/projects/byob-utrecht-citytour/01.jpg",
         "media/projects/byob-utrecht-citytour/02.jpg",
@@ -468,7 +468,7 @@
       "location": "",
       "cover": "media/projects/orbit-installation/cover.jpg",
       "excerpt": "An interactive installation that reimagines drone-tracking AI as a tool for play and connection.",
-      "description": "A project especially close to me: an interactive installation commissioned by Orbit Festival, alongside the light design for all stages.\n\nBuilt in TouchDesigner and guided by an AI model once developed for military drones to track bodies and objects, the work seeks to shift perspective — to reimagine technology born from conflict as a tool for connection and play. As an artist, I feel it is important to explore how these systems can transform when placed in a different light.",
+      "description": "A project especially close to me: an interactive installation commissioned by Orbit Festival, alongside the light design for all stages.\n> Built in TouchDesigner and guided by an AI model once developed for military drones to track bodies and objects, the work seeks to shift perspective — to reimagine technology born from conflict as a tool for connection and play. As an artist, I feel it is important to explore how these systems can transform when placed in a different light.",
       "images": [],
       "credits": "Film by Guillaume Versteeg.",
       "link": ""
@@ -511,7 +511,7 @@
       "location": "Brutus, Rotterdam",
       "cover": "media/projects/buy-or-burn/cover.jpg",
       "excerpt": "\"Between Physical and Digital: An Abstract Interpretation of Rotterdam.\" Laser-cut point-cloud data of the city.",
-      "description": "Presented at Brutus, Rotterdam, with No Es Una Galería. This artwork exists at the intersection of the physical and digital, where technology and human intuition merge to create a new visual language.\n\nThe creation began with the urban landscape of Rotterdam, captured through 3D scanning. These scans, transformed into point-cloud data, serve as the foundation for an artistic reinterpretation of the city. A laser cutter — acting as both tool and an agent of chance — introduces a layer of unpredictability, ensuring the result is shaped not only by precision but also by material resistance and machine limitations. This interplay of control and randomness mirrors the tension between order and chaos within the city itself.",
+      "description": "Presented at Brutus, Rotterdam, with No Es Una Galería. This artwork exists at the intersection of the physical and digital, where technology and human intuition merge to create a new visual language.\n> The creation began with the urban landscape of Rotterdam, captured through 3D scanning. These scans, transformed into point-cloud data, serve as the foundation for an artistic reinterpretation of the city. A laser cutter — acting as both tool and an agent of chance — introduces a layer of unpredictability, ensuring the result is shaped not only by precision but also by material resistance and machine limitations. This interplay of control and randomness mirrors the tension between order and chaos within the city itself.",
       "images": [
         "media/projects/buy-or-burn/01.jpg",
         "media/projects/buy-or-burn/02.jpg"
@@ -575,7 +575,7 @@
       "location": "",
       "cover": "media/projects/archive-mirror/cover.jpg",
       "excerpt": "A physical-digital collaboration with painter Santiago Pani — faces from dreams, surfacing and dissolving in light.",
-      "description": "A collaboration with the Mexican painter Santiago Pani. Archive Mirror brings Santiago's expressionist faces — anonymous characters glimpsed in dreams and the subconscious, hovering at the threshold where recognition fades into abstraction — together with my own work in light and point-cloud data.\n\nOn a large luminous panel the faces surface, shift and dissolve, staged within the gothic architecture of a historic church. The work sits between control and chaos, line and stain, the remembered and the imagined. First shown as a try-out in 2025.",
+      "description": "A collaboration with the Mexican painter Santiago Pani. Archive Mirror brings Santiago's expressionist faces — anonymous characters glimpsed in dreams and the subconscious, hovering at the threshold where recognition fades into abstraction — together with my own work in light and point-cloud data.\n> On a large luminous panel the faces surface, shift and dissolve, staged within the gothic architecture of a historic church. The work sits between control and chaos, line and stain, the remembered and the imagined. First shown as a try-out in 2025.",
       "images": [
         "media/projects/archive-mirror/01.jpg",
         "media/projects/archive-mirror/02.jpg",
@@ -599,7 +599,7 @@
       "location": "Grote Kerk, Den Haag",
       "cover": "media/projects/points-of-light/cover.jpg",
       "excerpt": "10 years of research, 14 million data points, 14 laser projectors — the Grote Kerk as a real-time light environment.",
-      "description": "Ten years of research. 14 million data points. 14 laser projectors.\n\nWhat started a decade ago as a research project between Jaco Schilp and Jan Willem Campmans has finally pushed through the technical ceiling, turning the historic Grote Kerk in Den Haag into a real-time data environment. Using TouchDesigner's POP operators, the work runs a full LiDAR 3D scan of the cathedral — 14 million particles calibrated in real time. No pre-renders, no loops: raw architecture translated into light.\n\nVisitors experience the intersection of history and high-performance code — presented in January 2025 in 20-minute cycles, free entry.",
+      "description": "> Ten years of research. 14 million data points. 14 laser projectors.\nWhat started a decade ago as a research project between Jaco Schilp and Jan Willem Campmans has finally pushed through the technical ceiling, turning the historic Grote Kerk in Den Haag into a real-time data environment. Using TouchDesigner's POP operators, the work runs a full LiDAR 3D scan of the cathedral — 14 million particles calibrated in real time. No pre-renders, no loops: raw architecture translated into light.\nVisitors experience the intersection of history and high-performance code — presented in January 2025 in 20-minute cycles, free entry.",
       "images": [
         "media/projects/points-of-light/scan-01.jpg",
         "media/projects/points-of-light/scan-02.jpg",
@@ -798,7 +798,7 @@
       "location": "Museum van Geluid",
       "cover": "media/projects/universum/cover.jpg",
       "excerpt": "A projection-mapped polyhedron — an early sculptural light work for Museum van Geluid.",
-      "description": "Universum is a projection-mapped sculpture: a faceted polyhedron suspended in a darkened hall, its surfaces washed with shifting, marbled light. It hangs like a small planet of projected texture, turning slowly in the dark.\nPresented as part of Museum van Geluid (Museum of Sound) in 2018, it is one of the earliest pieces in this body of light work — an early step toward the immersive, projection-mapped environments that followed.",
+      "description": "> Universum is a projection-mapped sculpture: a faceted polyhedron suspended in a darkened hall, its surfaces washed with shifting, marbled light. It hangs like a small planet of projected texture, turning slowly in the dark.\nPresented as part of Museum van Geluid (Museum of Sound) in 2018, it is one of the earliest pieces in this body of light work — an early step toward the immersive, projection-mapped environments that followed.",
       "images": [
         "media/projects/universum/01.jpg",
         "media/projects/universum/02.jpg"
