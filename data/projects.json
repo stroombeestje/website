@@ -817,6 +817,29 @@
       "link": ""
     },
     {
+      "slug": "hku-graduation-bonanza-2020",
+      "title": "HKU Graduation Bonanza",
+      "year": "2020",
+      "category": "Installation",
+      "categories": [
+        "Installation",
+        "Curated"
+      ],
+      "location": "Public space, Utrecht",
+      "featured": false,
+      "order": 29.5,
+      "role": "Projection",
+      "cover": "media/projects/hku-graduation-bonanza-2020/cover.jpg",
+      "excerpt": "Graduation work by more than 60 HKU students projected across Utrecht, after covid cancelled their exhibition.",
+      "description": "Covid restrictions meant the HKU in Utrecht could not hold a physical graduation exhibition, so we proposed projecting the work through the city instead. What started as a gesture towards the media students was picked up by every faculty, and more than 60 students submitted work. We took it on a projection tour of the public space.\n> A graduation show is a threshold, and that year it had nowhere to happen. Putting the work on the walls of the city gave it an audience that had not come to see art, which is a harder and better audience to have.",
+      "images": [],
+      "videos": [
+        "https://vimeo.com/529930884"
+      ],
+      "credits": "A LiGHT-UP Collective project with the HKU, University of the Arts Utrecht. Graduation work by more than 60 HKU students, projected in the public space of Utrecht, 2020.",
+      "link": ""
+    },
+    {
       "slug": "universum",
       "title": "Universum",
       "year": "2018",
