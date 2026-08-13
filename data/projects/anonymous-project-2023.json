@@ -23,6 +23,6 @@
   "videos": [
     "media/projects/anonymous-project-2023/cube.mp4"
   ],
-  "credits": "Commissioned by Le Guess Who? 2023. Concept, visual system & live operation: Jaco Schilp. Five-projector cube mapping; real-time point cloud from three Kinect depth cameras streamed through TouchDesigner; custom-trained image model with AI upscaling; volumetric 3D in TouchDesigner; live playback in Resolume. Photography: Ward Mevis.",
+  "credits": "Commissioned by Le Guess Who? 2023. Concept, visual system & live operation: Jaco Schilp. Five-projector cube mapping; real-time point cloud from three Kinect depth cameras streamed through TouchDesigner; custom-trained image model with AI upscaling; volumetric 3D in TouchDesigner; live playback in Resolume. Lighting operated from a light desk together with Marc Huizinga. Photography: Ward Mevis.",
   "link": "https://leguesswho.com/lineup/the-anonymous-project"
 }
