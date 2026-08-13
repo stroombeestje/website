@@ -402,10 +402,10 @@
       </div>
       ${p.cover ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>` : ""}
       <div class="wrap">
-        ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
         ${bodyHTML}
-        ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
+        ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
+        ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
         <nav class="project-nav">
           <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
           <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${escTitle(next.title)} →</a>
