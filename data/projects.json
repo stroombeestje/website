@@ -892,6 +892,25 @@
       ],
       "credits": "Projection mapping: Jaco Schilp with LiGHT-UP Collective. Presented during Museumnacht at the Kunsthal Rotterdam, 2017.",
       "link": ""
+    },
+    {
+      "slug": "ncca-nizhny-novgorod-2019",
+      "title": "NCCA Nizhny Novgorod, Museum Night",
+      "year": "2019",
+      "category": "Installation",
+      "featured": false,
+      "order": 29.8,
+      "role": "Projection mapping & workshops",
+      "location": "National Centre for Contemporary Arts, Nizhny Novgorod",
+      "cover": "media/projects/ncca-nizhny-novgorod-2019/cover.jpg",
+      "excerpt": "Invited to Museum Night at the NCCA in Nizhny Novgorod: live drawing workshops by day, projection mapping by night, for over 30,000 visitors.",
+      "description": "For Museum Night 2019 we were invited to the National Centre for Contemporary Arts in Nizhny Novgorod, Russia. During the day we gave live drawing workshops, and at night we mapped the building for more than 30,000 visitors.\n> Working on an unfamiliar building in an unfamiliar city meant reading the architecture from scratch, in a few days, and finding what the facade wanted to do with light before the night began.",
+      "images": [],
+      "videos": [
+        "https://vimeo.com/352289782"
+      ],
+      "credits": "Projection mapping & workshops: LiGHT-UP Collective. Hosted by the NCCA, Nizhny Novgorod, Museum Night 2019. With thanks to Anna Gorokhovskaya, Aeger Smoothie, Anna Gor, Anna Kostyan, Xenia Anoufrieva and technician Alexander.",
+      "link": ""
     }
   ]
 }
