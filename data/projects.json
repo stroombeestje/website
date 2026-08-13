@@ -300,7 +300,7 @@
     {
       "slug": "panorama-utrecht",
       "title": "Panorama Utrecht",
-      "year": "2022",
+      "year": "2022–2023",
       "category": "Installation",
       "featured": true,
       "order": 9,
@@ -308,7 +308,7 @@
       "location": "Stationsplein, Utrecht Centraal · Uncloud",
       "cover": "media/projects/panorama-utrecht/cover.jpg",
       "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, on the Stationsplein for the city's 900th anniversary.",
-      "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal from 1 to 20 October 2022, as part of the city's 900th anniversary. The sculpture was later shown again at Uncloud.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
+      "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal from 1 to 20 October 2022, as part of the city's 900th anniversary. The sculpture was shown again at Uncloud in 2023.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
       "images": [
         "media/projects/panorama-utrecht/01.jpg",
         "media/projects/panorama-utrecht/02.jpg",
@@ -326,7 +326,7 @@
       "videos": [
         "https://vimeo.com/798354360"
       ],
-      "credits": "Design & creation: Jaco Schilp. Artistic concept: Jaco Schilp and Skander Jaïbi. Audio composition: Allert Aalders and Skander Jaïbi. Construction: Sander Grooten, Edwin Schulte, Jaco Schilp, Silvana Hurtd. Technical support: Tjarco van Heese, Cris Mollee, Jelle Grutterink. Conceptual support: Skander Jaïbi, Jasper van den Dobbelsteen. Technical advice & production: Miniprinten, Luxalight, WSV Kunstoffen, DoorDouwe. With the help of Silvana Hurtd, Monique Jansen, Bas van Dolderen, Douwe Hibma, Marc Huizinga, Gerrit Schilp, Tine Liephout, Frances Rompas, Jan Willem Campmans and Juliette Osse. With thanks to Alan Grommers, Tessa van Beekhuizen, Antoon Hardeman and Nick Oomen. Later presented at Uncloud. Made possible by Stichting Uncloud, Gemeente Utrecht, Ondernemersfonds Utrecht, Klépierre, Winkeliersvereniging and Hoog Catharijne. Photography: Paulus van Dorsten.",
+      "credits": "Design & creation: Jaco Schilp. Artistic concept: Jaco Schilp and Skander Jaïbi. Audio composition: Allert Aalders and Skander Jaïbi. Construction: Sander Grooten, Edwin Schulte, Jaco Schilp, Silvana Hurtd. Technical support: Tjarco van Heese, Cris Mollee, Jelle Grutterink. Conceptual support: Skander Jaïbi, Jasper van den Dobbelsteen. Technical advice & production: Miniprinten, Luxalight, WSV Kunstoffen, DoorDouwe. With the help of Silvana Hurtd, Monique Jansen, Bas van Dolderen, Douwe Hibma, Marc Huizinga, Gerrit Schilp, Tine Liephout, Frances Rompas, Jan Willem Campmans and Juliette Osse. With thanks to Alan Grommers, Tessa van Beekhuizen, Antoon Hardeman and Nick Oomen. Presented again at Uncloud, 2023. Made possible by Stichting Uncloud, Gemeente Utrecht, Ondernemersfonds Utrecht, Klépierre, Winkeliersvereniging and Hoog Catharijne. Photography: Paulus van Dorsten.",
       "link": ""
     },
     {
