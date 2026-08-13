@@ -96,6 +96,29 @@
     return `<div class="${cls}"><div class="ph">${esc(title)}</div></div>`;
   }
 
+  // Balance the photo gallery into columns by picture height, so no column runs long.
+  function layoutGallery(el) {
+    if (!el) return;
+    const imgs = [...el.querySelectorAll("img")];
+    if (!imgs.length) return;
+    const n = window.matchMedia("(max-width: 600px)").matches ? 1 : 2;
+    const cols = Array.from({ length: n }, () => []);
+    const tall = new Array(n).fill(0);
+    imgs.forEach((img) => {
+      const ratio = img.naturalWidth ? img.naturalHeight / img.naturalWidth : 0.7;
+      const k = tall.indexOf(Math.min(...tall));
+      cols[k].push(img);
+      tall[k] += ratio;
+    });
+    el.textContent = "";
+    cols.forEach((list) => {
+      const d = document.createElement("div");
+      d.className = "gcol";
+      list.forEach((img) => d.appendChild(img));
+      el.appendChild(d);
+    });
+  }
+
   // Embed a video from a Vimeo/YouTube URL or a local/hosted file path.
   function videoEmbedHTML(src) {
     if (!src) return "";
@@ -381,13 +404,29 @@
       <div class="wrap">
         ${bodyHTML}
         ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
-        ${gallery || extraVideos ? `<div class="project-gallery">${gallery}${extraVideos}</div>` : ""}
+        ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
+        ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         <nav class="project-nav">
           <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
           <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${escTitle(next.title)} →</a>
         </nav>
       </div>`;
     observeReveals(mount);
+
+    // Re-balance once the pictures report their real proportions, and on resize.
+    const gal = mount.querySelector(".project-gallery");
+    if (gal) {
+      const imgs = [...gal.querySelectorAll("img")];
+      let left = imgs.length;
+      const done = () => { if (--left <= 0) layoutGallery(gal); };
+      imgs.forEach((img) => {
+        img.loading = "eager";
+        if (img.complete && img.naturalWidth) done();
+        else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
+      });
+      let t;
+      window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(() => layoutGallery(gal), 200); });
+    }
   }
 
   /* ---- about / contact ---- */

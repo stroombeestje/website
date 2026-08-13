@@ -292,15 +292,22 @@ p { margin: 0 0 1.2em; }
 }
 /* photo gallery — balanced two-column masonry */
 .project-gallery {
-  columns: 2;
-  column-gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
+}
+.project-gallery .gcol {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
 }
 .project-gallery img {
   width: 100%;
-  margin: 0 0 clamp(0.6rem, 1.6vw, 1.1rem);
+  margin: 0;
   background: #e9e7e3;
   display: block;
-  break-inside: avoid;
 }
 
 /* video embeds (Vimeo/YouTube iframe or local <video>) — paired grid */
@@ -333,12 +340,25 @@ p { margin: 0 0 1.2em; }
 /* the first video plays full width, on its own row */
 .project-videos.is-main { grid-template-columns: 1fr; }
 
-/* further clips sit inside the photo gallery and behave like pictures */
-.project-gallery .project-video-file,
-.project-gallery .project-video {
+/* further clips sit under the gallery at picture size, never full bleed */
+.project-clips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
+  align-items: flex-start;
+}
+.project-clips > * {
+  flex: 0 1 clamp(220px, 30vw, 380px);
+  max-width: 380px;
+  min-width: 0;
+  margin: 0;
+}
+.project-clips video {
   width: 100%;
-  margin: 0 0 clamp(0.6rem, 1.6vw, 1.1rem);
-  break-inside: avoid;
+  height: auto;
+  display: block;
+  background: #000;
 }
 
 /* local video files fill their grid cell, natural height */
@@ -350,7 +370,9 @@ p { margin: 0 0 1.2em; }
 }
 
 @media (max-width: 600px) {
-  .project-gallery { columns: 1; }
+  .project-gallery { display: block; }
+  .project-gallery .gcol { gap: clamp(0.6rem, 1.6vw, 1.1rem); }
+  .project-gallery .gcol + .gcol { margin-top: clamp(0.6rem, 1.6vw, 1.1rem); }
 }
 
 .project-nav {
