@@ -339,6 +339,13 @@ p { margin: 0 0 1.2em; }
 
 /* the first video plays full width, on its own row */
 .project-videos.is-main { grid-template-columns: 1fr; }
+/* a portrait film would otherwise run taller than the screen, so cap it and centre it */
+.project-videos.is-main .project-video-file {
+  max-height: 80vh;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
 
 /* further clips sit under the gallery at picture size, never full bleed */
 .project-clips {

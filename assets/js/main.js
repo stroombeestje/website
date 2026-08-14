@@ -106,13 +106,24 @@
     const imgs = [...el.querySelectorAll("img")];
     if (!imgs.length) return;
     const n = window.matchMedia("(max-width: 600px)").matches ? 1 : 2;
+    const ratios = imgs.map((img) => (img.naturalWidth ? img.naturalHeight / img.naturalWidth : 0.7));
+    let pick;
+    if (n === 2 && imgs.length <= 14) {
+      // Small enough to try every split and take the most even one.
+      let best = Infinity;
+      for (let mask = 0; mask < 1 << imgs.length; mask++) {
+        let a = 0, b = 0;
+        for (let i = 0; i < imgs.length; i++) (mask >> i) & 1 ? (b += ratios[i]) : (a += ratios[i]);
+        const gap = Math.abs(a - b);
+        if (gap < best) { best = gap; pick = mask; }
+      }
+    }
     const cols = Array.from({ length: n }, () => []);
     const tall = new Array(n).fill(0);
-    imgs.forEach((img) => {
-      const ratio = img.naturalWidth ? img.naturalHeight / img.naturalWidth : 0.7;
-      const k = tall.indexOf(Math.min(...tall));
+    imgs.forEach((img, i) => {
+      const k = pick !== undefined ? ((pick >> i) & 1) : tall.indexOf(Math.min(...tall));
       cols[k].push(img);
-      tall[k] += ratio;
+      tall[k] += ratios[i];
     });
     el.textContent = "";
     cols.forEach((list) => {
