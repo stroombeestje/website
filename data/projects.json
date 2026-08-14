@@ -380,7 +380,11 @@
         "media/projects/flip-mode/clip.mp4"
       ],
       "credits": "An interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos. Commissioned by Stranded FM and Uncloud for Utrecht 900. Presented at TivoliVredenburg and Orbit Festival. Photography: Juri Hiensch, Paulus van Dorsten and Martijn.",
-      "link": ""
+      "link": "",
+      "categories": [
+        "Installation",
+        "Artwork"
+      ]
     },
     {
       "slug": "circuitry",
