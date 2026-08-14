@@ -356,6 +356,25 @@
       "link": ""
     },
     {
+      "slug": "flip-mode",
+      "title": "flip-mode",
+      "year": "2022–2023",
+      "category": "Installation",
+      "location": "TivoliVredenburg · Orbit Festival · Utrecht",
+      "featured": false,
+      "order": 9.7,
+      "role": "Interactive light work",
+      "cover": "media/projects/flip-mode/cover.jpg",
+      "excerpt": "An interactive light work made with Tijmen Lohmeijer and Merijn Hos, playing with perception and the acceleration of time.",
+      "description": "flip-mode was commissioned by Stranded FM and Uncloud for Utrecht 900, and came out of a residency at Uncloud. It was presented at TivoliVredenburg and at Orbit Festival.\n> flip-mode is an interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos which plays with our perception and the acceleration of time. Not only in terms of day and night, but also in terms of impact on our feelings and emotions.\n> The endless flipping of the shades refers to the repetitive mechanical sounds of nightlife in which time seems to both slow down and accelerate, and maybe even ceases to exist.",
+      "images": [],
+      "videos": [
+        "media/projects/flip-mode/clip.mp4"
+      ],
+      "credits": "An interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos. Commissioned by Stranded FM and Uncloud for Utrecht 900. Presented at TivoliVredenburg and Orbit Festival. Photography: Juri Hiensch and others.",
+      "link": ""
+    },
+    {
       "slug": "circuitry",
       "title": "Circuitry (Live A/V)",
       "year": "2023",
