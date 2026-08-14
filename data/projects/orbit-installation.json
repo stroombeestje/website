@@ -19,5 +19,9 @@
   "videos": [
     "media/projects/orbit-installation/wall.mp4",
     "media/projects/orbit-installation/tracking.mp4"
+  ],
+  "categories": [
+    "Installation",
+    "Artwork"
   ]
 }
