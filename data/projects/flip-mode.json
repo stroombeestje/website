@@ -10,7 +10,15 @@
   "cover": "media/projects/flip-mode/cover.jpg",
   "excerpt": "An interactive light work made with Tijmen Lohmeijer and Merijn Hos, playing with perception and the acceleration of time.",
   "description": "flip-mode was commissioned by Stranded FM and Uncloud for Utrecht 900, and came out of a residency at Uncloud. It was presented at TivoliVredenburg and at Orbit Festival.\n> flip-mode is an interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos which plays with our perception and the acceleration of time. Not only in terms of day and night, but also in terms of impact on our feelings and emotions.\n> The endless flipping of the shades refers to the repetitive mechanical sounds of nightlife in which time seems to both slow down and accelerate, and maybe even ceases to exist.",
-  "images": [],
+  "images": [
+    "media/projects/flip-mode/01.jpg",
+    "media/projects/flip-mode/02.jpg",
+    "media/projects/flip-mode/03.jpg",
+    "media/projects/flip-mode/04.jpg",
+    "media/projects/flip-mode/05.jpg",
+    "media/projects/flip-mode/06.jpg",
+    "media/projects/flip-mode/07.jpg"
+  ],
   "videos": [
     "media/projects/flip-mode/clip.mp4"
   ],
