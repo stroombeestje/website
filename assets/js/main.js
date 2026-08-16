@@ -128,12 +128,29 @@
       if (rows.length && row.length === 1 && ratios[row[0]] < 2) rows[rows.length - 1].push(row[0]);
       else rows.push(row);
     }
+    // Rows may crop at most 10% to sit closer to a shared height. Each row's
+    // ratios are nudged toward the median row, clamped to 0.9..1.1, and the
+    // nudge is applied through aspect-ratio + object-fit so the crop is even.
+    const sums = rows.map((list) => list.reduce((a, i) => a + ratios[i], 0));
+    const perImg = rows.map((list, k) => sums[k] / list.length);
+    const median = [...perImg].sort((a, b) => a - b)[Math.floor(perImg.length / 2)];
     el.textContent = "";
-    rows.forEach((list) => {
+    rows.forEach((list, k) => {
+      // A poster or graphic in the row means the whole row keeps true proportions.
+      const hasNocrop = list.some((i) => imgs[i].dataset.nocrop);
+      const f = hasNocrop ? 1 : Math.min(1.1, Math.max(0.9, (median * list.length) / sums[k]));
       const d = document.createElement("div");
       d.className = "grow";
       list.forEach((i) => {
-        imgs[i].style.flexGrow = ratios[i].toFixed(4);
+        const shown = ratios[i] * f;
+        imgs[i].style.flexGrow = shown.toFixed(4);
+        if (Math.abs(f - 1) > 0.01) {
+          imgs[i].style.aspectRatio = shown.toFixed(4);
+          imgs[i].style.objectFit = "cover";
+        } else {
+          imgs[i].style.aspectRatio = "";
+          imgs[i].style.objectFit = "";
+        }
         d.appendChild(imgs[i]);
       });
       el.appendChild(d);
@@ -398,8 +415,11 @@
         </div>`
       : `<div class="project-body">${infoHTML}${creditsHTML}</div>`;
 
+    // Pictures listed in a project's "nocrop" (posters, graphic work) always
+    // show complete; the layout may never trim them.
+    const nocrop = new Set(p.nocrop || []);
     const gallery = (p.images || [])
-      .map((src) => `<img class="reveal" src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)
+      .map((src) => `<img class="reveal"${nocrop.has(src) ? ` data-nocrop="1"` : ""} src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)
       .join("");
 
     // First video runs full width; any further clips sit in the gallery columns like pictures.
