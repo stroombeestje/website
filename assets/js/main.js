@@ -100,6 +100,46 @@
   const catsOf = (p) =>
     (Array.isArray(p.categories) && p.categories.length ? p.categories : [p.category]).filter(Boolean);
 
+  // Lay the gallery out as justified rows: each row is flush on both sides, and
+  // inside a row every picture keeps its own proportions at a shared height.
+  // flex-grow = aspect ratio does the width math; equal heights follow from it.
+  function layoutGallery(el) {
+    if (!el) return;
+    const imgs = [...el.querySelectorAll("img")];
+    if (!imgs.length) return;
+    const ratios = imgs.map((im) => (im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5));
+    const narrow = window.matchMedia("(max-width: 600px)").matches;
+    // Row targets in "width units" (a landscape ≈ 1.5, a portrait ≈ 0.7).
+    // Alternating between them gives a rhythm of two-picture and three-picture
+    // rows instead of a uniform grid. Phones get single wider rows.
+    const targets = narrow ? [1.9] : [2.9, 4.9];
+    const rows = [];
+    let row = [], sum = 0;
+    const maxPerRow = narrow ? 2 : 3;
+    ratios.forEach((r, i) => {
+      const target = targets[rows.length % targets.length];
+      if (row.length && (sum + r / 2 > target || row.length >= maxPerRow)) {
+        rows.push(row); row = []; sum = 0;
+      }
+      row.push(i); sum += r;
+    });
+    if (row.length) {
+      // A lone leftover would blow up to full width; give it company instead.
+      if (rows.length && row.length === 1 && ratios[row[0]] < 2) rows[rows.length - 1].push(row[0]);
+      else rows.push(row);
+    }
+    el.textContent = "";
+    rows.forEach((list) => {
+      const d = document.createElement("div");
+      d.className = "grow";
+      list.forEach((i) => {
+        imgs[i].style.flexGrow = ratios[i].toFixed(4);
+        d.appendChild(imgs[i]);
+      });
+      el.appendChild(d);
+    });
+  }
+
   // Embed a video from a Vimeo/YouTube URL or a local/hosted file path.
   function videoEmbedHTML(src) {
     if (!src) return "";
@@ -393,6 +433,24 @@
         </nav>
       </div>`;
     observeReveals(mount);
+
+    // Lay out the gallery once the pictures report their proportions, and on resize.
+    const gal = mount.querySelector(".project-gallery");
+    if (gal) {
+      const imgs = [...gal.querySelectorAll("img")];
+      let left = imgs.length;
+      const done = () => { if (--left <= 0) layoutGallery(gal); };
+      imgs.forEach((img) => {
+        img.loading = "eager";
+        if (img.complete && img.naturalWidth) done();
+        else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
+      });
+      let wasNarrow = window.matchMedia("(max-width: 600px)").matches;
+      window.addEventListener("resize", () => {
+        const narrow = window.matchMedia("(max-width: 600px)").matches;
+        if (narrow !== wasNarrow) { wasNarrow = narrow; layoutGallery(gal); }
+      });
+    }
   }
 
   /* ---- about / contact ---- */

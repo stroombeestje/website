@@ -290,30 +290,23 @@ p { margin: 0 0 1.2em; }
   font-size: 1.05rem;
   line-height: 1.7;
 }
-/* photo gallery — an even grid, so every edge lines up and no gaps are left over */
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/* photo gallery — justified rows: nothing cropped, every row flush left and right.
+   Widths inside a row are set by flex-grow = aspect ratio, which makes all heights
+   in the row equal automatically. */
+.project-gallery .grow {
+  display: flex;
+  align-items: flex-start;
   gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
 }
-.project-gallery > * {
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background: #e9e7e3;
-  margin: 0;
+.project-gallery .grow img {
+  flex: 1 1 0;
   min-width: 0;
-}
-.project-gallery img,
-.project-gallery video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  margin: 0;
+  background: #e9e7e3;
   display: block;
-}
-/* an odd one out runs the full width instead of leaving a hole beside it */
-.project-gallery > *:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  aspect-ratio: 3 / 1;
 }
 
 /* video embeds (Vimeo/YouTube iframe or local <video>) — paired grid */
@@ -389,9 +382,7 @@ p { margin: 0 0 1.2em; }
 }
 
 @media (max-width: 600px) {
-  .project-gallery,
   .project-clips { grid-template-columns: 1fr; }
-  .project-gallery > *:last-child:nth-child(odd),
   .project-clips > *:last-child:nth-child(odd) { aspect-ratio: 3 / 2; }
 }
 
