@@ -444,10 +444,10 @@
       "location": "Museum De Voorde, Zoetermeer",
       "featured": false,
       "order": 9.8,
-      "role": "Exhibition design, light & interaction",
+      "role": "Exhibition & light design, sensor system",
       "cover": "media/projects/zoetermeer-exhibition-design/cover.jpg",
-      "excerpt": "Exhibition design with light and interaction for Respect! Perspectieven in de hedendaagse kunst, at Museum De Voorde in Zoetermeer.",
-      "description": "Respect! Perspectieven in de hedendaagse kunst ran at Museum De Voorde in Zoetermeer from 5 February to 2 October 2022. The museum has since closed. Eighteen Dutch artists worked to the theme of respect, among them Rob Sweere, Frode Bolhuis, Marjolijn Mandersloot, Tobias Becker Hoff and spoken word artist Amara van der Elst. I made the exhibition design, with light and interaction carrying the route through the rooms rather than sitting on top of the work.\n> Designing an exhibition is deciding what a visitor meets first, and what they are still carrying when they reach the last room. Light does that quietly: it sets the order in which things are seen.\n> The building is gone as a museum now, which makes the design a record of a route nobody can walk again.",
+      "excerpt": "A sensor-driven light design for Respect!, where each work stays dark until someone comes close enough to look at it.",
+      "description": "Respect! Perspectieven in de hedendaagse kunst ran at Museum De Voorde in Zoetermeer from 5 February to 2 October 2022. The museum has since closed. Eighteen Dutch artists worked to the theme of respect, among them Rob Sweere, Frode Bolhuis, Marjolijn Mandersloot, Tobias Becker Hoff and spoken word artist Amara van der Elst.\nI made the exhibition and light design. Every work had its own sensor: the light came up as a visitor approached and went out again when they left, so the room was only ever lit where somebody was actually looking.\n> The theme was respect, so the light had to be asked for rather than given. Nothing is lit until you walk up to it, and it goes dark again behind you. Paying attention is what switches the work on.\n> It also means the room reads the crowd. On a busy afternoon the whole space is alive; late in the day a single visitor moves through it as one travelling pool of light.",
       "images": [
         "media/projects/zoetermeer-exhibition-design/01.jpg",
         "media/projects/zoetermeer-exhibition-design/02.jpg",
@@ -461,7 +461,7 @@
         "media/projects/zoetermeer-exhibition-design/10.jpg"
       ],
       "videos": [],
-      "credits": "Exhibition design, light and interaction: Jaco Schilp. Respect! Perspectieven in de hedendaagse kunst, Museum De Voorde, Zoetermeer, since closed, 5 February to 2 October 2022, with eighteen Dutch artists.",
+      "credits": "Exhibition design, light design and sensor system: Jaco Schilp. Motion sensors driving DMX, one per work. Respect! Perspectieven in de hedendaagse kunst, Museum De Voorde, Zoetermeer, since closed, 5 February to 2 October 2022, with eighteen Dutch artists.",
       "link": ""
     },
     {
