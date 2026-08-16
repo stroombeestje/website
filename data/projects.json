@@ -548,6 +548,44 @@
       "link": ""
     },
     {
+      "slug": "van-gogh-museum",
+      "title": "Van Gogh Museum",
+      "year": "2023",
+      "category": "Installation",
+      "categories": [
+        "Installation",
+        "Live Show"
+      ],
+      "location": "Van Gogh Museum, Amsterdam",
+      "featured": false,
+      "order": 12.8,
+      "role": "Visuals & projection",
+      "cover": "media/projects/van-gogh-museum/cover.jpg",
+      "excerpt": "A projection on the Van Gogh Museum made with Skander Jaïbi and Cris Mollee, built from the museum's own digital files of the paintings.",
+      "description": "Together with Skander Jaïbi and Cris Mollee I made the visuals for a projection on the Van Gogh Museum in Amsterdam. We worked from the museum collection's own digital files of Vincent van Gogh's paintings and processed them in TouchDesigner, then put them back on the building for the crowd outside.\n> Working from the museum's own scans means starting where the paintings already are: flat, lit evenly, measured. Putting them on the outside of the building at that scale gives them weather and a crowd again, which is closer to how they were made than how they are hung.",
+      "images": [
+        "media/projects/van-gogh-museum/01.jpg",
+        "media/projects/van-gogh-museum/02.jpg",
+        "media/projects/van-gogh-museum/03.jpg",
+        "media/projects/van-gogh-museum/04.jpg",
+        "media/projects/van-gogh-museum/05.jpg",
+        "media/projects/van-gogh-museum/06.jpg",
+        "media/projects/van-gogh-museum/07.jpg",
+        "media/projects/van-gogh-museum/08.jpg",
+        "media/projects/van-gogh-museum/09.jpg",
+        "media/projects/van-gogh-museum/10.jpg",
+        "media/projects/van-gogh-museum/11.jpg",
+        "media/projects/van-gogh-museum/12.jpg",
+        "media/projects/van-gogh-museum/13.jpg",
+        "media/projects/van-gogh-museum/14.jpg",
+        "media/projects/van-gogh-museum/15.jpg",
+        "media/projects/van-gogh-museum/16.jpg"
+      ],
+      "videos": [],
+      "credits": "Visuals: Jaco Schilp, Skander Jaïbi and Cris Mollee. Built in TouchDesigner from the museum collection's digital files of Van Gogh's paintings. Van Gogh Museum, Amsterdam, 2023.",
+      "link": ""
+    },
+    {
       "slug": "byob-utrecht-citytour",
       "title": "BYOB Utrecht Citytour",
       "year": "2020",
