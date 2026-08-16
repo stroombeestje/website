@@ -406,13 +406,13 @@
       "title": "Aquí y Ahora",
       "year": "2024",
       "category": "Artwork",
-      "featured": false,
+      "featured": true,
       "order": 9.6,
       "role": "Artist",
       "location": "Arthouse Pani, Tequisquiapan, Mexico",
       "cover": "media/projects/aqui-y-ahora/cover.jpg",
       "excerpt": "A month in the Mexican desert, scanning nopal, agave and maguey and cutting the point clouds into wood, plexiglas and metal.",
-      "description": "A month long residency at Arthouse Pani in Tequisquiapan, with twelve artists from around the world, curated by Santiago Pani. The show that closed it was called Aquí y Ahora.\nI scanned the plants of the high desert around the house and turned the point clouds into physical work. One series is laser cut into white painted wood and into black plexiglas, each piece set in a frame with a light behind it, so the cloud reads as depth rather than as a picture. A second series is acid etched into brass, aluminium and copper, and every bath in the acid was printed onto paper before the next one went in, so the plate and its own history hang side by side. Titles follow the plants: Nopal, Agave, Maguey, Suculenta.\nEspíritu de Nopal, a laser engraved oil painting on panel of 150 by 120 cm, was made together with Daniel Martin.\n> The point cloud has been my material since LiDAR Utrecht: a way of holding a thing as measurement rather than as image. In Mexico the subject changed and the method held. A nopal scanned at close range is a dense, bristling mass of coordinates, and cutting that mass into brass or into wood makes it a body again, something with an edge and a weight and a shadow. The acid does the last part of the work on its own, and I stopped it when it had said enough.",
+      "description": "A month long residency at Arthouse Pani in Tequisquiapan, with twelve artists from around the world, curated by Santiago Pani. The show that closed it was called Aquí y Ahora.\nI scanned the plants of the high desert around the house and turned the point clouds into physical work. One series is laser cut into white painted wood and into black plexiglas, each piece set in a frame with a light behind it, so the cloud reads as depth rather than as a picture. A second series is acid etched into brass, aluminium and copper, and every bath in the acid was printed onto paper before the next one went in, so the plate and its own history hang side by side. Titles follow the plants: Nopal, Agave, Maguey, Suculenta.\nEspíritu de Nopal, a laser engraved oil painting on panel of 150 by 120 cm, was made together with Daniel Martin.\nThe editions belong to the same point cloud body of work as 11.1 Rotterdam and LiDAR Utrecht.\n> The point cloud has been my material since LiDAR Utrecht: a way of holding a thing as measurement rather than as image. In Mexico the subject changed and the method held. A nopal scanned at close range is a dense, bristling mass of coordinates, and cutting that mass into brass or into wood makes it a body again, something with an edge and a weight and a shadow. The acid does the last part of the work on its own, and I stopped it when it had said enough.",
       "images": [
         "media/projects/aqui-y-ahora/01.jpg",
         "media/projects/aqui-y-ahora/02.jpg",
@@ -449,7 +449,15 @@
         "media/projects/aqui-y-ahora/33.jpg",
         "media/projects/aqui-y-ahora/34.jpg",
         "media/projects/aqui-y-ahora/35.jpg",
-        "media/projects/aqui-y-ahora/36.jpg"
+        "media/projects/aqui-y-ahora/36.jpg",
+        "media/projects/aqui-y-ahora/37.jpg",
+        "media/projects/aqui-y-ahora/38.jpg",
+        "media/projects/aqui-y-ahora/39.jpg",
+        "media/projects/aqui-y-ahora/40.jpg",
+        "media/projects/aqui-y-ahora/41.jpg",
+        "media/projects/aqui-y-ahora/42.jpg",
+        "media/projects/aqui-y-ahora/43.jpg",
+        "media/projects/aqui-y-ahora/44.jpg"
       ],
       "videos": [],
       "credits": "Laser cut and acid etched point cloud works: Jaco Schilp. Espíritu de Nopal made with Daniel Martin. Residency and exhibition at Arthouse Pani, Tequisquiapan, curated by Santiago Pani, 2024.",
@@ -989,35 +997,6 @@
       ],
       "credits": "",
       "link": ""
-    },
-    {
-      "slug": "point-cloud-editions",
-      "title": "Point Cloud Editions",
-      "year": "2024",
-      "category": "Artwork",
-      "featured": true,
-      "order": 24,
-      "role": "Artist",
-      "location": "Arthouse Pani, Tequisquiapan, Mexico",
-      "cover": "media/projects/point-cloud-editions/cover.jpg",
-      "excerpt": "Laser-cut 3D point-cloud editions of Mexican flora, made on residency in Tequisquiapan.",
-      "description": "A series of laser-cut 3D point-cloud editions made during a residency at Arthouse Pani in Tequisquiapan, Mexico, and shown in the group exhibition Aquí y Ahora (Here and Now), curated by Santiago Pani.\n\n> Local flora such as succulents, agave, nopal and maguey is 3D-scanned and translated into point-cloud data, then laser-cut into wood, black plexiglas, white-painted wood, brass and aluminium, each piece mounted in a backlit frame. The series extends into acid-etched metal works and the paper prints pulled from each acid bath, part of the same point-cloud body of work as 11.1 Rotterdam.",
-      "images": [
-        "media/projects/point-cloud-editions/01.jpg",
-        "media/projects/point-cloud-editions/02.jpg",
-        "media/projects/point-cloud-editions/03.jpg",
-        "media/projects/point-cloud-editions/04.jpg",
-        "media/projects/point-cloud-editions/05.jpg",
-        "media/projects/point-cloud-editions/06.jpg",
-        "media/projects/point-cloud-editions/07.jpg",
-        "media/projects/point-cloud-editions/08.jpg"
-      ],
-      "videos": [],
-      "credits": "Techniques: laser-cut 3D point-cloud data in wood, black plexiglas, brass and aluminium with backlit frames; acid-etched metal editions and process prints. Shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan, curated by Santiago Pani.",
-      "link": "https://www.arthouseholland.com/aquiyahora",
-      "nocrop": [
-        "media/projects/point-cloud-editions/01.jpg"
-      ]
     },
     {
       "slug": "3fm-awards",
