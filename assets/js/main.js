@@ -207,10 +207,11 @@
       return `<div class="project-video-ig"><iframe src="https://www.instagram.com/reel/${m[1]}/embed/" scrolling="no" allowtransparency="true" loading="lazy"></iframe></div>`;
     }
     if (/\.(mp4|webm|mov|m4v)(\?|$)/i.test(s)) {
-      // Always give a poster and never preload: without one the browser paints a
-      // stale frame from whatever it decoded last, which looks like the previous
-      // project's film sitting on this page until you press play.
-      const pf = poster ? ` poster="${asset(esc(poster))}"` : "";
+      // Every hosted film has a poster frame taken from itself, sitting beside it
+      // as the same name with a .jpg extension. Without a poster the browser
+      // paints a stale frame from whatever it decoded last, which looks like the
+      // previous project's film; with the project cover it was the wrong shape.
+      const pf = ` poster="${asset(esc(s.replace(/\.(mp4|webm|mov|m4v)(\?|$)/i, ".jpg")))}"`;
       return `<video class="project-video-file" controls preload="none" playsinline${pf} src="${asset(esc(s))}"></video>`;
     }
     return "";
