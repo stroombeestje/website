@@ -10,7 +10,16 @@
   "cover": "media/projects/lelys-droom/cover.jpg",
   "excerpt": "An immersive experience in the Oosterlanderkerk built around rediscovered recordings of Cornelis Lely, made exactly a hundred years earlier.",
   "description": "Lely's Droom is a fifteen minute immersive experience in the Oosterlanderkerk in Oosterland on Wieringen, made by LiGHT-UP Collective and Jan Willem Campmans for Erfgoedspektakel and shown through May 2025, with Tristan Gieler and me on the content. The church stands a short distance from the Afsluitdijk, which is the subject of the piece.\nIt starts from rediscovered sound recordings that Cornelis Lely made in May 1925, exactly a hundred years before the piece was shown. He speaks to whoever is still interested in his dream a century later, appearing in the church as a life size animated figure, voiced by Rik Rikken. Projection and light carry his story: the first plans from 1848, the years of rejection, the flood of January 1916 that killed twenty one people on land and thirty two more at sea, the Zuiderzeewet of 1918, the Amsteldiepdijk built to learn on, the Wieringen boulder clay that finally held, and the Afsluitdijk itself.\nLely died at his desk in January 1929 and never saw the work finished.\nI made a full 3D scan of the church and projected it back onto its own geometry with my point cloud system in TouchDesigner, driving the points with displacement so the building itself starts to move like water. Between the shows the space held an idle state running on a soundscape I made for it.\n> Scanning the church and projecting it back onto itself means the building is both the screen and the subject. Push displacement into those points and the stone begins to move like water, which is the whole argument of the piece in one gesture: the land here is only ever borrowed from the sea.\n> Water is always moving, so waterworks are never finished. That is Lely's own line, and it is the reason the piece is addressed forward rather than back: he is not being commemorated, he is asking what we are doing with the problem now.",
-  "images": [],
+  "images": [
+    "media/projects/lelys-droom/01.jpg",
+    "media/projects/lelys-droom/02.jpg",
+    "media/projects/lelys-droom/03.jpg",
+    "media/projects/lelys-droom/04.jpg",
+    "media/projects/lelys-droom/05.jpg",
+    "media/projects/lelys-droom/06.jpg",
+    "media/projects/lelys-droom/07.jpg",
+    "media/projects/lelys-droom/08.jpg"
+  ],
   "videos": [
     "media/projects/lelys-droom/film.mp4"
   ],
