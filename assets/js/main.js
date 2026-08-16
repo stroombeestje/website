@@ -112,15 +112,17 @@
     // Row targets in "width units" (a landscape ≈ 1.5, a portrait ≈ 0.7).
     // Alternating between them gives a rhythm of two-picture and three-picture
     // rows instead of a uniform grid. Phones get single wider rows.
-    const targets = narrow ? [1.9] : [2.9, 4.9];
+    // Pairs are the rule: calm and even beats a varied rhythm. A third picture
+    // only joins when the pair is narrow enough that three genuinely fit
+    // better than two. "galleryRows": 2 in a project pins strict pairs.
+    const pinned = parseInt(el.dataset.rows || "", 10) || 0;
     const rows = [];
     let row = [], sum = 0;
-    const maxPerRow = narrow ? 2 : 3;
     ratios.forEach((r, i) => {
-      const target = targets[rows.length % targets.length];
-      if (row.length && (sum + r / 2 > target || row.length >= maxPerRow)) {
-        rows.push(row); row = []; sum = 0;
-      }
+      const full = narrow || pinned === 2
+        ? row.length >= 2
+        : row.length >= 3 || (row.length === 2 && sum >= 2.4);
+      if (row.length && full) { rows.push(row); row = []; sum = 0; }
       row.push(i); sum += r;
     });
     if (row.length) {
@@ -446,7 +448,7 @@
         ${bodyHTML}
         ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
-        ${gallery ? `<div class="project-gallery">${gallery}</div>` : ""}
+        ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
         <nav class="project-nav">
           <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
           <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${escTitle(next.title)} →</a>
