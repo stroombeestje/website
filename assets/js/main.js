@@ -421,7 +421,7 @@
       mount.innerHTML = `<div class="wrap"><p class="lead">Project not found.</p><p><a href="${ROOT}work.html">← Back to work</a></p></div>`;
       return;
     }
-    document.title = `${p.title} · Jaco Schilp`;
+    document.title = `${p.title} · Studio Schilp`;
 
     const fact = (label, val) =>
       val ? `<div><div class="fact-label">${esc(label)}</div><div class="fact-value">${esc(val)}</div></div>` : "";
