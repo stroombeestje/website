@@ -115,7 +115,7 @@
       "slug": "jacobikerk-le-guess-who",
       "title": "Jacobikerk at Le Guess Who?",
       "year": "2022",
-      "category": "Curated",
+      "category": "Live Show",
       "featured": true,
       "order": 4,
       "role": "Light design, immersive projection & live operation",
@@ -136,7 +136,11 @@
         "media/projects/jacobikerk-le-guess-who/10.jpg"
       ],
       "credits": "Light design & projection: Jaco Schilp, with Skander Jaïbi and Cris Mollee. Presented with Uncloud at Le Guess Who? 2022, Jacobikerk, Utrecht. Photography: Paulus van Dorsten.",
-      "link": ""
+      "link": "",
+      "categories": [
+        "Live Show",
+        "Installation"
+      ]
     },
     {
       "slug": "uncloud-lgw-2022",
