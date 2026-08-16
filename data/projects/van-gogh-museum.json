@@ -1,6 +1,6 @@
 {
   "slug": "van-gogh-museum",
-  "title": "Van Gogh Museum",
+  "title": "Vincent op Vrijdag, 50 jaar Van Gogh Museum",
   "year": "2023",
   "category": "Installation",
   "categories": [
@@ -12,8 +12,8 @@
   "order": 12.8,
   "role": "Visuals & content",
   "cover": "media/projects/van-gogh-museum/cover.jpg",
-  "excerpt": "An LED wall at the Van Gogh Museum, made with Skander Jaïbi and Cris Mollee from the museum's own digital files of the paintings.",
-  "description": "Together with Skander Jaïbi and Cris Mollee I made the visuals for a large LED wall at the Van Gogh Museum in Amsterdam. We worked from the museum collection's own digital files of Vincent van Gogh's paintings and processed them in TouchDesigner, running them on the wall for the crowd outside.\n> Working from the museum's own scans means starting where the paintings already are: flat, lit evenly, measured. Putting them back outside at that scale gives them weather and a crowd again, which is closer to how they were made than how they are hung.",
+  "excerpt": "An LED wall for the museum's fiftieth birthday night, built with Skander Jaïbi and Cris Mollee from the collection's own digital files of the paintings.",
+  "description": "Vincent op Vrijdag: 50 jaar Van Gogh Museum, an evening from 19:00 to 23:30 marking the museum's fiftieth birthday, with music, dance, film and storytelling through the building, and the Van Gogh in Auvers exhibition open free all night.\nTogether with Skander Jaïbi and Cris Mollee I made the visuals for the large LED wall outside. We worked from the museum collection's own digital files of Vincent van Gogh's paintings and processed them in TouchDesigner, running them on the wall through the evening as the crowd gathered.\n> Working from the museum's own scans means starting where the paintings already are: flat, lit evenly, measured. Putting them back outside at that scale gives them weather and a crowd again, which is closer to how they were made than how they are hung.\n> The night was built around the same question as the wall: after fifty years, what does the next fifty look like, and what is a museum for.",
   "images": [
     "media/projects/van-gogh-museum/01.jpg",
     "media/projects/van-gogh-museum/02.jpg",
@@ -33,6 +33,6 @@
     "media/projects/van-gogh-museum/16.jpg"
   ],
   "videos": [],
-  "credits": "Visuals: Jaco Schilp, Skander Jaïbi and Cris Mollee. Built in TouchDesigner from the museum collection's digital files of Van Gogh's paintings, shown on a large LED wall. Van Gogh Museum, Amsterdam, 2023.",
+  "credits": "Visuals: Jaco Schilp, Skander Jaïbi and Cris Mollee. Built in TouchDesigner from the museum collection's digital files of Van Gogh's paintings, shown on a large LED wall. Part of Vincent op Vrijdag: 50 jaar Van Gogh Museum, Amsterdam, 2023, an evening programme with Nnelg, Rens, Jaïr & Ome Uncle, ISH Dance Collectief, storytelling collective Mezrab, a film programme with Lab 111, and DJ sets by Fatima Ferrari, Donn Stone and DJ Dey.Rey.",
   "link": ""
 }
