@@ -372,6 +372,26 @@
       ]
     },
     {
+      "slug": "lidar-utrecht-60",
+      "title": "LiDAR Utrecht 60×60, first series",
+      "year": "",
+      "category": "Artwork",
+      "featured": false,
+      "order": 9.4,
+      "role": "Artist",
+      "location": "Utrecht",
+      "cover": "",
+      "excerpt": "The first LiDAR Utrecht series, 60 by 60 cm, made and shown before the 30×30 physical NFTs.",
+      "description": "The first of the two LiDAR Utrecht series, at 60 by 60 cm. It was made and presented before the 30×30 physical NFT series.",
+      "images": [],
+      "videos": [],
+      "credits": "",
+      "link": "",
+      "categories": [
+        "Artwork"
+      ]
+    },
+    {
       "slug": "lidar-utrecht",
       "title": "LiDAR Utrecht, physical NFT series",
       "year": "2022",
@@ -382,7 +402,7 @@
       "location": "Creative Coding Utrecht · NAR Café der Kunsten, Utrecht",
       "cover": "media/projects/lidar-utrecht/cover.jpg",
       "excerpt": "A series of light sculptures that translate raw LiDAR point clouds of Utrecht landmarks into laser-cut, backlit wood.",
-      "description": "> On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nEach piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points, and every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it, exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.\nThe series was first shown in Math Expressionism, an exhibition of work by the international community of creative coders, presented by Creative Coding Utrecht at NAR Café der Kunsten. Alongside the work the programme ran workshops and discussions on NFTs, where makers shared their experience of communities like Hic et Nunc and Artblocks, and the controversies around them.",
+      "description": "> On the interface between the physical world and cyberspace, I make art that brings the two universes together. The LiDAR series interprets raw aerial LiDAR data of Utrecht into physical objects: point clouds of the city's landmarks engraved by laser into wood and lit from within by LED, framed in aluminium.\nThis is the second of the two LiDAR Utrecht series, following the earlier works at 60 by 60 cm. Each piece is 300×300mm and captures a single Utrecht location from a chosen perspective in 3D space. Up close the buildings dissolve into thousands of luminous points, and every wall becomes light. The first five works in the series are Tivoli Vredenburg (5.1), the Stadskantoor (5.2), the Neude library (5.3), the windmill on the Adelaarstraat (5.4), and the Nijverheid / Havenloods (5.6).\nPresented as “physical NFTs”, each sculpture is paired with a digital token that registers it, exploring the boundary between digital and physical art, and the shifting role of accessibility and ownership in a digitalising world.\nThe series was first shown in Math Expressionism, an exhibition of work by the international community of creative coders, presented by Creative Coding Utrecht at NAR Café der Kunsten. Alongside the work the programme ran workshops and discussions on NFTs, where makers shared their experience of communities like Hic et Nunc and Artblocks, and the controversies around them.",
       "images": [
         "media/projects/lidar-utrecht/01.jpg",
         "media/projects/lidar-utrecht/02.jpg",
