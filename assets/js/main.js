@@ -448,13 +448,19 @@
     // Pictures listed in a project's "nocrop" (posters, graphic work) always
     // show complete; the layout may never trim them.
     const nocrop = new Set(p.nocrop || []);
-    const gallery = (p.images || [])
+    // With the film on top, a project can ask for its cover picture in the grid.
+    const galleryImgs = (p.coverInGrid && p.cover ? [p.cover] : []).concat(p.images || []);
+    const gallery = galleryImgs
       .map((src) => `<img class="reveal"${nocrop.has(src) ? ` data-nocrop="1"` : ""} src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)
       .join("");
 
-    // First video runs full width; any further clips sit in the gallery columns like pictures.
+    // The main film takes the cover's place at the top of the page; the cover
+    // survives as the film's poster frame (and in the grid when asked for).
     const vids = (p.videos || []).map(videoEmbedHTML).filter(Boolean);
-    const mainVideo = vids[0] || "";
+    let mainVideo = vids[0] || "";
+    if (mainVideo && p.cover) {
+      mainVideo = mainVideo.replace("<video ", `<video poster="${asset(esc(p.cover))}" `);
+    }
     const extraVideos = vids.slice(1).join("");
 
     const prev = projects[(idx - 1 + projects.length) % projects.length];
@@ -471,10 +477,13 @@
           ${p.link ? `<div><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
         </div>
       </div>
-      ${p.cover ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>` : ""}
+      ${mainVideo
+        ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
+        : p.cover
+        ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>`
+        : ""}
       <div class="wrap">
         ${bodyHTML}
-        ${mainVideo ? `<div class="project-videos is-main">${mainVideo}</div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
         <nav class="project-nav">
