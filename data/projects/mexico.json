@@ -1,15 +1,15 @@
 {
   "slug": "mexico",
-  "title": "Mexico Point Clouds",
-  "year": "",
+  "title": "Mexico City Point Clouds",
+  "year": "2024–ongoing",
   "category": "Artwork",
   "featured": true,
   "order": 23,
   "role": "Artist",
   "location": "Mexico City",
   "cover": "media/projects/mexico/cover.jpg",
-  "excerpt": "Iconic Mexican architecture captured and dissolved into luminous 3D point clouds.",
-  "description": "An ongoing series translating iconic Mexican architecture into light. Through 3D scanning and point-cloud data, landmarks such as the Palacio de Bellas Artes in Mexico City are dissolved into millions of luminous points. Buildings rebuilt from data, hovering between the physical and the digital.",
+  "excerpt": "Scanning Mexico City myself, and finding out what the buildings become once they are only measurement and light.",
+  "description": "Ongoing research in Mexico City, built from my own LiDAR scans rather than from open aerial data. I walk the buildings and scan them at close range, so the cloud carries the position I stood in, what the scanner could see from there and what it could not.\nLandmarks such as the Palacio de Bellas Artes come back as millions of points, dense where I stayed and thin where I passed.\n> This one is research, not an edition series. Scanning a city yourself is slower and more partial than taking the data from the air, and that partiality is the point: what you get is not the building, it is the record of an encounter with it.",
   "images": [
     "media/projects/mexico/01.jpg",
     "media/projects/mexico/02.jpg"
@@ -17,6 +17,9 @@
   "videos": [
     "media/projects/mexico/clip.mp4"
   ],
-  "credits": "",
-  "link": ""
+  "credits": "Own LiDAR scans, point cloud work and rendering: Jaco Schilp. Mexico City.",
+  "link": "",
+  "categories": [
+    "Artwork"
+  ]
 }
