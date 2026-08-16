@@ -284,7 +284,20 @@
       "cover": "media/projects/data-utan/cover.jpg",
       "excerpt": "An ongoing festival and exhibition platform for art and media in Mexico City, co-founded with Alejandra Metztli.",
       "description": "Data Uotan is an ongoing festival and exhibition platform for art and media in Mexico City, which I co-founded and co-direct with Alejandra Metztli. It brings Dutch and Mexican artists together around installation, light, sound and performance, and it is the context in which my work Ka'An was first shown.\n2024, Tlal-tech-utli. The first festival edition ran from 15 to 18 August at No Es Una Galería, curated by Gabriela Groso and Alejandra Metztli, and won the open call of the Dutch embassy in Mexico. The title plays the word technology against Tlaltecuhtli, the Aztec deity who gives life and death to all living things, devouring bodies and holding them so their souls can travel on to Mictlán. Through painting, sculpture, music and performance it amplified voices from both countries. The programme included Shapes by Gabriela Groso, Alejandra Metztli and Yara Saïd, Sonic Reveries: A Temporal Collage by Noise Diva, and The Absence of Metamorphosis by Lisette Ros.\n2026, Art Week. In February Data Uotan returned for Mexico City Art Week at Apricot on Álvaro Obregón, curated by Alejandra Metztli, with work by Santiago Pani, Gabriela Groso, Jimena Ramos, Ricardo Saga, Harmke Datema Chang, J. Rivas, Aycanija, 11v151131_m06 and me.\n> Mexico City has become a second home for my practice: every return brings a new rhythm, a new kind of chaos, and a deep connection with its artistic community.",
-      "images": [],
+      "images": [
+        "media/projects/data-utan/01.jpg",
+        "media/projects/data-utan/02.jpg",
+        "media/projects/data-utan/03.jpg",
+        "media/projects/data-utan/04.jpg",
+        "media/projects/data-utan/05.jpg",
+        "media/projects/data-utan/06.jpg",
+        "media/projects/data-utan/07.jpg",
+        "media/projects/data-utan/08.jpg",
+        "media/projects/data-utan/09.jpg",
+        "media/projects/data-utan/10.jpg",
+        "media/projects/data-utan/11.jpg",
+        "media/projects/data-utan/12.jpg"
+      ],
       "videos": [
         "media/projects/data-utan/film.mp4",
         "media/projects/data-utan/clip-1.mp4",
@@ -293,7 +306,10 @@
         "media/projects/data-utan/clip-4.mp4"
       ],
       "credits": "Data Uotan, co-founded and co-directed by Jaco Schilp and Alejandra Metztli. 2024 edition at No Es Una Galería, Mexico City, curated by Gabriela Groso and Alejandra Metztli, supported by the Embassy of the Kingdom of the Netherlands in Mexico. 2026 Art Week edition at Apricot, Mexico City, curated by Alejandra Metztli.",
-      "link": "https://www.instagram.com/data.uotan/"
+      "link": "https://www.instagram.com/data.uotan/",
+      "nocrop": [
+        "media/projects/data-utan/11.jpg"
+      ]
     },
     {
       "slug": "momentum",
