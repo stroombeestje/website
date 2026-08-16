@@ -692,7 +692,7 @@
       "location": "Maravilla Studios, Mexico City",
       "cover": "media/projects/mutek-circle-of-live/cover.jpg",
       "excerpt": "An immersive real-time visual environment for the four-hour Circle of Live session at MUTEK Mexico 2025.",
-      "description": "For the four-hour Circle of Live session at MUTEK MX 21 (October 2025), I created an immersive visual and light environment in Hall A of Maravilla Studios, Mexico City, together with Pavel Zmuchila and choreographer Alejandra Metztli.\n\nUsing TouchDesigner for real-time image generation and four LiDAR scanners placed around the venue, pre-recorded 3D scans of the city were brought to life. That data was captured by cycling through Mexico City on an Ecobici with cameras attached, from the Angel of Independence to Roma and Chapultepec. The digital content was always enriched by what was physically happening on stage, creating perspectives impossible with a traditional camera.\n\n> The circular set placed eight dancer platforms around a central space of screens, light and live visuals; Metztli's Butoh choreography drew on natural elements like fog, rain and lightning, turning the room into a theatrical, performative environment.",
+      "description": "For the four-hour Circle of Live session at MUTEK MX 21 in October 2025, I made the real-time visuals and light environment in Hall A of Maravilla Studios, Mexico City, with multimedia artist and lighting designer Pavel Zmuchila and choreographer Alejandra Metztli.\nThe images ran in TouchDesigner off my own LiDAR scans of the city, captured over a day of cycling an Ecobici with cameras strapped to it, along Reforma and through Roma and Chapultepec. Four more LiDAR scanners stood around the venue during the show, so the pre-recorded city and the live room fed the same system. Pavel drove the light from a GrandMA desk blended with TouchDesigner bitmaps for the pixel fixtures, everything merged into one DMX output.\n> Eight dancer platforms circled the musicians, and Metztli's Butoh choreography followed natural elements and the Fibonacci spiral. The rule we set ourselves was never to overload the senses: when the dancers led, the visuals softened; when the music rose, the light took the room.\n> Working from scanned data means the city is already in the machine before the night starts. What the evening decides is which parts of it come back, and from an angle no camera could have stood in.",
       "images": [
         "media/projects/mutek-circle-of-live/01.jpg",
         "media/projects/mutek-circle-of-live/02.jpg",
@@ -707,7 +707,7 @@
         "media/projects/mutek-circle-of-live/11.jpg",
         "media/projects/mutek-circle-of-live/12.jpg"
       ],
-      "credits": "Visuals & light: Studio Schilp, with Pavel Zmuchila. Choreography: Alejandra Metztli. Part of Circle of Live (incl. Sebastian Mullaert, Pantha du Prince). Photos: Diego Figueroa, Leo Luna & David Barajas. MUTEK MX 21, Maravilla Studios.",
+      "credits": "Real-time visuals and LiDAR: Jaco Schilp / Studio Schilp. Light: Pavel Zmuchila. Choreography: Alejandra Metztli, with eight dancers. Renders: Jean-Sébastien Baillat. Programmed with Damián Romero. Part of Circle of Live, founded by Sebastian Mullaert, with Pantha du Prince. MUTEK MX 21, Hall A, Maravilla Studios, Mexico City, October 2025. Photos: Diego Figueroa, Leo Luna and David Barajas.",
       "link": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live"
     },
     {
