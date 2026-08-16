@@ -100,40 +100,6 @@
   const catsOf = (p) =>
     (Array.isArray(p.categories) && p.categories.length ? p.categories : [p.category]).filter(Boolean);
 
-  // Balance the photo gallery into columns by picture height, so no column runs long.
-  function layoutGallery(el) {
-    if (!el) return;
-    const imgs = [...el.querySelectorAll("img")];
-    if (!imgs.length) return;
-    const n = window.matchMedia("(max-width: 600px)").matches ? 1 : 2;
-    const ratios = imgs.map((img) => (img.naturalWidth ? img.naturalHeight / img.naturalWidth : 0.7));
-    let pick;
-    if (n === 2 && imgs.length <= 14) {
-      // Small enough to try every split and take the most even one.
-      let best = Infinity;
-      for (let mask = 0; mask < 1 << imgs.length; mask++) {
-        let a = 0, b = 0;
-        for (let i = 0; i < imgs.length; i++) (mask >> i) & 1 ? (b += ratios[i]) : (a += ratios[i]);
-        const gap = Math.abs(a - b);
-        if (gap < best) { best = gap; pick = mask; }
-      }
-    }
-    const cols = Array.from({ length: n }, () => []);
-    const tall = new Array(n).fill(0);
-    imgs.forEach((img, i) => {
-      const k = pick !== undefined ? ((pick >> i) & 1) : tall.indexOf(Math.min(...tall));
-      cols[k].push(img);
-      tall[k] += ratios[i];
-    });
-    el.textContent = "";
-    cols.forEach((list) => {
-      const d = document.createElement("div");
-      d.className = "gcol";
-      list.forEach((img) => d.appendChild(img));
-      el.appendChild(d);
-    });
-  }
-
   // Embed a video from a Vimeo/YouTube URL or a local/hosted file path.
   function videoEmbedHTML(src) {
     if (!src) return "";
@@ -427,21 +393,6 @@
         </nav>
       </div>`;
     observeReveals(mount);
-
-    // Re-balance once the pictures report their real proportions, and on resize.
-    const gal = mount.querySelector(".project-gallery");
-    if (gal) {
-      const imgs = [...gal.querySelectorAll("img")];
-      let left = imgs.length;
-      const done = () => { if (--left <= 0) layoutGallery(gal); };
-      imgs.forEach((img) => {
-        img.loading = "eager";
-        if (img.complete && img.naturalWidth) done();
-        else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
-      });
-      let t;
-      window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(() => layoutGallery(gal), 200); });
-    }
   }
 
   /* ---- about / contact ---- */
