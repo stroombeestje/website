@@ -188,7 +188,7 @@
   }
 
   // Embed a video from a Vimeo/YouTube URL or a local/hosted file path.
-  function videoEmbedHTML(src) {
+  function videoEmbedHTML(src, poster) {
     if (!src) return "";
     const s = String(src).trim();
     let m = s.match(/vimeo\.com\/(?:video\/)?(\d+)/);
@@ -207,7 +207,11 @@
       return `<div class="project-video-ig"><iframe src="https://www.instagram.com/reel/${m[1]}/embed/" scrolling="no" allowtransparency="true" loading="lazy"></iframe></div>`;
     }
     if (/\.(mp4|webm|mov|m4v)(\?|$)/i.test(s)) {
-      return `<video class="project-video-file" controls preload="metadata" playsinline src="${asset(esc(s))}"></video>`;
+      // Always give a poster and never preload: without one the browser paints a
+      // stale frame from whatever it decoded last, which looks like the previous
+      // project's film sitting on this page until you press play.
+      const pf = poster ? ` poster="${asset(esc(poster))}"` : "";
+      return `<video class="project-video-file" controls preload="none" playsinline${pf} src="${asset(esc(s))}"></video>`;
     }
     return "";
   }
@@ -456,11 +460,8 @@
 
     // The main film takes the cover's place at the top of the page; the cover
     // survives as the film's poster frame (and in the grid when asked for).
-    const vids = (p.videos || []).map(videoEmbedHTML).filter(Boolean);
-    let mainVideo = vids[0] || "";
-    if (mainVideo && p.cover) {
-      mainVideo = mainVideo.replace("<video ", `<video poster="${asset(esc(p.cover))}" `);
-    }
+    const vids = (p.videos || []).map((v) => videoEmbedHTML(v, p.cover)).filter(Boolean);
+    const mainVideo = vids[0] || "";
     const extraVideos = vids.slice(1).join("");
 
     const prev = projects[(idx - 1 + projects.length) % projects.length];
