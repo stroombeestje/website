@@ -805,7 +805,7 @@
       "year": "2025",
       "category": "Installation",
       "location": "Oosterlanderkerk, Oosterland · Wieringen",
-      "featured": false,
+      "featured": true,
       "order": 21.5,
       "role": "3D scan, point cloud projection, projection mapping & show control",
       "cover": "media/projects/lelys-droom/cover.jpg",
