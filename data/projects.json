@@ -93,7 +93,10 @@
         "media/projects/uncloud-transliminal/06.jpg"
       ],
       "credits": "A project by Uncloud (Jaco Schilp & Skander Jaïbi). Supported by Gemeente Utrecht, K.F. Hein Fonds, Mondriaan Fonds, Fonds Podiumkunsten, Stimuleringsfonds Creatieve Industrie, Prins Bernhard Cultuurfonds, W.E. Jansen Fonds and Stichting Elise Mathilde Fonds. Partners: Rijksvastgoedbedrijf, Bewaakt & Bewoond, Le Guess Who?, Creative Coding Utrecht (CCU), Sonar Traffic, Tekenen Onder Invloed, LiGHT-UP, HKU, ESWA and De Vrije Wolf.",
-      "link": ""
+      "link": "",
+      "nocrop": [
+        "media/projects/uncloud-transliminal/poster.jpg"
+      ]
     },
     {
       "slug": "jacobikerk-le-guess-who",
@@ -353,7 +356,14 @@
       ],
       "videos": [],
       "credits": "Physical NFT series. Laser-cut wood, engraved LiDAR point cloud, LED light, aluminium frame, 300×300mm. Point clouds derived from aerial LiDAR data of Utrecht. Shown in Math Expressionism by Creative Coding Utrecht, at NAR Café der Kunsten in Utrecht, made possible with the support of the Creative Industries Fund NL, Gemeente Utrecht and TheElephantNL. Also shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan, curated by Santiago Pani.",
-      "link": ""
+      "link": "",
+      "nocrop": [
+        "media/projects/lidar-utrecht/01.jpg",
+        "media/projects/lidar-utrecht/02.jpg",
+        "media/projects/lidar-utrecht/03.jpg",
+        "media/projects/lidar-utrecht/04.jpg",
+        "media/projects/lidar-utrecht/05.jpg"
+      ]
     },
     {
       "slug": "flip-mode",
@@ -616,7 +626,11 @@
         "media/projects/buy-or-burn/02.jpg"
       ],
       "credits": "Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
-      "link": ""
+      "link": "",
+      "nocrop": [
+        "media/projects/buy-or-burn/01.jpg",
+        "media/projects/buy-or-burn/02.jpg"
+      ]
     },
     {
       "slug": "no-art-synergy",
@@ -808,7 +822,10 @@
       ],
       "videos": [],
       "credits": "Techniques: laser-cut 3D point-cloud data in wood, black plexiglas, brass and aluminium with backlit frames; acid-etched metal editions and process prints. Shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan, curated by Santiago Pani.",
-      "link": "https://www.arthouseholland.com/aquiyahora"
+      "link": "https://www.arthouseholland.com/aquiyahora",
+      "nocrop": [
+        "media/projects/point-cloud-editions/01.jpg"
+      ]
     },
     {
       "slug": "the-grid-embodied",

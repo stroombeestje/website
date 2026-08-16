@@ -22,5 +22,8 @@
   ],
   "videos": [],
   "credits": "Techniques: laser-cut 3D point-cloud data in wood, black plexiglas, brass and aluminium with backlit frames; acid-etched metal editions and process prints. Shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan, curated by Santiago Pani.",
-  "link": "https://www.arthouseholland.com/aquiyahora"
+  "link": "https://www.arthouseholland.com/aquiyahora",
+  "nocrop": [
+    "media/projects/point-cloud-editions/01.jpg"
+  ]
 }

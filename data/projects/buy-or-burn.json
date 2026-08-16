@@ -15,5 +15,9 @@
     "media/projects/buy-or-burn/02.jpg"
   ],
   "credits": "Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
-  "link": ""
+  "link": "",
+  "nocrop": [
+    "media/projects/buy-or-burn/01.jpg",
+    "media/projects/buy-or-burn/02.jpg"
+  ]
 }

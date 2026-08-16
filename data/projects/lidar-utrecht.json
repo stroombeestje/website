@@ -19,5 +19,12 @@
   ],
   "videos": [],
   "credits": "Physical NFT series. Laser-cut wood, engraved LiDAR point cloud, LED light, aluminium frame, 300×300mm. Point clouds derived from aerial LiDAR data of Utrecht. Shown in Math Expressionism by Creative Coding Utrecht, at NAR Café der Kunsten in Utrecht, made possible with the support of the Creative Industries Fund NL, Gemeente Utrecht and TheElephantNL. Also shown at Aquí y Ahora, Arthouse Pani, Tequisquiapan, curated by Santiago Pani.",
-  "link": ""
+  "link": "",
+  "nocrop": [
+    "media/projects/lidar-utrecht/01.jpg",
+    "media/projects/lidar-utrecht/02.jpg",
+    "media/projects/lidar-utrecht/03.jpg",
+    "media/projects/lidar-utrecht/04.jpg",
+    "media/projects/lidar-utrecht/05.jpg"
+  ]
 }

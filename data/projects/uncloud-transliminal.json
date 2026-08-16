@@ -20,5 +20,8 @@
     "media/projects/uncloud-transliminal/06.jpg"
   ],
   "credits": "A project by Uncloud (Jaco Schilp & Skander Jaïbi). Supported by Gemeente Utrecht, K.F. Hein Fonds, Mondriaan Fonds, Fonds Podiumkunsten, Stimuleringsfonds Creatieve Industrie, Prins Bernhard Cultuurfonds, W.E. Jansen Fonds and Stichting Elise Mathilde Fonds. Partners: Rijksvastgoedbedrijf, Bewaakt & Bewoond, Le Guess Who?, Creative Coding Utrecht (CCU), Sonar Traffic, Tekenen Onder Invloed, LiGHT-UP, HKU, ESWA and De Vrije Wolf.",
-  "link": ""
+  "link": "",
+  "nocrop": [
+    "media/projects/uncloud-transliminal/poster.jpg"
+  ]
 }
