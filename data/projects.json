@@ -561,8 +561,8 @@
       "order": 12.8,
       "role": "Visuals & content",
       "cover": "media/projects/van-gogh-museum/cover.jpg",
-      "excerpt": "An LED wall in the museum's entrance hall for its fiftieth birthday night, made with Skander Jaïbi and Cris Mollee from the collection's own digital files of the paintings.",
-      "description": "An evening marking the museum's fiftieth birthday, from 19:00 to 23:30, with music, dance, film and storytelling through the building.\nI made the visuals for the large LED wall in the entrance hall, working from the museum collection's own digital files of Vincent van Gogh's paintings and processing them in TouchDesigner, running on the wall through the evening as the crowd gathered.\n> Working from the museum's own scans means starting where the paintings already are: flat, lit evenly, measured. Blown up to the height of the hall and moving, they stop being reproductions and become something the room happens inside of.\n> The night was built around the same question as the wall: after fifty years, what does the next fifty look like, and what is a museum for.",
+      "excerpt": "An LED wall in the museum's entrance hall for its fiftieth birthday night, made with Skander Jaïbi and Cris Mollee from the digital files of the full collection.",
+      "description": "An evening marking the museum's fiftieth birthday, from 19:00 to 23:30, with music, dance, film and storytelling through the building.\nI made the visuals for the large LED wall in the entrance hall, working from the museum's digital files of the full Van Gogh collection. Every painting was rebuilt in TouchDesigner and ran on the wall through the evening as the crowd gathered.\n> Working from the museum's own scans means starting where the paintings already are: flat, lit evenly, measured. Blown up to the height of the hall and moving, they stop being reproductions and become something the room happens inside of.\n> The night was built around the same question as the wall: after fifty years, what does the next fifty look like, and what is a museum for.",
       "images": [
         "media/projects/van-gogh-museum/01.jpg",
         "media/projects/van-gogh-museum/02.jpg",
@@ -582,7 +582,7 @@
         "media/projects/van-gogh-museum/16.jpg"
       ],
       "videos": [],
-      "credits": "Visuals: Jaco Schilp. Built in TouchDesigner from the museum collection's digital files of Van Gogh's paintings, shown on a large LED wall. Part of the fiftieth birthday programme at the Van Gogh Museum, Amsterdam, 2023, with Nnelg, Rens, Jaïr & Ome Uncle, ISH Dance Collectief, storytelling collective Mezrab, a film programme with Lab 111, and DJ sets by Fatima Ferrari, Donn Stone and DJ Dey.Rey.",
+      "credits": "Visuals: Jaco Schilp. Built in TouchDesigner from the museum's digital files of the full Van Gogh collection, shown on a large LED wall in the entrance hall. Part of the fiftieth birthday programme at the Van Gogh Museum, Amsterdam, 2023, with Nnelg, Rens, Jaïr & Ome Uncle, ISH Dance Collectief, storytelling collective Mezrab, a film programme with Lab 111, and DJ sets by Fatima Ferrari, Donn Stone and DJ Dey.Rey.",
       "link": ""
     },
     {
