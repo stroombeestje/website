@@ -33,7 +33,9 @@
     "media/projects/circle-of-live-cervantino/20.jpg",
     "media/projects/circle-of-live-cervantino/21.jpg"
   ],
-  "videos": [],
+  "videos": [
+    "media/projects/circle-of-live-cervantino/aftermovie.mp4"
+  ],
   "credits": "Real-time visuals and light: Jaco Schilp / Studio Schilp. Choreography: Alejandra Metztli. Circle of Live: Sebastian Mullaert, Pantha du Prince and Leafar Legov. MUTEK MX x Festival Internacional Cervantino, main stage, Guanajuato, 12 October 2025.",
   "link": ""
 }
