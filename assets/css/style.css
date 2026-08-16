@@ -299,6 +299,13 @@ p { margin: 0 0 1.2em; }
   gap: clamp(0.6rem, 1.6vw, 1.1rem);
   margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
 }
+/* a solo row (panorama strip or poster) centres itself; posters cap at a
+   readable-but-sane height */
+.project-gallery .grow.solo img {
+  flex: 1 1 100%;
+  width: 100%;
+  height: auto;
+}
 .project-gallery .grow img {
   flex: 1 1 0;
   min-width: 0;

@@ -118,17 +118,34 @@
     const pinned = parseInt(el.dataset.rows || "", 10) || 0;
     const rows = [];
     let row = [], sum = 0;
+    // Panorama strips run alone, and so do marked graphics: a poster only
+    // earns its place when it is big enough to read.
+    const solo = (i) => ratios[i] > 2.4 || !!imgs[i].dataset.nocrop;
     ratios.forEach((r, i) => {
+      if (solo(i)) {
+        if (row.length) { rows.push(row); row = []; sum = 0; }
+        rows.push([i]);
+        return;
+      }
       const full = narrow || pinned === 2
         ? row.length >= 2
         : row.length >= 3 || (row.length === 2 && sum >= 2.4);
       if (row.length && full) { rows.push(row); row = []; sum = 0; }
       row.push(i); sum += r;
     });
-    if (row.length) {
-      // A lone leftover would blow up to full width; give it company instead.
-      if (rows.length && row.length === 1 && ratios[row[0]] < 2) rows[rows.length - 1].push(row[0]);
-      else rows.push(row);
+    if (row.length) rows.push(row);
+    // No ordinary picture stands alone: a stranded single joins the nearest
+    // ordinary row, looking past any solo rows in between.
+    for (let k = rows.length - 1; k >= 0; k--) {
+      if (rows[k].length !== 1 || solo(rows[k][0])) continue;
+      let home = null;
+      for (let d = 1; d < rows.length && !home; d++) {
+        for (const j of [k - d, k + d]) {
+          const cand = rows[j];
+          if (cand && cand.length && cand.length < 3 && !solo(cand[0])) { home = cand; break; }
+        }
+      }
+      if (home) { home.push(rows[k][0]); rows.splice(k, 1); }
     }
     // Rows may crop at most 10% to sit closer to a shared height. Each row's
     // ratios are nudged toward the median row, clamped to 0.9..1.1, and the
@@ -138,15 +155,26 @@
     const median = [...perImg].sort((a, b) => a - b)[Math.floor(perImg.length / 2)];
     el.textContent = "";
     rows.forEach((list, k) => {
+      const soloRow = list.length === 1 && solo(list[0]);
       // A poster or graphic in the row means the whole row keeps true proportions.
       const hasNocrop = list.some((i) => imgs[i].dataset.nocrop);
       const f = hasNocrop ? 1 : Math.min(1.1, Math.max(0.9, (median * list.length) / sums[k]));
+      // In a pair, nudge both pictures toward equal widths (within the same 10%)
+      // so the middle line runs straight down the page wherever it can.
+      const each = list.map(() => f);
+      if (list.length === 2 && !hasNocrop) {
+        const [a, b] = list.map((i) => ratios[i]);
+        // Meet in the middle: enough to make the pair equal, capped at 10% each.
+        const g = Math.min(1.1, Math.sqrt(Math.max(a, b) / Math.min(a, b)));
+        each[0] = a < b ? g : 1 / g;
+        each[1] = a < b ? 1 / g : g;
+      }
       const d = document.createElement("div");
-      d.className = "grow";
-      list.forEach((i) => {
-        const shown = ratios[i] * f;
+      d.className = soloRow ? "grow solo" : "grow";
+      list.forEach((i, n) => {
+        const shown = ratios[i] * each[n];
         imgs[i].style.flexGrow = shown.toFixed(4);
-        if (Math.abs(f - 1) > 0.01) {
+        if (Math.abs(each[n] - 1) > 0.01) {
           imgs[i].style.aspectRatio = shown.toFixed(4);
           imgs[i].style.objectFit = "cover";
         } else {
@@ -172,7 +200,7 @@
     }
     m = s.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/);
     if (m) {
-      return `<div class="project-video"><iframe src="https://www.youtube.com/embed/${m[1]}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+      return `<div class="project-video"><iframe src="https://www.youtube-nocookie.com/embed/${m[1]}?rel=0&modestbranding=1" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
     }
     m = s.match(/instagram\.com\/(?:reel|p|tv)\/([\w-]+)/);
     if (m) {
