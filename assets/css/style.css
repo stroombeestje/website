@@ -635,7 +635,7 @@ p { margin: 0 0 1.2em; }
 .project-body,
 .project-insight,
 .project-nav {
-  --gw: calc(var(--vw, 100vw) - 2 * var(--gutter));
+  --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), var(--page-max));
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
 }
@@ -667,9 +667,14 @@ p { margin: 0 0 1.2em; }
    is taken out of the width rather than added as padding, which is what puts
    the brand on the same line as the pictures below it. */
 .page-wide .wrap {
-  max-width: calc(var(--vw, 100vw) - 2 * var(--gutter));
+  max-width: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), var(--page-max));
   padding-inline: 0;
 }
+/* The project list has no cap: its cards stay one size and a wider screen buys
+   more of them, so there is nothing to stop growing. A project page does stop,
+   or a film and a line of text run the whole wall. */
+.page-wide { --page-max: 99999px; }  /* no practical cap */
+.page-project { --page-max: 2400px; }
 
 /* The project list keeps its cards the size they have always been and fits as
    many across as the window allows, rather than stretching three of them over
