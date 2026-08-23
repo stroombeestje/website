@@ -24,7 +24,15 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* The scrollbar's lane is always reserved. Without this, a page that just
+     fits flips between having a scrollbar and not, the width changes 15px,
+     text rewraps, the height crosses the threshold back, and the whole page
+     jitters left and right in a loop. */
+  scrollbar-gutter: stable;
+}
 
 body {
   margin: 0;
