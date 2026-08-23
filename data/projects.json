@@ -32,7 +32,69 @@
         "media/projects/ka-an/film.mp4"
       ],
       "credits": "Created by Jaco Schilp. Curated by Alejandra Metztli. Film: Mau Novelo Jarque. Presented during Data Uotan 2024, Mexico City, supported by the Embassy of the Kingdom of the Netherlands in Mexico. Production assistance: El Destino del Arte.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/ka-an/01.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/ka-an/02.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/ka-an/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/ka-an/04.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/05.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/06.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/07.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/08.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/09.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/10.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/11.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/12.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/ka-an/13.jpg": [
+          828,
+          1472
+        ],
+        "media/projects/ka-an/14.jpg": [
+          1125,
+          2000
+        ],
+        "media/projects/ka-an/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     },
     {
       "slug": "somnia",
@@ -60,7 +122,41 @@
       ],
       "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
       "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia",
-      "coverInGrid": true
+      "coverInGrid": true,
+      "sizes": {
+        "media/projects/somnia/01.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/02.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/03.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/04.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/05.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/06.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/07.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/cover.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "points-of-inaccessibility",
@@ -82,7 +178,21 @@
         "https://www.youtube.com/watch?v=YZj-Fqyg33g"
       ],
       "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions. Live photography: Jota Martínez (Volumens Festival, Valencia).",
-      "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility"
+      "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility",
+      "sizes": {
+        "media/projects/points-of-inaccessibility/01.jpg": [
+          2000,
+          1124
+        ],
+        "media/projects/points-of-inaccessibility/album.jpg": [
+          1200,
+          1200
+        ],
+        "media/projects/points-of-inaccessibility/cover-live.jpg": [
+          2000,
+          1124
+        ]
+      }
     },
     {
       "slug": "uncloud-transliminal",
@@ -109,7 +219,41 @@
       "link": "",
       "nocrop": [
         "media/projects/uncloud-transliminal/poster.jpg"
-      ]
+      ],
+      "sizes": {
+        "media/projects/uncloud-transliminal/01.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/uncloud-transliminal/02.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/uncloud-transliminal/03.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/uncloud-transliminal/04.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/uncloud-transliminal/05.jpg": [
+          1281,
+          1920
+        ],
+        "media/projects/uncloud-transliminal/06.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/uncloud-transliminal/poster.jpg": [
+          1695,
+          2400
+        ],
+        "media/projects/uncloud-transliminal/cover.jpg": [
+          1920,
+          1281
+        ]
+      }
     },
     {
       "slug": "jacobikerk-le-guess-who",
@@ -140,7 +284,53 @@
       "categories": [
         "Live Show",
         "Installation"
-      ]
+      ],
+      "sizes": {
+        "media/projects/jacobikerk-le-guess-who/01.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/jacobikerk-le-guess-who/02.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/03.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/04.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/05.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/06.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/07.jpg": [
+          2000,
+          1500
+        ],
+        "media/projects/jacobikerk-le-guess-who/08.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/09.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/jacobikerk-le-guess-who/10.jpg": [
+          2000,
+          1500
+        ],
+        "media/projects/jacobikerk-le-guess-who/cover.jpg": [
+          1920,
+          1281
+        ]
+      }
     },
     {
       "slug": "uncloud-lgw-2022",
@@ -166,7 +356,45 @@
       ],
       "videos": [],
       "credits": "Programme co-curated by Jaco Schilp, Skander Jaïbi, Bob van Heur & Jacob Hagelaars for Uncloud. Presented at Le Guess Who? 2022, Utrecht. Photography: Tim van Veen and Lisanne Lentink.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/uncloud-lgw-2022/01.jpg": [
+          1623,
+          1080
+        ],
+        "media/projects/uncloud-lgw-2022/02.jpg": [
+          1623,
+          1080
+        ],
+        "media/projects/uncloud-lgw-2022/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/uncloud-lgw-2022/04.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/uncloud-lgw-2022/05.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/uncloud-lgw-2022/06.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/uncloud-lgw-2022/07.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/uncloud-lgw-2022/08.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/uncloud-lgw-2022/cover.jpg": [
+          2000,
+          1333
+        ]
+      }
     },
     {
       "slug": "le-guess-who-2019",
@@ -190,7 +418,29 @@
         "media/projects/le-guess-who-2019/aftermovie.mp4"
       ],
       "credits": "Projections by the LiGHT-UP collective, with decor contributions from Triomf Utrecht.",
-      "link": "https://www.lightupcollective.com/le-guess-who-2"
+      "link": "https://www.lightupcollective.com/le-guess-who-2",
+      "sizes": {
+        "media/projects/lgw2019/02.jpg": [
+          4032,
+          3024
+        ],
+        "media/projects/lgw2019/03.jpg": [
+          1600,
+          844
+        ],
+        "media/projects/lgw2019/04.jpg": [
+          1600,
+          844
+        ],
+        "media/projects/lgw2019/05.jpg": [
+          1600,
+          844
+        ],
+        "media/projects/lgw2019/cover.jpg": [
+          1600,
+          844
+        ]
+      }
     },
     {
       "slug": "anonymous-project-2023",
@@ -218,7 +468,45 @@
         "media/projects/anonymous-project-2023/cube.mp4"
       ],
       "credits": "Commissioned by Le Guess Who? 2023. Video mapping, content design, light design & live operation: Jaco Schilp. Five-projector cube mapping; real-time point cloud from three depth cameras via TouchDesigner; custom-trained AI model; volumetric 3D from LiDAR scans around Utrecht; live playback in Resolume and TouchDesigner. Light operated b2b with Marc Huizinga on two desks. Photography: Ward Mevis.",
-      "link": "https://leguesswho.com/lineup/the-anonymous-project"
+      "link": "https://leguesswho.com/lineup/the-anonymous-project",
+      "sizes": {
+        "media/projects/anonymous-project-2023/01.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/anonymous-project-2023/02.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/04.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/05.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/06.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/07.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/08.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/anonymous-project-2023/cover.jpg": [
+          1365,
+          2048
+        ]
+      }
     },
     {
       "slug": "rats-on-rafts-chapter-3",
@@ -248,7 +536,45 @@
       ],
       "credits": "Visual artists: Jordi Cardenas & Jaco Schilp. Video material: A Small Production Company. Decor: Jochen Lange Studio. Clothing: Eva Arends. Photography: Tess Janssen & Jasmijn Slegh.",
       "link": "https://leguesswho.com/lineup/rats-on-rafts-visions-of-chapter-3-live",
-      "galleryRows": 2
+      "galleryRows": 2,
+      "sizes": {
+        "media/projects/rats-on-rafts/01.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/02.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/03.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/04.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/05.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/06.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/07.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/rats-on-rafts/promo.jpg": [
+          1200,
+          800
+        ],
+        "media/projects/rats-on-rafts/cover.jpg": [
+          1800,
+          1200
+        ]
+      }
     },
     {
       "slug": "orbit-2022",
@@ -273,7 +599,33 @@
         "media/projects/orbit-2022/clip.mp4"
       ],
       "credits": "Curated by Jaco Schilp & Skander Jaïbi for Uncloud. Works: SouRCe by Emanuel Nijkerk & Victor Dissel; re:gen by Skander Jaïbi & Cris Mollee; c55h72mgn4o5 by Timo Hoogland. Presented at Orbit Festival 2022. Photography: Ines Kooli.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/orbit-2022/01.jpg": [
+          1335,
+          2000
+        ],
+        "media/projects/orbit-2022/02.jpg": [
+          1335,
+          2000
+        ],
+        "media/projects/orbit-2022/03.jpg": [
+          1335,
+          2000
+        ],
+        "media/projects/orbit-2022/04.jpg": [
+          1335,
+          2000
+        ],
+        "media/projects/orbit-2022/05.jpg": [
+          1335,
+          2000
+        ],
+        "media/projects/orbit-2022/cover.jpg": [
+          1469,
+          2200
+        ]
+      }
     },
     {
       "slug": "data-utan",
@@ -311,7 +663,65 @@
       "link": "https://www.instagram.com/data.uotan/",
       "nocrop": [
         "media/projects/data-utan/11.jpg"
-      ]
+      ],
+      "sizes": {
+        "media/projects/data-utan/01.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/02.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/04.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/05.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/06.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/data-utan/07.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/data-utan/08.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/data-utan/09.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/data-utan/10.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/11.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/data-utan/12.jpg": [
+          1121,
+          2000
+        ],
+        "media/projects/data-utan/13.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/data-utan/cover.jpg": [
+          2400,
+          1600
+        ]
+      }
     },
     {
       "slug": "momentum",
@@ -334,7 +744,33 @@
       ],
       "videos": [],
       "credits": "Concept: Willem Geerts. Realisation, video & projections: Jaco Schilp / Studio Schilp. Content built from aerial LiDAR point-cloud data of Oss, rendered in Cinema 4D. Presented at Museum Jan Cunen, Oss.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/momentum/01.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/momentum/02.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/momentum/03.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/momentum/04.jpg": [
+          1800,
+          1168
+        ],
+        "media/projects/momentum/05.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/momentum/cover.jpg": [
+          1800,
+          1200
+        ]
+      }
     },
     {
       "slug": "panorama-utrecht",
@@ -369,7 +805,57 @@
       "categories": [
         "Installation",
         "Artwork"
-      ]
+      ],
+      "sizes": {
+        "media/projects/panorama-utrecht/01.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/panorama-utrecht/02.jpg": [
+          2000,
+          433
+        ],
+        "media/projects/panorama-utrecht/03.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/04.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/05.jpg": [
+          1334,
+          2000
+        ],
+        "media/projects/panorama-utrecht/06.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/07.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/08.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/09.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/10.jpg": [
+          2000,
+          736
+        ],
+        "media/projects/panorama-utrecht/11.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/panorama-utrecht/cover.jpg": [
+          1356,
+          1060
+        ]
+      }
     },
     {
       "slug": "lidar-utrecht-60",
@@ -419,7 +905,33 @@
         "media/projects/lidar-utrecht/03.jpg",
         "media/projects/lidar-utrecht/04.jpg",
         "media/projects/lidar-utrecht/05.jpg"
-      ]
+      ],
+      "sizes": {
+        "media/projects/lidar-utrecht/01.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/lidar-utrecht/02.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/lidar-utrecht/03.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/lidar-utrecht/04.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/lidar-utrecht/05.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/lidar-utrecht/cover.jpg": [
+          1920,
+          1281
+        ]
+      }
     },
     {
       "slug": "aqui-y-ahora",
@@ -484,7 +996,189 @@
       "link": "https://www.arthouseholland.com/aquiyahora",
       "categories": [
         "Artwork"
-      ]
+      ],
+      "sizes": {
+        "media/projects/aqui-y-ahora/01.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/02.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/03.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/04.jpg": [
+          1467,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/05.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/06.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/07.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/aqui-y-ahora/08.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/09.jpg": [
+          1835,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/10.jpg": [
+          1890,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/11.jpg": [
+          2043,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/12.jpg": [
+          2062,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/13.jpg": [
+          1782,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/14.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/15.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/16.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/17.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/18.jpg": [
+          1438,
+          2154
+        ],
+        "media/projects/aqui-y-ahora/19.jpg": [
+          2200,
+          2189
+        ],
+        "media/projects/aqui-y-ahora/20.jpg": [
+          1650,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/21.jpg": [
+          2200,
+          1650
+        ],
+        "media/projects/aqui-y-ahora/22.jpg": [
+          2096,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/23.jpg": [
+          2045,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/24.jpg": [
+          1944,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/25.jpg": [
+          1806,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/26.jpg": [
+          1879,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/27.jpg": [
+          1024,
+          1536
+        ],
+        "media/projects/aqui-y-ahora/28.jpg": [
+          2186,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/29.jpg": [
+          2200,
+          2195
+        ],
+        "media/projects/aqui-y-ahora/30.jpg": [
+          2200,
+          2196
+        ],
+        "media/projects/aqui-y-ahora/31.jpg": [
+          2200,
+          2189
+        ],
+        "media/projects/aqui-y-ahora/32.jpg": [
+          2200,
+          2146
+        ],
+        "media/projects/aqui-y-ahora/33.jpg": [
+          2185,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/34.jpg": [
+          2200,
+          2193
+        ],
+        "media/projects/aqui-y-ahora/35.jpg": [
+          2187,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/36.jpg": [
+          2198,
+          2200
+        ],
+        "media/projects/aqui-y-ahora/37.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/aqui-y-ahora/38.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/aqui-y-ahora/39.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/aqui-y-ahora/40.jpg": [
+          2000,
+          2000
+        ],
+        "media/projects/aqui-y-ahora/41.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/aqui-y-ahora/42.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/aqui-y-ahora/43.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/aqui-y-ahora/44.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/aqui-y-ahora/cover.jpg": [
+          2200,
+          1467
+        ]
+      }
     },
     {
       "slug": "flip-mode",
@@ -519,7 +1213,41 @@
       ],
       "nocrop": [
         "media/projects/flip-mode/07.jpg"
-      ]
+      ],
+      "sizes": {
+        "media/projects/flip-mode/01.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/flip-mode/02.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/flip-mode/03.jpg": [
+          2000,
+          1334
+        ],
+        "media/projects/flip-mode/04.jpg": [
+          1600,
+          1067
+        ],
+        "media/projects/flip-mode/05.jpg": [
+          1600,
+          1067
+        ],
+        "media/projects/flip-mode/06.jpg": [
+          768,
+          1024
+        ],
+        "media/projects/flip-mode/07.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/flip-mode/cover.jpg": [
+          2400,
+          1601
+        ]
+      }
     },
     {
       "slug": "zoetermeer-exhibition-design",
@@ -551,7 +1279,69 @@
       ],
       "videos": [],
       "credits": "Exhibition design, light design and sensor system: Jaco Schilp. Motion sensors driving DMX, one per work. Respect! Perspectieven in de hedendaagse kunst, Museum De Voorde, Zoetermeer, since closed, 5 February to 2 October 2022, with eighteen Dutch artists.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/zoetermeer-exhibition-design/01.jpg": [
+          1688,
+          1121
+        ],
+        "media/projects/zoetermeer-exhibition-design/02.jpg": [
+          1400,
+          934
+        ],
+        "media/projects/zoetermeer-exhibition-design/03.jpg": [
+          1440,
+          847
+        ],
+        "media/projects/zoetermeer-exhibition-design/04.jpg": [
+          1440,
+          847
+        ],
+        "media/projects/zoetermeer-exhibition-design/05.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/06.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/07.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/08.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/09.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/10.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/11.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/12.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/13.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/14.jpg": [
+          2000,
+          1250
+        ],
+        "media/projects/zoetermeer-exhibition-design/cover.jpg": [
+          1688,
+          1121
+        ]
+      }
     },
     {
       "slug": "circuitry",
@@ -579,7 +1369,45 @@
         "https://www.youtube.com/watch?v=UtkdIMA_250"
       ],
       "credits": "A/V live performance: Jaco Schilp, Skander Jaïbi & Skander Ben Yahia (sound & music). Premiered for Modulation (Sonar Traffic) at Etmaal Festival, curated by Colin Benders. Photography: Paulus van Dorsten. Recording: Sonar Traffic.",
-      "link": "https://www.youtube.com/watch?v=UtkdIMA_250"
+      "link": "https://www.youtube.com/watch?v=UtkdIMA_250",
+      "sizes": {
+        "media/projects/circuitry/01.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/circuitry/02.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/circuitry/03.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/circuitry/04.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/circuitry/05.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/circuitry/06.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/circuitry/07.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/circuitry/08.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/circuitry/cover.jpg": [
+          1200,
+          1800
+        ]
+      }
     },
     {
       "slug": "orbit-festival",
@@ -606,7 +1434,41 @@
         "https://youtu.be/zGtgkZMK3SA"
       ],
       "credits": "Production: ESWA licht en geluid. Photography: TB.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/orbit-festival/01.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/orbit-festival/02.jpg": [
+          2000,
+          3000
+        ],
+        "media/projects/orbit-festival/03.jpg": [
+          2000,
+          3000
+        ],
+        "media/projects/orbit-festival/04.jpg": [
+          2000,
+          3000
+        ],
+        "media/projects/orbit-festival/05.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/orbit-festival/06.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/orbit-festival/07.jpg": [
+          858,
+          569
+        ],
+        "media/projects/orbit-festival/cover.jpg": [
+          2000,
+          1333
+        ]
+      }
     },
     {
       "slug": "loreal",
@@ -633,7 +1495,49 @@
       ],
       "videos": [],
       "credits": "A Kinki Kappers show for L'Oréal Pro, “Human Nature”. Art direction: Casper. Projection mapping & content: Jaco Schilp & Cris Mollee (LiGHT-UP Collective). Choreography: Virgil Moreno & Meyline. Music: The Shirley Temple. Photography: Fabrice Debatty.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/loreal/01.jpg": [
+          1800,
+          1199
+        ],
+        "media/projects/loreal/02.jpg": [
+          1800,
+          1012
+        ],
+        "media/projects/loreal/03.jpg": [
+          1800,
+          1199
+        ],
+        "media/projects/loreal/04.jpg": [
+          1900,
+          1266
+        ],
+        "media/projects/loreal/05.jpg": [
+          1900,
+          1068
+        ],
+        "media/projects/loreal/06.jpg": [
+          1900,
+          1900
+        ],
+        "media/projects/loreal/07.jpg": [
+          1900,
+          1266
+        ],
+        "media/projects/loreal/08.jpg": [
+          1900,
+          1266
+        ],
+        "media/projects/loreal/09.jpg": [
+          1900,
+          1900
+        ],
+        "media/projects/loreal/cover.jpg": [
+          1800,
+          1012
+        ]
+      }
     },
     {
       "slug": "van-gogh-museum",
@@ -674,7 +1578,89 @@
       ],
       "videos": [],
       "credits": "Visuals: Jaco Schilp. Built in TouchDesigner from the museum's digital files of the full Van Gogh collection, shown on a large LED wall in the entrance hall. Part of the fiftieth birthday programme at the Van Gogh Museum, Amsterdam, 2023, with Nnelg, Rens, Jaïr & Ome Uncle, ISH Dance Collectief, storytelling collective Mezrab, a film programme with Lab 111, and DJ sets by Fatima Ferrari, Donn Stone and DJ Dey.Rey.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/van-gogh-museum/01.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/02.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/03.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/04.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/05.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/06.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/07.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/08.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/09.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/10.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/11.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/12.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/13.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/14.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/15.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/16.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/17.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/18.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/19.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/van-gogh-museum/cover.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "byob-utrecht-citytour",
@@ -700,7 +1686,33 @@
         "https://vimeo.com/454125895"
       ],
       "credits": "Organised by Jaco Schilp. Part of NFF interactive at the Nederlands Film Festival, Utrecht, 2020.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/byob-utrecht-citytour/01.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/byob-utrecht-citytour/02.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/byob-utrecht-citytour/03.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/byob-utrecht-citytour/04.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/byob-utrecht-citytour/05.jpg": [
+          1920,
+          1281
+        ],
+        "media/projects/byob-utrecht-citytour/cover.jpg": [
+          1920,
+          1281
+        ]
+      }
     },
     {
       "slug": "uncloud-2019",
@@ -719,7 +1731,13 @@
         "https://youtu.be/UCJaJSnyA_8"
       ],
       "credits": "A project by Uncloud, curated by Jaco Schilp & Skander Jaïbi.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/uncloud-2019/cover.jpg": [
+          768,
+          512
+        ]
+      }
     },
     {
       "slug": "orbit-installation",
@@ -751,7 +1769,41 @@
       "categories": [
         "Installation",
         "Artwork"
-      ]
+      ],
+      "sizes": {
+        "media/projects/orbit-installation/w01.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w02.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w03.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w04.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w05.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w06.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/w07.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/cover-w33.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "soenda-presents",
@@ -778,7 +1830,33 @@
         "media/projects/soenda-presents/clip3.mp4"
       ],
       "credits": "Light & design: Jaco Schilp. Photos: Elske Nissen. Production: ESWA licht en geluid. With Lammer at Soenda.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/soenda-presents/01.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/soenda-presents/02.jpg": [
+          1546,
+          2000
+        ],
+        "media/projects/soenda-presents/03.jpg": [
+          1600,
+          2000
+        ],
+        "media/projects/soenda-presents/04.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/soenda-presents/05.jpg": [
+          1333,
+          2000
+        ],
+        "media/projects/soenda-presents/cover.jpg": [
+          2000,
+          1333
+        ]
+      }
     },
     {
       "slug": "buy-or-burn",
@@ -801,7 +1879,21 @@
       "nocrop": [
         "media/projects/buy-or-burn/01.jpg",
         "media/projects/buy-or-burn/02.jpg"
-      ]
+      ],
+      "sizes": {
+        "media/projects/buy-or-burn/01.jpg": [
+          2000,
+          500
+        ],
+        "media/projects/buy-or-burn/02.jpg": [
+          2000,
+          500
+        ],
+        "media/projects/buy-or-burn/cover.jpg": [
+          2000,
+          500
+        ]
+      }
     },
     {
       "slug": "no-art-synergy",
@@ -938,6 +2030,136 @@
             ]
           }
         ]
+      },
+      "sizes": {
+        "media/projects/mutek-circle-of-live/nocturne-01.jpg": [
+          1467,
+          2200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-02.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-03.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-04.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-05.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-06.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-07.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-08.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-09.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-10.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-11.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-12.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-13.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-14.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-15.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-16.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-17.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-18.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-19.jpg": [
+          1800,
+          1200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-20.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-21.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-22.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-23.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-24.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-25.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-26.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-27.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-28.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-29.jpg": [
+          2200,
+          2200
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-30.jpg": [
+          2200,
+          1467
+        ],
+        "media/projects/mutek-circle-of-live/nocturne-31.jpg": [
+          1200,
+          1800
+        ],
+        "media/projects/mutek-circle-of-live/cover-n46.jpg": [
+          1800,
+          1200
+        ]
       }
     },
     {
@@ -979,7 +2201,97 @@
         "media/projects/circle-of-live-cervantino/aftermovie-sound.mp4"
       ],
       "credits": "Real-time visuals and light: Jaco Schilp / Studio Schilp. Choreography: Alejandra Metztli. Circle of Live: Sebastian Mullaert, Pantha du Prince and Leafar Legov. MUTEK MX x Festival Internacional Cervantino, main stage, Guanajuato, 12 October 2025.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/circle-of-live-cervantino/01.jpg": [
+          1440,
+          961
+        ],
+        "media/projects/circle-of-live-cervantino/02.jpg": [
+          1440,
+          961
+        ],
+        "media/projects/circle-of-live-cervantino/03.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/04.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/05.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/06.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/07.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/08.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/09.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/10.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/11.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/12.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/13.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/14.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/15.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/16.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/17.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/18.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/19.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/20.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/21.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/circle-of-live-cervantino/cover.jpg": [
+          1440,
+          961
+        ]
+      }
     },
     {
       "slug": "archive-mirror",
@@ -1004,7 +2316,29 @@
         "media/projects/archive-mirror/looking-back.mp4"
       ],
       "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Shown in Two Suns At Once at Treehouse NDSM, Amsterdam, 2026, co-curated by Vico Persson and supported by AFK; in the Pieterskerk, Leiden, 2025; and in Todo pasa at Público, Mexico City, during Art Week Mexico City 2026, presented with Lagom Studio Galería. Documentary: Guillaume Versteeg.",
-      "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
+      "link": "https://vimeo.com/guillaumeversteeg/archivemirror",
+      "sizes": {
+        "media/projects/archive-mirror/01.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/archive-mirror/02.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/archive-mirror/03.jpg": [
+          2000,
+          2667
+        ],
+        "media/projects/archive-mirror/04.jpg": [
+          2000,
+          2667
+        ],
+        "media/projects/archive-mirror/cover.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "points-of-light",
@@ -1045,7 +2379,93 @@
         "media/projects/points-of-light/clip.mp4"
       ],
       "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/points-of-light/grote-kerk-01.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-02.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-03.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-04.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-05.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-06.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-07.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-08.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-09.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-10.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-11.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-12.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-13.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-14.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-15.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-16.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-17.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/grote-kerk-18.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/points-of-light/vault-01.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/points-of-light/nave-04.jpg": [
+          1800,
+          1800
+        ],
+        "media/projects/points-of-light/cover-f54.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "lelys-droom",
@@ -1075,7 +2495,53 @@
         "media/projects/lelys-droom/film.mp4"
       ],
       "credits": "A LiGHT-UP Collective production, Jaco Schilp and Jan Willem Campmans, for Erfgoedspektakel at the Oosterlanderkerk, Oosterland, Wieringen, 2025. Voice of Cornelis Lely: Rik Rikken. 3D scan of the church, point cloud projection onto its own geometry, particle effects, simulated water and the idle state soundscape: Jaco Schilp. Point cloud system built in TouchDesigner, water animated in Cinema 4D with RealFlow. Projection mapping and show control: Jaco Schilp and Merijn Meijers. Unreal Engine support for the life size animated figure of Lely: Sem Schreuder. Life size animated 3D character of Cornelis Lely, motion graphics, animation, editing and archival research in the Dutch national archives: Tristan Gieler, who also composed and produced the original score. Film: Jokko Voogt. Initiated by BOEi, with Gemeente Hollands Kroon, Culturele Kring Wieringen and the VriendenLoterij.",
-      "link": "https://erfgoedspektakel.nl/events/lelys-droom-een-immersieve-beleving/"
+      "link": "https://erfgoedspektakel.nl/events/lelys-droom-een-immersieve-beleving/",
+      "sizes": {
+        "media/projects/lelys-droom/01.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/02.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/03.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/04.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/05.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/06.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/07.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/08.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/09.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/10.jpg": [
+          2000,
+          1125
+        ],
+        "media/projects/lelys-droom/cover.jpg": [
+          2400,
+          1350
+        ]
+      }
     },
     {
       "slug": "schiedam-750",
@@ -1102,7 +2568,41 @@
         "media/projects/schiedam-750/film.mp4"
       ],
       "credits": "Produced and commissioned by LightUp Collective.",
-      "link": "https://www.instagram.com/reel/DHTt3x_tpNq/"
+      "link": "https://www.instagram.com/reel/DHTt3x_tpNq/",
+      "sizes": {
+        "media/projects/schiedam-750/01.jpg": [
+          1125,
+          2000
+        ],
+        "media/projects/schiedam-750/02.jpg": [
+          1125,
+          2000
+        ],
+        "media/projects/schiedam-750/03.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/schiedam-750/04.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/schiedam-750/05.jpg": [
+          1125,
+          2000
+        ],
+        "media/projects/schiedam-750/06.jpg": [
+          1080,
+          1920
+        ],
+        "media/projects/schiedam-750/07.jpg": [
+          1080,
+          1920
+        ],
+        "media/projects/schiedam-750/cover.jpg": [
+          1080,
+          1920
+        ]
+      }
     },
     {
       "slug": "mexico",
@@ -1127,7 +2627,21 @@
       "link": "",
       "categories": [
         "Artwork"
-      ]
+      ],
+      "sizes": {
+        "media/projects/mexico/01.jpg": [
+          1600,
+          1600
+        ],
+        "media/projects/mexico/02.jpg": [
+          1600,
+          1600
+        ],
+        "media/projects/mexico/cover.jpg": [
+          1600,
+          900
+        ]
+      }
     },
     {
       "slug": "3fm-awards",
@@ -1152,7 +2666,33 @@
         "https://youtu.be/GDx5zPV2LSc"
       ],
       "credits": "In collaboration with LiGHT-UP Collective.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/3fm-awards/01.jpg": [
+          1024,
+          768
+        ],
+        "media/projects/3fm-awards/02.jpg": [
+          1024,
+          768
+        ],
+        "media/projects/3fm-awards/03.jpg": [
+          1024,
+          768
+        ],
+        "media/projects/3fm-awards/04.jpg": [
+          1024,
+          768
+        ],
+        "media/projects/3fm-awards/05.jpg": [
+          1024,
+          768
+        ],
+        "media/projects/3fm-awards/cover.jpg": [
+          1182,
+          665
+        ]
+      }
     },
     {
       "slug": "reports-from-other-continents",
@@ -1192,7 +2732,25 @@
         "https://vimeo.com/539585157"
       ],
       "credits": "In co-creation with LiGHT-UP Collective. Projection in collaboration with Beamsystems, eight 20,000 lumen projectors. Sponsored by Panasonic. Photos: Dennis Bouman.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/greenery-westergas/01.jpg": [
+          1429,
+          2000
+        ],
+        "media/projects/greenery-westergas/02.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/greenery-westergas/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/greenery-westergas/cover.jpg": [
+          2000,
+          1333
+        ]
+      }
     },
     {
       "slug": "sonaural",
@@ -1215,7 +2773,25 @@
         "media/projects/sonaural/worm.mp4"
       ],
       "credits": "With Skander Jaïbi. Presented at Sonaural, WORM, Rotterdam, 2020.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/sonaural/01.jpg": [
+          1440,
+          1080
+        ],
+        "media/projects/sonaural/02.jpg": [
+          1440,
+          1080
+        ],
+        "media/projects/sonaural/03.jpg": [
+          1440,
+          1080
+        ],
+        "media/projects/sonaural/cover.jpg": [
+          1440,
+          1080
+        ]
+      }
     },
     {
       "slug": "hku-graduation-bonanza-2020",
@@ -1238,7 +2814,13 @@
         "https://vimeo.com/529930884"
       ],
       "credits": "A LiGHT-UP Collective project with the HKU, University of the Arts Utrecht. Graduation work by more than 60 HKU students, projected in the public space of Utrecht, 2020.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/hku-graduation-bonanza-2020/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     },
     {
       "slug": "universum",
@@ -1264,7 +2846,37 @@
         "media/projects/universum/film.mp4"
       ],
       "credits": "Jaco Schilp: 3D sculpture and video mapping. Skander Jaïbi: interactive soundscape. Laser sensors trigger the soundscape, the soundscape triggers the visuals. Sphere mounted on a rotating electromotor, with the mapping tracking the turning shape. Presented at Museum van Geluid, 2018.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/universum/01.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/02.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/03.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/04.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/05.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/06.jpg": [
+          2000,
+          1333
+        ],
+        "media/projects/universum/cover.jpg": [
+          2400,
+          1600
+        ]
+      }
     },
     {
       "slug": "stedelijk-museum-schiedam-2021",
@@ -1283,7 +2895,13 @@
         "media/projects/stedelijk-museum-schiedam-2021/aftermovie.mp4"
       ],
       "credits": "Projection: LiGHT-UP Collective in collaboration with the Stedelijk Museum Schiedam, on the Schiedam stadskantoor, 2021. Edit: Vincent van den Brink.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/stedelijk-museum-schiedam-2021/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     },
     {
       "slug": "caravaggio-centraal-museum-2018",
@@ -1302,7 +2920,13 @@
         "https://vimeo.com/349441301"
       ],
       "credits": "Projection mapping & content: Jaco Schilp, with LiGHT-UP Collective. Centraal Museum, Utrecht, December 2018. Camera: Jokko Voogt. Edit: Ajehna Rustveld.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/caravaggio-centraal-museum-2018/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     },
     {
       "slug": "kunsthal-museumnacht-2017",
@@ -1321,7 +2945,13 @@
         "media/projects/kunsthal-museumnacht-2017/aftermovie.mp4"
       ],
       "credits": "Projection mapping: Jaco Schilp and Jan Willem Campmans, with LiGHT-UP Collective. Presented during Museumnacht at the Kunsthal Rotterdam, 2017.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/kunsthal-museumnacht-2017/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     },
     {
       "slug": "ncca-nizhny-novgorod-2019",
@@ -1340,7 +2970,13 @@
         "https://vimeo.com/352289782"
       ],
       "credits": "LiGHT-UP Collective: Tim Walther, Lisa Derksen Castillo, Jan Willem Campmans and Jaco Schilp. Light-drawing workshops on PlayStation uDraw tablets running Happytron, LiGHT-UP's light-drawing application, conceived by Jan Willem Campmans and developed with Tim Walther. Building animations in Cinema 4D, played live in Resolume. Live performance with musicians from Nizhny Novgorod. Hosted by the NCCA, Nizhny Novgorod, Museum Night 2019. With thanks to Anna Gorokhovskaya, Aeger Smoothie, Anna Gor, Anna Kostyan, Xenia Anoufrieva, technician Alexander, and the amazing help of Polina Ashina.",
-      "link": ""
+      "link": "",
+      "sizes": {
+        "media/projects/ncca-nizhny-novgorod-2019/cover.jpg": [
+          1920,
+          1080
+        ]
+      }
     }
   ]
 }

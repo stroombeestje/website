@@ -12,6 +12,11 @@ import json
 import glob
 import os
 
+try:
+    from PIL import Image
+except ImportError:  # the site still builds without Pillow, just without sizes
+    Image = None
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(ROOT, "data", "projects")
 OUT = os.path.join(ROOT, "data", "projects.json")
@@ -35,6 +40,25 @@ def main():
                     (v.lstrip("/") if isinstance(v, str) and v.startswith("/media/") else v)
                     for v in p[key]
                 ]
+        # Record every picture's proportions here, once, so the page can lay the
+        # gallery out without downloading a thing. Without this the browser has
+        # to fetch every full-size picture before it can draw a single row.
+        if Image is not None:
+            sizes = {}
+            for rel in list(p.get("images") or []) + ([p["cover"]] if p.get("cover") else []):
+                if not isinstance(rel, str) or rel.startswith("http"):
+                    continue
+                path = os.path.join(ROOT, rel.replace("/", os.sep))
+                if not os.path.exists(path):
+                    continue
+                try:
+                    with Image.open(path) as im:
+                        sizes[rel] = list(im.size)
+                except Exception:
+                    pass
+            if sizes:
+                p["sizes"] = sizes
+
         projects.append(p)
 
     # Preserve the curated site order via the hidden "order" field;

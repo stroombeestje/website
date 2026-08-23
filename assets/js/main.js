@@ -122,7 +122,11 @@
     if (!el) return;
     const imgs = [...el.querySelectorAll("img")];
     if (!imgs.length) return;
-    const ratios = imgs.map((im) => (im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5));
+    const ratios = imgs.map((im) => {
+      const w = +im.getAttribute("width"), h = +im.getAttribute("height");
+      if (w && h) return w / h;
+      return im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5;
+    });
     const narrow = window.matchMedia("(max-width: 600px)").matches;
     // Row targets in "width units" (a landscape ≈ 1.5, a portrait ≈ 0.7).
     // Alternating between them gives a rhythm of two-picture and three-picture
@@ -470,8 +474,16 @@
     const nocrop = new Set(p.nocrop || []);
     // With the film on top, a project can ask for its cover picture in the grid.
     const galleryImgs = (p.coverInGrid && p.cover ? [p.cover] : []).concat(p.images || []);
+    // The build records each picture's proportions, so the row maths needs no
+    // downloads and the browser can keep every picture lazy. The attributes
+    // also reserve the right space, so nothing jumps as they arrive.
+    const sizes = p.sizes || {};
     const gallery = galleryImgs
-      .map((src) => `<img class="reveal"${nocrop.has(src) ? ` data-nocrop="1"` : ""} src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`)
+      .map((src) => {
+        const d = sizes[src];
+        const wh = d ? ` width="${d[0]}" height="${d[1]}"` : "";
+        return `<img class="reveal"${nocrop.has(src) ? ` data-nocrop="1"` : ""}${wh} src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`;
+      })
       .join("");
 
     // The main film takes the cover's place at the top of the page; the cover
@@ -555,13 +567,19 @@
     const gal = mount.querySelector(".project-gallery");
     if (gal) {
       const imgs = [...gal.querySelectorAll("img")];
-      let left = imgs.length;
-      const done = () => { if (--left <= 0) layoutGallery(gal); };
-      imgs.forEach((img) => {
-        img.loading = "eager";
-        if (img.complete && img.naturalWidth) done();
-        else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
-      });
+      // Sizes from the build: lay out at once, download nothing.
+      if (imgs.every((img) => img.getAttribute("width"))) {
+        layoutGallery(gal);
+      } else {
+        // A picture the build did not measure: fall back to waiting for it.
+        let left = imgs.length;
+        const done = () => { if (--left <= 0) layoutGallery(gal); };
+        imgs.forEach((img) => {
+          if (!img.getAttribute("width")) img.loading = "eager";
+          if (img.complete && img.naturalWidth) done();
+          else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
+        });
+      }
       let wasNarrow = window.matchMedia("(max-width: 600px)").matches;
       window.addEventListener("resize", () => {
         const narrow = window.matchMedia("(max-width: 600px)").matches;
