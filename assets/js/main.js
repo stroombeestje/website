@@ -392,7 +392,10 @@
     if (!mount) return;
     const { projects } = await loadJSON("data/projects.json");
     const feat = projects.filter((p) => p.featured);
-    const list = feat.length ? feat : projects.slice(0, 4);
+    // The home selection: nine featured works in curated order. Desktop shows
+    // the first six as one row; a phone shows all nine as a 3x3 grid, the way
+    // an Instagram profile opens. The CSS hides 7 to 9 on desktop.
+    const list = (feat.length ? feat : projects).slice(0, 9);
     mount.innerHTML = list.map(cardHTML).join("");
     observeReveals(mount);
   }
