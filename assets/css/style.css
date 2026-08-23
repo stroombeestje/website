@@ -699,3 +699,8 @@ p { margin: 0 0 1.2em; }
   }
   #featured-grid .card-meta { display: none; }
 }
+
+/* The one-screen wall without captions: covers alone, tight, titles on hover */
+#work-grid.compact { gap: 6px; }
+#work-grid.compact .card-meta { display: none; }
+#work-grid.compact .card-media { background: #e9e7e3; }

@@ -417,12 +417,42 @@
         .join("");
     }
 
+    // The grid sizes its tiles so the whole set ends within one screen, no
+    // scrolling: fewer projects in a filter means bigger tiles, the full list
+    // means more and smaller ones. Tried column count by column count against
+    // the real layout, captions included, taking the fewest columns (so the
+    // biggest tiles) that still fit. White space left at the bottom is fine.
+    // Desktop only; a phone scrolls its columns as before.
+    const fit = () => {
+      if (window.matchMedia("(max-width: 1000px)").matches) {
+        mount.style.gridTemplateColumns = "";
+        return;
+      }
+      const n = mount.children.length;
+      if (!n) return;
+      const fits = () =>
+        mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight;
+      // First with captions; when even small tiles cannot carry them, the wall
+      // drops the captions and shows covers alone, like an Instagram profile.
+      mount.classList.remove("compact");
+      for (let cols = 2; cols <= 12; cols++) {
+        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        if (fits()) return;
+      }
+      mount.classList.add("compact");
+      for (let cols = 6; cols <= 24; cols++) {
+        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        if (fits()) return;
+      }
+    };
     const render = (cat) => {
       const list = cat === "All" ? projects : projects.filter((p) => catsOf(p).includes(cat));
       mount.innerHTML = list.map(cardHTML).join("");
       observeReveals(mount);
+      fit();
     };
     render("All");
+    window.addEventListener("resize", fit, { passive: true });
 
     if (filtersEl) {
       filtersEl.addEventListener("click", (e) => {
