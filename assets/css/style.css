@@ -635,7 +635,7 @@ p { margin: 0 0 1.2em; }
 .project-body,
 .project-insight,
 .project-nav {
-  --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
+  --gw: calc(var(--vw, 100vw) - 2 * var(--gutter));
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
 }
@@ -662,14 +662,20 @@ p { margin: 0 0 1.2em; }
   background: #e9e7e3;
 }
 
-/* A project page runs wide, so its bar and footer line up with the content
-   rather than sitting in a narrower column above and below it. Scoped to the
-   project page: the other pages keep their 1500px grid, and there the bar
-   matching that grid is what lines up. */
-.page-project .site-header .wrap,
-.page-project .site-footer .wrap {
-  max-width: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
-  /* the gutter is already taken out of the width above, so no inner padding:
-     that is what puts the brand on the same line as the pictures below it */
+/* A wide page: every column on it, bar and footer included, runs the full
+   window less the gutter, so everything sits on the same two lines. The gutter
+   is taken out of the width rather than added as padding, which is what puts
+   the brand on the same line as the pictures below it. */
+.page-wide .wrap {
+  max-width: calc(var(--vw, 100vw) - 2 * var(--gutter));
   padding-inline: 0;
+}
+
+/* The project list keeps its cards the size they have always been and fits as
+   many across as the window allows, rather than stretching three of them over
+   the whole screen. Desktop only: phones and tablets keep their own columns. */
+@media (min-width: 1000px) {
+  .page-wide #work-grid.grid {
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  }
 }
