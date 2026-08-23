@@ -11,6 +11,7 @@ can also be run locally:  python scripts/build_site_data.py
 import json
 import glob
 import os
+import subprocess
 
 try:
     from PIL import Image
@@ -20,6 +21,13 @@ except ImportError:  # the site still builds without Pillow, just without sizes
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(ROOT, "data", "projects")
 OUT = os.path.join(ROOT, "data", "projects.json")
+
+# ffmpeg for the hover previews; the site still builds without it
+FFMPEG = os.path.join(
+    os.path.expanduser("~"), "AppData", "Local", "Programs", "Python", "Python311",
+    "Lib", "site-packages", "imageio_ffmpeg", "binaries", "ffmpeg-win-x86_64-v7.1.exe")
+if not os.path.exists(FFMPEG):
+    FFMPEG = None
 
 
 def main():
@@ -56,6 +64,30 @@ def main():
                         im.thumbnail((640, 640))
                         im.save(dst, "JPEG", quality=78, optimize=True)
                 p["coverThumb"] = rel_thumb
+
+        # A short square preview of the project's film, played when the cover
+        # is hovered in a grid. Six seconds from just past the opening, cropped
+        # to a square, 480px, silent, ~half a megabyte. Only local films; only
+        # rebuilt when the film is newer than the clip.
+        vids = [v for v in (p.get("videos") or []) if isinstance(v, str) and not v.startswith("http")]
+        if FFMPEG and vids:
+            src = os.path.join(ROOT, vids[0].replace("/", os.sep))
+            if os.path.exists(src):
+                os.makedirs(os.path.join(ROOT, "media", "thumbs"), exist_ok=True)
+                rel_prev = "media/thumbs/%s-hover.mp4" % p["slug"]
+                dst = os.path.join(ROOT, rel_prev.replace("/", os.sep))
+                if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                    r = subprocess.run(
+                        [FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
+                         "-ss", "3", "-t", "6", "-i", src,
+                         "-vf", "crop='min(iw,ih)':'min(iw,ih)',scale=480:480",
+                         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "28",
+                         "-pix_fmt", "yuv420p", "-movflags", "+faststart", dst],
+                        capture_output=True, text=True, encoding="utf-8", errors="replace")
+                    if r.returncode:
+                        print("  hover preview failed:", p["slug"], r.stderr.strip()[:120])
+                if os.path.exists(dst):
+                    p["hoverPreview"] = rel_prev
 
         # Record every picture's proportions here, once, so the page can lay the
         # gallery out without downloading a thing. Without this the browser has

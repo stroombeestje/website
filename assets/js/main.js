@@ -111,6 +111,38 @@
     return `<div class="${cls}"><div class="ph">${esc(title)}</div></div>`;
   }
 
+  /* ---- hover previews: a card with a film plays its square clip on hover ----
+     The video element is created on the first hover, so a grid of forty cards
+     costs nothing until a cursor actually arrives. Touch screens never see it:
+     the still stays, exactly as before. */
+  function initHoverPreviews() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    document.addEventListener("mouseover", (e) => {
+      const card = e.target.closest && e.target.closest(".card[data-preview]");
+      if (!card || card.contains(e.relatedTarget)) return;
+      const media = card.querySelector(".card-media");
+      if (!media) return;
+      let v = media.querySelector("video");
+      if (!v) {
+        v = document.createElement("video");
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.className = "card-preview";
+        v.src = asset(card.dataset.preview);
+        media.appendChild(v);
+      }
+      v.currentTime = 0;
+      v.play().then(() => v.classList.add("on")).catch(() => {});
+    });
+    document.addEventListener("mouseout", (e) => {
+      const card = e.target.closest && e.target.closest(".card[data-preview]");
+      if (!card || card.contains(e.relatedTarget)) return;
+      const v = card.querySelector("video.card-preview");
+      if (v) { v.classList.remove("on"); v.pause(); }
+    });
+  }
+
   // A project can sit in more than one category: "categories" wins, "category" is the fallback.
   const catsOf = (p) =>
     (Array.isArray(p.categories) && p.categories.length ? p.categories : [p.category]).filter(Boolean);
@@ -239,7 +271,7 @@
   function cardHTML(p, i) {
     const sub = [p.year, p.category].filter(Boolean).join(" · ");
     return `
-      <a class="card reveal" href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
+      <a class="card reveal"${p.hoverPreview ? ` data-preview="${esc(p.hoverPreview)}"` : ""} href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
         ${mediaHTML(p.coverThumb || p.cover, p.title, false)}
         <div class="card-meta">
           <span class="card-title">${escTitle(p.title)}</span>
@@ -704,6 +736,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     trackViewportWidth();
+    initHoverPreviews();
     initHeader();
     initChrome();
     initHeroPoints();
