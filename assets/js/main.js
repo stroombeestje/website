@@ -465,6 +465,35 @@
     const mainVideo = vids[0] || "";
     const extraVideos = vids.slice(1).join("");
 
+    // An "insight": an interview or conversation about the work, sitting under
+    // the pictures. Questions are ours, in short; the answers are quoted, and
+    // the piece it came from is always named and linked.
+    const ins = p.insight;
+    const insightHTML = ins
+      ? `<section class="project-insight">
+          <header class="insight-head">
+            <p class="eyebrow">${esc(ins.kicker || "Insight")}</p>
+            <h2>${escTitle(ins.title || "")}</h2>
+            ${ins.intro ? `<p class="insight-intro">${esc(ins.intro)}</p>` : ""}
+          </header>
+          <div class="insight-qa">
+            ${(ins.qa || [])
+              .map(
+                (row) => `<div class="qa">
+                  <p class="q">${esc(row.q)}</p>
+                  ${(row.a || [])
+                    .map((sp) => `<blockquote><p>${esc(sp.text)}</p>${sp.who ? `<cite>${esc(sp.who)}</cite>` : ""}</blockquote>`)
+                    .join("")}
+                </div>`
+              )
+              .join("")}
+          </div>
+          ${ins.url
+            ? `<p class="insight-source">${ins.source ? `${esc(ins.source)}, ` : ""}${ins.date ? `${esc(ins.date)}. ` : ""}<a href="${esc(ins.url)}" target="_blank" rel="noopener">Read the full interview ↗</a></p>`
+            : ""}
+        </section>`
+      : "";
+
     const prev = projects[(idx - 1 + projects.length) % projects.length];
     const next = projects[(idx + 1) % projects.length];
 
@@ -488,6 +517,7 @@
         ${bodyHTML}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
+        ${insightHTML}
         <nav class="project-nav">
           <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
           <a href="${ROOT}project.html?p=${encodeURIComponent(next.slug)}">${escTitle(next.title)} →</a>

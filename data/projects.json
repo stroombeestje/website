@@ -846,7 +846,80 @@
         "media/projects/mutek-circle-of-live/12.jpg"
       ],
       "credits": "Real-time visuals and LiDAR: Jaco Schilp / Studio Schilp. Light: Pavel Zmuchila. Choreography: Alejandra Metztli, with eight dancers. Programmed with Damián Romero. Circle of Live: Sebastian Mullaert, Pantha du Prince and Leafar Legov. Founded by Sebastian Mullaert. MUTEK MX 21 Nocturne, Hall A, Maravilla Studios, Mexico City, 10 October 2025. Photos: Diego Figueroa, Leo Luna and David Barajas.",
-      "link": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live"
+      "link": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live",
+      "insight": {
+        "kicker": "Interview",
+        "title": "Planning and instinct",
+        "intro": "MUTEK MX spoke to the three of us about how the night in Hall A was built: Pavel Zmuchila on light, Alejandra Metztli on choreography, and me on the real-time images.",
+        "source": "MUTEK MX",
+        "date": "15 December 2025",
+        "url": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live",
+        "qa": [
+          {
+            "q": "Where did the idea start?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "That idea immediately aligned with what MUTEK MX was looking for: something that balanced the digital with the physical."
+              }
+            ]
+          },
+          {
+            "q": "How did Circle of Live's improvisation shape the work?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "This helped us respond intuitively to what was happening on stage. Everyone reacted live, always checking if there was room to add something or if it was better to hold back."
+              }
+            ]
+          },
+          {
+            "q": "What were you after with the circular design?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "It was important to think about four elements: the physical sensation of the space, the lighting, the visuals, and the choreography."
+              }
+            ]
+          },
+          {
+            "q": "How do you prepare for operating it live?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "The process was a mix of planning and instinct. The three of us had long conversations about how the night might unfold."
+              }
+            ]
+          },
+          {
+            "q": "What did Maravilla Studios give you?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "Its scale allowed the circular design and 360-degree experience to truly feel at home."
+              }
+            ]
+          },
+          {
+            "q": "And the hardest part?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "One of the biggest challenges was making sure we didn't overwhelm people."
+              }
+            ]
+          },
+          {
+            "q": "What were you working in?",
+            "a": [
+              {
+                "who": "Jaco Schilp",
+                "text": "I worked with TouchDesigner to create real-time images using data from LiDAR scans of Mexico."
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "slug": "circle-of-live-cervantino",
