@@ -626,15 +626,36 @@ p { margin: 0 0 1.2em; }
 }
 
 /* On a wide screen the 1500px text column leaves the pictures small with a lot
-   of empty paper either side, so the gallery steps out of the column and runs
-   nearly the full window, keeping only the page gutter.
+   of empty paper either side, so everything visual in a project steps out of the
+   column and runs nearly the full window, keeping only the page gutter. Words
+   stay in the column, where a line stays short enough to read.
 
    The width comes from --vw, which main.js sets from clientWidth: that excludes
    the scrollbar, where 100vw would include it and push the page sideways. The
    100vw fallback below is deliberately short by the gutter, so it is safe even
    before the script runs. */
+.project-hero,
+.project-videos.is-main,
+.project-clips,
 .project-gallery {
   --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
+}
+/* A film is only worth running that wide up to its own resolution; past that it
+   is just a soft picture. Most of these are 1920 masters. */
+.project-videos.is-main video,
+.project-videos.is-main iframe {
+  max-width: 1920px;
+  margin-inline: auto;
+}
+/* A cover only earns the full width if it has the pixels for it; a smaller one
+   stops at its own size and centres rather than going soft. */
+.project-hero img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+  background: #e9e7e3;
 }

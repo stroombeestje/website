@@ -526,7 +526,7 @@
       ${mainVideo
         ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
         : p.cover
-        ? `<div class="wrap"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" style="width:100%;background:#e9e7e3" onerror="window.__phErr(this)"></div>`
+        ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
         : ""}
       <div class="wrap">
         ${bodyHTML}
