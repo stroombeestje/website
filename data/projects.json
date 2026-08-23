@@ -927,8 +927,8 @@
       "excerpt": "10 years of research, 14 million data points, 14 laser projectors, turning the Grote Kerk into a real-time light environment.",
       "description": "> Ten years of research. 14 million data points. 14 laser projectors.\nWhat started a decade ago as a research project between Jaco Schilp and Jan Willem Campmans has finally pushed through the technical ceiling, turning the historic Grote Kerk in Den Haag into a real-time data environment. Using TouchDesigner's POP operators, the work runs a full LiDAR 3D scan of the cathedral, 14 million particles calibrated in real time. No pre-renders, no loops: raw architecture translated into light.\nVisitors experience the intersection of history and high-performance code. Presented in January 2026 in 15-minute projections, free entry.",
       "images": [
-        "media/projects/points-of-light/nave-01.jpg",
-        "media/projects/points-of-light/nave-02.jpg",
+        "media/projects/points-of-light/vault-01.jpg",
+        "media/projects/points-of-light/vault-02.jpg",
         "media/projects/points-of-light/nave-03.jpg",
         "media/projects/points-of-light/nave-04.jpg"
       ],
