@@ -9,6 +9,21 @@
   const ROOT = document.body.getAttribute("data-root") || "";
   const asset = (p) => (p ? ROOT + p : p);
 
+  /* The gallery runs wider than the text column and needs the window's width
+     without the scrollbar; 100vw counts the scrollbar and would scroll the page
+     sideways. clientWidth is the honest number, so publish it as --vw.
+
+     A ResizeObserver rather than the resize event: the event does not fire for
+     every way the layout can change size, and a stale --vw makes the gallery
+     overflow. The observer watches the element itself, so it cannot go stale. */
+  function trackViewportWidth() {
+    const root = document.documentElement;
+    const set = () => root.style.setProperty("--vw", root.clientWidth + "px");
+    set();
+    if ("ResizeObserver" in window) new ResizeObserver(set).observe(root);
+    else window.addEventListener("resize", set, { passive: true });
+  }
+
   async function loadJSON(path) {
     const res = await fetch(asset(path), { cache: "no-cache" });
     if (!res.ok) throw new Error("Failed to load " + path);
@@ -626,6 +641,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    trackViewportWidth();
     initHeader();
     initChrome();
     initHeroPoints();

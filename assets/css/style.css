@@ -625,16 +625,16 @@ p { margin: 0 0 1.2em; }
   .insight-qa .q { padding-top: 0.35rem; }
 }
 
-/* On a wide screen the 1500px column leaves the pictures small with a lot of
-   empty paper either side. Let the gallery step out past the column in fixed
-   amounts, each one chosen to keep a margin at that width. Fixed values, not
-   viewport units, so the scrollbar can never push the page sideways. */
-.project-gallery { --breakout: 0px; }
-@media (min-width: 1750px) { .project-gallery { --breakout: 100px; } }
-@media (min-width: 1950px) { .project-gallery { --breakout: 200px; } }
-@media (min-width: 2200px) { .project-gallery { --breakout: 320px; } }
-@media (min-width: 2600px) { .project-gallery { --breakout: 500px; } }
+/* On a wide screen the 1500px text column leaves the pictures small with a lot
+   of empty paper either side, so the gallery steps out of the column and runs
+   nearly the full window, keeping only the page gutter.
+
+   The width comes from --vw, which main.js sets from clientWidth: that excludes
+   the scrollbar, where 100vw would include it and push the page sideways. The
+   100vw fallback below is deliberately short by the gutter, so it is safe even
+   before the script runs. */
 .project-gallery {
-  width: calc(100% + 2 * var(--breakout));
-  margin-inline: calc(-1 * var(--breakout));
+  --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
+  width: var(--gw);
+  margin-inline: calc((100% - var(--gw)) / 2);
 }
