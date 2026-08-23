@@ -240,7 +240,7 @@
     const sub = [p.year, p.category].filter(Boolean).join(" · ");
     return `
       <a class="card reveal" href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
-        ${mediaHTML(p.cover, p.title, false)}
+        ${mediaHTML(p.coverThumb || p.cover, p.title, false)}
         <div class="card-meta">
           <span class="card-title">${escTitle(p.title)}</span>
           <span class="card-cat">${esc(sub)}</span>

@@ -40,6 +40,23 @@ def main():
                     (v.lstrip("/") if isinstance(v, str) and v.startswith("/media/") else v)
                     for v in p[key]
                 ]
+        # A small copy of the cover for the grids. The tiles show at ~200 to
+        # 600px, and shipping the full 2200px cover for that made the first
+        # load slow and the pictures pop in at random. Rebuilt only when the
+        # cover is newer than the thumb.
+        if Image is not None and isinstance(p.get("cover"), str) and p["cover"] and not p["cover"].startswith("http"):
+            src = os.path.join(ROOT, p["cover"].replace("/", os.sep))
+            if os.path.exists(src):
+                os.makedirs(os.path.join(ROOT, "media", "thumbs"), exist_ok=True)
+                rel_thumb = "media/thumbs/%s-cover.jpg" % p["slug"]
+                dst = os.path.join(ROOT, rel_thumb.replace("/", os.sep))
+                if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                    with Image.open(src) as im:
+                        im = im.convert("RGB")
+                        im.thumbnail((640, 640))
+                        im.save(dst, "JPEG", quality=78, optimize=True)
+                p["coverThumb"] = rel_thumb
+
         # Record every picture's proportions here, once, so the page can lay the
         # gallery out without downloading a thing. Without this the browser has
         # to fetch every full-size picture before it can draw a single row.
