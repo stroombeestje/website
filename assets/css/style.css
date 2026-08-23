@@ -627,6 +627,7 @@ p { margin: 0 0 1.2em; }
    the scrollbar, where 100vw would include it and push the page sideways. The
    100vw fallback below is deliberately short by the gutter, so it is safe even
    before the script runs. */
+.project-head > *,
 .project-hero,
 .project-videos.is-main,
 .project-clips,
@@ -659,4 +660,16 @@ p { margin: 0 0 1.2em; }
   height: auto;
   margin-inline: auto;
   background: #e9e7e3;
+}
+
+/* A project page runs wide, so its bar and footer line up with the content
+   rather than sitting in a narrower column above and below it. Scoped to the
+   project page: the other pages keep their 1500px grid, and there the bar
+   matching that grid is what lines up. */
+.page-project .site-header .wrap,
+.page-project .site-footer .wrap {
+  max-width: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
+  /* the gutter is already taken out of the width above, so no inner padding:
+     that is what puts the brand on the same line as the pictures below it */
+  padding-inline: 0;
 }
