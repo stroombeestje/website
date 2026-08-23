@@ -540,6 +540,17 @@
       </div>`;
     observeReveals(mount);
 
+    // A portrait film gets capped by height instead of width, or it stands
+    // taller than the screen. The films are preload="none", so they report no
+    // size until they play; the poster is cut from the film and has the same
+    // proportions, and the browser has it already.
+    mount.querySelectorAll(".project-video-file[poster]").forEach((v) => {
+      const probe = new Image();
+      probe.onload = () =>
+        v.classList.toggle("is-portrait", probe.naturalHeight > probe.naturalWidth);
+      probe.src = v.getAttribute("poster");
+    });
+
     // Lay out the gallery once the pictures report their proportions, and on resize.
     const gal = mount.querySelector(".project-gallery");
     if (gal) {

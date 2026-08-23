@@ -345,13 +345,6 @@ p { margin: 0 0 1.2em; }
 
 /* the first video plays full width, on its own row */
 .project-videos.is-main { grid-template-columns: 1fr; }
-/* a portrait film would otherwise run taller than the screen, so cap it and centre it */
-.project-videos.is-main .project-video-file {
-  max-height: 80vh;
-  width: auto;
-  max-width: 100%;
-  margin-inline: auto;
-}
 
 /* further clips sit under the gallery at picture size, never full bleed */
 /* further clips use the same grid, so they line up with the pictures under them */
@@ -637,16 +630,24 @@ p { margin: 0 0 1.2em; }
 .project-hero,
 .project-videos.is-main,
 .project-clips,
-.project-gallery {
+.project-gallery,
+.project-body,
+.project-insight,
+.project-nav {
   --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), 2800px);
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
 }
-/* A film is only worth running that wide up to its own resolution; past that it
-   is just a soft picture. Most of these are 1920 masters. */
-.project-videos.is-main video,
-.project-videos.is-main iframe {
-  max-width: 1920px;
+/* The film runs the same width as the pictures. Only a portrait one is capped,
+   or it would stand taller than the screen; main.js marks those on load. */
+.project-videos.is-main .project-video-file {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}
+.project-videos.is-main .project-video-file.is-portrait {
+  width: auto;
+  max-height: 80vh;
   margin-inline: auto;
 }
 /* A cover only earns the full width if it has the pixels for it; a smaller one
