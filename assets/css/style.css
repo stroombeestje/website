@@ -681,9 +681,14 @@ p { margin: 0 0 1.2em; }
    the whole screen. Desktop only: phones and tablets keep their own columns. */
 @media (min-width: 1000px) {
   .page-wide #work-grid.grid {
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
   }
 }
+/* On the All projects page every cover shows complete: the tile keeps its
+   square, the picture fits inside it whole, and the rest of the square is
+   simply paper. Nothing is cropped, whatever its proportions. */
+#work-grid .card-media { background: var(--bg); }
+#work-grid .card-media img { object-fit: contain; }
 
 /* The home selection: one row of six on desktop, and on a phone all nine as
    three tight square rows, the way an Instagram profile opens. */
