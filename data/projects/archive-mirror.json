@@ -21,5 +21,6 @@
     "media/projects/archive-mirror/looking-back.mp4"
   ],
   "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Shown in Two Suns At Once at Treehouse NDSM, Amsterdam, 2026, co-curated by Vico Persson and supported by AFK; in the Pieterskerk, Leiden, 2025; and in Todo pasa at Público, Mexico City, during Art Week Mexico City 2026, presented with Lagom Studio Galería. Documentary: Guillaume Versteeg.",
-  "link": "https://vimeo.com/guillaumeversteeg/archivemirror"
+  "link": "https://vimeo.com/guillaumeversteeg/archivemirror",
+  "hoverStart": 86
 }

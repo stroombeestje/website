@@ -77,9 +77,11 @@ def main():
                 rel_prev = "media/thumbs/%s-hover.mp4" % p["slug"]
                 dst = os.path.join(ROOT, rel_prev.replace("/", os.sep))
                 if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                    # hoverStart: the second the clip starts at, chosen per film
+                    # to match the cover picture; 3 when nothing better is known
                     r = subprocess.run(
                         [FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
-                         "-ss", "3", "-t", "6", "-i", src,
+                         "-ss", str(p.get("hoverStart", 3)), "-t", "6", "-i", src,
                          "-vf", "crop='min(iw,ih)':'min(iw,ih)',scale=480:480",
                          "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "28",
                          "-pix_fmt", "yuv420p", "-movflags", "+faststart", dst],

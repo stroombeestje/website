@@ -22,5 +22,6 @@
     "media/projects/universum/film.mp4"
   ],
   "credits": "Jaco Schilp: 3D sculpture and video mapping. Skander Jaïbi: interactive soundscape. Laser sensors trigger the soundscape, the soundscape triggers the visuals. Sphere mounted on a rotating electromotor, with the mapping tracking the turning shape. Presented at Museum van Geluid, 2018.",
-  "link": ""
+  "link": "",
+  "hoverStart": 110
 }

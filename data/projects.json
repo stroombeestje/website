@@ -33,6 +33,7 @@
       ],
       "credits": "Created by Jaco Schilp. Curated by Alejandra Metztli. Film: Mau Novelo Jarque. Presented during Data Uotan 2024, Mexico City, supported by the Embassy of the Kingdom of the Netherlands in Mexico. Production assistance: El Destino del Arte.",
       "link": "",
+      "hoverStart": 54,
       "coverThumb": "media/thumbs/ka-an-cover.jpg",
       "hoverPreview": "media/thumbs/ka-an-hover.mp4",
       "sizes": {
@@ -125,6 +126,7 @@
       "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
       "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia",
       "coverInGrid": true,
+      "hoverStart": 144,
       "coverThumb": "media/thumbs/somnia-cover.jpg",
       "hoverPreview": "media/thumbs/somnia-hover.mp4",
       "sizes": {
@@ -427,6 +429,7 @@
       ],
       "credits": "Projections by the LiGHT-UP collective, with decor contributions from Triomf Utrecht.",
       "link": "https://www.lightupcollective.com/le-guess-who-2",
+      "hoverStart": 6,
       "coverThumb": "media/thumbs/le-guess-who-2019-cover.jpg",
       "hoverPreview": "media/thumbs/le-guess-who-2019-hover.mp4",
       "sizes": {
@@ -479,6 +482,7 @@
       ],
       "credits": "Commissioned by Le Guess Who? 2023. Video mapping, content design, light design & live operation: Jaco Schilp. Five-projector cube mapping; real-time point cloud from three depth cameras via TouchDesigner; custom-trained AI model; volumetric 3D from LiDAR scans around Utrecht; live playback in Resolume and TouchDesigner. Light operated b2b with Marc Huizinga on two desks. Photography: Ward Mevis.",
       "link": "https://leguesswho.com/lineup/the-anonymous-project",
+      "hoverStart": 27,
       "coverThumb": "media/thumbs/anonymous-project-2023-cover.jpg",
       "hoverPreview": "media/thumbs/anonymous-project-2023-hover.mp4",
       "sizes": {
@@ -613,6 +617,7 @@
       ],
       "credits": "Curated by Jaco Schilp & Skander Jaïbi for Uncloud. Works: SouRCe by Emanuel Nijkerk & Victor Dissel; re:gen by Skander Jaïbi & Cris Mollee; c55h72mgn4o5 by Timo Hoogland. Presented at Orbit Festival 2022. Photography: Ines Kooli.",
       "link": "",
+      "hoverStart": 0,
       "coverThumb": "media/thumbs/orbit-2022-cover.jpg",
       "hoverPreview": "media/thumbs/orbit-2022-hover.mp4",
       "sizes": {
@@ -679,6 +684,7 @@
       "nocrop": [
         "media/projects/data-utan/11.jpg"
       ],
+      "hoverStart": 124,
       "coverThumb": "media/thumbs/data-utan-cover.jpg",
       "hoverPreview": "media/thumbs/data-utan-hover.mp4",
       "sizes": {
@@ -824,6 +830,7 @@
         "Installation",
         "Artwork"
       ],
+      "hoverStart": 33,
       "coverThumb": "media/thumbs/panorama-utrecht-cover.jpg",
       "hoverPreview": "media/thumbs/panorama-utrecht-hover.mp4",
       "sizes": {
@@ -1236,6 +1243,7 @@
       "nocrop": [
         "media/projects/flip-mode/07.jpg"
       ],
+      "hoverStart": 2,
       "coverThumb": "media/thumbs/flip-mode-cover.jpg",
       "hoverPreview": "media/thumbs/flip-mode-hover.mp4",
       "sizes": {
@@ -1801,6 +1809,7 @@
         "Installation",
         "Artwork"
       ],
+      "hoverStart": 18,
       "coverThumb": "media/thumbs/orbit-installation-cover.jpg",
       "hoverPreview": "media/thumbs/orbit-installation-hover.mp4",
       "sizes": {
@@ -1864,6 +1873,7 @@
       ],
       "credits": "Light & design: Jaco Schilp. Photos: Elske Nissen. Production: ESWA licht en geluid. With Lammer at Soenda.",
       "link": "",
+      "hoverStart": 13,
       "coverThumb": "media/thumbs/soenda-presents-cover.jpg",
       "hoverPreview": "media/thumbs/soenda-presents-hover.mp4",
       "sizes": {
@@ -2244,6 +2254,7 @@
       ],
       "credits": "Real-time visuals and light: Jaco Schilp / Studio Schilp. Choreography: Alejandra Metztli. Circle of Live: Sebastian Mullaert, Pantha du Prince and Leafar Legov. MUTEK MX x Festival Internacional Cervantino, main stage, Guanajuato, 12 October 2025.",
       "link": "",
+      "hoverStart": 20,
       "coverThumb": "media/thumbs/circle-of-live-cervantino-cover.jpg",
       "hoverPreview": "media/thumbs/circle-of-live-cervantino-hover.mp4",
       "sizes": {
@@ -2361,6 +2372,7 @@
       ],
       "credits": "An installation by Jaco Schilp and Santiago Pani. Painting and archive: Santiago Pani. Camera system, AI model and real-time visuals: Jaco Schilp. Shown in Two Suns At Once at Treehouse NDSM, Amsterdam, 2026, co-curated by Vico Persson and supported by AFK; in the Pieterskerk, Leiden, 2025; and in Todo pasa at Público, Mexico City, during Art Week Mexico City 2026, presented with Lagom Studio Galería. Documentary: Guillaume Versteeg.",
       "link": "https://vimeo.com/guillaumeversteeg/archivemirror",
+      "hoverStart": 86,
       "coverThumb": "media/thumbs/archive-mirror-cover.jpg",
       "hoverPreview": "media/thumbs/archive-mirror-hover.mp4",
       "sizes": {
@@ -2426,6 +2438,7 @@
       ],
       "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
       "link": "",
+      "hoverStart": 53,
       "coverThumb": "media/thumbs/points-of-light-cover.jpg",
       "hoverPreview": "media/thumbs/points-of-light-hover.mp4",
       "sizes": {
@@ -2544,6 +2557,7 @@
       ],
       "credits": "A LiGHT-UP Collective production, Jaco Schilp and Jan Willem Campmans, for Erfgoedspektakel at the Oosterlanderkerk, Oosterland, Wieringen, 2025. Voice of Cornelis Lely: Rik Rikken. 3D scan of the church, point cloud projection onto its own geometry, particle effects, simulated water and the idle state soundscape: Jaco Schilp. Point cloud system built in TouchDesigner, water animated in Cinema 4D with RealFlow. Projection mapping and show control: Jaco Schilp and Merijn Meijers. Unreal Engine support for the life size animated figure of Lely: Sem Schreuder. Life size animated 3D character of Cornelis Lely, motion graphics, animation, editing and archival research in the Dutch national archives: Tristan Gieler, who also composed and produced the original score. Film: Jokko Voogt. Initiated by BOEi, with Gemeente Hollands Kroon, Culturele Kring Wieringen and the VriendenLoterij.",
       "link": "https://erfgoedspektakel.nl/events/lelys-droom-een-immersieve-beleving/",
+      "hoverStart": 52,
       "coverThumb": "media/thumbs/lelys-droom-cover.jpg",
       "hoverPreview": "media/thumbs/lelys-droom-hover.mp4",
       "sizes": {
@@ -2619,6 +2633,7 @@
       ],
       "credits": "Produced and commissioned by LightUp Collective.",
       "link": "https://www.instagram.com/reel/DHTt3x_tpNq/",
+      "hoverStart": 0,
       "coverThumb": "media/thumbs/schiedam-750-cover.jpg",
       "hoverPreview": "media/thumbs/schiedam-750-hover.mp4",
       "sizes": {
@@ -2680,6 +2695,7 @@
       "categories": [
         "Artwork"
       ],
+      "hoverStart": 12,
       "coverThumb": "media/thumbs/mexico-cover.jpg",
       "hoverPreview": "media/thumbs/mexico-hover.mp4",
       "sizes": {
@@ -2830,6 +2846,7 @@
       ],
       "credits": "With Skander Jaïbi. Presented at Sonaural, WORM, Rotterdam, 2020.",
       "link": "",
+      "hoverStart": 122,
       "coverThumb": "media/thumbs/sonaural-cover.jpg",
       "hoverPreview": "media/thumbs/sonaural-hover.mp4",
       "sizes": {
@@ -2906,6 +2923,7 @@
       ],
       "credits": "Jaco Schilp: 3D sculpture and video mapping. Skander Jaïbi: interactive soundscape. Laser sensors trigger the soundscape, the soundscape triggers the visuals. Sphere mounted on a rotating electromotor, with the mapping tracking the turning shape. Presented at Museum van Geluid, 2018.",
       "link": "",
+      "hoverStart": 110,
       "coverThumb": "media/thumbs/universum-cover.jpg",
       "hoverPreview": "media/thumbs/universum-hover.mp4",
       "sizes": {
@@ -2957,6 +2975,7 @@
       ],
       "credits": "Projection: LiGHT-UP Collective in collaboration with the Stedelijk Museum Schiedam, on the Schiedam stadskantoor, 2021. Edit: Vincent van den Brink.",
       "link": "",
+      "hoverStart": 76,
       "coverThumb": "media/thumbs/stedelijk-museum-schiedam-2021-cover.jpg",
       "hoverPreview": "media/thumbs/stedelijk-museum-schiedam-2021-hover.mp4",
       "sizes": {
@@ -3010,6 +3029,7 @@
       ],
       "credits": "Projection mapping: Jaco Schilp and Jan Willem Campmans, with LiGHT-UP Collective. Presented during Museumnacht at the Kunsthal Rotterdam, 2017.",
       "link": "",
+      "hoverStart": 18,
       "coverThumb": "media/thumbs/kunsthal-museumnacht-2017-cover.jpg",
       "hoverPreview": "media/thumbs/kunsthal-museumnacht-2017-hover.mp4",
       "sizes": {
