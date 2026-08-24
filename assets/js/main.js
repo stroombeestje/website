@@ -462,8 +462,10 @@
       }
       const n = mount.children.length;
       if (!n) return;
+      // 24px of slack: a layout that only just fits would flip its column
+      // count whenever a font swap or rounding nudges it a pixel either way
       const fits = () =>
-        mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight;
+        mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight - 24;
       // First with captions; when even small tiles cannot carry them, the wall
       // drops the captions and shows covers alone, like an Instagram profile.
       mount.classList.remove("compact");

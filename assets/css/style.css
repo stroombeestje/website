@@ -32,6 +32,9 @@ html {
      text rewraps, the height crosses the threshold back, and the whole page
      jitters left and right in a loop. */
   scrollbar-gutter: stable;
+  /* and for browsers without scrollbar-gutter, the scrollbar simply always
+     exists; either way the width can never change under the layout */
+  overflow-y: scroll;
 }
 
 body {
