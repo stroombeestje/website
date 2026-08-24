@@ -185,7 +185,9 @@
       ],
       "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions. Live photography: Jota Martínez (Volumens Festival, Valencia).",
       "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility",
+      "hoverStart": 218,
       "coverThumb": "media/thumbs/points-of-inaccessibility-cover.jpg",
+      "hoverPreview": "media/thumbs/points-of-inaccessibility-hover.mp4",
       "sizes": {
         "media/projects/points-of-inaccessibility/01.jpg": [
           2000,
@@ -553,7 +555,9 @@
       "credits": "Visual artists: Jordi Cardenas & Jaco Schilp. Video material: A Small Production Company. Decor: Jochen Lange Studio. Clothing: Eva Arends. Photography: Tess Janssen & Jasmijn Slegh.",
       "link": "https://leguesswho.com/lineup/rats-on-rafts-visions-of-chapter-3-live",
       "galleryRows": 2,
+      "hoverStart": 62,
       "coverThumb": "media/thumbs/rats-on-rafts-chapter-3-cover.jpg",
+      "hoverPreview": "media/thumbs/rats-on-rafts-chapter-3-hover.mp4",
       "sizes": {
         "media/projects/rats-on-rafts/01.jpg": [
           1800,
@@ -1403,7 +1407,9 @@
       ],
       "credits": "A/V live performance: Jaco Schilp, Skander Jaïbi & Skander Ben Yahia (sound & music). Premiered for Modulation (Sonar Traffic) at Etmaal Festival, curated by Colin Benders. Photography: Paulus van Dorsten. Recording: Sonar Traffic.",
       "link": "https://www.youtube.com/watch?v=UtkdIMA_250",
+      "hoverStart": 232,
       "coverThumb": "media/thumbs/circuitry-cover.jpg",
+      "hoverPreview": "media/thumbs/circuitry-hover.mp4",
       "sizes": {
         "media/projects/circuitry/01.jpg": [
           1800,
@@ -1469,7 +1475,9 @@
       ],
       "credits": "Production: ESWA licht en geluid. Photography: TB.",
       "link": "",
+      "hoverStart": 80,
       "coverThumb": "media/thumbs/orbit-festival-cover.jpg",
+      "hoverPreview": "media/thumbs/orbit-festival-hover.mp4",
       "sizes": {
         "media/projects/orbit-festival/01.jpg": [
           2000,
@@ -1770,7 +1778,9 @@
       ],
       "credits": "A project by Uncloud, curated by Jaco Schilp & Skander Jaïbi.",
       "link": "",
+      "hoverStart": 211,
       "coverThumb": "media/thumbs/uncloud-2019-cover.jpg",
+      "hoverPreview": "media/thumbs/uncloud-2019-hover.mp4",
       "sizes": {
         "media/projects/uncloud-2019/cover.jpg": [
           768,
@@ -2737,7 +2747,9 @@
       ],
       "credits": "In collaboration with LiGHT-UP Collective.",
       "link": "",
+      "hoverStart": 1,
       "coverThumb": "media/thumbs/3fm-awards-cover.jpg",
+      "hoverPreview": "media/thumbs/3fm-awards-hover.mp4",
       "sizes": {
         "media/projects/3fm-awards/01.jpg": [
           1024,

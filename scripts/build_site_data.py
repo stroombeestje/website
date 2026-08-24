@@ -90,6 +90,12 @@ def main():
                         print("  hover preview failed:", p["slug"], r.stderr.strip()[:120])
                 if os.path.exists(dst):
                     p["hoverPreview"] = rel_prev
+        # A clip can also exist without a local film: for YouTube/Vimeo-only
+        # projects the clip is cut once from a downloaded copy and kept.
+        if "hoverPreview" not in p:
+            rel_prev = "media/thumbs/%s-hover.mp4" % p["slug"]
+            if os.path.exists(os.path.join(ROOT, rel_prev.replace("/", os.sep))):
+                p["hoverPreview"] = rel_prev
 
         # Record every picture's proportions here, once, so the page can lay the
         # gallery out without downloading a thing. Without this the browser has
