@@ -662,14 +662,13 @@ p { margin: 0 0 1.2em; }
   max-height: 80vh;
   margin-inline: auto;
 }
-/* A cover only earns the full width if it has the pixels for it; a smaller one
-   stops at its own size and centres rather than going soft. */
+/* The cover fills the page width like every other block, so the page keeps
+   one straight edge from top to bottom. A slightly soft upscale is the price,
+   and Jaco chose the straight edge. */
 .project-hero img {
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  margin-inline: auto;
   background: #e9e7e3;
 }
 
