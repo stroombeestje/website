@@ -241,10 +241,27 @@ p { margin: 0 0 1.2em; }
 }
 /* the one-screen wall does not scroll, so nothing there may wait for scroll */
 #work-grid.compact .card-media { animation: none; }
-/* pictures GROW as the scroll carries them in: small and light at the
-   edge of the window, full size by the time they reach the middle */
+/* Framer-style variety: pictures grow in as the scroll carries them, but
+   not all the same way. In a gallery row the left one leans in from the
+   left, the right one from the right, the middle rises, at slightly
+   different distances, so the page has depth instead of one gesture. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .project-gallery img:nth-child(3n + 1) { animation-name: scroll-slide-l; }
+    .project-gallery img:nth-child(3n) { animation-name: scroll-slide-r; }
+    .press-media:nth-child(odd of .press-item) { animation-name: scroll-rise; }
+  }
+}
 @keyframes scroll-rise {
   from { opacity: 0.3; transform: translateY(34px) scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scroll-slide-l {
+  from { opacity: 0.3; transform: translate(-56px, 22px) scale(0.84); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scroll-slide-r {
+  from { opacity: 0.3; transform: translate(56px, 22px) scale(0.84); }
   to { opacity: 1; transform: none; }
 }
 .card-media.tall { aspect-ratio: 1 / 1; }
