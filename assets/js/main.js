@@ -22,6 +22,11 @@
     set();
     if ("ResizeObserver" in window) new ResizeObserver(set).observe(root);
     else window.addEventListener("resize", set, { passive: true });
+    // a tab opened in the background measures a half-made layout; remeasure
+    // the moment it actually faces the user
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") set();
+    });
   }
 
   async function loadJSON(path) {
