@@ -712,6 +712,22 @@
         </section>`
       : "";
 
+    /* ---- story mode: the scroll turns the page's elements over ----
+       One element holds the whole screen; scrolling cross-fades to the next:
+       film, then the text, then each picture. Nothing moves but the scroll.
+       Opt-in per project with "story": true. */
+    const storyHTML = p.story
+      ? (() => {
+          const slides = [];
+          if (vids[0]) slides.push(`<div class="slide slide-film">${vids[0]}</div>`);
+          slides.push(`<div class="slide slide-text"><div>${infoHTML}${stHTML}${creditsHTML}</div></div>`);
+          (p.images || []).forEach((src) => {
+            slides.push(`<div class="slide"><img src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy"></div>`);
+          });
+          return `<div class="story" style="height:${slides.length * 110}vh"><div class="story-stage">${slides.join("")}</div></div>`;
+        })()
+      : "";
+
     const prev = projects[(idx - 1 + projects.length) % projects.length];
     const next = projects[(idx + 1) % projects.length];
 
@@ -726,16 +742,18 @@
           ${p.link ? `<div><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
         </div>
       </div>
-      ${mainVideo
+      ${p.story
+        ? ""
+        : mainVideo
         ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
         : p.cover
         ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
         : ""}
       <div class="wrap">
-        ${bodyHTML}
-        ${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
-        ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
-        ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
+        ${p.story ? storyHTML : bodyHTML}
+        ${p.story ? "" : ""}${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
+        ${extraVideos && !p.story ? `<div class="project-clips">${extraVideos}</div>` : ""}
+        ${gallery && !p.story ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
         ${presskitHTML}
         ${insightHTML}
         <nav class="project-nav">
@@ -745,6 +763,31 @@
       </div>`;
     observeReveals(mount);
     mount.querySelectorAll(".project-statement .statement").forEach(wrapWords);
+
+    // story mode driver: scroll position picks the visible slide, fractional
+    // progress cross-fades neighbours, the active film plays, others pause
+    const story = mount.querySelector(".story");
+    if (story) {
+      const slides = [...story.querySelectorAll(".slide")];
+      const drive = () => {
+        const r = story.getBoundingClientRect();
+        const span = story.offsetHeight - window.innerHeight;
+        const x = Math.max(0, Math.min(1, -r.top / Math.max(1, span))) * (slides.length - 1);
+        slides.forEach((sl, i) => {
+          const o = Math.max(0, Math.min(1, 1 - Math.abs(x - i)));
+          sl.style.opacity = o;
+          sl.style.pointerEvents = o > 0.5 ? "auto" : "none";
+          const v = sl.querySelector("video");
+          if (v) {
+            if (o > 0.5 && v.paused) v.play().catch(() => {});
+            else if (o <= 0.5 && !v.paused) v.pause();
+          }
+        });
+      };
+      window.addEventListener("scroll", drive, { passive: true });
+      window.addEventListener("resize", drive, { passive: true });
+      drive();
+    }
     if (p.pointcloud) initProjectPointCloud(mount.querySelector(".project-pointcloud"), p.pointcloud);
 
     // A portrait film gets capped by height instead of width, or it stands

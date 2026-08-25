@@ -137,6 +137,7 @@
         ],
         "contact": "jaco@jacoschilp.nl"
       },
+      "story": true,
       "coverThumb": "media/thumbs/somnia-cover.jpg",
       "hoverPreview": "media/thumbs/somnia-hover.mp4",
       "sizes": {

@@ -1063,3 +1063,35 @@ p { margin: 0 0 1.2em; }
   .pillar-links { grid-column: 1; }
 }
 
+
+/* story mode: a sticky stage, slides stacked, only the scroll moves */
+.story { position: relative; }
+.story-stage {
+  position: sticky;
+  top: 73px;
+  height: calc(100dvh - 73px);
+}
+.story .slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  padding-block: 2vh;
+}
+.story .slide img,
+.story .slide video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.story .slide-film .project-video-file { max-height: 100%; }
+.story .slide-text > div {
+  max-width: 64ch;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+  line-height: 1.7;
+}
+.story .slide-text .statement { margin-top: 1.2em; }
