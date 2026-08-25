@@ -236,38 +236,24 @@
       if (w && h) return w / h;
       return im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5;
     });
-    const narrow = window.matchMedia("(max-width: 600px)").matches;
-    // Row targets in "width units" (a landscape ≈ 1.5, a portrait ≈ 0.7).
-    // Alternating between them gives a rhythm of two-picture and three-picture
-    // rows instead of a uniform grid. Phones get single wider rows.
-    // Pairs are the rule: calm and even beats a varied rhythm. A third picture
-    // only joins when the pair is narrow enough that three genuinely fit
-    // better than two. "galleryRows": 2 in a project pins strict pairs.
+    // One picture, one moment: landscape and square pictures stand alone at
+    // full page width; only portraits pair up, two tall ones side by side,
+    // so nothing tall runs off the screen. Marked graphics still go solo.
     const pinned = parseInt(el.dataset.rows || "", 10) || 0;
     const rows = [];
-    let row = [], sum = 0;
-    // Panorama strips run alone, and so do marked graphics: a poster only
-    // earns its place when it is big enough to read.
-    const solo = (i) => ratios[i] > 2.4 || !!imgs[i].dataset.nocrop;
+    let pair = [];
     ratios.forEach((r, i) => {
-      if (solo(i)) {
-        if (row.length) { rows.push(row); row = []; sum = 0; }
+      const portrait = ratios[i] < 1.02;
+      if (!portrait || imgs[i].dataset.nocrop || pinned === 1) {
+        if (pair.length) { rows.push(pair); pair = []; }
         rows.push([i]);
         return;
       }
-      // Desktop rows run denser since the pages went wide: mostly three
-      // pictures, four when they are narrow, so a big gallery stays a page
-      // and not a corridor. Phones and pinned-pair projects keep pairs.
-      const dense = window.matchMedia("(min-width: 1200px)").matches;
-      const full = narrow || pinned === 2
-        ? row.length >= 2
-        : dense
-        ? row.length >= 4 || (row.length >= 3 && sum >= 3.6)
-        : row.length >= 3 || (row.length === 2 && sum >= 2.4);
-      if (row.length && full) { rows.push(row); row = []; sum = 0; }
-      row.push(i); sum += r;
+      pair.push(i);
+      if (pair.length === 2) { rows.push(pair); pair = []; }
     });
-    if (row.length) rows.push(row);
+    if (pair.length) rows.push(pair);
+    const solo = (i) => ratios[i] >= 1.02 || !!imgs[i].dataset.nocrop;
     // No ordinary picture stands alone: a stranded single joins the nearest
     // ordinary row, looking past any solo rows in between.
     for (let k = rows.length - 1; k >= 0; k--) {
