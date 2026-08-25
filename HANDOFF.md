@@ -58,6 +58,17 @@ renders exist somewhere), `ncca-nizhny-novgorod-2019`.
 - **Category review**: Jaco wanted one pass over all 45 projects' categories
   "once the full picture of my work is there".
 
+## Point clouds for the site
+
+The Mexico page has an interactive point cloud player; any project can carry one.
+Jaco does the real processing in his own software; a session only packs the result
+(2 minutes: subsample to ~800k points, quantise to a ~7MB bin). When Jaco hands a
+cleaned export (binary PLY, xyz + rgb) and names the project, pack it with the
+prepcloud script (in the session scratchpad; regenerate from git history of this
+note if lost: subsample, 0.5% outlier trim, uint16 quantise + uint8 rgb, meta into
+the project JSON as "pointcloud"). Candidate already discussed: the Grote Kerk
+scan for points-of-light.
+
 ## Parked, not forgotten
 
 - Uncloud 2016 ACU film: 4.6GB master downloaded earlier, timecode sheet was built;
