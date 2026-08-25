@@ -595,81 +595,6 @@
       }
     };
 
-    /* ---- the zoom wall: no page scroll, the wheel dives into the pictures ----
-       The whole set stays one screen; scrolling scales the wall toward the
-       cursor (up to 3.2x) and dragging pans it, after lumus-instruments.com.
-       The zoom is eased like the site's scroll, so it glides. Desktop and
-       one-screen mode only; the browse grid and phones scroll normally. */
-    let zoom = { s: 1, x: 0, y: 0 };
-    let zoomTarget = { s: 1, x: 0, y: 0 };
-    let zoomRaf = null;
-    const zoomActive = () => oneScreen && !window.matchMedia("(max-width: 1000px)").matches;
-    const clampZoom = () => {
-      const r = mount.parentElement.getBoundingClientRect();
-      zoomTarget.s = Math.max(1, Math.min(3.2, zoomTarget.s));
-      const maxX = r.width * (zoomTarget.s - 1);
-      const maxY = r.height * (zoomTarget.s - 1);
-      zoomTarget.x = Math.min(0, Math.max(-maxX, zoomTarget.x));
-      zoomTarget.y = Math.min(0, Math.max(-maxY, zoomTarget.y));
-    };
-    const applyZoom = () => {
-      mount.style.transformOrigin = "0 0";
-      mount.style.transform = zoom.s === 1 && !zoomRaf
-        ? ""
-        : `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.s})`;
-      mount.classList.toggle("zoomed", zoom.s > 1.05);
-    };
-    const zoomLoop = () => {
-      let done = true;
-      for (const k of ["s", "x", "y"]) {
-        zoom[k] += (zoomTarget[k] - zoom[k]) * 0.14;
-        if (Math.abs(zoomTarget[k] - zoom[k]) > (k === "s" ? 0.002 : 0.4)) done = false;
-        else zoom[k] = zoomTarget[k];
-      }
-      applyZoom();
-      zoomRaf = done ? null : requestAnimationFrame(zoomLoop);
-      if (done) applyZoom();
-    };
-    const kickZoom = () => { if (!zoomRaf) zoomRaf = requestAnimationFrame(zoomLoop); };
-    mount.addEventListener("wheel", (e) => {
-      if (!zoomActive() || e.ctrlKey) return;
-      e.preventDefault();
-      e.stopPropagation();
-      const r = mount.parentElement.getBoundingClientRect();
-      const px = e.clientX - r.left, py = e.clientY - r.top;
-      const ns = Math.max(1, Math.min(3.2, zoomTarget.s * Math.exp(-e.deltaY * 0.0016)));
-      // keep the point under the cursor where it is while the scale changes
-      zoomTarget.x = px - (px - zoomTarget.x) * (ns / zoomTarget.s);
-      zoomTarget.y = py - (py - zoomTarget.y) * (ns / zoomTarget.s);
-      zoomTarget.s = ns;
-      clampZoom();
-      kickZoom();
-    }, { passive: false });
-    let zoomDrag = null;
-    mount.addEventListener("pointerdown", (e) => {
-      if (!zoomActive() || zoomTarget.s <= 1.01) return;
-      zoomDrag = { x: e.clientX, y: e.clientY, moved: false };
-    });
-    window.addEventListener("pointermove", (e) => {
-      if (!zoomDrag) return;
-      const dx = e.clientX - zoomDrag.x, dy = e.clientY - zoomDrag.y;
-      if (Math.abs(dx) + Math.abs(dy) > 3) zoomDrag.moved = true;
-      zoomTarget.x += dx;
-      zoomTarget.y += dy;
-      zoomDrag.x = e.clientX;
-      zoomDrag.y = e.clientY;
-      clampZoom();
-      kickZoom();
-    });
-    window.addEventListener("pointerup", () => { zoomDrag = null; });
-    // a drag must not count as a click on a project
-    mount.addEventListener("click", (e) => {
-      if (zoomDrag === null && zoom.s > 1.05 && e.detail && lastDragMoved) e.preventDefault();
-    });
-    let lastDragMoved = false;
-    mount.addEventListener("pointerdown", () => { lastDragMoved = false; }, true);
-    window.addEventListener("pointermove", () => { if (zoomDrag && zoomDrag.moved) lastDragMoved = true; });
-
     // One list feeds the wall: the active category, narrowed by the search
     // over title, venue, year, role and category words.
     const searchEl = $("#work-search");
@@ -686,9 +611,6 @@
       mount.innerHTML = list.map(cardHTML).join("");
       if (countEl) countEl.textContent = `${list.length} / ${projects.length} shown`;
       observeReveals(mount);
-      zoom = { s: 1, x: 0, y: 0 };
-      zoomTarget = { s: 1, x: 0, y: 0 };
-      applyZoom();
       fit();
     };
     render();
