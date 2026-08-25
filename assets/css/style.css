@@ -914,6 +914,25 @@ p { margin: 0 0 1.2em; }
 #work-grid.compact .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: 0.68rem; }
 #work-grid.compact .card-media { background: #e9e7e3; }
 
+/* Pages that fit the screen have no scroll to drive them, so the pictures
+   breathe on their own: a very slow drift inside their crop, always moving,
+   never arriving. Off for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .card-media img,
+  .press-media img,
+  .home-about img,
+  .about-portrait {
+    animation: breathe 14s ease-in-out infinite alternate;
+  }
+  .card-media img { animation-duration: 18s; }
+}
+@keyframes breathe {
+  from { transform: scale(1); }
+  to { transform: scale(1.07) translate(0.6%, -0.6%); }
+}
+/* the hover zoom must survive on top of the drift */
+.card:hover .card-media img { animation-play-state: paused; transform: scale(1.07); }
+
 /* The hover film sits over the cover and fades in once it is playing */
 .card-media .card-preview {
   position: absolute;
