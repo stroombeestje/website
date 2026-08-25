@@ -984,3 +984,10 @@ p { margin: 0 0 1.2em; }
   .pillar { grid-template-columns: 1fr; }
   .pillar-links { grid-column: 1; }
 }
+
+/* the zoom wall: the section clips the scaled grid, the cursor invites */
+.page-wide #work-grid.compact { cursor: zoom-in; }
+.page-wide #work-grid.compact.zoomed { cursor: grab; }
+.page-wide #work-grid.compact.zoomed:active { cursor: grabbing; }
+#work-grid { will-change: transform; }
+section:has(> #work-grid) { overflow: hidden; }
