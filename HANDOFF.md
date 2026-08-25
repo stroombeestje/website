@@ -1,5 +1,10 @@
 # Handoff — what the site still needs
 
+**The live version of this list is the Google Doc "WEBSITE HANDOFF - Studio Schilp"
+in Jaco's Drive (id `1xx6Rg6RQBJqZ3sp22Ad3xjxtsKiLXvlU76PrPUVMX3E`): Jaco writes
+answers and Drive links straight into it from any device. Read that doc first;
+this file is the repo snapshot of the same list.**
+
 For any Claude Code session working on this repo. Read [CLAUDE.md](CLAUDE.md) first
 for how the site works. This file lists the *content* gaps only: each item is a slot
 Jaco can fill by dropping a file path, a Drive link, or a line of text into the chat.
