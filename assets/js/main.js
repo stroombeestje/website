@@ -61,8 +61,11 @@
     }
     const io = new IntersectionObserver(
       (entries) => {
+        // elements arriving in the same beat settle one after another
+        let k = 0;
         entries.forEach((e) => {
           if (e.isIntersecting) {
+            e.target.style.transitionDelay = Math.min(k++ * 70, 420) + "ms";
             e.target.classList.add("in");
             io.unobserve(e.target);
           }
@@ -862,6 +865,34 @@
     }
   }
 
+  /* ---- expertise: four pillars, each with its linked projects ---- */
+  async function initExpertise() {
+    const mount = $("#expertise-list");
+    if (!mount) return;
+    const [{ projects }, site] = await Promise.all([
+      loadJSON("data/projects.json"),
+      loadJSON("data/site.json"),
+    ]);
+    const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+    mount.innerHTML = (site.expertise || [])
+      .map((pillar) => {
+        const cards = (pillar.projects || [])
+          .map((slug) => bySlug[slug])
+          .filter(Boolean)
+          .map(cardHTML)
+          .join("");
+        return `<section class="pillar reveal">
+            <div class="pillar-head">
+              <h2>${escTitle(pillar.title)}</h2>
+              <p>${esc(pillar.text || "")}</p>
+            </div>
+            <div class="grid cols-4 pillar-grid">${cards}</div>
+          </section>`;
+      })
+      .join("");
+    observeReveals(mount);
+  }
+
   /* ---- press ---- */
   async function initPress() {
     const mount = $("#press-list");
@@ -929,6 +960,7 @@
     initProject();
     initAbout();
     initPress();
+    initExpertise();
     observeReveals();
   });
 })();

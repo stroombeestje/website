@@ -620,10 +620,19 @@ p { margin: 0 0 1.2em; }
 /* ==========================================================================
    Reveal animation
    ========================================================================== */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+/* Pages cross-fade into each other; browsers without view transitions
+   simply navigate as before. Reduced motion turns it off entirely. */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.32s; animation-timing-function: ease; }
+
+/* Pictures drift in a touch softer and shallower than before; main.js adds a
+   small stagger per element so a row settles like a hand of cards, not a slab */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22,1,0.36,1); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -900,3 +909,11 @@ p { margin: 0 0 1.2em; }
 }
 .kit-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.8rem; }
 .kit-actions .pill { text-decoration: none; display: inline-block; }
+
+/* the expertise pillars */
+.pillar { border-top: 2px solid var(--fg); padding-top: 1.1rem; margin-bottom: clamp(2.2rem, 4vw, 3.5rem); }
+.pillar-head { display: flex; align-items: baseline; gap: 2rem; justify-content: space-between; flex-wrap: wrap; margin-bottom: 1.1rem; }
+.pillar-head h2 { margin: 0; font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 700; }
+.pillar-head p { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: 34rem; }
+.grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .grid.cols-4 { grid-template-columns: repeat(2, 1fr); } }

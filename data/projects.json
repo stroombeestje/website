@@ -1791,6 +1791,86 @@
       }
     },
     {
+      "slug": "uncloud-2022",
+      "title": "Uncloud 2022",
+      "year": "2022",
+      "category": "Curated",
+      "featured": false,
+      "order": 13.5,
+      "role": "Curator, Organizer",
+      "location": "De Helling · De Nijverheid · WAS. · TivoliVredenburg, Utrecht",
+      "cover": "media/projects/uncloud-2022/cover.jpg",
+      "excerpt": "A year of Uncloud concerts across four Utrecht venues, from De Helling to TivoliVredenburg.",
+      "description": "In 2022 Uncloud ran as a concert series across four Utrecht venues: De Helling in May, De Nijverheid in July, WAS. in October and TivoliVredenburg in December.\nAt De Helling: Albert van Abbe, Novi_Sad and Giovanni Iacovella. At WAS.: Deena Abdelwahed b2b Simo Cell, Forest Drive West, Talismann and Jasmin.\n> Four rooms could not be more different, and that was the point: the same platform, restated per space.",
+      "images": [
+        "media/projects/uncloud-2022/01.jpg",
+        "media/projects/uncloud-2022/02.jpg",
+        "media/projects/uncloud-2022/03.jpg",
+        "media/projects/uncloud-2022/04.jpg",
+        "media/projects/uncloud-2022/05.jpg",
+        "media/projects/uncloud-2022/06.jpg",
+        "media/projects/uncloud-2022/07.jpg",
+        "media/projects/uncloud-2022/08.jpg",
+        "media/projects/uncloud-2022/09.jpg",
+        "media/projects/uncloud-2022/10.jpg",
+        "media/projects/uncloud-2022/11.jpg"
+      ],
+      "videos": [],
+      "credits": "A project by Uncloud, curated by Jaco Schilp and Skander Jaibi. Photography: Paulus van Dorsten and Ines Kooli.",
+      "link": "",
+      "coverThumb": "media/thumbs/uncloud-2022-cover.jpg",
+      "sizes": {
+        "media/projects/uncloud-2022/01.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/02.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/03.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/04.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/05.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/06.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/07.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/08.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/09.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/10.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/11.jpg": [
+          2200,
+          1468
+        ],
+        "media/projects/uncloud-2022/cover.jpg": [
+          2200,
+          1468
+        ]
+      }
+    },
+    {
       "slug": "uncloud-2019",
       "title": "Uncloud 2019",
       "year": "2019",
