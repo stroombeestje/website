@@ -29,40 +29,6 @@
     });
   }
 
-  /* ---- eased scrolling: the sixnfive glide ----
-     The wheel no longer jumps the page in steps; it moves a target the page
-     glides toward each frame. Because the real scroll position is what eases,
-     everything tied to scroll (the scroll-driven appearance) glides with it.
-     Touch, keyboard and the scrollbar stay native; reduced motion opts out. */
-  function initSmoothScroll() {
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let target = window.scrollY;
-    let current = window.scrollY;
-    let gliding = false;
-    const max = () => document.documentElement.scrollHeight - window.innerHeight;
-    const loop = () => {
-      current += (target - current) * 0.11;
-      if (Math.abs(target - current) < 0.5) {
-        current = target;
-        gliding = false;
-      }
-      window.scrollTo(0, current);
-      if (gliding) requestAnimationFrame(loop);
-    };
-    window.addEventListener("wheel", (e) => {
-      if (e.ctrlKey) return; // pinch-zoom stays native
-      e.preventDefault();
-      const d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
-      target = Math.max(0, Math.min(max(), target + d));
-      if (!gliding) { gliding = true; requestAnimationFrame(loop); }
-    }, { passive: false });
-    // scrollbar drags, keyboard and anchors move the page without us: resync
-    window.addEventListener("scroll", () => {
-      if (!gliding) { target = window.scrollY; current = window.scrollY; }
-    }, { passive: true });
-  }
-
   async function loadJSON(path) {
     const res = await fetch(asset(path), { cache: "no-cache" });
     if (!res.ok) throw new Error("Failed to load " + path);
@@ -1039,7 +1005,6 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     trackViewportWidth();
-    initSmoothScroll();
     initHoverPreviews();
     initLivingTiles();
     initHeader();
