@@ -230,6 +230,8 @@ p { margin: 0 0 1.2em; }
     .press-media,
     .project-gallery img,
     .project-hero img,
+    .about-portrait,
+    .home-about img,
     .project-videos.is-main .project-video-file {
       animation: scroll-rise linear both;
       animation-timeline: view();
