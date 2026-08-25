@@ -346,7 +346,10 @@ p { margin: 0 0 1.2em; }
 @media (max-width: 900px) {
   .work-head { flex-direction: column; gap: 0.75rem; }
   .work-toolbar { flex-wrap: wrap; row-gap: 0.7rem; }
-  .work-search { flex-basis: 100%; }
+  .work-search { flex-basis: 100%; padding-block: 0.4rem 0.5rem; }
+  /* 16px keeps iOS from zooming the page when the field is focused */
+  .work-search input { font-size: 16px; }
+  .pill, .filter { padding: 0.6em 1.1em; }
   .work-tools { margin-left: 0; }
 }
 
@@ -504,7 +507,7 @@ p { margin: 0 0 1.2em; }
 
 /* The reading text on a project page runs larger than the site's base: the
    pages went wide and 17px drowned next to the pictures. */
-.project-body { font-size: clamp(1.05rem, 1.15vw, 1.3rem); line-height: 1.65; }
+.project-body { font-size: clamp(1.1rem, 1.15vw, 1.3rem); line-height: 1.65; }
 
 /* artist statement inside a project description — set apart from the info text */
 .project-body .statement {
@@ -641,10 +644,12 @@ p { margin: 0 0 1.2em; }
     padding: 1rem var(--gutter) 2rem;
     border-bottom: 1px solid var(--line);
     transform: translateY(-130%);
-    transition: transform var(--t-med);
+    /* hidden means hidden: the closed menu leaves the tab order too */
+    visibility: hidden;
+    transition: transform var(--t-med), visibility 0s var(--t-med);
     font-size: 1rem;
   }
-  .nav-links.open { transform: none; }
+  .nav-links.open { transform: none; visibility: visible; transition: transform var(--t-med); }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
   /* 3 squares across on phones — compact, legible one-line captions */
@@ -821,9 +826,25 @@ p { margin: 0 0 1.2em; }
   #featured-grid .card-meta { display: none; }
 }
 
-/* The one-screen wall without captions: covers alone, tight, titles on hover */
+/* The one-screen wall without captions: covers alone, tight, and the title
+   comes back as an overlay when the cursor rests on a tile */
 #work-grid.compact { gap: 6px; }
+#work-grid.compact .card { position: relative; }
 #work-grid.compact .card-meta { display: none; }
+#work-grid.compact .card:hover .card-meta,
+#work-grid.compact .card:focus-visible .card-meta {
+  display: flex;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 0.5rem 0.6rem 0.45rem;
+  background: linear-gradient(transparent, rgba(20, 20, 20, 0.78));
+  z-index: 1;
+}
+#work-grid.compact .card:hover .card-title,
+#work-grid.compact .card:focus-visible .card-title { color: #f7f6f4; font-size: 0.8rem; line-height: 1.25; }
+#work-grid.compact .card:hover .card-cat,
+#work-grid.compact .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: 0.68rem; }
 #work-grid.compact .card-media { background: #e9e7e3; }
 
 /* The hover film sits over the cover and fades in once it is playing */
@@ -859,3 +880,23 @@ p { margin: 0 0 1.2em; }
 }
 .pc-canvas:active { cursor: grabbing; }
 .pc-label { margin: 0.6rem 0 0; font-size: 0.85rem; color: var(--muted); }
+
+/* press kit under the pictures, in the insight section's voice */
+.project-presskit {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+.kit-quote { margin: 1.4rem 0 0; max-width: 46rem; }
+.kit-quote p { margin: 0; font-style: italic; font-size: 1.05rem; line-height: 1.55; }
+.kit-quote cite {
+  display: block;
+  margin-top: 0.4rem;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.kit-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.8rem; }
+.kit-actions .pill { text-decoration: none; display: inline-block; }

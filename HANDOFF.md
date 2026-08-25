@@ -69,6 +69,15 @@ note if lost: subsample, 0.5% outlier trim, uint16 quantise + uint8 rgb, meta in
 the project JSON as "pointcloud"). Candidate already discussed: the Grote Kerk
 scan for points-of-light.
 
+## Technical riders (Jaco supplies the numbers)
+
+Somnia and Points of Inaccessibility have press kit sections on their pages
+(photos zip + a rider-on-request button). To turn "on request" into a download,
+Jaco fills the rider facts per show: duration and touring party; stage/space
+minimums and floor; projection system and surfaces; audio; light; power draw;
+load-in/soundcheck schedule; local crew needed; contacts. A session then formats
+it as a PDF and adds it to the page's downloads.
+
 ## Parked, not forgotten
 
 - Uncloud 2016 ACU film: 4.6GB master downloaded earlier, timecode sheet was built;

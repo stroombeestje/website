@@ -127,6 +127,16 @@
       "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia",
       "coverInGrid": true,
       "hoverStart": 144,
+      "presskit": {
+        "intro": "Somnia is available for presenters through 2026. The kit below carries what a programme or an article needs; the technical rider follows on request.",
+        "downloads": [
+          {
+            "label": "Hi-res photos (zip)",
+            "file": "media/projects/somnia/presskit-photos.zip"
+          }
+        ],
+        "contact": "jaco@jacoschilp.nl"
+      },
       "coverThumb": "media/thumbs/somnia-cover.jpg",
       "hoverPreview": "media/thumbs/somnia-hover.mp4",
       "sizes": {
@@ -186,6 +196,26 @@
       "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions. Live photography: Jota Martínez (Volumens Festival, Valencia).",
       "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility",
       "hoverStart": 218,
+      "presskit": {
+        "intro": "Points of Inaccessibility, with composer Rafael Anton Irisarri, is available for presentation. The kit below carries what a programme or an article needs; the technical rider follows on request.",
+        "quotes": [
+          {
+            "text": "Schilp processed the material through point-cloud software, generating abstract imagery in a state of constant flux.",
+            "outlet": "Stationary Travels"
+          },
+          {
+            "text": "Jaco Schilp was developing real-time, reactive, audio-driven point clouds.",
+            "outlet": "a closer listen"
+          }
+        ],
+        "downloads": [
+          {
+            "label": "Hi-res photos (zip)",
+            "file": "media/projects/points-of-inaccessibility/presskit-photos.zip"
+          }
+        ],
+        "contact": "jaco@jacoschilp.nl"
+      },
       "coverThumb": "media/thumbs/points-of-inaccessibility-cover.jpg",
       "hoverPreview": "media/thumbs/points-of-inaccessibility-hover.mp4",
       "sizes": {

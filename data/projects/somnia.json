@@ -25,5 +25,15 @@
   "credits": "Choreography & direction: Alejandra Metztli. Sound design: Ben Spaander (Cosmic Force) and Noah Zurhaar. Photography: Guillaume Versteeg.",
   "link": "https://leguesswho.com/lineup/alejandra-metztli-and-jaco-schilp-presenting-somnia",
   "coverInGrid": true,
-  "hoverStart": 144
+  "hoverStart": 144,
+  "presskit": {
+    "intro": "Somnia is available for presenters through 2026. The kit below carries what a programme or an article needs; the technical rider follows on request.",
+    "downloads": [
+      {
+        "label": "Hi-res photos (zip)",
+        "file": "media/projects/somnia/presskit-photos.zip"
+      }
+    ],
+    "contact": "jaco@jacoschilp.nl"
+  }
 }

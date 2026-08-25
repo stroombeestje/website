@@ -36,7 +36,11 @@
     const toggle = $(".nav-toggle");
     const links = $(".nav-links");
     if (toggle && links) {
-      toggle.addEventListener("click", () => links.classList.toggle("open"));
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
       $$(".nav-links a").forEach((a) =>
         a.addEventListener("click", () => links.classList.remove("open"))
       );
@@ -468,11 +472,19 @@
     // the real layout, captions included, taking the fewest columns (so the
     // biggest tiles) that still fit. White space left at the bottom is fine.
     // Desktop only; a phone scrolls its columns as before.
-    let forceCompact = false;
+    // Two honest modes. "One screen" (default, the Compact pill pressed):
+    // the whole set fits above the fold, captions only when they have room.
+    // Unpressed: a comfortable captioned grid that simply scrolls.
+    let oneScreen = true;
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
         mount.style.gridTemplateColumns = "";
-        mount.classList.toggle("compact", forceCompact);
+        mount.classList.remove("compact");
+        return;
+      }
+      if (!oneScreen) {
+        mount.classList.remove("compact");
+        mount.style.gridTemplateColumns = "";
         return;
       }
       const n = mount.children.length;
@@ -482,17 +494,14 @@
       const fits = () =>
         mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight - 24;
       // First with captions; when even small tiles cannot carry them, the wall
-      // drops the captions and shows covers alone, like an Instagram profile.
-      // The Compact switch forces the caption-less wall regardless of room.
-      if (!forceCompact) {
-        mount.classList.remove("compact");
-        for (let cols = 2; cols <= 12; cols++) {
-          mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-          if (fits()) return;
-        }
+      // drops the captions and shows covers alone (titles come back on hover).
+      mount.classList.remove("compact");
+      for (let cols = 2; cols <= 12; cols++) {
+        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        if (fits()) return;
       }
       mount.classList.add("compact");
-      for (let cols = forceCompact ? 4 : 6; cols <= 24; cols++) {
+      for (let cols = 6; cols <= 24; cols++) {
         mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         if (fits()) return;
       }
@@ -520,11 +529,14 @@
     window.addEventListener("resize", fit, { passive: true });
     if (searchEl) searchEl.addEventListener("input", render);
     const compactBtn = $("#work-compact");
-    if (compactBtn) compactBtn.addEventListener("click", () => {
-      forceCompact = !forceCompact;
-      compactBtn.setAttribute("aria-pressed", String(forceCompact));
-      fit();
-    });
+    if (compactBtn) {
+      compactBtn.setAttribute("aria-pressed", "true");
+      compactBtn.addEventListener("click", () => {
+        oneScreen = !oneScreen;
+        compactBtn.setAttribute("aria-pressed", String(oneScreen));
+        fit();
+      });
+    }
 
     if (filtersEl) {
       filtersEl.addEventListener("click", (e) => {
@@ -598,6 +610,27 @@
     const mainVideo = vids[0] || "";
     const extraVideos = vids.slice(1).join("");
 
+    // A press kit for presenters and press, under the pictures: intro, press
+    // quotes, downloads and a contact line. Only projects that carry one.
+    const kit = p.presskit;
+    const presskitHTML = kit
+      ? `<section class="project-presskit">
+          <header class="insight-head">
+            <p class="eyebrow">For presenters &amp; press</p>
+            ${kit.intro ? `<p class="insight-intro">${esc(kit.intro)}</p>` : ""}
+          </header>
+          ${(kit.quotes || [])
+            .map((q) => `<blockquote class="kit-quote"><p>“${esc(q.text)}”</p><cite>${esc(q.outlet)}</cite></blockquote>`)
+            .join("")}
+          <div class="kit-actions">
+            ${(kit.downloads || [])
+              .map((dl) => `<a class="pill" href="${asset(esc(dl.file))}" download>${esc(dl.label)} ↓</a>`)
+              .join("")}
+            ${kit.contact ? `<a class="pill" href="mailto:${esc(kit.contact)}">Request the technical rider</a>` : ""}
+          </div>
+        </section>`
+      : "";
+
     // An "insight": an interview or conversation about the work, sitting under
     // the pictures. Questions are ours, in short; the answers are quoted, and
     // the piece it came from is always named and linked.
@@ -651,6 +684,7 @@
         ${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
+        ${presskitHTML}
         ${insightHTML}
         <nav class="project-nav">
           <a href="${ROOT}project.html?p=${encodeURIComponent(prev.slug)}">← ${escTitle(prev.title)}</a>
@@ -730,7 +764,7 @@
     const canvas = host.querySelector(".pc-canvas");
     const io2 = new IntersectionObserver((es) => {
       if (es.some((e) => e.isIntersecting)) { io2.disconnect(); boot(); }
-    }, { rootMargin: "600px" });
+    }, { rootMargin: "200px" });
     io2.observe(host);
 
     async function boot() {

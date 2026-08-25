@@ -19,5 +19,25 @@
   ],
   "credits": "Music: Rafael Anton Irisarri. Real-time point-cloud visuals & artwork: Jaco Schilp. Artwork edition: Daniel Castrejón. Vocals (closing track): Karen Vogt. Released on Black Knoll Editions. Live photography: Jota Martínez (Volumens Festival, Valencia).",
   "link": "https://irisarri.bandcamp.com/album/points-of-inaccessibility",
-  "hoverStart": 218
+  "hoverStart": 218,
+  "presskit": {
+    "intro": "Points of Inaccessibility, with composer Rafael Anton Irisarri, is available for presentation. The kit below carries what a programme or an article needs; the technical rider follows on request.",
+    "quotes": [
+      {
+        "text": "Schilp processed the material through point-cloud software, generating abstract imagery in a state of constant flux.",
+        "outlet": "Stationary Travels"
+      },
+      {
+        "text": "Jaco Schilp was developing real-time, reactive, audio-driven point clouds.",
+        "outlet": "a closer listen"
+      }
+    ],
+    "downloads": [
+      {
+        "label": "Hi-res photos (zip)",
+        "file": "media/projects/points-of-inaccessibility/presskit-photos.zip"
+      }
+    ],
+    "contact": "jaco@jacoschilp.nl"
+  }
 }
