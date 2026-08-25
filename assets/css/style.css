@@ -542,10 +542,10 @@ p { margin: 0 0 1.2em; }
   margin: clamp(2rem, 5vw, 3.5rem) 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* cards stay modest: the wide page gets more columns, not bigger pictures */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: clamp(1.2rem, 2.5vw, 2rem);
 }
-@media (max-width: 1000px) { .press-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .press-list { grid-template-columns: 1fr; } }
 .press-item { border-top: 1px solid var(--fg); }
 .press-link { display: block; padding: 0.9rem 0 0.4rem; text-decoration: none; color: var(--fg); }
@@ -628,7 +628,7 @@ p { margin: 0 0 1.2em; }
 
 /* Pictures drift in a touch softer and shallower than before; main.js adds a
    small stagger per element so a row settles like a hand of cards, not a slab */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+.reveal { opacity: 0; transform: translateY(26px) scale(0.972); transition: opacity 1s ease, transform 1s cubic-bezier(0.22,1,0.36,1); }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }

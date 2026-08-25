@@ -150,6 +150,52 @@
     });
   }
 
+  /* ---- living tiles: on big grids the film plays while its tile is on
+     screen, no cursor needed. Phones, save-data and reduced-motion keep
+     stills; the tiny one-screen wall keeps its hover behavior instead. */
+  function initLivingTiles() {
+    if (window.matchMedia("(max-width: 600px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (navigator.connection && navigator.connection.saveData) return;
+    const seen = new WeakSet();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const card = e.target;
+        const grid = card.closest("#featured-grid, #work-grid");
+        if (!grid || grid.classList.contains("compact")) return;
+        let v = card.querySelector("video.card-preview");
+        if (e.isIntersecting) {
+          if (!v) {
+            const media = card.querySelector(".card-media");
+            if (!media) return;
+            v = document.createElement("video");
+            v.muted = true;
+            v.loop = true;
+            v.playsInline = true;
+            v.className = "card-preview";
+            v.src = asset(card.dataset.preview);
+            media.appendChild(v);
+            // start each loop somewhere else, so a wall never pulses in step
+            v.addEventListener("loadedmetadata", () => {
+              v.currentTime = Math.random() * Math.max(0, v.duration - 0.5);
+            }, { once: true });
+          }
+          v.play().then(() => v.classList.add("on")).catch(() => {});
+        } else if (v) {
+          v.classList.remove("on");
+          v.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    const arm = () => {
+      $$(".card[data-preview]").forEach((c) => {
+        if (!seen.has(c)) { seen.add(c); io.observe(c); }
+      });
+    };
+    arm();
+    new MutationObserver(arm).observe(document.body, { childList: true, subtree: true });
+  }
+
   // A panorama cover (like Buy or Burn's strip) is shown whole in its grid
   // tile, paper above and below; cropping it to a square would keep a fifth.
   const isPanorama = (p) => {
@@ -478,7 +524,7 @@
     // Two honest modes. "One screen" (default, the Compact pill pressed):
     // the whole set fits above the fold, captions only when they have room.
     // Unpressed: a comfortable captioned grid that simply scrolls.
-    let oneScreen = true;
+    let oneScreen = false;
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
         mount.style.gridTemplateColumns = "";
@@ -533,7 +579,7 @@
     if (searchEl) searchEl.addEventListener("input", render);
     const compactBtn = $("#work-compact");
     if (compactBtn) {
-      compactBtn.setAttribute("aria-pressed", "true");
+      compactBtn.setAttribute("aria-pressed", "false");
       compactBtn.addEventListener("click", () => {
         oneScreen = !oneScreen;
         compactBtn.setAttribute("aria-pressed", String(oneScreen));
@@ -952,6 +998,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     trackViewportWidth();
     initHoverPreviews();
+    initLivingTiles();
     initHeader();
     initChrome();
     initHeroPoints();
