@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260826i">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260826p">
 </head>
 <body data-root="" class="page-wide">
 
@@ -30,18 +30,29 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero wrap">
+  <main class="home-view">
+    <section class="hero wrap home-hero">
       <canvas id="hero-points" class="hero-canvas" aria-hidden="true"></canvas>
-      <p class="eyebrow reveal">Artist · Curator · Technologist · Operator</p>
+      <p class="eyebrow reveal">Artist · Curator · Light designer</p>
       <h1 class="display reveal">Light, space &amp; immersive experience.</h1>
-      <p class="lead reveal">Jaco Schilp creates immersive installations and light works that explore perception, presence, and the thresholds between the physical and the digital. Artist, curator, technologist and live operator, crossing freely between these roles, from concept and code to curation and the live show.</p>
+      <p class="lead reveal">Immersive installations and light works exploring perception, presence, and the thresholds between the physical and the digital.</p>
     </section>
 
-    <section class="wrap">
-      <p class="eyebrow reveal">Selected works</p>
+    <section class="wrap home-works">
+      <div class="home-works-head">
+        <p class="eyebrow reveal">Selected works</p>
+        <a class="home-more reveal" href="work.html">All projects →</a>
+      </div>
       <div id="featured-grid" class="grid cols-3"></div>
-      <p style="margin-top:clamp(2rem,5vw,4rem)" class="reveal"><a href="work.html" style="border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:0.08em;font-size:0.85rem">View all projects →</a></p>
+    </section>
+
+    <section class="wrap home-about reveal">
+      <img src="media/about/about-1.jpg" alt="Jaco Schilp" loading="lazy">
+      <div>
+        <p class="eyebrow">About</p>
+        <p class="home-about-text">Jaco Schilp (1989) is a contemporary artist, curator and light designer, specialised in multidisciplinary projects within immersive art, installation art, performance and animation. Studio Schilp was once his grandfather's photo studio; the light stayed in the family.</p>
+        <a class="home-more" href="about.html">More about the studio →</a>
+      </div>
     </section>
   </main>
 
@@ -52,6 +63,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260826i"></script>
+  <script src="assets/js/main.js?v=20260826p"></script>
 </body>
 </html>

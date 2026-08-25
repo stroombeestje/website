@@ -846,9 +846,41 @@ p { margin: 0 0 1.2em; }
 /* The home selection: one row of six on desktop, and on a phone all nine as
    three tight square rows, the way an Instagram profile opens. */
 @media (min-width: 1000px) {
-  #featured-grid.grid { grid-template-columns: repeat(3, 1fr); }
+  #featured-grid.grid { grid-template-columns: repeat(6, 1fr); }
   #featured-grid .card:nth-child(n + 7) { display: none; }
 }
+
+/* The home is one view, like the old site: point cloud hero, one row of
+   works, the about band, all aiming to sit inside a single screen on
+   desktop. Small screens simply scroll; nothing is hard-clamped. */
+@media (min-width: 1000px) {
+  .home-view { min-height: calc(100dvh - 73px); display: flex; flex-direction: column; }
+  .home-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(0.25rem, 1.5vh, 2rem); }
+  .home-hero .lead { margin-top: 0.6rem; }
+  .home-hero .display { font-size: clamp(2rem, 4.2vh, 4.4rem); margin-block: 0.4rem; }
+  .home-hero .lead { max-width: 56ch; font-size: clamp(0.9rem, 1.5vh, 1.05rem); margin-block: 0.3rem 0; }
+  .home-works { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); }
+  .home-works .card-cat { display: none; }
+  .home-works .card-meta { margin-top: 0.45rem; }
+  .home-works .card-title { font-size: 0.85rem; }
+  .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
+  .home-about img { aspect-ratio: 3 / 2; }
+  .home-about-text { font-size: clamp(0.9rem, 1.5vh, 1rem); }
+}
+.home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 0.6rem; margin-bottom: 0.6rem; }
+.home-more { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.home-more:hover { color: var(--fg); }
+.home-about {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.home-about > div { padding-block: clamp(0.6rem, 1.5vh, 1.2rem); }
+.home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #e9e7e3; }
+.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: clamp(0.95rem, 1.6vh, 1.08rem); }
+@media (max-width: 999px) { .home-about { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   #featured-grid.grid {
     grid-template-columns: repeat(3, 1fr);
