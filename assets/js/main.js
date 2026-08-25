@@ -920,19 +920,22 @@
       loadJSON("data/site.json"),
     ]);
     const bySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+    // Insights, not tiles: the work page already shows the projects. Here each
+    // discipline gets the thinking, and the projects are a quiet line of links.
     mount.innerHTML = (site.expertise || [])
       .map((pillar) => {
-        const cards = (pillar.projects || [])
+        const links = (pillar.projects || [])
           .map((slug) => bySlug[slug])
           .filter(Boolean)
-          .map(cardHTML)
+          .map((pr) => `<a href="${ROOT}project.html?p=${encodeURIComponent(pr.slug)}">${escTitle(pr.title)}</a>`)
+          .join('<span class="dot"> · </span>');
+        const paras = (pillar.insight || [pillar.text].filter(Boolean))
+          .map((t) => `<p>${esc(t)}</p>`)
           .join("");
         return `<section class="pillar reveal">
-            <div class="pillar-head">
-              <h2>${escTitle(pillar.title)}</h2>
-              <p>${esc(pillar.text || "")}</p>
-            </div>
-            <div class="grid cols-4 pillar-grid">${cards}</div>
+            <h2>${escTitle(pillar.title)}</h2>
+            <div class="pillar-insight">${paras}</div>
+            ${links ? `<p class="pillar-links">Seen in: ${links}</p>` : ""}
           </section>`;
       })
       .join("");

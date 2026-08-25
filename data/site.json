@@ -77,7 +77,10 @@
   "expertise": [
     {
       "title": "Immersive installations",
-      "text": "Spaces you step into: projection, point clouds and sensors turned into rooms that react.",
+      "insight": [
+        "I build rooms you step into, not screens you stand before. It starts with the space itself: I measure it, scan it, walk it, and the content is made for that room and no other. My background is in exhibition design and narrative space, and it still shows: an installation is a story told by where you are standing.",
+        "The rooms answer back. Depth cameras, sensors and real-time systems in TouchDesigner mean the image knows you are there, whether that is a wall that tracks movement or lights that come on to greet a painting when you approach it."
+      ],
       "projects": [
         "points-of-inaccessibility",
         "jacobikerk-le-guess-who",
@@ -87,7 +90,10 @@
     },
     {
       "title": "Light for live shows",
-      "text": "Real-time visuals and light, operated live, from club rooms to festival main stages.",
+      "insight": [
+        "Live means live. I operate the show in the room, on the desk, reacting to what the musicians do, not playing back a file. The rule I hold myself to came out of Circle of Live: listen, create, and always check whether there is room to add something or whether it is better to hold back. When the performers lead, the visuals soften; when the music rises, the light takes the room.",
+        "The process is planning and instinct in equal parts. The material is prepared, scanned, built in advance; which parts of it come back, and when, is decided that night."
+      ],
       "projects": [
         "mutek-circle-of-live",
         "ka-an",
@@ -97,7 +103,10 @@
     },
     {
       "title": "Point cloud research and editions",
-      "text": "Cities and buildings as measurement: sculptures, laser cut editions and ongoing scanning research.",
+      "insight": [
+        "For ten years I have been working on one question: what does a place become once it is only measurement and light? Aerial LiDAR of whole cities, my own close-range scans of buildings and plants, always the same material, points in space, and always another body for it: a sculpture on a station square, laser cut wood lit from within, acid etched metal where the bath does the last part of the work on its own.",
+        "It is research first and editions second. The scanning keeps moving, from Utrecht to Mexico City, and the physical works are where the research pauses long enough to be held."
+      ],
       "projects": [
         "panorama-utrecht",
         "lidar-utrecht",
@@ -107,7 +116,10 @@
     },
     {
       "title": "Curation, with Uncloud",
-      "text": "A platform for interdisciplinary art and experimental sound, co-founded with Skander Jaibi.",
+      "insight": [
+        "Uncloud is the platform I co-founded with Skander Jaibi for interdisciplinary art and experimental sound in Utrecht. Curating, for me, is the same craft as installation in another key: giving an artist a room that restates them, whether that room is a former prison, a church during Le Guess Who?, or a club night across four venues in one year.",
+        "It runs from festival editions and concert series to museum collaborations, and it keeps me on the other side of the table often enough to know what artists need from a producer."
+      ],
       "projects": [
         "uncloud-transliminal",
         "uncloud-lgw-2022",
