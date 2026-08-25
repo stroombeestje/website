@@ -201,6 +201,18 @@
     new MutationObserver(arm).observe(document.body, { childList: true, subtree: true });
   }
 
+  /* ---- scroll-revealed text: words turn from faint to ink as the scroll
+     passes over them. The spans carry the effect; without support or with
+     reduced motion they are just words. ---- */
+  function wrapWords(el) {
+    if (!el || el.dataset.wrapped) return;
+    el.dataset.wrapped = "1";
+    el.innerHTML = el.textContent
+      .split(/(\s+)/)
+      .map((t) => (/^\s+$/.test(t) ? t : `<span class="w">${esc(t)}</span>`))
+      .join("");
+  }
+
   // A panorama cover (like Buy or Burn's strip) is shown whole in its grid
   // tile, paper above and below; cropping it to a square would keep a fifth.
   const isPanorama = (p) => {
@@ -746,6 +758,7 @@
         </nav>
       </div>`;
     observeReveals(mount);
+    mount.querySelectorAll(".project-statement .statement").forEach(wrapWords);
     if (p.pointcloud) initProjectPointCloud(mount.querySelector(".project-pointcloud"), p.pointcloud);
 
     // A portrait film gets capped by height instead of width, or it stands
@@ -945,6 +958,7 @@
       })
       .join("");
     observeReveals(mount);
+    mount.querySelectorAll(".pillar-insight p").forEach(wrapWords);
   }
 
   /* ---- press ---- */

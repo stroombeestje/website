@@ -282,6 +282,22 @@ p { margin: 0 0 1.2em; }
   from { transform: translateY(22px); }
   to { transform: translateY(-22px); }
 }
+/* the words of a statement come into ink as the scroll reaches them */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .statement .w,
+    .pillar-insight .w {
+      animation: word-ink linear both;
+      animation-timeline: view();
+      animation-range: entry 70% entry 110%;
+    }
+  }
+}
+@keyframes word-ink {
+  from { opacity: 0.22; }
+  to { opacity: 1; }
+}
+
 @keyframes parallax-b {
   from { transform: translateY(38px); }
   to { transform: translateY(-38px); }
