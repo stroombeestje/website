@@ -103,10 +103,10 @@
     if (img.parentNode) img.parentNode.replaceChild(ph, img);
   };
 
-  function mediaHTML(src, title, tall) {
+  function mediaHTML(src, title, tall, wide) {
     const cls = "card-media" + (tall ? " tall" : "");
     if (src) {
-      return `<div class="${cls}"><img src="${asset(esc(src))}" alt="${esc(title)}" loading="lazy" onerror="window.__phErr(this)"></div>`;
+      return `<div class="${cls}"><img${wide ? ` class="wide"` : ""} src="${asset(esc(src))}" alt="${esc(title)}" loading="lazy" onerror="window.__phErr(this)"></div>`;
     }
     return `<div class="${cls}"><div class="ph">${esc(title)}</div></div>`;
   }
@@ -142,6 +142,13 @@
       if (v) { v.classList.remove("on"); v.pause(); }
     });
   }
+
+  // A panorama cover (like Buy or Burn's strip) is shown whole in its grid
+  // tile, paper above and below; cropping it to a square would keep a fifth.
+  const isPanorama = (p) => {
+    const d = (p.sizes || {})[p.cover];
+    return !!d && d[0] / d[1] > 2.4;
+  };
 
   // A project can sit in more than one category: "categories" wins, "category" is the fallback.
   const catsOf = (p) =>
@@ -271,8 +278,8 @@
   function cardHTML(p, i) {
     const sub = [p.year, p.category].filter(Boolean).join(" · ");
     return `
-      <a class="card reveal"${p.hoverPreview ? ` data-preview="${esc(p.hoverPreview)}"` : ""} href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
-        ${mediaHTML(p.coverThumb || p.cover, p.title, false)}
+      <a class="card reveal${isPanorama(p) ? " pan" : ""}"${p.hoverPreview ? ` data-preview="${esc(p.hoverPreview)}"` : ""} href="${ROOT}project.html?p=${encodeURIComponent(p.slug)}">
+        ${mediaHTML(p.coverThumb || p.cover, p.title, false, isPanorama(p))}
         <div class="card-meta">
           <span class="card-title">${escTitle(p.title)}</span>
           <span class="card-cat">${esc(sub)}</span>
