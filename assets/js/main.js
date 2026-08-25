@@ -712,13 +712,13 @@
         const href = it.url || (it.image ? asset(it.image) : null);
         const cta = it.url ? "Read ↗" : it.image ? "View clipping ↗" : "";
         const inner = `
+            ${it.image ? `<div class="press-media"><img src="${asset(esc(it.image))}" alt="${esc(it.outlet)}: ${esc(it.title)}" loading="lazy" onerror="window.__phErr(this)"></div>` : ""}
             <div class="press-head">
               <span class="press-outlet">${esc(it.outlet)}</span>
               <span class="press-date">${esc(it.date || "")}</span>
             </div>
             <p class="press-title">${escTitle(it.title)}</p>
             ${it.quote ? `<p class="press-quote">“${esc(it.quote)}”</p>` : ""}
-            ${it.image ? `<img class="press-clip" src="${asset(esc(it.image))}" alt="${esc(it.outlet)}: ${esc(it.title)}" loading="lazy" onerror="window.__phErr(this)">` : ""}
             ${cta ? `<span class="press-cta">${cta}</span>` : ""}`;
         return `<li class="press-item reveal">${
           href

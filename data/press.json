@@ -6,49 +6,56 @@
       "title": "Through a Musical Lens: Points of Inaccessibility",
       "date": "May 2026",
       "quote": "Schilp processed the material through point-cloud software, generating abstract imagery in a state of constant flux.",
-      "url": "https://stationarytravels.wordpress.com/2026/05/25/through-a-musical-lens-points-of-inaccessibility-by-rafael-anton-irisarri/"
+      "url": "https://stationarytravels.wordpress.com/2026/05/25/through-a-musical-lens-points-of-inaccessibility-by-rafael-anton-irisarri/",
+      "image": "media/press/01.jpg"
     },
     {
       "outlet": "oowlr music magazine",
       "title": "Rafael Anton Irisarri interview",
       "date": "Feb 2026",
       "quote": "Points of Inaccessibility began organically out of a chance encounter with Dutch media artist Jaco Schilp.",
-      "url": "https://oowlr.gr/rafael-anton-irisarri-interview/"
+      "url": "https://oowlr.gr/rafael-anton-irisarri-interview/",
+      "image": "media/press/02.jpg"
     },
     {
       "outlet": "a closer listen",
       "title": "Rafael Anton Irisarri ~ Points of Inaccessibility",
       "date": "Feb 2026",
       "quote": "Jaco Schilp was developing real-time, reactive, audio-driven point cloud projections, some of which adorn the album's artwork.",
-      "url": "https://acloserlisten.com/2026/02/05/rafael-anton-irisarri-points-of-inaccessibility/"
+      "url": "https://acloserlisten.com/2026/02/05/rafael-anton-irisarri-points-of-inaccessibility/",
+      "image": "media/press/03.jpg"
     },
     {
       "outlet": "Haagse Dingen",
       "title": "Watch: Points of Light, Grote Kerk Den Haag",
       "date": "Jan 2026",
       "quote": "Points of Light is te zien op 22, 23, 29, 30 en 31 januari, dagelijks van 17.00 tot circa 21.00 uur.",
-      "url": "https://www.youtube.com/watch?v=WAPm1zXBM5I"
+      "url": "https://www.youtube.com/watch?v=WAPm1zXBM5I",
+      "image": "media/press/04.jpg"
     },
     {
       "outlet": "MUTEK MX",
       "title": "Planning and instinct: how the immersive experience for Circle of Live was created",
       "date": "Dec 2025",
       "quote": "I worked with TouchDesigner to create real-time images. For this, I used data from my own LiDAR scans of Mexico.",
-      "url": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live"
+      "url": "https://mexico.mutek.org/en/news/planificacion-e-instinto-asi-se-creo-la-experiencia-inmersiva-durante-el-set-de-circle-of-live",
+      "image": "media/press/05.jpg"
     },
     {
       "outlet": "Magnetic Magazine",
       "title": "Points of Inaccessibility Marks a New Phase for Rafael Anton Irisarri",
       "date": "Dec 2025",
       "quote": "Live visuals by Dutch artist Jaco Schilp, whose point cloud system reacts to the sound in real time.",
-      "url": "https://magneticmag.com/2025/12/rafael-anton-irisarri-interview/"
+      "url": "https://magneticmag.com/2025/12/rafael-anton-irisarri-interview/",
+      "image": "media/press/06.jpg"
     },
     {
       "outlet": "KLOF Mag",
       "title": "Echoes from the Digital Void: Points of Inaccessibility",
       "date": "Dec 2025",
       "quote": "Irisarri transformed bowed guitar textures into vaporous scaffolding, fueling Schilp's custom point-cloud software.",
-      "url": "https://klofmag.com/2025/12/echoes-from-the-digital-void-rafael-anton-irisarris-points-of-inaccessibility/"
+      "url": "https://klofmag.com/2025/12/echoes-from-the-digital-void-rafael-anton-irisarris-points-of-inaccessibility/",
+      "image": "media/press/07.jpg"
     },
     {
       "outlet": "La Jornada",
@@ -62,14 +69,16 @@
       "title": "In het panorama van Jaco zie je Utrecht zonder muren en zijn bomen net sterren",
       "date": "Sep 2022",
       "quote": "Het staat er gewoon, super fijn.",
-      "url": "https://www.rtvutrecht.nl/nieuws/3476811/in-het-panorama-van-jaco-zie-je-utrecht-zonder-muren-en-zijn-bomen-net-sterren"
+      "url": "https://www.rtvutrecht.nl/nieuws/3476811/in-het-panorama-van-jaco-zie-je-utrecht-zonder-muren-en-zijn-bomen-net-sterren",
+      "image": "media/press/09.jpg"
     },
     {
       "outlet": "RTV Utrecht",
       "title": "Jaco maakt lichtsculptuur op Utrecht Centraal voor 900-jarige stad",
       "date": "Jul 2022",
       "quote": "Die iconische stadsgezichten komen uiteindelijk bij elkaar op één groot paneel.",
-      "url": "https://www.rtvutrecht.nl/nieuws/3442879/jaco-maakt-lichtsculptuur-op-utrecht-centraal-voor-900-jarige-stad-nog-veel-te-doen-maar-het-komt-af"
+      "url": "https://www.rtvutrecht.nl/nieuws/3442879/jaco-maakt-lichtsculptuur-op-utrecht-centraal-voor-900-jarige-stad-nog-veel-te-doen-maar-het-komt-af",
+      "image": "media/press/10.jpg"
     },
     {
       "outlet": "de Volkskrant",
@@ -83,7 +92,8 @@
       "title": "Watch: Uncloud, contemporary art & music, by Juri Hiensch",
       "date": "Nov 2022",
       "quote": "A short documentary on Uncloud, the Utrecht art & music organisation co-founded by Jaco Schilp.",
-      "url": "https://leguesswho.com/news/watch-uncloud-contemporary-art-music-by-juri-hiensch"
+      "url": "https://leguesswho.com/news/watch-uncloud-contemporary-art-music-by-juri-hiensch",
+      "image": "media/press/12.jpg"
     }
   ]
 }
