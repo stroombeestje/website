@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260825d">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260825e">
 </head>
 <body data-root="" class="page-wide">
 
@@ -28,9 +28,21 @@
 
   <main>
     <section class="wrap" style="padding-block:clamp(2rem,4vw,3rem) 0">
-      <p class="eyebrow reveal">All projects</p>
-      <h1 class="h-section reveal" style="max-width:28ch;font-size:clamp(1.6rem,2.4vw,2.2rem);margin-bottom:clamp(1rem,2vw,1.5rem)">A practice in light, space and immersive experience.</h1>
-      <div id="filters" class="filters reveal"></div>
+      <div class="work-head reveal">
+        <h1 class="work-title">A practice in light, space and immersive experience.</h1>
+        <p class="work-intro">Installations, curated projects, artworks, performances and live shows. Filter by discipline or search by title, venue or year.</p>
+      </div>
+      <div class="work-toolbar reveal">
+        <label class="work-search">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.5-4.5"></path></svg>
+          <input id="work-search" type="search" placeholder="Search projects" autocomplete="off">
+        </label>
+        <div id="filters" class="filters"></div>
+        <div class="work-tools">
+          <span id="work-count" class="work-count"></span>
+          <button id="work-compact" class="pill" type="button" aria-pressed="false">Compact</button>
+        </div>
+      </div>
     </section>
     <section class="wrap" style="padding-block:clamp(0.75rem,1.5vw,1.25rem) clamp(1.5rem,3vw,2.5rem)">
       <div id="work-grid" class="grid cols-3"></div>
@@ -44,6 +56,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260825d"></script>
+  <script src="assets/js/main.js?v=20260825e"></script>
 </body>
 </html>

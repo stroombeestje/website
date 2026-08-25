@@ -468,9 +468,11 @@
     // the real layout, captions included, taking the fewest columns (so the
     // biggest tiles) that still fit. White space left at the bottom is fine.
     // Desktop only; a phone scrolls its columns as before.
+    let forceCompact = false;
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
         mount.style.gridTemplateColumns = "";
+        mount.classList.toggle("compact", forceCompact);
         return;
       }
       const n = mount.children.length;
@@ -481,25 +483,48 @@
         mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight - 24;
       // First with captions; when even small tiles cannot carry them, the wall
       // drops the captions and shows covers alone, like an Instagram profile.
-      mount.classList.remove("compact");
-      for (let cols = 2; cols <= 12; cols++) {
-        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        if (fits()) return;
+      // The Compact switch forces the caption-less wall regardless of room.
+      if (!forceCompact) {
+        mount.classList.remove("compact");
+        for (let cols = 2; cols <= 12; cols++) {
+          mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+          if (fits()) return;
+        }
       }
       mount.classList.add("compact");
-      for (let cols = 6; cols <= 24; cols++) {
+      for (let cols = forceCompact ? 4 : 6; cols <= 24; cols++) {
         mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
         if (fits()) return;
       }
     };
-    const render = (cat) => {
-      const list = cat === "All" ? projects : projects.filter((p) => catsOf(p).includes(cat));
+
+    // One list feeds the wall: the active category, narrowed by the search
+    // over title, venue, year, role and category words.
+    const searchEl = $("#work-search");
+    const countEl = $("#work-count");
+    let activeCat = "All";
+    const render = () => {
+      const q = ((searchEl && searchEl.value) || "").trim().toLowerCase();
+      let list = activeCat === "All" ? projects : projects.filter((p) => catsOf(p).includes(activeCat));
+      if (q) {
+        list = list.filter((p) =>
+          [p.title, p.location, p.year, p.role, catsOf(p).join(" ")]
+            .filter(Boolean).join(" ").toLowerCase().includes(q));
+      }
       mount.innerHTML = list.map(cardHTML).join("");
+      if (countEl) countEl.textContent = `${list.length} / ${projects.length} shown`;
       observeReveals(mount);
       fit();
     };
-    render("All");
+    render();
     window.addEventListener("resize", fit, { passive: true });
+    if (searchEl) searchEl.addEventListener("input", render);
+    const compactBtn = $("#work-compact");
+    if (compactBtn) compactBtn.addEventListener("click", () => {
+      forceCompact = !forceCompact;
+      compactBtn.setAttribute("aria-pressed", String(forceCompact));
+      fit();
+    });
 
     if (filtersEl) {
       filtersEl.addEventListener("click", (e) => {
@@ -507,7 +532,8 @@
         if (!btn) return;
         $$(".filter", filtersEl).forEach((b) => b.setAttribute("aria-pressed", "false"));
         btn.setAttribute("aria-pressed", "true");
-        render(btn.dataset.cat);
+        activeCat = btn.dataset.cat;
+        render();
       });
     }
   }
