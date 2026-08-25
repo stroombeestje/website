@@ -524,7 +524,7 @@
     // Two honest modes. "One screen" (default, the Compact pill pressed):
     // the whole set fits above the fold, captions only when they have room.
     // Unpressed: a comfortable captioned grid that simply scrolls.
-    let oneScreen = false;
+    let oneScreen = true;
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
         mount.style.gridTemplateColumns = "";
@@ -579,7 +579,7 @@
     if (searchEl) searchEl.addEventListener("input", render);
     const compactBtn = $("#work-compact");
     if (compactBtn) {
-      compactBtn.setAttribute("aria-pressed", "false");
+      compactBtn.setAttribute("aria-pressed", "true");
       compactBtn.addEventListener("click", () => {
         oneScreen = !oneScreen;
         compactBtn.setAttribute("aria-pressed", String(oneScreen));
