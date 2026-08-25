@@ -428,12 +428,17 @@ p { margin: 0 0 1.2em; }
 .about-text { font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.6; font-family: var(--font-serif); }
 .about-text p { margin-bottom: 1em; }
 
+/* The reading text on a project page runs larger than the site's base: the
+   pages went wide and 17px drowned next to the pictures. */
+.project-body { font-size: clamp(1.05rem, 1.15vw, 1.3rem); line-height: 1.65; }
+
 /* artist statement inside a project description — set apart from the info text */
 .project-body .statement {
   font-style: italic;
   color: #4a4a47;
   border-left: 2px solid var(--line);
   padding-left: 1.25em;
+  font-size: 1.05em;
 }
 
 /* when a statement is present: info left, statement right */
