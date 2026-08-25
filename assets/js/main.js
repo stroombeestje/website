@@ -185,8 +185,14 @@
         rows.push([i]);
         return;
       }
+      // Desktop rows run denser since the pages went wide: mostly three
+      // pictures, four when they are narrow, so a big gallery stays a page
+      // and not a corridor. Phones and pinned-pair projects keep pairs.
+      const dense = window.matchMedia("(min-width: 1200px)").matches;
       const full = narrow || pinned === 2
         ? row.length >= 2
+        : dense
+        ? row.length >= 4 || (row.length >= 3 && sum >= 3.6)
         : row.length >= 3 || (row.length === 2 && sum >= 2.4);
       if (row.length && full) { rows.push(row); row = []; sum = 0; }
       row.push(i); sum += r;
