@@ -736,7 +736,7 @@ p { margin: 0 0 1.2em; }
 /* The home selection: one row of six on desktop, and on a phone all nine as
    three tight square rows, the way an Instagram profile opens. */
 @media (min-width: 1000px) {
-  #featured-grid.grid { grid-template-columns: repeat(6, 1fr); }
+  #featured-grid.grid { grid-template-columns: repeat(3, 1fr); }
   #featured-grid .card:nth-child(n + 7) { display: none; }
 }
 @media (max-width: 600px) {
