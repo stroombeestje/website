@@ -821,7 +821,7 @@ p { margin: 0 0 1.2em; }
 /* The project list has no cap: its cards stay one size and a wider screen buys
    more of them, so there is nothing to stop growing. A project page does stop,
    or a film and a line of text run the whole wall. */
-.page-wide { --page-max: 99999px; }  /* the listing walls use the whole window */
+.page-wide { --page-max: 2800px; }  /* wide, but never six meters of website */
 /* The bar and the footer sit at the window edge on every page, whatever the
    page's own column does: a header that moves between pages reads as a jump. */
 .page-wide .site-header .wrap,
