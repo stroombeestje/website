@@ -2707,6 +2707,21 @@
         "Artwork"
       ],
       "hoverStart": 12,
+      "pointcloud": {
+        "bin": "media/projects/mexico/cloud.bin",
+        "count": 810040,
+        "min": [
+          -3.16255758495959,
+          -3.1939713452037237,
+          0.021658225221500738
+        ],
+        "scale": [
+          6.315458660743227,
+          6.391764472183051,
+          3.0887672691216848
+        ],
+        "label": "Palacio de Bellas Artes, scanned January 2024. Drag to turn it, scroll to come closer."
+      },
       "coverThumb": "media/thumbs/mexico-cover.jpg",
       "hoverPreview": "media/thumbs/mexico-hover.mp4",
       "sizes": {

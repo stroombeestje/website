@@ -622,6 +622,7 @@
         : ""}
       <div class="wrap">
         ${bodyHTML}
+        ${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
         ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
         ${insightHTML}
@@ -631,6 +632,7 @@
         </nav>
       </div>`;
     observeReveals(mount);
+    if (p.pointcloud) initProjectPointCloud(mount.querySelector(".project-pointcloud"), p.pointcloud);
 
     // A portrait film gets capped by height instead of width, or it stands
     // taller than the screen. The films are preload="none", so they report no
@@ -691,6 +693,113 @@
       $("#contact-email").innerHTML = `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`;
     }
     observeReveals(mount);
+  }
+
+  /* ---- point cloud player: a scan the visitor can hold and turn ----
+     Raw WebGL, no libraries. The cloud ships as quantised uint16 positions and
+     uint8 colors; the ranges come from the project JSON. The 7MB only loads
+     when the block scrolls near. */
+  function initProjectPointCloud(host, meta) {
+    if (!host) return;
+    const canvas = host.querySelector(".pc-canvas");
+    const io2 = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting)) { io2.disconnect(); boot(); }
+    }, { rootMargin: "600px" });
+    io2.observe(host);
+
+    async function boot() {
+      const gl = canvas.getContext("webgl", { antialias: false, alpha: false });
+      if (!gl) { host.style.display = "none"; return; }
+      let buf;
+      try {
+        buf = await (await fetch(asset(meta.bin))).arrayBuffer();
+      } catch (e) { host.style.display = "none"; return; }
+      const n = meta.count;
+      const qpos = new Uint16Array(buf, 0, n * 3);
+      const cols = new Uint8Array(buf, n * 6, n * 3);
+
+      const vs = `
+        attribute vec3 aQ; attribute vec3 aC;
+        uniform mat4 uMVP; uniform vec3 uScale; uniform float uSize;
+        varying vec3 vC;
+        void main() {
+          vec3 pos = (aQ - 0.5) * uScale;
+          gl_Position = uMVP * vec4(pos, 1.0);
+          gl_PointSize = clamp(uSize / gl_Position.w, 1.0, 5.0);
+          vC = aC;
+        }`;
+      const fs = `
+        precision mediump float; varying vec3 vC;
+        void main() { gl_FragColor = vec4(vC, 1.0); }`;
+      const sh = (t, src) => { const o = gl.createShader(t); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+      const prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(prog);
+      gl.useProgram(prog);
+
+      const bind = (name, arr, size, type) => {
+        const b = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, b);
+        gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW);
+        const loc = gl.getAttribLocation(prog, name);
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, size, type, true, 0, 0);
+      };
+      bind("aQ", qpos, 3, gl.UNSIGNED_SHORT);
+      bind("aC", cols, 3, gl.UNSIGNED_BYTE);
+
+      const uMVP = gl.getUniformLocation(prog, "uMVP");
+      const uScale = gl.getUniformLocation(prog, "uScale");
+      const uSize = gl.getUniformLocation(prog, "uSize");
+      const sc = meta.scale, R = Math.max(sc[0], sc[1], sc[2]);
+      gl.uniform3f(uScale, sc[0] / R, sc[1] / R, sc[2] / R);
+
+      // the state a hand changes: yaw, pitch, distance
+      let yaw = 0.6, pitch = -0.35, dist = 1.6, auto = true;
+      canvas.style.touchAction = "none";
+      let drag = null;
+      canvas.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY }; auto = false; canvas.setPointerCapture(e.pointerId); });
+      canvas.addEventListener("pointermove", (e) => {
+        if (!drag) return;
+        yaw += (e.clientX - drag.x) * 0.005;
+        pitch = Math.max(-1.5, Math.min(1.5, pitch + (e.clientY - drag.y) * 0.005));
+        drag = { x: e.clientX, y: e.clientY };
+      });
+      canvas.addEventListener("pointerup", () => { drag = null; });
+      canvas.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        dist = Math.max(0.35, Math.min(4, dist * Math.exp(e.deltaY * 0.0012)));
+        auto = false;
+      }, { passive: false });
+
+      const mul = (a, b) => {  // column-major 4x4
+        const o = new Float32Array(16);
+        for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++)
+          o[c * 4 + r] = a[r] * b[c * 4] + a[4 + r] * b[c * 4 + 1] + a[8 + r] * b[c * 4 + 2] + a[12 + r] * b[c * 4 + 3];
+        return o;
+      };
+      const draw = (t) => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w = canvas.clientWidth, h = canvas.clientHeight;
+        if (canvas.width !== w * dpr) { canvas.width = w * dpr; canvas.height = h * dpr; }
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.clearColor(0.05, 0.05, 0.06, 1);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        if (auto) yaw += 0.0012;
+        const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+        const rotY = [cy,0,-sy,0, 0,1,0,0, sy,0,cy,0, 0,0,0,1];
+        const rotX = [1,0,0,0, 0,cp,sp,0, 0,-sp,cp,0, 0,0,0,1];
+        const trans = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,-dist,1];
+        const f = 1 / Math.tan(0.4), aspect = w / h, near = 0.05, far = 20;
+        const proj = [f/aspect,0,0,0, 0,f,0,0, 0,0,(far+near)/(near-far),-1, 0,0,2*far*near/(near-far),0];
+        gl.uniformMatrix4fv(uMVP, false, mul(mul(proj, trans), mul(rotX, rotY)));
+        gl.uniform1f(uSize, (h * dpr) / 260);
+        gl.drawArrays(gl.POINTS, 0, n);
+        requestAnimationFrame(draw);
+      };
+      requestAnimationFrame(draw);
+    }
   }
 
   /* ---- press ---- */

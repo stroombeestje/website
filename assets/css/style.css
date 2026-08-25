@@ -773,3 +773,15 @@ p { margin: 0 0 1.2em; }
   .card.pan .card-media { aspect-ratio: 2 / 1; }
   .card.pan .card-media img.wide { object-fit: contain; }
 }
+
+/* the point cloud player: a dark room for the scan, page-wide like the rest */
+.project-pointcloud { margin-block: clamp(1.5rem, 3vw, 2.5rem); }
+.pc-canvas {
+  display: block;
+  width: 100%;
+  height: min(72vh, 780px);
+  background: #0d0d0f;
+  cursor: grab;
+}
+.pc-canvas:active { cursor: grabbing; }
+.pc-label { margin: 0.6rem 0 0; font-size: 0.85rem; color: var(--muted); }
