@@ -1831,9 +1831,11 @@
         "media/projects/uncloud-2024/spaces-2.jpg"
       ],
       "videos": [
-        "https://vimeo.com/1030297458"
+        "media/projects/uncloud-2024/film.mp4"
       ],
+      "hoverStart": 20,
       "coverThumb": "media/thumbs/uncloud-2024-cover.jpg",
+      "hoverPreview": "media/thumbs/uncloud-2024-hover.mp4",
       "sizes": {
         "media/projects/uncloud-2024/spaces-1.jpg": [
           3238,
