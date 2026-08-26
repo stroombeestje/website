@@ -448,6 +448,7 @@ p { margin: 0 0 1.2em; }
   display: flex;
   flex-wrap: wrap;
   align-items: start;
+  justify-content: space-between;
   gap: 1.5rem clamp(2rem, 4vw, 5rem);
   margin-top: 2.5rem;
   padding-top: 2rem;
@@ -455,8 +456,9 @@ p { margin: 0 0 1.2em; }
 }
 .fact-label { font-size: calc(var(--x-label, 1) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 .fact-value { font-size: calc(var(--x-label, 1) * 0.95rem); }
-/* the link stands at the far right edge of the facts row, year first at the left */
-.fact-link { margin-left: auto; text-align: right; }
+/* the facts spread evenly; the link BLOCK closes the row at the right,
+   its text left-aligned like every other fact */
+.fact-link { margin-left: auto; }
 /* the credits line under the project text, with its own tune dial */
 .project-credits { color: var(--muted); font-size: calc(var(--x-credits, 1) * 0.95rem); }
 
