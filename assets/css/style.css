@@ -1047,14 +1047,14 @@ p { margin: 0 0 1.2em; }
   .home-works .card-meta { margin-top: 0.55rem; margin-left: -0.09em; }
   .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
-  .home-about-text { font-size: calc(var(--x-home-about, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
+  .home-about-text { font-size: calc(var(--x-home-about, 0.91) * clamp(0.9rem, 1.5vh, 1rem)); }
 }
 /* every text element on the home listens to its own dial; the line under
    the title is BIG and has its own dial, the small labels stay small */
 .page-home .home-more,
 .page-home .home-works-head { font-size: calc(var(--x-home-cards, 1.5) * 0.8rem); }
 .page-home .home-about .h-section,
-.page-home .home-about h2 { font-size: calc(var(--x-home-about, 1) * clamp(1.3rem, 2.6vh, 1.9rem)); }
+.page-home .home-about h2 { font-size: calc(var(--x-home-about, 0.91) * clamp(1.3rem, 2.6vh, 1.9rem)); }
 .home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 0.6rem; margin-bottom: 0.6rem; }
 .home-more { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 .home-more:hover { color: var(--fg); }
@@ -1067,7 +1067,7 @@ p { margin: 0 0 1.2em; }
 }
 .home-about > div { padding-block: clamp(0.6rem, 1.5vh, 1.2rem); }
 .home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #e9e7e3; }
-.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: calc(var(--x-home-about, 1) * clamp(0.95rem, 1.6vh, 1.08rem)); }
+.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: calc(var(--x-home-about, 0.91) * clamp(0.95rem, 1.6vh, 1.08rem)); }
 @media (max-width: 999px) { .home-about { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   #featured-grid.grid {
