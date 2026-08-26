@@ -1036,7 +1036,16 @@ p { margin: 0 0 1.2em; }
   .home-works { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); }
   .home-works .card-cat { display: none; }
   .home-works .card-meta { margin-top: 0.45rem; }
-  .home-works .card-title { font-size: calc(var(--x-home-cards, 1.5) * 0.85rem); }
+  .home-works .card-title {
+    font-size: calc(var(--x-home-cards, 1.5) * 0.85rem);
+    /* one line, always: a wrapped title makes the row read ragged and the
+       text look misaligned with the pictures */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  .home-works .card-meta { margin-top: 0.55rem; }
   .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
   .home-about-text { font-size: calc(var(--x-home-about, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
