@@ -712,40 +712,57 @@
         </section>`
       : "";
 
-    /* ---- story mode: the scroll turns the page's elements over ----
-       One element holds the whole screen; scrolling cross-fades to the next:
-       film, then the text, then each picture. Nothing moves but the scroll.
+    /* ---- story mode, the Regie engine ----
+       The page opens as the complete contact sheet, everything visible at
+       once. Scrolling turns over curated compositions of the SAME pictures:
+       the film wide with the rest beside it, then the text over the ghosted
+       sheet, then one picture solo, then a pair, and the sheet closes it.
+       Scroll only picks the beat; one slow ease performs the change.
        Opt-in per project with "story": true. */
-    const storyHTML = p.story
+    const regie = p.story
       ? (() => {
-          const slides = [];
-          if (vids[0]) slides.push(`<div class="slide slide-film">${vids[0]}</div>`);
-          slides.push(`<div class="slide slide-text"><div>${infoHTML}${stHTML}${creditsHTML}</div></div>`);
-          // Rhythm scaled to the crowd: a small gallery runs mostly solo with
-          // a duo every third beat; a big one groups into duos and trios so
-          // thirty pictures never mean thirty screens. Portraits prefer company.
-          const list = (p.images || []).slice();
           const szs = p.sizes || {};
-          const ratio = (src) => { const d = szs[src]; return d ? d[0] / d[1] : 1.5; };
-          const n = list.length;
-          const cycle = n > 20 ? [1, 3, 2, 3] : n > 8 ? [1, 2, 2] : [1, 1, 2];
-          const img = (src) => `<img src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy">`;
-          let i = 0, beat = 0;
-          while (i < n) {
-            let take = cycle[beat % cycle.length];
-            if (ratio(list[i]) < 1.02 && i + 1 < n && ratio(list[i + 1]) < 1.02) take = Math.max(take, 2);
-            take = Math.min(take, n - i);
-            const group = list.slice(i, i + take);
-            slides.push(`<div class="slide${take > 1 ? " duo" : ""}">${group.map(img).join("")}</div>`);
-            i += take;
-            beat++;
+          const items = [];
+          const film = (p.videos || []).find((v) => /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(v)));
+          if (film) {
+            const poster = String(film).replace(/\.(mp4|webm|mov|m4v)(\?|$)/i, ".jpg");
+            items.push({
+              a: 16 / 9,
+              film: true,
+              html: `<video muted loop playsinline preload="metadata" poster="${asset(esc(poster))}" src="${asset(esc(film))}"></video>`,
+            });
           }
-          return `<div class="story" style="height:${slides.length * 72}vh"><div class="story-stage">${slides.join("")}
-            <p class="story-counter">1 — ${slides.length}</p>
+          (p.images || []).forEach((src) => {
+            const d = szs[src];
+            items.push({ a: d ? d[0] / d[1] : 1.5, html: `<img src="${asset(esc(src))}" alt="${esc(p.title)}">` });
+          });
+          if (!items.length) return null;
+          // the running order: sheet · film · words · pictures in a
+          // solo/solo/pair rhythm (pairs more often when the crowd is big) · sheet
+          const beats = [{ kind: "all" }];
+          const filmIdx = items.findIndex((it) => it.film);
+          if (filmIdx >= 0) beats.push({ kind: "hero", who: [filmIdx] });
+          beats.push({ kind: "text" });
+          const rest = items.map((_, i) => i).filter((i) => i !== filmIdx);
+          const cycle = rest.length > 12 ? [1, 2, 2] : [1, 1, 2];
+          let i = 0, b = 0;
+          while (i < rest.length) {
+            const take = Math.min(cycle[b % cycle.length], rest.length - i);
+            beats.push({ kind: "hero", who: rest.slice(i, i + take) });
+            i += take;
+            b++;
+          }
+          beats.push({ kind: "all" });
+          const html = `<div class="regie" style="height:${beats.length * 55}vh"><div class="regie-stage">
+            ${items.map((it, k) => `<div class="regie-item" data-i="${k}">${it.html}</div>`).join("")}
+            <div class="regie-text"><div>${infoHTML}${stHTML}${creditsHTML}</div></div>
+            <p class="story-counter">1 — ${beats.length}</p>
             <p class="story-hint">scroll</p>
           </div></div>`;
+          return { html, items, beats };
         })()
-      : "";
+      : null;
+    const storyHTML = regie ? regie.html : "";
 
     const prev = projects[(idx - 1 + projects.length) % projects.length];
     const next = projects[(idx + 1) % projects.length];
@@ -783,54 +800,161 @@
     observeReveals(mount);
     mount.querySelectorAll(".project-statement .statement").forEach(wrapWords);
 
-    // story mode driver: scroll position picks the visible slide, fractional
-    // progress cross-fades neighbours, the active film plays, others pause
-    const story = mount.querySelector(".story");
-    if (story) {
-      document.documentElement.classList.add("has-story");
-      const slides = [...story.querySelectorAll(".slide")];
-      story.querySelectorAll(".slide-text .statement").forEach(wrapWords);
-      const words = [...story.querySelectorAll(".slide-text .w")];
-      // the turn spans nearly the whole gap between scenes: every scrolled
-      // pixel moves something, so the page never feels parked
-      const ease = (t) => t * t * (3 - 2 * t);
-      const drive = () => {
-        const r = story.getBoundingClientRect();
-        const span = story.offsetHeight - window.innerHeight;
-        const raw = Math.max(0, Math.min(1, -r.top / Math.max(1, span))) * (slides.length - 1);
-        const base = Math.floor(raw);
-        const u = raw - base;
-        const t = ease(Math.max(0, Math.min(1, (u - 0.06) / 0.88)));
-        slides.forEach((sl, i) => {
-          let w = 0;
-          if (i === base) w = 1 - t;
-          else if (i === base + 1) w = t;
-          sl.style.opacity = w;
-          // the incoming scene settles from slightly large; the outgoing sinks
-          const scale = i === base + 1 ? 1.045 - 0.045 * w : 0.985 + 0.015 * w;
-          sl.style.transform = w > 0 ? `scale(${scale.toFixed(4)})` : "";
-          sl.style.pointerEvents = w > 0.5 ? "auto" : "none";
-          const v = sl.querySelector("video");
-          if (v) {
-            if (w > 0.5 && v.paused) v.play().catch(() => {});
-            else if (w <= 0.5 && !v.paused) v.pause();
+    // Regie driver: scroll picks a beat, the layout tables compose the stage,
+    // and the CSS transition performs the change with one slow ease.
+    const reg = mount.querySelector(".regie");
+    if (reg && regie) {
+      const stage = reg.querySelector(".regie-stage");
+      const els = [...reg.querySelectorAll(".regie-item")];
+      const textEl = reg.querySelector(".regie-text");
+      textEl.querySelectorAll(".statement").forEach(wrapWords);
+      textEl.querySelectorAll(".w").forEach((el, k) => {
+        el.style.transitionDelay = `${Math.min(k * 30, 1200)}ms`;
+      });
+      const counter = reg.querySelector(".story-counter");
+      const hint = reg.querySelector(".story-hint");
+      const { items, beats } = regie;
+      const GAP = 10, PAD = 24;
+      const fit = (a, bw, bh) => (a >= bw / bh ? { w: bw, h: bw / a } : { w: bh * a, h: bh });
+
+      // the contact sheet: rows justified to the width, the row count chosen
+      // so the finished sheet comes closest to filling the stage
+      const sheet = (idxs, W, H) => {
+        let best = null;
+        for (let r = 1; r <= Math.min(idxs.length, 8); r++) {
+          const per = Math.ceil(idxs.length / r);
+          const rows = [];
+          for (let s = 0; s < idxs.length; s += per) rows.push(idxs.slice(s, s + per));
+          let total = GAP * (rows.length - 1);
+          const rh = rows.map((row) => {
+            const h = (W - GAP * (row.length - 1)) / row.reduce((s, i) => s + items[i].a, 0);
+            total += h;
+            return h;
+          });
+          if (!best || Math.abs(H - total) < Math.abs(H - best.total)) best = { rows, rh, total };
+        }
+        const scale = Math.min(1, H / best.total);
+        const rects = {};
+        let y = (H - best.total * scale) / 2;
+        best.rows.forEach((row, ri) => {
+          const h = best.rh[ri] * scale;
+          const rowW = row.reduce((s, i) => s + items[i].a * h, 0) + GAP * (row.length - 1);
+          let x = (W - rowW) / 2;
+          row.forEach((i) => {
+            rects[i] = { x, y, w: items[i].a * h, h };
+            x += items[i].a * h + GAP;
+          });
+          y += h + GAP;
+        });
+        return rects;
+      };
+
+      // one composition: hero(es) hold the light, the rest wait as a strip
+      // of thumbnails along the bottom, still present, turned down
+      const layout = (beat, W, H) => {
+        const all = items.map((_, i) => i);
+        const op = {};
+        if (beat.kind === "all" || beat.kind === "text") {
+          all.forEach((i) => (op[i] = beat.kind === "text" ? 0.1 : 1));
+          return { rects: sheet(all, W, H), op, text: beat.kind === "text" };
+        }
+        const who = beat.who;
+        const restIdx = all.filter((i) => !who.includes(i));
+        all.forEach((i) => (op[i] = who.includes(i) ? 1 : 0.45));
+        const stripH = restIdx.length ? Math.max(56, H * 0.13) : 0;
+        const heroH = H - (stripH ? stripH + GAP * 2 : 0);
+        const rects = {};
+        if (W < 700 && who.length > 1) {
+          // the phone stacks a pair instead of splitting the narrow width
+          const each = (heroH - GAP * (who.length - 1)) / who.length;
+          let y = 0;
+          who.forEach((i) => {
+            const f = fit(items[i].a, W, each);
+            rects[i] = { x: (W - f.w) / 2, y: y + (each - f.h) / 2, w: f.w, h: f.h };
+            y += each + GAP;
+          });
+        } else if (who.length > 1) {
+          const bw = (W - GAP * (who.length - 1)) / who.length;
+          const fits = who.map((i) => fit(items[i].a, bw, heroH * 0.96));
+          const totalW = fits.reduce((s, f) => s + f.w, 0) + GAP * (who.length - 1);
+          let x = (W - totalW) / 2;
+          who.forEach((i, k) => {
+            rects[i] = { x, y: (heroH - fits[k].h) / 2, w: fits[k].w, h: fits[k].h };
+            x += fits[k].w + GAP;
+          });
+        } else {
+          const f = fit(items[who[0]].a, W * 0.96, heroH * 0.96);
+          rects[who[0]] = { x: (W - f.w) / 2, y: (heroH - f.h) / 2, w: f.w, h: f.h };
+        }
+        if (restIdx.length) {
+          let h = stripH;
+          let total = restIdx.reduce((s, i) => s + items[i].a, 0) * h + GAP * (restIdx.length - 1);
+          if (total > W) {
+            h *= (W - GAP * (restIdx.length - 1)) / (total - GAP * (restIdx.length - 1));
+            total = W;
           }
-          // the text scene writes itself: words ink in as the scene arrives
-          if (words.length && sl.classList.contains("slide-text")) {
-            const n = words.length;
-            words.forEach((el, k) => {
-              el.style.opacity = Math.max(0.15, Math.min(1, w * (n * 0.55 + 8) - k * 0.55)).toFixed(2);
-            });
+          let x = (W - total) / 2;
+          restIdx.forEach((i) => {
+            rects[i] = { x, y: H - h, w: items[i].a * h, h };
+            x += items[i].a * h + GAP;
+          });
+        }
+        return { rects, op, text: false };
+      };
+
+      const apply = (bi) => {
+        const W = stage.clientWidth - PAD * 2;
+        const H = stage.clientHeight - PAD * 2;
+        // a background tab measures 0x0; lay out again when it becomes real
+        if (W <= 0 || H <= 0) return;
+        const { rects, op, text } = layout(beats[bi], W, H);
+        els.forEach((el, i) => {
+          const r = rects[i];
+          if (r) {
+            el.style.transform = `translate(${(PAD + r.x).toFixed(1)}px, ${(PAD + r.y).toFixed(1)}px)`;
+            el.style.width = `${r.w.toFixed(1)}px`;
+            el.style.height = `${r.h.toFixed(1)}px`;
+          }
+          el.style.opacity = op[i];
+          const v = el.querySelector("video");
+          if (v) {
+            const on = beats[bi].kind === "hero" && beats[bi].who.includes(i);
+            v.controls = on;
+            if (on && v.paused) v.play().catch(() => {});
+            else if (!on && !v.paused) v.pause();
           }
         });
-        const counter = mount.querySelector(".story-counter");
-        if (counter) counter.textContent = `${Math.round(raw) + 1} — ${slides.length}`;
-        const hint = mount.querySelector(".story-hint");
+        textEl.classList.toggle("on", text);
+        if (counter) counter.textContent = `${bi + 1} — ${beats.length}`;
+      };
+
+      // hysteresis: a beat turns over only once the scroll is well past
+      // halfway, so a resting position never flickers between two beats
+      let cur = -1;
+      const drive = () => {
+        const rct = reg.getBoundingClientRect();
+        const span = reg.offsetHeight - window.innerHeight;
+        const raw = Math.max(0, Math.min(1, -rct.top / Math.max(1, span))) * (beats.length - 1);
+        let next = cur < 0 ? Math.round(raw) : cur;
+        while (raw - next > 0.55) next++;
+        while (next - raw > 0.55) next--;
+        next = Math.max(0, Math.min(beats.length - 1, next));
+        if (next !== cur) {
+          cur = next;
+          apply(cur);
+        }
         if (hint) hint.style.opacity = Math.max(0, 1 - raw * 2);
       };
+      const remeasure = () => {
+        if (cur >= 0) apply(cur);
+        drive();
+      };
       window.addEventListener("scroll", drive, { passive: true });
-      window.addEventListener("resize", drive, { passive: true });
+      window.addEventListener("resize", remeasure, { passive: true });
+      document.addEventListener("visibilitychange", remeasure);
       drive();
+      // the first composition lands instantly; only the turns are eased
+      requestAnimationFrame(() => requestAnimationFrame(() => stage.classList.add("is-on")));
     }
     if (p.pointcloud) initProjectPointCloud(mount.querySelector(".project-pointcloud"), p.pointcloud);
 
