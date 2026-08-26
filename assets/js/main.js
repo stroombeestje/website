@@ -774,7 +774,7 @@
           ${fact("Year", p.year)}
           ${fact("Role", p.role)}
           ${fact("Location", p.location)}
-          ${p.link ? `<div><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
+          ${p.link ? `<div class="fact-link"><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
         </div>
       </div>
       ${mainVideo

@@ -445,15 +445,18 @@ p { margin: 0 0 1.2em; }
 .project-head { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
 .project-head .display { font-size: calc(var(--x-title, 1) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
 .project-facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 1.5rem clamp(2rem, 4vw, 5rem);
   margin-top: 2.5rem;
   padding-top: 2rem;
   border-top: 1px solid var(--line);
 }
 .fact-label { font-size: calc(var(--x-label, 1) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 .fact-value { font-size: calc(var(--x-label, 1) * 0.95rem); }
+/* the link stands at the far right edge of the facts row, year first at the left */
+.fact-link { margin-left: auto; text-align: right; }
 
 .project-body {
   display: grid;
