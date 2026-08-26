@@ -839,7 +839,9 @@
         }
         const scale = Math.min(1, H / best.total);
         const rects = {};
-        let y = (H - best.total * scale) / 2;
+        // the sheet hugs the top of the stage: white above the pictures
+        // read as a hole between the text and the gallery
+        let y = Math.min((H - best.total * scale) / 2, H * 0.03);
         best.rows.forEach((row, ri) => {
           const h = best.rh[ri] * scale;
           const rowW = row.reduce((s, i) => s + items[i].a * h, 0) + GAP * (row.length - 1);

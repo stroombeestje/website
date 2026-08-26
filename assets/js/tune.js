@@ -13,7 +13,7 @@
     ["--x-label", "Cards & labels", 0.8, 1.8, 0.01, 1],
     ["--x-credits", "Credits line", 0.7, 1.6, 0.01, 1],
     ["--x-space", "Air between blocks", 0.3, 1.5, 0.01, 1],
-    ["--x-textgap", "Text to gallery", 0, 1.5, 0.01, 0.1],
+    ["--x-textgap", "Text to gallery", -0.5, 1.5, 0.01, 0.1],
     ["--x-gap", "Grid gaps", 0.2, 2, 0.01, 1],
     ["--x-width", "Page width", 0.5, 2.5, 0.01, 1],
     ["--x-gutter", "Side margins", 0.3, 2, 0.01, 1],
