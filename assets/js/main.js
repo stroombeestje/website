@@ -784,6 +784,11 @@
       <div class="wrap project-head">
         <p class="eyebrow">${esc(p.category || "")}</p>
         <h1 class="display">${escTitle(p.title)}</h1>
+        ${p.with
+          ? `<p class="project-by">Jaco Schilp <span class="by-x">×</span> ${esc(
+              Array.isArray(p.with) ? p.with.join(" × ") : p.with
+            )}</p>`
+          : ""}
         <div class="project-facts">
           ${fact("Year", p.year)}
           ${fact("Role", p.role)}
