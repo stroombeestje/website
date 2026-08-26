@@ -27,7 +27,7 @@
     ["--regie-vh", "Story: scroll per beat", 25, 90, 1, 35, ["project"]],
     ["--x-home-title", "Home: title", 0.6, 2.2, 0.01, 1, ["home"]],
     ["--x-home-lead", "Home: text under title", 0.7, 2.5, 0.01, 1.5, ["home"]],
-    ["--x-home-cards", "Home: card titles", 0.7, 2.2, 0.01, 1, ["home"]],
+    ["--x-home-cards", "Home: card titles", 0.7, 2.5, 0.01, 1.5, ["home"]],
     ["--x-home-about", "Home: about text", 0.7, 2.2, 0.01, 1, ["home"]],
     ["--pc-density", "Cloud: points", 0.3, 4, 0.05, 2.4, ["home"]],
     ["--pc-size", "Cloud: dot size", 0.5, 4, 0.05, 2.5, ["home"]],

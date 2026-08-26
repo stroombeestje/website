@@ -1036,7 +1036,7 @@ p { margin: 0 0 1.2em; }
   .home-works { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); }
   .home-works .card-cat { display: none; }
   .home-works .card-meta { margin-top: 0.45rem; }
-  .home-works .card-title { font-size: calc(var(--x-home-cards, 1) * 0.85rem); }
+  .home-works .card-title { font-size: calc(var(--x-home-cards, 1.5) * 0.85rem); }
   .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
   .home-about-text { font-size: calc(var(--x-home-about, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
@@ -1044,7 +1044,7 @@ p { margin: 0 0 1.2em; }
 /* every text element on the home listens to its own dial; the line under
    the title is BIG and has its own dial, the small labels stay small */
 .page-home .home-more,
-.page-home .home-works-head { font-size: calc(var(--x-home-cards, 1) * 0.8rem); }
+.page-home .home-works-head { font-size: calc(var(--x-home-cards, 1.5) * 0.8rem); }
 .page-home .home-about .h-section,
 .page-home .home-about h2 { font-size: calc(var(--x-home-about, 1) * clamp(1.3rem, 2.6vh, 1.9rem)); }
 .home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 0.6rem; margin-bottom: 0.6rem; }
