@@ -464,6 +464,7 @@ p { margin: 0 0 1.2em; }
 }
 .fact-label { font-size: calc(var(--x-label, 1) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 .fact-value { font-size: calc(var(--x-label, 1) * 0.95rem); }
+.fact-locations { line-height: 1.75; }
 /* the facts spread evenly; the link BLOCK closes the row at the right,
    its text left-aligned like every other fact */
 .fact-link { margin-left: auto; }

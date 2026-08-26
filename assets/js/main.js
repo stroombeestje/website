@@ -792,7 +792,13 @@
         <div class="project-facts">
           ${fact("Year", p.year)}
           ${fact("Role", p.role)}
-          ${fact("Location", p.location)}
+          ${(() => {
+            // one venue reads as a line; a tour of venues reads as a list,
+            // each on its own line, and the label turns plural
+            if (!p.location) return "";
+            const spots = String(p.location).split(/\s*·\s*/).filter(Boolean);
+            return `<div><div class="fact-label">${spots.length > 1 ? "Locations" : "Location"}</div><div class="fact-value fact-locations">${spots.map(esc).join("<br>")}</div></div>`;
+          })()}
           ${p.link ? `<div class="fact-link"><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
         </div>
       </div>
