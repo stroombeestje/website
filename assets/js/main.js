@@ -993,7 +993,9 @@
     // about this work, then its nearest projects. Articles come from
     // press.json entries tagged with this project's slug; related projects
     // from an explicit "related" list or, failing that, the same category.
+    // Prototyping on the story pages only (Somnia) until Jaco signs it off.
     (async () => {
+      if (!p.story) return;
       let articles = [];
       try {
         const pd = await loadJSON("data/press.json");
