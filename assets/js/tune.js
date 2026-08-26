@@ -5,30 +5,35 @@
    here ships to a visitor and nothing is saved to the site: Copy puts
    the chosen values on the clipboard to be baked into the CSS. */
 (function () {
-  // [var, label, min, max, step, shipped default]
-  const DIALS = [
-    ["--x-base", "Everything", 0.8, 1.3, 0.01, 1],
-    ["--x-title", "Titles", 0.6, 1.6, 0.01, 1.02],
-    ["--x-text", "Reading text", 0.8, 2, 0.01, 1.58],
-    ["--x-label", "Cards & labels", 0.8, 2, 0.01, 1.36],
-    ["--x-credits", "Credits line", 0.7, 2, 0.01, 1.6],
-    ["--x-space", "Air between blocks", 0.3, 1.8, 0.01, 1.36],
-    ["--x-textgap", "Text to gallery", -0.5, 1.5, 0.01, 0],
-    ["--x-gap", "Grid gaps", 0.2, 2, 0.01, 1],
-    ["--x-width", "Page width", 0.5, 2.5, 0.01, 1],
-    ["--x-gutter", "Side margins", 0.3, 2, 0.01, 1],
-    ["--x-brand", "Bar: Studio Schilp", 0.7, 2.2, 0.01, 1],
-    ["--x-nav", "Bar: menu links", 0.7, 2, 0.01, 1],
-    ["--x-bar", "Bar: height", 0.7, 1.8, 0.01, 1],
-    ["--regie-strip", "Story: strip height", 0.06, 0.3, 0.01, 0.13],
-    ["--regie-dim", "Story: strip light", 0.1, 1, 0.01, 0.34],
-    ["--regie-vh", "Story: scroll per beat", 25, 90, 1, 35],
-    ["--pc-density", "Cloud: points", 0.3, 2.5, 0.05, 1],
-    ["--pc-size", "Cloud: dot size", 0.5, 2.5, 0.05, 1],
-    ["--pc-speed", "Cloud: speed", 0, 3, 0.05, 1],
-    ["--pc-trail", "Cloud: trail fade", 0.03, 0.3, 0.01, 0.09],
-    ["--pc-scale", "Cloud: size", 0.5, 1.6, 0.05, 1],
+  // [var, label, min, max, step, shipped default, pages]
+  // Every page shows only its own dials; "all" rides along everywhere.
+  // A dial's saved value still applies on every page it touches, shown or not.
+  const ALL_DIALS = [
+    ["--x-base", "Everything", 0.8, 1.3, 0.01, 1, "all"],
+    ["--x-width", "Page width", 0.5, 2.5, 0.01, 1, "all"],
+    ["--x-gutter", "Side margins", 0.3, 2, 0.01, 1, "all"],
+    ["--x-brand", "Bar: Studio Schilp", 0.7, 2.2, 0.01, 1, "all"],
+    ["--x-nav", "Bar: menu links", 0.7, 2, 0.01, 1, "all"],
+    ["--x-bar", "Bar: height", 0.7, 1.8, 0.01, 1, "all"],
+    ["--x-title", "Titles", 0.6, 1.6, 0.01, 1.02, ["work", "project", "about", "press", "expertise"]],
+    ["--x-text", "Reading text", 0.8, 2, 0.01, 1.58, ["project", "about", "press", "expertise", "work"]],
+    ["--x-label", "Cards & labels", 0.8, 2, 0.01, 1.36, ["work", "project", "press"]],
+    ["--x-credits", "Credits line", 0.7, 2, 0.01, 1.6, ["project"]],
+    ["--x-space", "Air between blocks", 0.3, 1.8, 0.01, 1.36, ["work", "project", "about", "press", "expertise"]],
+    ["--x-textgap", "Text to gallery", -0.5, 1.5, 0.01, 0, ["project"]],
+    ["--x-gap", "Grid gaps", 0.2, 2, 0.01, 1, ["home", "work", "project", "press"]],
+    ["--regie-strip", "Story: strip height", 0.06, 0.3, 0.01, 0.13, ["project"]],
+    ["--regie-dim", "Story: strip light", 0.1, 1, 0.01, 0.34, ["project"]],
+    ["--regie-vh", "Story: scroll per beat", 25, 90, 1, 35, ["project"]],
+    ["--pc-density", "Cloud: points", 0.3, 2.5, 0.05, 1, ["home"]],
+    ["--pc-size", "Cloud: dot size", 0.5, 2.5, 0.05, 1, ["home"]],
+    ["--pc-speed", "Cloud: speed", 0, 3, 0.05, 1, ["home"]],
+    ["--pc-trail", "Cloud: trail fade", 0.03, 0.3, 0.01, 0.09, ["home"]],
+    ["--pc-scale", "Cloud: size", 0.5, 1.6, 0.05, 1, ["home"]],
   ];
+  const file = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
+  const page = !file || file === "index" ? "home" : file;
+  const DIALS = ALL_DIALS.filter((d) => d[6] === "all" || d[6].includes(page));
   const root = document.documentElement;
   let vals = {};
   try { vals = JSON.parse(localStorage.getItem("siteTuneVals") || "{}"); } catch (_) {}
@@ -65,7 +70,7 @@
     "max-height:calc(100vh - 40px);overflow-y:auto;";
   panel.innerHTML =
     `<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
-      <strong style="letter-spacing:0.08em;text-transform:uppercase;font-size:11px">Tune</strong>
+      <strong style="letter-spacing:0.08em;text-transform:uppercase;font-size:11px">Tune · ${page}</strong>
       <button data-close style="all:unset;cursor:pointer;font-size:14px;padding:0 2px" title="Close and undo the preview">&#10005;</button>
     </div>` +
     DIALS.map(
@@ -114,7 +119,7 @@
   });
 
   const clearAll = () => {
-    DIALS.forEach((d) => root.style.removeProperty(d[0]));
+    ALL_DIALS.forEach((d) => root.style.removeProperty(d[0]));
     const reg = document.querySelector(".regie");
     if (reg) reg.style.height = "";
     vals = {};
