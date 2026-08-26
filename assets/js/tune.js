@@ -20,6 +20,11 @@
     ["--regie-strip", "Story: strip height", 0.06, 0.3, 0.01, 0.13],
     ["--regie-dim", "Story: strip light", 0.1, 1, 0.01, 0.34],
     ["--regie-vh", "Story: scroll per beat", 25, 90, 1, 35],
+    ["--pc-density", "Cloud: points", 0.3, 2.5, 0.05, 1],
+    ["--pc-size", "Cloud: dot size", 0.5, 2.5, 0.05, 1],
+    ["--pc-speed", "Cloud: speed", 0, 3, 0.05, 1],
+    ["--pc-trail", "Cloud: trail fade", 0.03, 0.3, 0.01, 0.09],
+    ["--pc-scale", "Cloud: size", 0.5, 1.6, 0.05, 1],
   ];
   const root = document.documentElement;
   let vals = {};
@@ -46,13 +51,15 @@
     if (++tries > 12 || document.querySelector(".regie")) clearInterval(late);
   }, 500);
 
-  const fmt = (d, v) => (d[0] === "--regie-vh" ? `${v}vh` : `${Math.round(v * 100)}%`);
+  const fmt = (d, v) =>
+    d[0] === "--regie-vh" ? `${v}vh` : d[0] === "--pc-trail" ? Number(v).toFixed(2) : `${Math.round(v * 100)}%`;
 
   const panel = document.createElement("div");
   panel.id = "tune-panel";
   panel.style.cssText =
     "position:fixed;right:14px;bottom:14px;z-index:99999;background:#f7f6f4;border:1px solid #d8d6d1;" +
-    "box-shadow:0 6px 30px rgba(20,20,20,0.18);padding:14px 16px 12px;width:250px;font:12px/1.5 'Open Sans',sans-serif;color:#141414;";
+    "box-shadow:0 6px 30px rgba(20,20,20,0.18);padding:14px 16px 12px;width:250px;font:12px/1.5 'Open Sans',sans-serif;color:#141414;" +
+    "max-height:calc(100vh - 40px);overflow-y:auto;";
   panel.innerHTML =
     `<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
       <strong style="letter-spacing:0.08em;text-transform:uppercase;font-size:11px">Tune</strong>

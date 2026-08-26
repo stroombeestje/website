@@ -1000,7 +1000,14 @@ p { margin: 0 0 1.2em; }
    works, the about band, all aiming to sit inside a single screen on
    desktop. Small screens simply scroll; nothing is hard-clamped. */
 @media (min-width: 1000px) {
-  .home-view { min-height: calc(100dvh - 73px); display: flex; flex-direction: column; }
+  /* the one-view home keeps its own vh-tuned sizes: whatever the site-wide
+     text dials say, this page must fit the screen without scrolling.
+     The footer counts too: the whole page is one flex column of exactly
+     one viewport, the hero absorbing the slack. */
+  .page-home { min-height: 100dvh; display: flex; flex-direction: column; }
+  .page-home main { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+  .home-view { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; font-size: 17px; }
+  .page-home .site-footer { margin-top: 0; padding-block: 1rem; }
   .home-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(0.25rem, 1.5vh, 2rem); }
   .home-hero .lead { margin-top: 0.6rem; }
   .home-hero .display { font-size: clamp(2rem, 4.2vh, 4.4rem); margin-block: 0.4rem; }
@@ -1025,7 +1032,7 @@ p { margin: 0 0 1.2em; }
 }
 .home-about > div { padding-block: clamp(0.6rem, 1.5vh, 1.2rem); }
 .home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #e9e7e3; }
-.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: calc(var(--x-text, 1.58) * clamp(0.95rem, 1.6vh, 1.08rem)); }
+.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: clamp(0.95rem, 1.6vh, 1.08rem); }
 @media (max-width: 999px) { .home-about { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   #featured-grid.grid {

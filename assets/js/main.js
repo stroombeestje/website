@@ -355,6 +355,11 @@
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // the cloud listens to the tune dials: density, dot size, speed, trails, scale
+    const tv = (name, fb) => {
+      const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+      return isNaN(v) ? fb : v;
+    };
     let W = 0, H = 0, pts = [];
     let dot; // pre-rendered round-dot sprite (fast to draw in bulk)
     const mouse = { x: -9999, y: -9999 };
@@ -376,7 +381,7 @@
       dctx.beginPath(); dctx.arc(8, 8, 7, 0, Math.PI * 2); dctx.fill();
 
       const mobile = W < 600;
-      const N = mobile ? 3800 : 9000;
+      const N = Math.round((mobile ? 3800 : 9000) * tv("--pc-density", 1));
       // overlapping 3D lobes give the cloud its multi-form organic shape
       const K = 5;
       const LOBES = [];
@@ -413,17 +418,19 @@
     function draw(t) {
       // fade the previous frame instead of clearing -> motion trails
       ctx.globalAlpha = 1;
-      ctx.fillStyle = "rgba(247, 246, 244, 0.09)";
+      ctx.fillStyle = `rgba(247, 246, 244, ${tv("--pc-trail", 0.09)})`;
       ctx.fillRect(0, 0, W, H);
       ctx.fillStyle = "#141414";
       const R = 210;
       const TAU = Math.PI * 2;
+      const sizeMul = tv("--pc-size", 1);
+      const spd = tv("--pc-speed", 1);
       // slow 3D rotation of the whole field
-      const ay = reduced ? 0.6 : t * 0.00006;
-      const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 + 1.0);
+      const ay = reduced ? 0.6 : t * 0.00006 * spd;
+      const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 * spd + 1.0);
       const cyr = Math.cos(ay), syr = Math.sin(ay);
       const cxr = Math.cos(axr), sxr = Math.sin(axr);
-      const SR = Math.min(W, H) * (W < 600 ? 0.62 : 0.58); // cloud scale
+      const SR = Math.min(W, H) * (W < 600 ? 0.62 : 0.58) * tv("--pc-scale", 1); // cloud scale
       const CX = W * 0.58, CY = H * 0.47;                  // cloud centre
       const F = SR * 3.4;                                  // perspective depth
       for (let i = 0; i < pts.length; i++) {
@@ -451,7 +458,7 @@
         const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / 60);
         const depth = 0.55 + 0.45 * Math.max(0, Math.min(1, (1 - Z2 / SR) * 0.5)); // nearer = darker
         ctx.globalAlpha = Math.min(0.72, pt.w * 0.36 * depth + pull * 0.35);
-        const pr = pt.s * persp;
+        const pr = pt.s * persp * sizeMul;
         ctx.drawImage(dot, x - pr, y - pr, pr * 2, pr * 2);
       }
       ctx.globalAlpha = 1;
