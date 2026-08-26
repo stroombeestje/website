@@ -727,17 +727,30 @@
             return { a: d ? d[0] / d[1] : 1.5, html: `<img src="${asset(esc(src))}" alt="${esc(p.title)}">` };
           });
           if (items.length < 3) return null;
-          // the running order: sheet · pictures in a solo/solo/pair rhythm
-          // (pairs more often when the crowd is big) · sheet
+          // The running order. The project file may DIRECT it: "regie" is a
+          // list of beats, each a list of picture numbers (1 = first image)
+          // shown together, or the word "all" for the full sheet. The opening
+          // and closing sheet come free. Without a script: a solo/solo/pair
+          // rhythm, pairs more often when the crowd is big.
           const beats = [{ kind: "all" }];
-          const all = items.map((_, i) => i);
-          const cycle = all.length > 12 ? [1, 2, 2] : [1, 1, 2];
-          let i = 0, b = 0;
-          while (i < all.length) {
-            const take = Math.min(cycle[b % cycle.length], all.length - i);
-            beats.push({ kind: "hero", who: all.slice(i, i + take) });
-            i += take;
-            b++;
+          if (Array.isArray(p.regie) && p.regie.length) {
+            p.regie.forEach((beat) => {
+              if (beat === "all") beats.push({ kind: "all" });
+              else if (Array.isArray(beat)) {
+                const who = beat.map((n) => n - 1).filter((i) => i >= 0 && i < items.length);
+                if (who.length) beats.push({ kind: "hero", who });
+              }
+            });
+          } else {
+            const all = items.map((_, i) => i);
+            const cycle = all.length > 12 ? [1, 2, 2] : [1, 1, 2];
+            let i = 0, b = 0;
+            while (i < all.length) {
+              const take = Math.min(cycle[b % cycle.length], all.length - i);
+              beats.push({ kind: "hero", who: all.slice(i, i + take) });
+              i += take;
+              b++;
+            }
           }
           beats.push({ kind: "all" });
           const html = `<div class="regie" style="height:${beats.length * 55}vh"><div class="regie-stage">
