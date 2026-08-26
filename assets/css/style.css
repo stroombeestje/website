@@ -465,7 +465,10 @@ p { margin: 0 0 1.2em; }
   grid-template-columns: 1fr;
   gap: clamp(1rem, 3vw, 2rem);
   max-width: 60ch;
-  margin-block: calc(var(--x-space, 1) * clamp(2rem, 5vw, 3.5rem));
+  /* below the text sits the gallery: that white marge has its own dial
+     and ships small */
+  margin-block: calc(var(--x-space, 1) * clamp(2rem, 5vw, 3.5rem))
+    calc(var(--x-textgap, 0.35) * clamp(2rem, 5vw, 3.5rem));
   font-size: 1.05rem;
   line-height: 1.7;
 }
