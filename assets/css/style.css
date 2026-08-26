@@ -247,13 +247,12 @@ p { margin: 0 0 1.2em; }
    Everyone else keeps the reveal transitions. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
+    /* project media stays OUT of this list on Jaco's call: on a project
+       page every image stands full size at full ink, never translucent */
     .card-media,
     .press-media,
-    .project-gallery img,
-    .project-hero img,
     .about-portrait,
-    .home-about img,
-    .project-videos.is-main .project-video-file {
+    .home-about img {
       animation: scroll-rise linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 42%;
@@ -268,8 +267,6 @@ p { margin: 0 0 1.2em; }
    different distances, so the page has depth instead of one gesture. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    .project-gallery img:nth-child(3n + 1) { animation-name: scroll-slide-l; }
-    .project-gallery img:nth-child(3n) { animation-name: scroll-slide-r; }
     .press-media:nth-child(odd of .press-item) { animation-name: scroll-rise; }
   }
 }
@@ -1045,7 +1042,9 @@ p { margin: 0 0 1.2em; }
     text-overflow: ellipsis;
     display: block;
   }
-  .home-works .card-meta { margin-top: 0.55rem; }
+  /* the title's serif glyphs carry side bearing: a small negative pull
+     puts the INK, not the glyph box, on the picture's left edge */
+  .home-works .card-meta { margin-top: 0.55rem; margin-left: -0.09em; }
   .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
   .home-about-text { font-size: calc(var(--x-home-about, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
