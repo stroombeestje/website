@@ -1,0 +1,20 @@
+{
+  "slug": "uncloud-2024",
+  "title": "Uncloud Exhibition 2024",
+  "year": "2024",
+  "category": "Curated",
+  "featured": false,
+  "order": 13.2,
+  "role": "Curator, Organizer",
+  "location": "Utrecht",
+  "cover": "media/projects/uncloud-2024/spaces-1.jpg",
+  "excerpt": "The 2024 exhibition edition of Uncloud, the Utrecht platform for interdisciplinary art and experimental sound.",
+  "description": "The 2024 exhibition edition of Uncloud, the platform for interdisciplinary art and experimental sound Jaco Schilp co-founded with Skander Jaibi in Utrecht. The aftermovie carries the atmosphere; the full story of the edition follows.",
+  "images": [
+    "media/projects/uncloud-2024/spaces-1.jpg",
+    "media/projects/uncloud-2024/spaces-2.jpg"
+  ],
+  "videos": [
+    "https://vimeo.com/1030297458"
+  ]
+}
