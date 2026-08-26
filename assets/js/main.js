@@ -721,10 +721,30 @@
           const slides = [];
           if (vids[0]) slides.push(`<div class="slide slide-film">${vids[0]}</div>`);
           slides.push(`<div class="slide slide-text"><div>${infoHTML}${stHTML}${creditsHTML}</div></div>`);
-          (p.images || []).forEach((src) => {
-            slides.push(`<div class="slide"><img src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy"></div>`);
-          });
-          return `<div class="story" style="height:${slides.length * 110}vh"><div class="story-stage">${slides.join("")}</div></div>`;
+          // Rhythm scaled to the crowd: a small gallery runs mostly solo with
+          // a duo every third beat; a big one groups into duos and trios so
+          // thirty pictures never mean thirty screens. Portraits prefer company.
+          const list = (p.images || []).slice();
+          const szs = p.sizes || {};
+          const ratio = (src) => { const d = szs[src]; return d ? d[0] / d[1] : 1.5; };
+          const n = list.length;
+          const cycle = n > 20 ? [1, 3, 2, 3] : n > 8 ? [1, 2, 2] : [1, 1, 2];
+          const img = (src) => `<img src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy">`;
+          let i = 0, beat = 0;
+          while (i < n) {
+            let take = cycle[beat % cycle.length];
+            if (ratio(list[i]) < 1.02 && i + 1 < n && ratio(list[i + 1]) < 1.02) take = Math.max(take, 2);
+            take = Math.min(take, n - i);
+            const group = list.slice(i, i + take);
+            slides.push(`<div class="slide${take > 1 ? " duo" : ""}">${group.map(img).join("")}</div>`);
+            i += take;
+            beat++;
+          }
+          const snaps = slides.map((_, i) => `<i class="story-snap" style="top:${i * 110}vh"></i>`).join("");
+          return `<div class="story" style="height:${slides.length * 110}vh">${snaps}<div class="story-stage">${slides.join("")}
+            <p class="story-counter">1 — ${slides.length}</p>
+            <p class="story-hint">scroll</p>
+          </div></div>`;
         })()
       : "";
 
@@ -768,21 +788,47 @@
     // progress cross-fades neighbours, the active film plays, others pause
     const story = mount.querySelector(".story");
     if (story) {
+      document.documentElement.classList.add("has-story");
       const slides = [...story.querySelectorAll(".slide")];
+      story.querySelectorAll(".slide-text .statement").forEach(wrapWords);
+      const words = [...story.querySelectorAll(".slide-text .w")];
+      // scenes hold for most of their span; the turn happens in a short
+      // eased window, so a scene is something you are IN, not passing
+      const ease = (t) => t * t * (3 - 2 * t);
       const drive = () => {
         const r = story.getBoundingClientRect();
         const span = story.offsetHeight - window.innerHeight;
-        const x = Math.max(0, Math.min(1, -r.top / Math.max(1, span))) * (slides.length - 1);
+        const raw = Math.max(0, Math.min(1, -r.top / Math.max(1, span))) * (slides.length - 1);
+        const base = Math.floor(raw);
+        const u = raw - base;
+        // transition occupies the middle 45% between two scenes
+        const t = ease(Math.max(0, Math.min(1, (u - 0.275) / 0.45)));
         slides.forEach((sl, i) => {
-          const o = Math.max(0, Math.min(1, 1 - Math.abs(x - i)));
-          sl.style.opacity = o;
-          sl.style.pointerEvents = o > 0.5 ? "auto" : "none";
+          let w = 0;
+          if (i === base) w = 1 - t;
+          else if (i === base + 1) w = t;
+          sl.style.opacity = w;
+          // the incoming scene settles from slightly large; the outgoing sinks
+          const scale = i === base + 1 ? 1.045 - 0.045 * w : 0.985 + 0.015 * w;
+          sl.style.transform = w > 0 ? `scale(${scale.toFixed(4)})` : "";
+          sl.style.pointerEvents = w > 0.5 ? "auto" : "none";
           const v = sl.querySelector("video");
           if (v) {
-            if (o > 0.5 && v.paused) v.play().catch(() => {});
-            else if (o <= 0.5 && !v.paused) v.pause();
+            if (w > 0.5 && v.paused) v.play().catch(() => {});
+            else if (w <= 0.5 && !v.paused) v.pause();
+          }
+          // the text scene writes itself: words ink in as the scene arrives
+          if (words.length && sl.classList.contains("slide-text")) {
+            const n = words.length;
+            words.forEach((el, k) => {
+              el.style.opacity = Math.max(0.15, Math.min(1, w * (n * 0.55 + 8) - k * 0.55)).toFixed(2);
+            });
           }
         });
+        const counter = mount.querySelector(".story-counter");
+        if (counter) counter.textContent = `${Math.round(raw) + 1} — ${slides.length}`;
+        const hint = mount.querySelector(".story-hint");
+        if (hint) hint.style.opacity = Math.max(0, 1 - raw * 2);
       };
       window.addEventListener("scroll", drive, { passive: true });
       window.addEventListener("resize", drive, { passive: true });

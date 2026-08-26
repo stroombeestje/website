@@ -880,7 +880,7 @@ p { margin: 0 0 1.2em; }
 /* The project list has no cap: its cards stay one size and a wider screen buys
    more of them, so there is nothing to stop growing. A project page does stop,
    or a film and a line of text run the whole wall. */
-.page-wide { --page-max: 2800px; }  /* wide, but never six meters of website */
+.page-wide { --page-max: 3400px; }  /* wide again now the story pages carry it */
 /* The bar and the footer sit at the window edge on every page, whatever the
    page's own column does: a header that moves between pages reads as a jump. */
 .page-wide .site-header .wrap,
@@ -1064,8 +1064,14 @@ p { margin: 0 0 1.2em; }
 }
 
 
-/* story mode: a sticky stage, slides stacked, only the scroll moves */
-.story { position: relative; }
+/* story mode: a sticky stage, slides stacked, only the scroll moves.
+   The stage is FULL BLEED: it escapes the page column and uses the whole
+   window, pictures nearly edge to edge. */
+.story {
+  position: relative;
+  width: var(--vw, 100vw);
+  margin-inline: calc((100% - var(--vw, 100vw)) / 2);
+}
 .story-stage {
   position: sticky;
   top: 73px;
@@ -1078,7 +1084,16 @@ p { margin: 0 0 1.2em; }
   align-items: center;
   justify-content: center;
   opacity: 0;
-  padding-block: 2vh;
+  padding: 1.2vh 0.8vw;
+}
+.story .slide.duo { gap: 10px; }
+.story .slide.duo img {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: cover;
 }
 .story .slide img,
 .story .slide video {
@@ -1088,6 +1103,9 @@ p { margin: 0 0 1.2em; }
   height: auto;
   object-fit: contain;
 }
+/* a solo picture holds about three quarters of the screen, air on both sides */
+.story .slide:not(.duo) > img { max-width: 76%; }
+.story .slide-film .project-video-file { max-width: 82%; }
 .story .slide-film .project-video-file { max-height: 100%; }
 .story .slide-text > div {
   max-width: 64ch;
@@ -1095,3 +1113,31 @@ p { margin: 0 0 1.2em; }
   line-height: 1.7;
 }
 .story .slide-text .statement { margin-top: 1.2em; }
+
+/* story polish: gentle scene snapping, counter, hint, breathing off inside */
+html.has-story { scroll-snap-type: y proximity; }
+.story-snap { position: absolute; left: 0; width: 1px; height: 1px; scroll-snap-align: start; }
+.story .slide { will-change: opacity, transform; }
+.story .slide img { animation: none; }
+.story-counter {
+  position: absolute;
+  right: 0;
+  bottom: 1.2rem;
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.story-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.story .slide-text .w { transition: opacity 0.2s linear; }
