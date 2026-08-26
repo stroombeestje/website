@@ -740,8 +740,7 @@
             i += take;
             beat++;
           }
-          const snaps = slides.map((_, i) => `<i class="story-snap" style="top:${i * 110}vh"></i>`).join("");
-          return `<div class="story" style="height:${slides.length * 110}vh">${snaps}<div class="story-stage">${slides.join("")}
+          return `<div class="story" style="height:${slides.length * 72}vh"><div class="story-stage">${slides.join("")}
             <p class="story-counter">1 — ${slides.length}</p>
             <p class="story-hint">scroll</p>
           </div></div>`;
@@ -792,8 +791,8 @@
       const slides = [...story.querySelectorAll(".slide")];
       story.querySelectorAll(".slide-text .statement").forEach(wrapWords);
       const words = [...story.querySelectorAll(".slide-text .w")];
-      // scenes hold for most of their span; the turn happens in a short
-      // eased window, so a scene is something you are IN, not passing
+      // the turn spans nearly the whole gap between scenes: every scrolled
+      // pixel moves something, so the page never feels parked
       const ease = (t) => t * t * (3 - 2 * t);
       const drive = () => {
         const r = story.getBoundingClientRect();
@@ -801,8 +800,7 @@
         const raw = Math.max(0, Math.min(1, -r.top / Math.max(1, span))) * (slides.length - 1);
         const base = Math.floor(raw);
         const u = raw - base;
-        // transition occupies the middle 45% between two scenes
-        const t = ease(Math.max(0, Math.min(1, (u - 0.275) / 0.45)));
+        const t = ease(Math.max(0, Math.min(1, (u - 0.06) / 0.88)));
         slides.forEach((sl, i) => {
           let w = 0;
           if (i === base) w = 1 - t;

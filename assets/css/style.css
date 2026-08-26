@@ -1104,8 +1104,8 @@ p { margin: 0 0 1.2em; }
   object-fit: contain;
 }
 /* a solo picture holds about three quarters of the screen, air on both sides */
-.story .slide:not(.duo) > img { max-width: 76%; }
-.story .slide-film .project-video-file { max-width: 82%; }
+.story .slide:not(.duo) > img { max-width: 92%; }
+.story .slide-film .project-video-file { max-width: 94%; }
 .story .slide-film .project-video-file { max-height: 100%; }
 .story .slide-text > div {
   max-width: 64ch;
@@ -1114,9 +1114,7 @@ p { margin: 0 0 1.2em; }
 }
 .story .slide-text .statement { margin-top: 1.2em; }
 
-/* story polish: gentle scene snapping, counter, hint, breathing off inside */
-html.has-story { scroll-snap-type: y proximity; }
-.story-snap { position: absolute; left: 0; width: 1px; height: 1px; scroll-snap-align: start; }
+/* story polish: counter, hint, breathing off inside */
 .story .slide { will-change: opacity, transform; }
 .story .slide img { animation: none; }
 .story-counter {
