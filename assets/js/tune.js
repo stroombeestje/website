@@ -13,7 +13,7 @@
     ["--x-label", "Cards & labels", 0.8, 1.8, 0.01, 1],
     ["--x-space", "Air between blocks", 0.3, 1.5, 0.01, 1],
     ["--x-gap", "Grid gaps", 0.2, 2, 0.01, 1],
-    ["--x-width", "Page width", 0.5, 1.15, 0.01, 1],
+    ["--x-width", "Page width", 0.5, 2.5, 0.01, 1],
     ["--x-gutter", "Side margins", 0.3, 2, 0.01, 1],
     ["--regie-strip", "Story: strip height", 0.06, 0.3, 0.01, 0.13],
     ["--regie-dim", "Story: strip light", 0.1, 1, 0.01, 0.45],
