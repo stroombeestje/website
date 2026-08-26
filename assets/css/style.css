@@ -1095,11 +1095,14 @@ p { margin: 0 0 1.2em; }
 
 /* The one-screen wall without captions: covers alone, tight, and the title
    comes back as an overlay when the cursor rests on a tile */
+/* The whole work grid keeps the clean look Jaco chose: no captions under
+   the tiles, the title lives INSIDE the image, appearing over a dark
+   gradient on hover, in the one-screen wall and the browse grid alike. */
 #work-grid.compact { gap: 6px; }
-#work-grid.compact .card { position: relative; }
-#work-grid.compact .card-meta { display: none; }
-#work-grid.compact .card:hover .card-meta,
-#work-grid.compact .card:focus-visible .card-meta {
+#work-grid .card { position: relative; }
+#work-grid .card-meta { display: none; }
+#work-grid .card:hover .card-meta,
+#work-grid .card:focus-visible .card-meta {
   display: flex;
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -1108,11 +1111,11 @@ p { margin: 0 0 1.2em; }
   background: linear-gradient(transparent, rgba(20, 20, 20, 0.78));
   z-index: 1;
 }
-#work-grid.compact .card:hover .card-title,
-#work-grid.compact .card:focus-visible .card-title { color: #f7f6f4; font-size: 0.8rem; line-height: 1.25; }
-#work-grid.compact .card:hover .card-cat,
-#work-grid.compact .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: 0.68rem; }
-#work-grid.compact .card-media { background: #e9e7e3; }
+#work-grid .card:hover .card-title,
+#work-grid .card:focus-visible .card-title { color: #f7f6f4; font-size: calc(var(--x-label, 1.36) * 0.72rem); line-height: 1.25; }
+#work-grid .card:hover .card-cat,
+#work-grid .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: calc(var(--x-label, 1.36) * 0.6rem); }
+#work-grid .card-media { background: #e9e7e3; }
 
 /* Pages that fit the screen have no scroll to drive them, so the pictures
    breathe on their own: a very slow drift inside their crop, always moving,
