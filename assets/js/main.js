@@ -767,7 +767,7 @@
             }
           }
           beats.push({ kind: "all" });
-          const html = `<div class="regie" style="height:${beats.length * 55}vh"><div class="regie-stage">
+          const html = `<div class="regie" style="height:${beats.length * 35}vh"><div class="regie-stage">
             ${items.map((it, k) => `<div class="regie-item" data-i="${k}">${it.html}</div>`).join("")}
             <p class="story-counter">1 — ${beats.length}</p>
             <p class="story-hint">scroll</p>
@@ -891,7 +891,7 @@
         }
         const who = beat.who;
         const restIdx = all.filter((i) => !who.includes(i));
-        all.forEach((i) => (op[i] = who.includes(i) ? 1 : tv("--regie-dim", 0.45)));
+        all.forEach((i) => (op[i] = who.includes(i) ? 1 : tv("--regie-dim", 0.34)));
         const stripH = restIdx.length ? Math.max(40, H * tv("--regie-strip", 0.13)) : 0;
         const heroH = H - (stripH ? stripH + GAP * 2 : 0);
         const rects = {};
