@@ -470,7 +470,7 @@ p { margin: 0 0 1.2em; }
   /* below the text sits the gallery: that white marge has its own dial
      and ships small */
   margin-block: calc(var(--x-space, 1) * clamp(2rem, 5vw, 3.5rem))
-    calc(var(--x-textgap, 0.35) * clamp(2rem, 5vw, 3.5rem));
+    calc(var(--x-textgap, 0.1) * clamp(2rem, 5vw, 3.5rem));
   font-size: 1.05rem;
   line-height: 1.7;
 }
