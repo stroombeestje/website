@@ -713,49 +713,35 @@
       : "";
 
     /* ---- story mode, the Regie engine ----
-       The page opens as the complete contact sheet, everything visible at
-       once. Scrolling turns over curated compositions of the SAME pictures:
-       the film wide with the rest beside it, then the text over the ghosted
-       sheet, then one picture solo, then a pair, and the sheet closes it.
-       Scroll only picks the beat; one slow ease performs the change.
-       Opt-in per project with "story": true. */
+       The film and the text keep their usual places on the page; the
+       GALLERY becomes the stage. It opens as the complete contact sheet,
+       every picture visible at once, and scrolling turns over curated
+       compositions of the same pictures: one solo, then a pair, and the
+       sheet closes it. Scroll only picks the beat; one slow ease performs
+       the change. Opt-in per project with "story": true. */
     const regie = p.story
       ? (() => {
           const szs = p.sizes || {};
-          const items = [];
-          const film = (p.videos || []).find((v) => /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(v)));
-          if (film) {
-            const poster = String(film).replace(/\.(mp4|webm|mov|m4v)(\?|$)/i, ".jpg");
-            items.push({
-              a: 16 / 9,
-              film: true,
-              html: `<video muted loop playsinline preload="metadata" poster="${asset(esc(poster))}" src="${asset(esc(film))}"></video>`,
-            });
-          }
-          (p.images || []).forEach((src) => {
+          const items = (p.images || []).map((src) => {
             const d = szs[src];
-            items.push({ a: d ? d[0] / d[1] : 1.5, html: `<img src="${asset(esc(src))}" alt="${esc(p.title)}">` });
+            return { a: d ? d[0] / d[1] : 1.5, html: `<img src="${asset(esc(src))}" alt="${esc(p.title)}">` };
           });
-          if (!items.length) return null;
-          // the running order: sheet · film · words · pictures in a
-          // solo/solo/pair rhythm (pairs more often when the crowd is big) · sheet
+          if (items.length < 3) return null;
+          // the running order: sheet · pictures in a solo/solo/pair rhythm
+          // (pairs more often when the crowd is big) · sheet
           const beats = [{ kind: "all" }];
-          const filmIdx = items.findIndex((it) => it.film);
-          if (filmIdx >= 0) beats.push({ kind: "hero", who: [filmIdx] });
-          beats.push({ kind: "text" });
-          const rest = items.map((_, i) => i).filter((i) => i !== filmIdx);
-          const cycle = rest.length > 12 ? [1, 2, 2] : [1, 1, 2];
+          const all = items.map((_, i) => i);
+          const cycle = all.length > 12 ? [1, 2, 2] : [1, 1, 2];
           let i = 0, b = 0;
-          while (i < rest.length) {
-            const take = Math.min(cycle[b % cycle.length], rest.length - i);
-            beats.push({ kind: "hero", who: rest.slice(i, i + take) });
+          while (i < all.length) {
+            const take = Math.min(cycle[b % cycle.length], all.length - i);
+            beats.push({ kind: "hero", who: all.slice(i, i + take) });
             i += take;
             b++;
           }
           beats.push({ kind: "all" });
           const html = `<div class="regie" style="height:${beats.length * 55}vh"><div class="regie-stage">
             ${items.map((it, k) => `<div class="regie-item" data-i="${k}">${it.html}</div>`).join("")}
-            <div class="regie-text"><div>${infoHTML}${stHTML}${creditsHTML}</div></div>
             <p class="story-counter">1 — ${beats.length}</p>
             <p class="story-hint">scroll</p>
           </div></div>`;
@@ -778,18 +764,16 @@
           ${p.link ? `<div><div class="fact-label">Link</div><div class="fact-value"><a href="${esc(p.link)}" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Visit ↗</a></div></div>` : ""}
         </div>
       </div>
-      ${p.story
-        ? ""
-        : mainVideo
+      ${mainVideo
         ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
         : p.cover
         ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
         : ""}
       <div class="wrap">
-        ${p.story ? storyHTML : bodyHTML}
-        ${p.story ? "" : ""}${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
-        ${extraVideos && !p.story ? `<div class="project-clips">${extraVideos}</div>` : ""}
-        ${gallery && !p.story ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
+        ${bodyHTML}
+        ${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
+        ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
+        ${regie ? storyHTML : gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
         ${presskitHTML}
         ${insightHTML}
         <nav class="project-nav">
@@ -807,10 +791,12 @@
       const stage = reg.querySelector(".regie-stage");
       const els = [...reg.querySelectorAll(".regie-item")];
       const textEl = reg.querySelector(".regie-text");
-      textEl.querySelectorAll(".statement").forEach(wrapWords);
-      textEl.querySelectorAll(".w").forEach((el, k) => {
-        el.style.transitionDelay = `${Math.min(k * 30, 1200)}ms`;
-      });
+      if (textEl) {
+        textEl.querySelectorAll(".statement").forEach(wrapWords);
+        textEl.querySelectorAll(".w").forEach((el, k) => {
+          el.style.transitionDelay = `${Math.min(k * 30, 1200)}ms`;
+        });
+      }
       const counter = reg.querySelector(".story-counter");
       const hint = reg.querySelector(".story-hint");
       const { items, beats } = regie;
@@ -924,7 +910,7 @@
             else if (!on && !v.paused) v.pause();
           }
         });
-        textEl.classList.toggle("on", text);
+        if (textEl) textEl.classList.toggle("on", text);
         if (counter) counter.textContent = `${bi + 1} — ${beats.length}`;
       };
 
