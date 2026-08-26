@@ -631,7 +631,7 @@
       .filter((l) => !l.trim().startsWith("> "))
       .map((l) => `<p>${esc(l.trim())}</p>`)
       .join("");
-    const creditsHTML = p.credits ? `<p style="color:var(--muted);font-size:0.95rem">${esc(p.credits)}</p>` : "";
+    const creditsHTML = p.credits ? `<p class="project-credits">${esc(p.credits)}</p>` : "";
     const bodyHTML = stHTML
       ? `<div class="project-body has-statement">
           <div class="project-info">${infoHTML}${creditsHTML}</div>
