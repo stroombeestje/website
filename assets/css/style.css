@@ -952,14 +952,13 @@ p { margin: 0 0 1.2em; }
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
 }
-/* The film runs the same width as the pictures. Only a portrait one is capped,
-   or it would stand taller than the screen; main.js marks those on load. */
+/* The main film runs exactly as wide as the text block under it: one
+   width, one straight edge, whatever the screen. */
 .project-videos.is-main .project-video-file {
-  width: auto;
+  width: 100%;
   max-width: 100%;
-  /* the film never stands taller than the screen: on the wide pages a
-     full-width film was two screens of scrolling on its own */
-  max-height: 85vh;
+  height: auto;
+  max-height: none;
   margin-inline: auto;
 }
 .project-videos.is-main .project-video-file.is-portrait {
