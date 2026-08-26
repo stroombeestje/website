@@ -12,7 +12,7 @@
 
   --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * clamp(1.25rem, 4vw, 4rem));
-  --bar-h: calc(72px * var(--x-bar, 1));
+  --bar-h: calc(72px * var(--x-bar, 1.7));
 
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-serif: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -128,7 +128,7 @@ p { margin: 0 0 1.2em; }
 }
 .brand {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-brand, 1) * 1.35rem);
+  font-size: calc(var(--x-brand, 2.2) * 1.35rem);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -138,7 +138,7 @@ p { margin: 0 0 1.2em; }
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: calc(var(--x-nav, 1) * 0.82rem);
+  font-size: calc(var(--x-nav, 2) * 0.82rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -204,12 +204,6 @@ p { margin: 0 0 1.2em; }
 }
 .hero > :not(.hero-canvas) { position: relative; }
 
-/* The big bar belongs to the HOME only: Jaco tuned it there and asked the
-   other pages back to the original quiet bar. */
-.page-home { --bar-h: calc(72px * var(--x-bar, 1.7)); }
-.page-home .brand { font-size: calc(var(--x-brand, 2.2) * 1.35rem); }
-.page-home .nav-links { font-size: calc(var(--x-nav, 2) * 0.82rem); }
-
 /* On the home the cloud is not a hero decoration but the GROUND: fixed
    behind the whole page, works row and about band floating over it. It
    paints its own paper color, so it simply is the background. */
@@ -248,9 +242,49 @@ p { margin: 0 0 1.2em; }
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity var(--t-med);
 }
 .card:hover .card-media img { transform: scale(1.04); }
-/* Jaco's law: an image is never transparent, anywhere. The scroll-linked
-   entrances (fade plus shrink) are retired for ALL media; motion lives in
-   the transform-only layers: parallax drift, breathe, hover zoom. */
+/* scroll drives appearance: media rises and settles with the scroll position
+   itself, forward and back, in browsers that speak scroll-driven animations.
+   Everyone else keeps the reveal transitions. The HOME is exempt: there the
+   pictures stand full ink from the first frame over the cloud. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    body:not(.page-home) .card-media,
+    .press-media,
+    .project-gallery img,
+    .project-hero img,
+    .about-portrait,
+    .project-videos.is-main .project-video-file {
+      animation: scroll-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 42%;
+    }
+  }
+}
+/* the one-screen wall does not scroll, so nothing there may wait for scroll */
+#work-grid.compact .card-media { animation: none; }
+/* Framer-style variety: pictures grow in as the scroll carries them, but
+   not all the same way. In a gallery row the left one leans in from the
+   left, the right one from the right, the middle rises, at slightly
+   different distances, so the page has depth instead of one gesture. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .project-gallery img:nth-child(3n + 1) { animation-name: scroll-slide-l; }
+    .project-gallery img:nth-child(3n) { animation-name: scroll-slide-r; }
+    .press-media:nth-child(odd of .press-item) { animation-name: scroll-rise; }
+  }
+}
+@keyframes scroll-rise {
+  from { opacity: 0.3; transform: translateY(34px) scale(0.8); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scroll-slide-l {
+  from { opacity: 0.3; transform: translate(-56px, 22px) scale(0.84); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes scroll-slide-r {
+  from { opacity: 0.3; transform: translate(56px, 22px) scale(0.84); }
+  to { opacity: 1; transform: none; }
+}
 
 /* Continuous parallax: whole gallery rows drift gently at alternating
    speeds the entire time they cross the screen, under the entrances,
@@ -777,11 +811,11 @@ p { margin: 0 0 1.2em; }
    small stagger per element so a row settles like a hand of cards, not a slab */
 .reveal { opacity: 0; transform: translateY(26px) scale(0.972); transition: opacity 1s ease, transform 1s cubic-bezier(0.22,1,0.36,1); }
 .reveal.in { opacity: 1; transform: none; }
-/* anything carrying a picture skips the fade entirely: images are never
-   transparent, not even for a second on arrival */
-.reveal:has(img, video, canvas),
-img.reveal,
-video.reveal { opacity: 1; transform: none; transition: none; }
+/* on the HOME anything carrying a picture skips the fade entirely: the
+   tiles stand at full ink over the cloud from the first frame */
+.page-home .reveal:has(img, video, canvas),
+.page-home img.reveal,
+.page-home video.reveal { opacity: 1; transform: none; transition: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
