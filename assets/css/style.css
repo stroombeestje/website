@@ -11,7 +11,7 @@
   --accent: #141414;
 
   --maxw: 1500px;
-  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --gutter: calc(var(--x-gutter, 1) * clamp(1.25rem, 4vw, 4rem));
 
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-serif: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -37,12 +37,17 @@ html {
   overflow-y: scroll;
 }
 
+/* The tune dials: every --x-* is a multiplier on the shipped design, 1 by
+   default so nothing changes. The tune panel (?tune on any URL) turns them
+   live; chosen values get baked back here as new defaults. */
+html { font-size: calc(100% * var(--x-base, 1)); }
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: calc(17px * var(--x-text, 1));
   line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -60,11 +65,11 @@ a { color: inherit; text-decoration: none; }
   padding-inline: var(--gutter);
 }
 
-section { padding-block: clamp(3.5rem, 9vw, 8rem); }
+section { padding-block: calc(var(--x-space, 1) * clamp(3.5rem, 9vw, 8rem)); }
 
 /* ---- Type ---- */
 .eyebrow {
-  font-size: 0.72rem;
+  font-size: calc(var(--x-label, 1) * 0.72rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -75,7 +80,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .display {
   font-family: var(--font-serif);
-  font-size: clamp(2.6rem, 8vw, 6.5rem);
+  font-size: calc(var(--x-title, 1) * clamp(2.6rem, 8vw, 6.5rem));
   letter-spacing: -0.03em;
   font-weight: 700;
   line-height: 1.02;
@@ -83,13 +88,13 @@ h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .h-section {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: calc(var(--x-title, 1) * clamp(1.8rem, 4vw, 3rem));
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
 .lead {
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  font-size: calc(var(--x-text, 1) * clamp(1.05rem, 2vw, 1.4rem));
   line-height: 1.5;
   max-width: 32ch;
   color: var(--fg);
@@ -204,7 +209,7 @@ p { margin: 0 0 1.2em; }
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.25rem, 3.5vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  gap: calc(var(--x-gap, 1) * clamp(1.25rem, 3.5vw, 3.5rem)) calc(var(--x-gap, 1) * clamp(1.25rem, 3vw, 2.5rem));
 }
 .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 
@@ -312,13 +317,13 @@ p { margin: 0 0 1.2em; }
 }
 .card-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-size: calc(var(--x-label, 1) * clamp(1.15rem, 1.7vw, 1.45rem));
   font-weight: 600;
   letter-spacing: -0.01em;
   text-wrap: pretty; /* avoid stranded runt words in titles */
 }
-.card-sub { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.card-cat { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card-sub { font-size: calc(var(--x-label, 1) * 0.78rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.card-cat { font-size: calc(var(--x-label, 1) * 0.78rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
 /* placeholder shimmer for missing images */
 .ph {
@@ -438,7 +443,7 @@ p { margin: 0 0 1.2em; }
    Project detail
    ========================================================================== */
 .project-head { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
-.project-head .display { font-size: clamp(2.4rem, 7vw, 5.5rem); max-width: 18ch; text-wrap: balance; }
+.project-head .display { font-size: calc(var(--x-title, 1) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
 .project-facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -447,15 +452,15 @@ p { margin: 0 0 1.2em; }
   padding-top: 2rem;
   border-top: 1px solid var(--line);
 }
-.fact-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-.fact-value { font-size: 0.95rem; }
+.fact-label { font-size: calc(var(--x-label, 1) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+.fact-value { font-size: calc(var(--x-label, 1) * 0.95rem); }
 
 .project-body {
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(1rem, 3vw, 2rem);
   max-width: 60ch;
-  margin-block: clamp(2rem, 5vw, 3.5rem);
+  margin-block: calc(var(--x-space, 1) * clamp(2rem, 5vw, 3.5rem));
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -465,8 +470,8 @@ p { margin: 0 0 1.2em; }
 .project-gallery .grow {
   display: flex;
   align-items: flex-start;
-  gap: clamp(0.6rem, 1.6vw, 1.1rem);
-  margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
+  gap: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
+  margin-bottom: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
 }
 /* a solo row (panorama strip or poster) centres itself; posters cap at a
    readable-but-sane height */
@@ -489,8 +494,8 @@ p { margin: 0 0 1.2em; }
 .project-videos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-  gap: clamp(0.6rem, 1.6vw, 1.1rem);
-  margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
+  gap: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
+  margin-bottom: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
   align-items: start;
 }
 .project-video {
@@ -520,8 +525,8 @@ p { margin: 0 0 1.2em; }
 .project-clips {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(0.6rem, 1.6vw, 1.1rem);
-  margin-bottom: clamp(0.6rem, 1.6vw, 1.1rem);
+  gap: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
+  margin-bottom: calc(var(--x-gap, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
 }
 .project-clips > * {
   aspect-ratio: 3 / 2;
@@ -559,7 +564,7 @@ p { margin: 0 0 1.2em; }
   display: flex;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: calc(var(--x-space, 1) * clamp(3rem, 6vw, 5rem));
   padding-top: 2rem;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -583,12 +588,12 @@ p { margin: 0 0 1.2em; }
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
   background: #e9e7e3;
 }
-.about-text { font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.6; font-family: var(--font-serif); }
+.about-text { font-size: calc(var(--x-text, 1) * clamp(1.1rem, 1.8vw, 1.35rem)); line-height: 1.6; font-family: var(--font-serif); }
 .about-text p { margin-bottom: 1em; }
 
 /* The reading text on a project page runs larger than the site's base: the
    pages went wide and 17px drowned next to the pictures. */
-.project-body { font-size: clamp(1.1rem, 1.15vw, 1.3rem); line-height: 1.65; }
+.project-body { font-size: calc(var(--x-text, 1) * clamp(1.1rem, 1.15vw, 1.3rem)); line-height: 1.65; }
 
 /* artist statement inside a project description — set apart from the info text */
 .project-body .statement {
@@ -754,7 +759,7 @@ p { margin: 0 0 1.2em; }
    -------------------------------------------------------------------------- */
 .project-insight {
   border-top: 1px solid var(--line);
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: calc(var(--x-space, 1) * clamp(3rem, 6vw, 5rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .insight-head { max-width: 46rem; }
@@ -880,7 +885,7 @@ p { margin: 0 0 1.2em; }
 /* The project list has no cap: its cards stay one size and a wider screen buys
    more of them, so there is nothing to stop growing. A project page does stop,
    or a film and a line of text run the whole wall. */
-.page-wide { --page-max: 3400px; }  /* wide again now the story pages carry it */
+.page-wide { --page-max: calc(3400px * var(--x-width, 1)); }  /* wide again now the story pages carry it */
 /* The bar and the footer sit at the window edge on every page, whatever the
    page's own column does: a header that moves between pages reads as a jump. */
 .page-wide .site-header .wrap,
@@ -890,7 +895,7 @@ p { margin: 0 0 1.2em; }
 /* A project page is narrower: the film at the top sets the page width, and at
    full window it was simply too big. Everything on the page shares this width,
    so the one-straight-edge grid holds. */
-.page-project { --page-max: 1800px; }
+.page-project { --page-max: calc(1800px * var(--x-width, 1)); }
 
 /* The project list keeps its cards the size they have always been and fits as
    many across as the window allows, rather than stretching three of them over
@@ -1025,7 +1030,7 @@ p { margin: 0 0 1.2em; }
 /* press kit under the pictures, in the insight section's voice */
 .project-presskit {
   border-top: 1px solid var(--line);
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: calc(var(--x-space, 1) * clamp(3rem, 6vw, 5rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .kit-quote { margin: 1.4rem 0 0; max-width: 46rem; }
@@ -1052,7 +1057,7 @@ p { margin: 0 0 1.2em; }
   gap: 1rem clamp(2rem, 5vw, 6rem);
 }
 .pillar h2 { margin: 0; font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 700; max-width: 14ch; }
-.pillar-insight { font-size: clamp(1.05rem, 1.1vw, 1.2rem); line-height: 1.65; max-width: 62ch; }
+.pillar-insight { font-size: calc(var(--x-text, 1) * clamp(1.05rem, 1.1vw, 1.2rem)); line-height: 1.65; max-width: 62ch; }
 .pillar-insight p { margin: 0 0 1em; }
 .pillar-insight p:last-child { margin-bottom: 0; }
 .pillar-links { grid-column: 2; margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); }
@@ -1119,7 +1124,7 @@ p { margin: 0 0 1.2em; }
   max-width: 64ch;
   max-height: 100%;
   overflow-y: auto;
-  font-size: clamp(1.05rem, 1.3vw, 1.35rem);
+  font-size: calc(var(--x-text, 1) * clamp(1.05rem, 1.3vw, 1.35rem));
   line-height: 1.7;
 }
 .regie-text .statement { margin-top: 1.2em; }

@@ -815,6 +815,11 @@
       const { items, beats } = regie;
       const GAP = 10, PAD = 24;
       const fit = (a, bw, bh) => (a >= bw / bh ? { w: bw, h: bw / a } : { w: bh * a, h: bh });
+      // strip size and dimming listen to the tune dials
+      const tv = (name, fallback) => {
+        const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+        return isNaN(v) ? fallback : v;
+      };
 
       // the contact sheet: rows justified to the width, the row count chosen
       // so the finished sheet comes closest to filling the stage
@@ -859,8 +864,8 @@
         }
         const who = beat.who;
         const restIdx = all.filter((i) => !who.includes(i));
-        all.forEach((i) => (op[i] = who.includes(i) ? 1 : 0.45));
-        const stripH = restIdx.length ? Math.max(56, H * 0.13) : 0;
+        all.forEach((i) => (op[i] = who.includes(i) ? 1 : tv("--regie-dim", 0.45)));
+        const stripH = restIdx.length ? Math.max(40, H * tv("--regie-strip", 0.13)) : 0;
         const heroH = H - (stripH ? stripH + GAP * 2 : 0);
         const rects = {};
         if (W < 700 && who.length > 1) {
@@ -1213,6 +1218,24 @@
     } catch (e) {}
   }
 
+  // The tune panel: opening any page with ?tune starts a live editing
+  // session (dials for text sizes, whitespace, widths) that follows you
+  // across pages until closed. Values preview only; Copy hands them over
+  // to be baked into the stylesheet.
+  function initTune() {
+    if (new URLSearchParams(location.search).has("tune")) localStorage.setItem("siteTune", "1");
+    if (localStorage.getItem("siteTune") !== "1") return;
+    try {
+      const saved = JSON.parse(localStorage.getItem("siteTuneVals") || "{}");
+      Object.entries(saved).forEach(([k, v]) => document.documentElement.style.setProperty(k, String(v)));
+    } catch (_) {}
+    const me = document.querySelector('script[src*="main.js"]');
+    const q = me && me.src.includes("?") ? "?" + me.src.split("?")[1] : "";
+    const s = document.createElement("script");
+    s.src = `${ROOT}assets/js/tune.js${q}`;
+    document.head.appendChild(s);
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     trackViewportWidth();
     initHoverPreviews();
@@ -1227,5 +1250,6 @@
     initPress();
     initExpertise();
     observeReveals();
+    initTune();
   });
 })();
