@@ -85,6 +85,7 @@
         "points-of-inaccessibility",
         "jacobikerk-le-guess-who",
         "points-of-light",
+        "archive-mirror",
         "orbit-installation"
       ]
     },
@@ -123,8 +124,8 @@
       "projects": [
         "uncloud-transliminal",
         "uncloud-lgw-2022",
-        "archive-mirror",
-        "uncloud-2022"
+        "uncloud-2022",
+        "uncloud-2019"
       ]
     }
   ]
