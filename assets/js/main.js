@@ -650,10 +650,15 @@
           .map((seg) => seg.replace(/\.\s*$/, "").trim())
           .filter(Boolean)
           .map((seg) => {
-            const m = seg.match(/^([^:]{2,50}):\s*(.+)$/);
-            return m
-              ? `<div class="credit"><span class="credit-role">${esc(m[1])}</span><span class="credit-name">${esc(m[2])}</span></div>`
-              : `<div class="credit"><span class="credit-name">${esc(seg)}</span></div>`;
+            const m = seg.match(/^([^:]{2,80}):\s*(.+)$/);
+            if (m)
+              return `<div class="credit"><span class="credit-role">${esc(m[1])}</span><span class="credit-name">${esc(m[2])}</span></div>`;
+            // "Commissioned by X" and friends read as a pair without a colon
+            const by = seg.match(/^(Commissioned by|Supported by|Presented by|Produced by|Released on|Curated by|In collaboration with)\s+(.+)$/i);
+            if (by)
+              return `<div class="credit"><span class="credit-role">${esc(by[1])}</span><span class="credit-name">${esc(by[2])}</span></div>`;
+            // anything else is a note, not a name: full width, quiet
+            return `<p class="credit-note">${esc(seg)}.</p>`;
           })
           .join("")}</div>`
       : "";

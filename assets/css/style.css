@@ -543,6 +543,15 @@ p { margin: 0 0 1.2em; }
   margin-bottom: 0.35rem;
 }
 .credit-name { font-size: calc(var(--x-credits, 1.6) * 1.05rem); color: var(--fg); }
+/* a credits sentence that is not a Role: Name pair reads as a quiet note */
+.credit-note {
+  flex-basis: 100%;
+  margin: 0;
+  max-width: 70ch;
+  color: var(--muted);
+  font-size: calc(var(--x-label, 1.36) * 0.85rem);
+  line-height: 1.6;
+}
 
 .project-body {
   display: grid;

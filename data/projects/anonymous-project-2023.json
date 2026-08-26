@@ -23,7 +23,7 @@
   "videos": [
     "media/projects/anonymous-project-2023/cube.mp4"
   ],
-  "credits": "Commissioned by Le Guess Who? 2023. Video mapping, content design, light design & live operation: Jaco Schilp. Five-projector cube mapping; real-time point cloud from three depth cameras via TouchDesigner; custom-trained AI model; volumetric 3D from LiDAR scans around Utrecht; live playback in Resolume and TouchDesigner. Light operated b2b with Marc Huizinga on two desks. Photography: Ward Mevis.",
+  "credits": "Commissioned by Le Guess Who? 2023. Video mapping, content design, light design & live operation: Jaco Schilp. Light desks, b2b: Marc Huizinga. Photography: Ward Mevis. Technique: five-projector cube mapping, real-time point cloud from three depth cameras, a custom-trained AI model and volumetric 3D from LiDAR scans around Utrecht, live in TouchDesigner and Resolume.",
   "link": "https://leguesswho.com/lineup/the-anonymous-project",
   "hoverStart": 27
 }
