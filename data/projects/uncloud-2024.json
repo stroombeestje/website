@@ -17,5 +17,6 @@
   "videos": [
     "media/projects/uncloud-2024/film.mp4"
   ],
-  "hoverStart": 20
+  "hoverStart": 20,
+  "hidden": true
 }

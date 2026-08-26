@@ -960,7 +960,8 @@
       "link": "",
       "categories": [
         "Artwork"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "lidar-utrecht",
@@ -1834,6 +1835,7 @@
         "media/projects/uncloud-2024/film.mp4"
       ],
       "hoverStart": 20,
+      "hidden": true,
       "coverThumb": "media/thumbs/uncloud-2024-cover.jpg",
       "hoverPreview": "media/thumbs/uncloud-2024-hover.mp4",
       "sizes": {

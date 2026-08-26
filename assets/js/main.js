@@ -498,7 +498,10 @@
   async function initHome() {
     const mount = $("#featured-grid");
     if (!mount) return;
-    const { projects } = await loadJSON("data/projects.json");
+    const { projects: allProjects } = await loadJSON("data/projects.json");
+    // work-in-progress pages ("hidden": true) stay reachable by URL but
+    // never appear in a listing until they are done
+    const projects = allProjects.filter((p) => !p.hidden);
     const feat = projects.filter((p) => p.featured);
     // The home selection: nine featured works in curated order. Desktop shows
     // the first six as one row; a phone shows all nine as a 3x3 grid, the way
@@ -513,7 +516,8 @@
     const mount = $("#work-grid");
     if (!mount) return;
     const filtersEl = $("#filters");
-    const { projects } = await loadJSON("data/projects.json");
+    const { projects: allProjects } = await loadJSON("data/projects.json");
+    const projects = allProjects.filter((p) => !p.hidden);
 
     const cats = ["All", ...Array.from(new Set(projects.flatMap(catsOf)))];
     if (filtersEl) {
@@ -784,8 +788,16 @@
       : null;
     const storyHTML = regie ? regie.html : "";
 
-    const prev = projects[(idx - 1 + projects.length) % projects.length];
-    const next = projects[(idx + 1) % projects.length];
+    // the previous/next walk skips work-in-progress pages
+    const walk = (from, step) => {
+      let i = from;
+      do {
+        i = (i + step + projects.length) % projects.length;
+      } while (projects[i].hidden && i !== from);
+      return projects[i];
+    };
+    const prev = walk(idx, -1);
+    const next = walk(idx, 1);
 
     mount.innerHTML = `
       <div class="wrap project-head">
@@ -1013,7 +1025,7 @@
         .filter(Boolean);
       projects.forEach((x) => {
         if (rel.length >= 6) return;
-        if (x.slug !== p.slug && !rel.includes(x) && x.category === p.category && x.cover) rel.push(x);
+        if (x.slug !== p.slug && !x.hidden && !rel.includes(x) && x.category === p.category && x.cover) rel.push(x);
       });
       const cards = [
         ...articles.map(
