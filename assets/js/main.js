@@ -989,6 +989,49 @@
     }
     if (p.pointcloud) initProjectPointCloud(mount.querySelector(".project-pointcloud"), p.pointcloud);
 
+    // Under the page, one strip to slide through: the articles that wrote
+    // about this work, then its nearest projects. Articles come from
+    // press.json entries tagged with this project's slug; related projects
+    // from an explicit "related" list or, failing that, the same category.
+    (async () => {
+      let articles = [];
+      try {
+        const pd = await loadJSON("data/press.json");
+        articles = (pd.items || []).filter((it) => it.project === p.slug);
+      } catch (_) {}
+      const rel = (Array.isArray(p.related) ? p.related : [])
+        .map((s) => projects.find((x) => x.slug === s))
+        .filter(Boolean);
+      projects.forEach((x) => {
+        if (rel.length >= 6) return;
+        if (x.slug !== p.slug && !rel.includes(x) && x.category === p.category && x.cover) rel.push(x);
+      });
+      const cards = [
+        ...articles.map(
+          (it) => `<a class="rel-card" href="${it.url ? esc(it.url) : `${ROOT}press.html`}"${it.url ? ` target="_blank" rel="noopener"` : ""}>
+            ${it.image ? `<div class="rel-media"><img src="${asset(esc(it.image))}" alt="" loading="lazy" onerror="window.__phErr(this)"></div>` : ""}
+            <span class="rel-kicker">${esc(it.outlet)}${it.date ? ` · ${esc(it.date)}` : ""}</span>
+            <span class="rel-title">${escTitle(it.title)}</span>
+          </a>`
+        ),
+        ...rel.slice(0, 6).map(
+          (x) => `<a class="rel-card" href="${ROOT}project.html?p=${encodeURIComponent(x.slug)}">
+            <div class="rel-media"><img src="${asset(esc(x.coverThumb || x.cover))}" alt="" loading="lazy" onerror="window.__phErr(this)"></div>
+            <span class="rel-kicker">Project${x.year ? ` · ${esc(x.year)}` : ""}</span>
+            <span class="rel-title">${escTitle(x.title)}</span>
+          </a>`
+        ),
+      ];
+      if (!cards.length) return;
+      const label = articles.length && rel.length ? "In the press & related work" : articles.length ? "In the press" : "Related work";
+      const nav = mount.querySelector(".project-nav");
+      if (nav)
+        nav.insertAdjacentHTML(
+          "beforebegin",
+          `<div class="project-related"><p class="eyebrow">${label}</p><div class="carousel">${cards.join("")}</div></div>`
+        );
+    })();
+
     // A portrait film gets capped by height instead of width, or it stands
     // taller than the screen. The films are preload="none", so they report no
     // size until they play; the poster is cut from the film and has the same

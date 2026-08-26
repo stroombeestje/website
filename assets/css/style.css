@@ -465,6 +465,46 @@ p { margin: 0 0 1.2em; }
 .fact-label { font-size: calc(var(--x-label, 1.36) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
 .fact-value { font-size: calc(var(--x-label, 1.36) * 0.95rem); }
 .fact-locations { line-height: 1.75; }
+
+/* under the page: the press that wrote about the work and its nearest
+   projects, one native-scrolling strip, cards snapping gently */
+.project-related { margin-top: calc(var(--x-space, 1.36) * clamp(3rem, 6vw, 5rem)); }
+.carousel {
+  display: flex;
+  gap: calc(var(--x-gap, 1) * clamp(0.8rem, 1.6vw, 1.4rem));
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 0.6rem;
+  scrollbar-width: thin;
+}
+.rel-card { flex: 0 0 clamp(240px, 22vw, 440px); scroll-snap-align: start; display: block; }
+.rel-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #e9e7e3;
+  margin-bottom: 0.6rem;
+}
+.rel-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rel-card:hover .rel-media img { transform: scale(1.04); }
+.rel-kicker {
+  display: block;
+  font-size: calc(var(--x-label, 1.36) * 0.68rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.rel-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: calc(var(--x-label, 1.36) * 0.95rem);
+  line-height: 1.35;
+}
 /* the facts spread evenly; the link BLOCK closes the row at the right,
    its text left-aligned like every other fact */
 .fact-link { margin-left: auto; }
