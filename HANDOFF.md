@@ -1,5 +1,31 @@
 # Handoff — what the site still needs
 
+## NEXT WEEK (Jaco, week of 2026-08-31): stills to create & images to collect
+
+Decided 2026-08-26: the site is presentable NOW; hidden pages come back as
+material lands. `"hidden": true` in a project file keeps a page reachable by
+URL but out of every listing; remove the flag when the page is filled.
+
+Currently hidden: `no-art-synergy`, `reports-from-other-continents` (empty),
+`uncloud-2024`, `lidar-utrecht-60` (work in progress). The Expertise page is
+out of the nav (link removed from all pages) until its insights are reworked;
+its URL still works.
+
+Jaco collects for next week (pages stay VISIBLE meanwhile):
+- `caravaggio-centraal-museum-2018`: gallery pictures + the Vimeo original
+- `hku-graduation-bonanza-2020`: gallery pictures + the Vimeo original
+- `ncca-nizhny-novgorod-2019`: gallery pictures
+- `uncloud-2019`: gallery pictures
+- `kunsthal-museumnacht-2017`: gallery pictures
+- `stedelijk-museum-schiedam-2021`: gallery pictures
+- `byob-utrecht-citytour`: original film (the YouTube embed is dead)
+- `greenery-westergas`: the Vimeo original
+- `uncloud-2024` (hidden): the story of the edition (file says "Uncloud-Kabul"),
+  venue behind the Spaces photos, cover choice, more Spaces picks if wanted
+- `lidar-utrecht-60` (hidden): everything, see below
+- Expertise: rework the insights, then the nav link returns
+
+
 **The live version of this list is the Google Doc "WEBSITE HANDOFF - Studio Schilp"
 in Jaco's Drive (id `1xx6Rg6RQBJqZ3sp22Ad3xjxtsKiLXvlU76PrPUVMX3E`): Jaco writes
 answers and Drive links straight into it from any device. Read that doc first;
