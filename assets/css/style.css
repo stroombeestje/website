@@ -1140,4 +1140,8 @@ html.has-story { scroll-snap-type: y proximity; }
   text-transform: uppercase;
   color: var(--muted);
 }
-.story .slide-text .w { transition: opacity 0.2s linear; }
+/* inside the story the ENGINE owns the words: the scroll-linked word-ink
+   animation must stand down, or it freezes them faint (sticky content never
+   travels the viewport, and animations beat inline styles) */
+.story .slide-text .w { transition: opacity 0.2s linear; animation: none !important; }
+.story .slide-text { padding-inline: clamp(1.2rem, 4vw, 4rem); }
