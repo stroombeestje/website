@@ -12,6 +12,7 @@
 
   --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * clamp(1.25rem, 4vw, 4rem));
+  --bar-h: calc(72px * var(--x-bar, 1));
 
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-serif: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -123,11 +124,11 @@ p { margin: 0 0 1.2em; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: var(--bar-h);
 }
 .brand {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: calc(var(--x-brand, 1) * 1.35rem);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -137,7 +138,7 @@ p { margin: 0 0 1.2em; }
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.82rem;
+  font-size: calc(var(--x-nav, 1) * 0.82rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -187,10 +188,10 @@ p { margin: 0 0 1.2em; }
 /* interactive point-cloud behind hero + top bar, vignetted top and bottom */
 .hero-canvas {
   position: absolute;
-  top: -72px; /* reaches up underneath the sticky header */
+  top: calc(-1 * var(--bar-h)); /* reaches up underneath the sticky header */
   left: 0;
   width: 100%;
-  height: calc(100% + 72px);
+  height: calc(100% + var(--bar-h));
   pointer-events: none;
   -webkit-mask-image:
     linear-gradient(to bottom, transparent 0, black 16%, black 70%, transparent 100%),
@@ -811,7 +812,7 @@ p { margin: 0 0 1.2em; }
 @media (max-width: 600px) {
   .nav-links {
     position: fixed;
-    inset: 72px 0 auto 0;
+    inset: var(--bar-h) 0 auto 0;
     background: var(--bg);
     flex-direction: column;
     gap: 0;
@@ -1168,8 +1169,8 @@ p { margin: 0 0 1.2em; }
 }
 .regie-stage {
   position: sticky;
-  top: 73px;
-  height: calc(100dvh - 73px);
+  top: calc(var(--bar-h) + 1px);
+  height: calc(100dvh - var(--bar-h) - 1px);
   overflow: hidden;
 }
 .regie-item {
