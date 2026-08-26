@@ -65,7 +65,7 @@ a { color: inherit; text-decoration: none; }
   padding-inline: var(--gutter);
 }
 
-section { padding-block: calc(var(--x-space, 1.36) * clamp(3.5rem, 9vw, 8rem)); }
+section { padding-block: calc(var(--x-space, 1.36) * clamp(2.25rem, 5.5vw, 4.5rem)); }
 
 /* ---- Type ---- */
 .eyebrow {
@@ -442,7 +442,7 @@ p { margin: 0 0 1.2em; }
 /* ==========================================================================
    Project detail
    ========================================================================== */
-.project-head { padding-top: clamp(3rem, 7vw, 6rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
+.project-head { padding-top: clamp(2rem, 4.5vw, 3.5rem); padding-bottom: clamp(1.2rem, 2.5vw, 2rem); }
 .project-head .display { font-size: calc(var(--x-title, 1.02) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
 /* a co-authored work is told from both makers: the byline under the title */
 .project-by {
@@ -458,8 +458,8 @@ p { margin: 0 0 1.2em; }
   align-items: start;
   justify-content: space-between;
   gap: 1.5rem clamp(2rem, 4vw, 5rem);
-  margin-top: 2.5rem;
-  padding-top: 2rem;
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
   border-top: 1px solid var(--line);
 }
 .fact-label { font-size: calc(var(--x-label, 1.36) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
@@ -468,7 +468,7 @@ p { margin: 0 0 1.2em; }
 
 /* under the page: the press that wrote about the work and its nearest
    projects, one native-scrolling strip, cards snapping gently */
-.project-related { margin-top: calc(var(--x-space, 1.36) * clamp(3rem, 6vw, 5rem)); }
+.project-related { margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem)); }
 .carousel {
   display: flex;
   gap: calc(var(--x-gap, 1) * clamp(0.8rem, 1.6vw, 1.4rem));
@@ -535,7 +535,7 @@ p { margin: 0 0 1.2em; }
   max-width: 60ch;
   /* below the text sits the gallery: that white marge has its own dial
      and ships small */
-  margin-block: calc(var(--x-space, 1.36) * clamp(2rem, 5vw, 3.5rem))
+  margin-block: calc(var(--x-space, 1.36) * clamp(1.2rem, 3vw, 2.2rem))
     calc(var(--x-textgap, 0) * clamp(2rem, 5vw, 3.5rem));
   font-size: 1.05rem;
   line-height: 1.7;
@@ -552,9 +552,12 @@ p { margin: 0 0 1.2em; }
 /* a solo row (panorama strip or poster) centres itself; posters cap at a
    readable-but-sane height */
 .project-gallery .grow.solo img {
-  flex: 1 1 100%;
-  width: 100%;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  /* a solo picture also stays within one screen */
+  max-height: 88vh;
 }
 .project-gallery .grow img {
   flex: 1 1 0;
@@ -640,7 +643,7 @@ p { margin: 0 0 1.2em; }
   display: flex;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(3rem, 6vw, 5rem));
+  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: 2rem;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -765,7 +768,7 @@ p { margin: 0 0 1.2em; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding-block: 3rem;
-  margin-top: clamp(3rem, 8vw, 7rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
 }
 .footer-inner {
   display: flex;
@@ -835,7 +838,7 @@ p { margin: 0 0 1.2em; }
    -------------------------------------------------------------------------- */
 .project-insight {
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(3rem, 6vw, 5rem));
+  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .insight-head { max-width: 46rem; }
@@ -931,9 +934,12 @@ p { margin: 0 0 1.2em; }
 /* The film runs the same width as the pictures. Only a portrait one is capped,
    or it would stand taller than the screen; main.js marks those on load. */
 .project-videos.is-main .project-video-file {
-  width: 100%;
+  width: auto;
   max-width: 100%;
-  max-height: none;
+  /* the film never stands taller than the screen: on the wide pages a
+     full-width film was two screens of scrolling on its own */
+  max-height: 85vh;
+  margin-inline: auto;
 }
 .project-videos.is-main .project-video-file.is-portrait {
   width: auto;
@@ -1106,7 +1112,7 @@ p { margin: 0 0 1.2em; }
 /* press kit under the pictures, in the insight section's voice */
 .project-presskit {
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(3rem, 6vw, 5rem));
+  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .kit-quote { margin: 1.4rem 0 0; max-width: 46rem; }
@@ -1167,10 +1173,10 @@ p { margin: 0 0 1.2em; }
 }
 .regie-stage.is-on .regie-item {
   transition:
-    transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1),
-    width 0.9s cubic-bezier(0.645, 0.045, 0.355, 1),
-    height 0.9s cubic-bezier(0.645, 0.045, 0.355, 1),
-    opacity 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+    width 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+    height 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .regie-item img,
 .regie-item video {
