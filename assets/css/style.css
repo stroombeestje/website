@@ -459,8 +459,25 @@ p { margin: 0 0 1.2em; }
 /* the facts spread evenly; the link BLOCK closes the row at the right,
    its text left-aligned like every other fact */
 .fact-link { margin-left: auto; }
-/* the credits line under the project text, with its own tune dial */
-.project-credits { color: var(--muted); font-size: calc(var(--x-credits, 1) * 0.95rem); }
+/* the credits under the project text: each role a labeled credit with the
+   name in full ink, set like the facts row. The credits dial sizes the names. */
+.project-credits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem clamp(2rem, 4vw, 4.5rem);
+  margin-top: 1.6em;
+  padding-top: 1.1em;
+  border-top: 1px solid var(--line);
+}
+.credit-role {
+  display: block;
+  font-size: calc(var(--x-label, 1) * 0.72rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.credit-name { font-size: calc(var(--x-credits, 1) * 1.05rem); color: var(--fg); }
 
 .project-body {
   display: grid;

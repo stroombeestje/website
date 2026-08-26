@@ -631,7 +631,21 @@
       .filter((l) => !l.trim().startsWith("> "))
       .map((l) => `<p>${esc(l.trim())}</p>`)
       .join("");
-    const creditsHTML = p.credits ? `<p class="project-credits">${esc(p.credits)}</p>` : "";
+    // The credits carry real names: each "Role: Name" pair becomes its own
+    // labeled credit, set like the facts row, instead of one muted sentence.
+    const creditsHTML = p.credits
+      ? `<div class="project-credits">${String(p.credits)
+          .split(/\.\s+(?=[A-Z])/)
+          .map((seg) => seg.replace(/\.\s*$/, "").trim())
+          .filter(Boolean)
+          .map((seg) => {
+            const m = seg.match(/^([^:]{2,50}):\s*(.+)$/);
+            return m
+              ? `<div class="credit"><span class="credit-role">${esc(m[1])}</span><span class="credit-name">${esc(m[2])}</span></div>`
+              : `<div class="credit"><span class="credit-name">${esc(seg)}</span></div>`;
+          })
+          .join("")}</div>`
+      : "";
     const bodyHTML = stHTML
       ? `<div class="project-body has-statement">
           <div class="project-info">${infoHTML}${creditsHTML}</div>
