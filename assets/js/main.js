@@ -381,7 +381,7 @@
       dctx.beginPath(); dctx.arc(8, 8, 7, 0, Math.PI * 2); dctx.fill();
 
       const mobile = W < 600;
-      const N = Math.round((mobile ? 3800 : 9000) * tv("--pc-density", 2.5));
+      const N = Math.round((mobile ? 3800 : 9000) * tv("--pc-density", 2.4));
       // overlapping 3D lobes give the cloud its multi-form organic shape
       const K = 5;
       const LOBES = [];
@@ -423,14 +423,14 @@
       ctx.fillStyle = "#141414";
       const R = 210;
       const TAU = Math.PI * 2;
-      const sizeMul = tv("--pc-size", 2.25);
+      const sizeMul = tv("--pc-size", 2.5);
       const spd = tv("--pc-speed", 3);
       // slow 3D rotation of the whole field
       const ay = reduced ? 0.6 : t * 0.00006 * spd;
       const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 * spd + 1.0);
       const cyr = Math.cos(ay), syr = Math.sin(ay);
       const cxr = Math.cos(axr), sxr = Math.sin(axr);
-      const SR = Math.min(W, H) * (W < 600 ? 0.62 : 0.58) * tv("--pc-scale", 1.6); // cloud scale
+      const SR = Math.min(W, H) * (W < 600 ? 0.62 : 0.58) * tv("--pc-scale", 0.8); // cloud scale
       const CX = W * 0.58, CY = H * 0.47;                  // cloud centre
       const F = SR * 3.4;                                  // perspective depth
       for (let i = 0; i < pts.length; i++) {
