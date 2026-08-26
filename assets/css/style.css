@@ -204,6 +204,21 @@ p { margin: 0 0 1.2em; }
 }
 .hero > :not(.hero-canvas) { position: relative; }
 
+/* On the home the cloud is not a hero decoration but the GROUND: fixed
+   behind the whole page, works row and about band floating over it. It
+   paints its own paper color, so it simply is the background. */
+.page-home .hero-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  -webkit-mask-composite: source-over;
+  mask-composite: add;
+}
+
 /* ==========================================================================
    Work grid
    ========================================================================== */
@@ -1016,16 +1031,22 @@ p { margin: 0 0 1.2em; }
   .page-home .site-footer { margin-top: 0; padding-block: 1rem; }
   .home-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(0.25rem, 1.5vh, 2rem); }
   .home-hero .lead { margin-top: 0.6rem; }
-  .home-hero .display { font-size: clamp(2rem, 4.2vh, 4.4rem); margin-block: 0.4rem; }
-  .home-hero .lead { max-width: 56ch; font-size: clamp(0.9rem, 1.5vh, 1.05rem); margin-block: 0.3rem 0; }
+  .home-hero .display { font-size: calc(var(--x-home-title, 1) * clamp(2rem, 4.2vh, 4.4rem)); margin-block: 0.4rem; }
+  .home-hero .lead { max-width: 56ch; font-size: calc(var(--x-home-lead, 1) * clamp(0.9rem, 1.5vh, 1.05rem)); margin-block: 0.3rem 0; }
   .home-works { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); }
   .home-works .card-cat { display: none; }
   .home-works .card-meta { margin-top: 0.45rem; }
-  .home-works .card-title { font-size: 0.85rem; }
+  .home-works .card-title { font-size: calc(var(--x-home-cards, 1) * 0.85rem); }
   .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
-  .home-about-text { font-size: clamp(0.9rem, 1.5vh, 1rem); }
+  .home-about-text { font-size: calc(var(--x-home-about, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
 }
+/* every text element on the home listens to its own dial */
+.page-home .eyebrow { font-size: calc(var(--x-home-lead, 1) * 0.72rem); }
+.page-home .home-more,
+.page-home .home-works-head { font-size: calc(var(--x-home-cards, 1) * 0.8rem); }
+.page-home .home-about .h-section,
+.page-home .home-about h2 { font-size: calc(var(--x-home-about, 1) * clamp(1.3rem, 2.6vh, 1.9rem)); }
 .home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 0.6rem; margin-bottom: 0.6rem; }
 .home-more { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 .home-more:hover { color: var(--fg); }
@@ -1038,7 +1059,7 @@ p { margin: 0 0 1.2em; }
 }
 .home-about > div { padding-block: clamp(0.6rem, 1.5vh, 1.2rem); }
 .home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #e9e7e3; }
-.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: clamp(0.95rem, 1.6vh, 1.08rem); }
+.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: calc(var(--x-home-about, 1) * clamp(0.95rem, 1.6vh, 1.08rem)); }
 @media (max-width: 999px) { .home-about { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   #featured-grid.grid {
