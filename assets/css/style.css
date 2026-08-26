@@ -10,7 +10,7 @@
   --line: #e3e1dd;
   --accent: #141414;
 
-  --maxw: calc(1500px * var(--x-width, 1));
+  --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * clamp(1.25rem, 4vw, 4rem));
 
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -885,7 +885,7 @@ p { margin: 0 0 1.2em; }
 /* The project list has no cap: its cards stay one size and a wider screen buys
    more of them, so there is nothing to stop growing. A project page does stop,
    or a film and a line of text run the whole wall. */
-.page-wide { --page-max: calc(3400px * var(--x-width, 1)); }  /* wide again now the story pages carry it */
+.page-wide { --page-max: calc(6800px * var(--x-width, 1)); }  /* doubled on request: the studio screen carries it */
 /* The bar and the footer sit at the window edge on every page, whatever the
    page's own column does: a header that moves between pages reads as a jump. */
 .page-wide .site-header .wrap,
@@ -895,7 +895,7 @@ p { margin: 0 0 1.2em; }
 /* A project page is narrower: the film at the top sets the page width, and at
    full window it was simply too big. Everything on the page shares this width,
    so the one-straight-edge grid holds. */
-.page-project { --page-max: calc(1800px * var(--x-width, 1)); }
+.page-project { --page-max: calc(3600px * var(--x-width, 1)); }
 
 /* The project list keeps its cards the size they have always been and fits as
    many across as the window allows, rather than stretching three of them over
