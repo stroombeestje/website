@@ -12,7 +12,7 @@
 
   --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * clamp(1.25rem, 4vw, 4rem));
-  --bar-h: calc(72px * var(--x-bar, 1.7));
+  --bar-h: calc(72px * var(--x-bar, 1.7) * var(--ui, 1));
 
   --font-sans: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-serif: "Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -43,12 +43,29 @@ html {
    live; chosen values get baked back here as new defaults. */
 html { font-size: calc(100% * var(--x-base, 1)); }
 
+/* Proportional presence: the design is tuned on the studio's 4K screen.
+   A smaller screen gets the SAME proportions, not the same pixels: --ts
+   scales the type and the air, --ui scales the chrome (bar, brand, menu),
+   stepping down with the window so a 1080p laptop sees the 4K balance. */
+:root { --ts: 1; --ui: 1; }
+@media (max-width: 3400px) { :root { --ts: 0.9; --ui: 0.85; } }
+@media (max-width: 2600px) { :root { --ts: 0.8; --ui: 0.72; } }
+@media (max-width: 2100px) { :root { --ts: 0.7; --ui: 0.6; } }
+@media (max-width: 1500px) { :root { --ts: 0.66; --ui: 0.55; } }
+:root {
+  --fx-title: calc(var(--x-title, 1.02) * var(--ts));
+  --fx-text: calc(var(--x-text, 1.58) * var(--ts));
+  --fx-label: calc(var(--x-label, 1.36) * var(--ts));
+  --fx-credits: calc(var(--x-credits, 1.6) * var(--ts));
+  --fx-space: calc(var(--x-space, 1.36) * var(--ts));
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: calc(17px * var(--x-text, 1.58));
+  font-size: calc(17px * var(--fx-text));
   line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -66,11 +83,11 @@ a { color: inherit; text-decoration: none; }
   padding-inline: var(--gutter);
 }
 
-section { padding-block: calc(var(--x-space, 1.36) * clamp(2.25rem, 5.5vw, 4.5rem)); }
+section { padding-block: calc(var(--fx-space) * clamp(2.25rem, 5.5vw, 4.5rem)); }
 
 /* ---- Type ---- */
 .eyebrow {
-  font-size: calc(var(--x-label, 1.36) * 0.72rem);
+  font-size: calc(var(--fx-label) * 0.72rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -81,7 +98,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .display {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-title, 1.02) * clamp(2.6rem, 8vw, 6.5rem));
+  font-size: calc(var(--fx-title) * clamp(2.6rem, 8vw, 6.5rem));
   letter-spacing: -0.03em;
   font-weight: 700;
   line-height: 1.02;
@@ -89,13 +106,13 @@ h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .h-section {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-title, 1.02) * clamp(1.8rem, 4vw, 3rem));
+  font-size: calc(var(--fx-title) * clamp(1.8rem, 4vw, 3rem));
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
 .lead {
-  font-size: calc(var(--x-text, 1.58) * clamp(1.05rem, 2vw, 1.4rem));
+  font-size: calc(var(--fx-text) * clamp(1.05rem, 2vw, 1.4rem));
   line-height: 1.5;
   max-width: 32ch;
   color: var(--fg);
@@ -128,7 +145,7 @@ p { margin: 0 0 1.2em; }
 }
 .brand {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-brand, 2.2) * 1.35rem);
+  font-size: calc(var(--x-brand, 2.2) * 1.35rem * var(--ui, 1));
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -138,7 +155,7 @@ p { margin: 0 0 1.2em; }
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: calc(var(--x-nav, 2) * 0.82rem);
+  font-size: calc(var(--x-nav, 2) * 0.82rem * var(--ui, 1));
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -333,13 +350,13 @@ p { margin: 0 0 1.2em; }
 }
 .card-title {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-label, 1.36) * clamp(1.15rem, 1.7vw, 1.45rem));
+  font-size: calc(var(--fx-label) * clamp(1.15rem, 1.7vw, 1.45rem));
   font-weight: 600;
   letter-spacing: -0.01em;
   text-wrap: pretty; /* avoid stranded runt words in titles */
 }
-.card-sub { font-size: calc(var(--x-label, 1.36) * 0.78rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.card-cat { font-size: calc(var(--x-label, 1.36) * 0.78rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card-sub { font-size: calc(var(--fx-label) * 0.78rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.card-cat { font-size: calc(var(--fx-label) * 0.78rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
 /* placeholder shimmer for missing images */
 .ph {
@@ -377,7 +394,7 @@ p { margin: 0 0 1.2em; }
 .work-intro {
   margin: 0.5rem 0 0;
   color: var(--muted);
-  font-size: calc(var(--x-text, 1.58) * 0.95rem);
+  font-size: calc(var(--fx-text) * 0.95rem);
   max-width: 26rem;
 }
 .work-toolbar {
@@ -459,12 +476,12 @@ p { margin: 0 0 1.2em; }
    Project detail
    ========================================================================== */
 .project-head { padding-top: clamp(2rem, 4.5vw, 3.5rem); padding-bottom: clamp(1.2rem, 2.5vw, 2rem); }
-.project-head .display { font-size: calc(var(--x-title, 1.02) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
+.project-head .display { font-size: calc(var(--fx-title) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
 /* a co-authored work is told from both makers: the byline under the title */
 .project-by {
   margin: 1rem 0 0;
   font-family: var(--font-serif);
-  font-size: calc(var(--x-text, 1.58) * clamp(1.15rem, 1.6vw, 1.55rem));
+  font-size: calc(var(--fx-text) * clamp(1.15rem, 1.6vw, 1.55rem));
   font-weight: 600;
 }
 .project-by .by-x { color: var(--muted); font-weight: 400; padding-inline: 0.3em; }
@@ -478,13 +495,13 @@ p { margin: 0 0 1.2em; }
   padding-top: 1.2rem;
   border-top: 1px solid var(--line);
 }
-.fact-label { font-size: calc(var(--x-label, 1.36) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-.fact-value { font-size: calc(var(--x-label, 1.36) * 0.95rem); }
+.fact-label { font-size: calc(var(--fx-label) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+.fact-value { font-size: calc(var(--fx-label) * 0.95rem); }
 .fact-locations { line-height: 1.75; }
 
 /* under the page: the press that wrote about the work and its nearest
    projects, one native-scrolling strip, cards snapping gently */
-.project-related { margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem)); }
+.project-related { margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem)); }
 .carousel {
   display: flex;
   gap: calc(var(--x-gap, 1) * clamp(0.8rem, 1.6vw, 1.4rem));
@@ -509,7 +526,7 @@ p { margin: 0 0 1.2em; }
 .rel-card:hover .rel-media img { transform: scale(1.04); }
 .rel-kicker {
   display: block;
-  font-size: calc(var(--x-label, 1.36) * 0.68rem);
+  font-size: calc(var(--fx-label) * 0.68rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -518,7 +535,7 @@ p { margin: 0 0 1.2em; }
 .rel-title {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: calc(var(--x-label, 1.36) * 0.95rem);
+  font-size: calc(var(--fx-label) * 0.95rem);
   line-height: 1.35;
 }
 /* the facts spread evenly; the link BLOCK closes the row at the right,
@@ -536,20 +553,20 @@ p { margin: 0 0 1.2em; }
 }
 .credit-role {
   display: block;
-  font-size: calc(var(--x-label, 1.36) * 0.72rem);
+  font-size: calc(var(--fx-label) * 0.72rem);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
-.credit-name { font-size: calc(var(--x-credits, 1.6) * 1.05rem); color: var(--fg); }
+.credit-name { font-size: calc(var(--fx-credits) * 1.05rem); color: var(--fg); }
 /* a credits sentence that is not a Role: Name pair reads as a quiet note */
 .credit-note {
   flex-basis: 100%;
   margin: 0;
   max-width: 70ch;
   color: var(--muted);
-  font-size: calc(var(--x-label, 1.36) * 0.85rem);
+  font-size: calc(var(--fx-label) * 0.85rem);
   line-height: 1.6;
 }
 
@@ -560,7 +577,7 @@ p { margin: 0 0 1.2em; }
   max-width: 60ch;
   /* below the text sits the gallery: that white marge has its own dial
      and ships small */
-  margin-block: calc(var(--x-space, 1.36) * clamp(1.2rem, 3vw, 2.2rem))
+  margin-block: calc(var(--fx-space) * clamp(1.2rem, 3vw, 2.2rem))
     calc(var(--x-textgap, 0) * clamp(2rem, 5vw, 3.5rem));
   font-size: 1.05rem;
   line-height: 1.7;
@@ -668,7 +685,7 @@ p { margin: 0 0 1.2em; }
   display: flex;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
+  margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: 2rem;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -692,12 +709,12 @@ p { margin: 0 0 1.2em; }
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
   background: #e9e7e3;
 }
-.about-text { font-size: calc(var(--x-text, 1.58) * clamp(1.1rem, 1.8vw, 1.35rem)); line-height: 1.6; font-family: var(--font-serif); }
+.about-text { font-size: calc(var(--fx-text) * clamp(1.1rem, 1.8vw, 1.35rem)); line-height: 1.6; font-family: var(--font-serif); }
 .about-text p { margin-bottom: 1em; }
 
 /* The reading text on a project page runs larger than the site's base: the
    pages went wide and 17px drowned next to the pictures. */
-.project-body { font-size: calc(var(--x-text, 1.58) * clamp(1.1rem, 1.15vw, 1.3rem)); line-height: 1.65; }
+.project-body { font-size: calc(var(--fx-text) * clamp(1.1rem, 1.15vw, 1.3rem)); line-height: 1.65; }
 
 /* artist statement inside a project description — set apart from the info text */
 .project-body .statement {
@@ -756,8 +773,8 @@ p { margin: 0 0 1.2em; }
 .press-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .press-outlet { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
 .press-date { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.press-title { font-size: calc(var(--x-text, 1.58) * 1.12rem); line-height: 1.35; margin: 0.5rem 0 0; font-weight: 600; }
-.press-quote { color: var(--muted); font-family: var(--font-serif); font-style: italic; margin: 0.7rem 0 0; line-height: 1.5; font-size: calc(var(--x-text, 1.58) * 0.92rem); }
+.press-title { font-size: calc(var(--fx-text) * 1.12rem); line-height: 1.35; margin: 0.5rem 0 0; font-weight: 600; }
+.press-quote { color: var(--muted); font-family: var(--font-serif); font-style: italic; margin: 0.7rem 0 0; line-height: 1.5; font-size: calc(var(--fx-text) * 0.92rem); }
 .press-cta { display: inline-block; margin-top: 0.9rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .press-link:hover .press-cta { color: var(--fg); }
 
@@ -770,7 +787,7 @@ p { margin: 0 0 1.2em; }
   gap: 1.5rem;
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--line);
-  font-size: calc(var(--x-text, 1.58) * 0.95rem);
+  font-size: calc(var(--fx-text) * 0.95rem);
 }
 .detail-list .y { color: var(--muted); }
 
@@ -868,7 +885,7 @@ p { margin: 0 0 1.2em; }
    -------------------------------------------------------------------------- */
 .project-insight {
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
+  margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .insight-head { max-width: 46rem; }
@@ -912,7 +929,7 @@ p { margin: 0 0 1.2em; }
 .insight-qa blockquote + blockquote { margin-top: 1.1rem; }
 .insight-qa blockquote p {
   margin: 0;
-  font-size: calc(var(--x-text, 1.58) * clamp(1.05rem, 1.6vw, 1.25rem));
+  font-size: calc(var(--fx-text) * clamp(1.05rem, 1.6vw, 1.25rem));
   line-height: 1.55;
 }
 .insight-qa cite {
@@ -1050,7 +1067,7 @@ p { margin: 0 0 1.2em; }
   .home-works .card-cat { display: none; }
   .home-works .card-meta { margin-top: 0.45rem; }
   .home-works .card-title {
-    font-size: calc(var(--x-home-cards, 1.5) * 0.85rem);
+    font-size: calc(var(--x-home-cards, 1.5) * 0.85rem * var(--ts, 1));
     /* one line, always: a wrapped title makes the row read ragged and the
        text look misaligned with the pictures */
     white-space: nowrap;
@@ -1112,9 +1129,9 @@ p { margin: 0 0 1.2em; }
   z-index: 1;
 }
 #work-grid .card:hover .card-title,
-#work-grid .card:focus-visible .card-title { color: #f7f6f4; font-size: calc(var(--x-label, 1.36) * 0.72rem); line-height: 1.25; }
+#work-grid .card:focus-visible .card-title { color: #f7f6f4; font-size: calc(var(--fx-label) * 0.72rem); line-height: 1.25; }
 #work-grid .card:hover .card-cat,
-#work-grid .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: calc(var(--x-label, 1.36) * 0.6rem); }
+#work-grid .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: calc(var(--fx-label) * 0.6rem); }
 #work-grid .card-media { background: #e9e7e3; }
 
 /* Pages that fit the screen have no scroll to drive them, so the pictures
@@ -1168,11 +1185,11 @@ p { margin: 0 0 1.2em; }
 /* press kit under the pictures, in the insight section's voice */
 .project-presskit {
   border-top: 1px solid var(--line);
-  margin-top: calc(var(--x-space, 1.36) * clamp(1.8rem, 3.5vw, 3rem));
+  margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
   padding-top: clamp(2rem, 4vw, 3.5rem);
 }
 .kit-quote { margin: 1.4rem 0 0; max-width: 46rem; }
-.kit-quote p { margin: 0; font-style: italic; font-size: calc(var(--x-text, 1.58) * 1.05rem); line-height: 1.55; }
+.kit-quote p { margin: 0; font-style: italic; font-size: calc(var(--fx-text) * 1.05rem); line-height: 1.55; }
 .kit-quote cite {
   display: block;
   margin-top: 0.4rem;
@@ -1195,7 +1212,7 @@ p { margin: 0 0 1.2em; }
   gap: 1rem clamp(2rem, 5vw, 6rem);
 }
 .pillar h2 { margin: 0; font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 700; max-width: 14ch; }
-.pillar-insight { font-size: calc(var(--x-text, 1.58) * clamp(1.05rem, 1.1vw, 1.2rem)); line-height: 1.65; max-width: 62ch; }
+.pillar-insight { font-size: calc(var(--fx-text) * clamp(1.05rem, 1.1vw, 1.2rem)); line-height: 1.65; max-width: 62ch; }
 .pillar-insight p { margin: 0 0 1em; }
 .pillar-insight p:last-child { margin-bottom: 0; }
 .pillar-links { grid-column: 2; margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); }
@@ -1262,7 +1279,7 @@ p { margin: 0 0 1.2em; }
   max-width: 64ch;
   max-height: 100%;
   overflow-y: auto;
-  font-size: calc(var(--x-text, 1.58) * clamp(1.05rem, 1.3vw, 1.35rem));
+  font-size: calc(var(--fx-text) * clamp(1.05rem, 1.3vw, 1.35rem));
   line-height: 1.7;
 }
 .regie-text .statement { margin-top: 1.2em; }
