@@ -1022,7 +1022,12 @@
       </div>
       ${mainVideo
         ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
-        : p.cover
+        : p.cover && !p.coverGridOnly
+        /* coverGridOnly: the cover identifies the work in the grid but does not
+           open the page. Buy or Burn's cover is a 1600px photograph of the
+           light box on the wall, and the hero column is 2033px, so opening the
+           project blew it up a quarter past its own pixels and it went soft.
+           The work itself is three sharp strips, so the page opens on those. */
         ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
         : ""}
       <div class="wrap">

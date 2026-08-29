@@ -30,6 +30,15 @@ if not os.path.exists(FFMPEG):
     FFMPEG = None
 
 
+
+# Which cover each thumb was cut from, so a changed cover invalidates it.
+THUMB_SRC_PATH = os.path.join(ROOT, "media", "thumbs", "sources.json")
+try:
+    with open(THUMB_SRC_PATH, encoding="utf-8") as fh:
+        THUMB_SRC = json.load(fh)
+except Exception:
+    THUMB_SRC = {}
+
 def main():
     files = sorted(glob.glob(os.path.join(SRC_DIR, "*.json")))
     projects = []
@@ -58,11 +67,22 @@ def main():
                 os.makedirs(os.path.join(ROOT, "media", "thumbs"), exist_ok=True)
                 rel_thumb = "media/thumbs/%s-cover.jpg" % p["slug"]
                 dst = os.path.join(ROOT, rel_thumb.replace("/", os.sep))
-                if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                # Rebuild when the cover file is newer OR when the cover has
+                # been pointed at a DIFFERENT file. Comparing timestamps alone
+                # was not enough: switching buy-or-burn's cover from the strip
+                # to the brick-wall photo left the old 4:1 strip thumb in place
+                # for good, because the newly chosen file was older than the
+                # thumb built from the previous one. So the source path is
+                # recorded beside the thumbs and checked too.
+                stale = (not os.path.exists(dst)
+                         or os.path.getmtime(dst) < os.path.getmtime(src)
+                         or THUMB_SRC.get(rel_thumb) != p["cover"])
+                if stale:
                     with Image.open(src) as im:
                         im = im.convert("RGB")
                         im.thumbnail((640, 640))
                         im.save(dst, "JPEG", quality=78, optimize=True)
+                THUMB_SRC[rel_thumb] = p["cover"]
                 p["coverThumb"] = rel_thumb
 
         # A short square preview of the project's film, played when the cover
@@ -136,6 +156,16 @@ def main():
     with open(OUT, "w", encoding="utf-8") as fh:
         json.dump({"projects": projects}, fh, indent=2, ensure_ascii=False)
         fh.write("\n")
+
+    # Remember which cover each thumb was cut from, so the next run can tell a
+    # changed cover from an unchanged one.
+    try:
+        os.makedirs(os.path.dirname(THUMB_SRC_PATH), exist_ok=True)
+        with open(THUMB_SRC_PATH, "w", encoding="utf-8") as fh:
+            json.dump(THUMB_SRC, fh, indent=2, sort_keys=True)
+            fh.write(chr(10))
+    except Exception as e:
+        print("  could not record thumb sources:", e)
 
     print(f"build_site_data: combined {len(projects)} projects -> data/projects.json")
 
