@@ -1211,9 +1211,12 @@
     // about this work, then its nearest projects. Articles come from
     // press.json entries tagged with this project's slug; related projects
     // from an explicit "related" list or, failing that, the same category.
-    // Prototyping on the story pages only (Somnia) until Jaco signs it off.
+    /* Every project gets this, not only the story pages. It was gated on
+       p.story "until Jaco signs it off", and Somnia was the only story page,
+       so turning Somnia into an ordinary project took the press carousel off
+       the site entirely. He has asked for the Volkskrant line on Somnia twice,
+       which is the sign-off. */
     (async () => {
-      if (!p.story) return;
       let articles = [];
       try {
         const pd = await loadJSON("data/press.json");
@@ -1278,6 +1281,31 @@
       };
       probe.src = v.getAttribute("poster");
     });
+
+    /* "i always want to see movie with the text decription under it".
+       A flat 0.6 cap could not keep that promise: the header above the film is
+       not the same height on every project. Somnia carries a byline and a long
+       fact line, so its head runs 32% of a 1080 laptop, and 32 + 60 leaves the
+       description exactly one pixel below the fold. So the cap is MEASURED:
+       take what the window has left under the head, keep a slice back for the
+       first lines of text, and never go above the 0.6 Jaco tuned. The floor
+       stops a very tall head from crushing the film instead. filmTop does not
+       depend on the film's own height, so there is no feedback loop here. */
+    const film = mount.querySelector(".project-videos.is-main");
+    if (film) {
+      const fitFilm = () => {
+        const vh = window.innerHeight;
+        const top = film.getBoundingClientRect().top + window.scrollY;
+        const reserve = 0.15 * vh; // the first lines of the description
+        const share = (vh - top - reserve) / vh;
+        film.style.setProperty("--film", Math.max(0.34, Math.min(0.6, share)).toFixed(3));
+      };
+      const scheduleFilm = () =>
+        requestAnimationFrame(() => requestAnimationFrame(fitFilm));
+      scheduleFilm();
+      window.addEventListener("resize", scheduleFilm);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFilm);
+    }
 
     // Lay out the gallery once the pictures report their proportions, and on resize.
     const gal = mount.querySelector(".project-gallery");

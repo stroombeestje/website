@@ -360,7 +360,6 @@ p { margin: 0 0 1.2em; }
     .press-media,
     .project-gallery img,
     .project-hero img,
-    .about-portrait,
     .project-videos.is-main .project-video-file {
       animation: scroll-rise linear both;
       animation-timeline: view();
@@ -369,6 +368,11 @@ p { margin: 0 0 1.2em; }
   }
 }
 /* the one-screen wall does not scroll, so nothing there may wait for scroll */
+/* NOT the about portrait: it is floated, with the bio text wrapped around a
+   hole that does not move. Animating the picture's transform slid and grew it
+   inside that fixed hole for the whole length of the page, which is Jaco's
+   "images at about is moving all the time". A picture set into running text
+   stays put; only pictures that stand on their own line get the scroll rise. */
 /* Framer-style variety: pictures grow in as the scroll carries them, but
    not all the same way. In a gallery row the left one leans in from the
    left, the right one from the right, the middle rises, at slightly
@@ -656,7 +660,7 @@ p { margin: 0 0 1.2em; }
   gap: calc(var(--x-gap, 1) * var(--ts, 1) * clamp(0.8rem, 1.6vw, 1.4rem));
   overflow-x: auto;
   scroll-snap-type: x proximity;
-  padding-bottom: 0.6rem;
+  padding-bottom: calc(0.6rem * var(--ts, 1));
   scrollbar-width: thin;
 }
 .rel-card { flex: 0 0 calc(var(--ts, 1) * clamp(240px, 22vw, 440px)); scroll-snap-align: start; display: block; }
@@ -664,7 +668,7 @@ p { margin: 0 0 1.2em; }
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--tile);
-  margin-bottom: 0.6rem;
+  margin-bottom: calc(0.6rem * var(--ts, 1));
 }
 .rel-media img {
   width: 100%;
@@ -1512,10 +1516,15 @@ a.cv-link:hover { color: var(--fg); }
 @media (prefers-reduced-motion: no-preference) {
   .card-media img,
   .press-media img,
-  .home-about img,
-  .about-portrait {
+  .home-about img {
     animation: breathe 14s ease-in-out infinite alternate;
   }
+  /* NOT the about portrait. The drift is meant for a picture sitting inside a
+     crop frame, where it moves behind a hole that holds still and reads as
+     life. The portrait has no frame: it IS the element, floated with the bio
+     wrapped around it, so the same drift grew and slid the whole picture
+     against text that never moves. That is Jaco's "images at about is moving
+     all the time". A picture set into running text stays still. */
   .card-media img { animation-duration: 18s; }
 }
 @keyframes breathe {

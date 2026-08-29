@@ -145,28 +145,6 @@
         "contactUser": "jaco",
         "contactDomain": "jacoschilp.nl"
       },
-      "story": true,
-      "regie": [
-        [
-          1
-        ],
-        [
-          2
-        ],
-        [
-          3,
-          4
-        ],
-        [
-          5
-        ],
-        [
-          6
-        ],
-        [
-          7
-        ]
-      ],
       "coverThumb": "media/thumbs/somnia-cover.jpg",
       "hoverPreview": "media/thumbs/somnia-hover.mp4",
       "sizes": {
