@@ -813,30 +813,46 @@
       .join("");
     // The credits carry real names: each "Role: Name" pair becomes its own
     // labeled credit, set like the facts row, instead of one muted sentence.
-    const creditsHTML = p.credits
-      ? `<div class="project-credits">${String(p.credits)
-          .split(/\.\s+(?=[A-Z])/)
-          .map((seg) => seg.replace(/\.\s*$/, "").trim())
-          .filter(Boolean)
-          .map((seg) => {
-            const m = seg.match(/^([^:]{2,80}):\s*(.+)$/);
-            if (m)
-              return `<div class="credit"><span class="credit-role">${esc(m[1])}</span><span class="credit-name">${esc(m[2])}</span></div>`;
-            // "Commissioned by X" and friends read as a pair without a colon
-            const by = seg.match(/^(Commissioned by|Supported by|Presented by|Produced by|Released on|Curated by|In collaboration with)\s+(.+)$/i);
-            if (by)
-              return `<div class="credit"><span class="credit-role">${esc(by[1])}</span><span class="credit-name">${esc(by[2])}</span></div>`;
-            // anything else is a note, not a name: full width, quiet
-            return `<p class="credit-note">${esc(seg)}.</p>`;
-          })
-          .join("")}</div>`
+    /* Two different things were being mixed in one grid. A credit is a Role
+       and a Name; a note ("Projectors sponsored by Epson") is neither, and as
+       a cell it sat with its text at label height while every real name sat a
+       line lower. Spanning it across the grid was worse: auto-fit and a
+       spanning item disagree about how many tracks exist, so the note came out
+       480px wide and pushed Film onto a row of its own.
+
+       So they are separated at the source. The pairs divide the width evenly
+       in one row; the notes follow underneath as one quiet line. */
+    const creditParts = String(p.credits || "")
+      .split(/\.\s+(?=[A-Z])/)
+      .map((seg) => seg.replace(/\.\s*$/, "").trim())
+      .filter(Boolean);
+    const creditPairs = [], creditNotes = [];
+    creditParts.forEach((seg) => {
+      const m = seg.match(/^([^:]{2,80}):\s*(.+)$/);
+      if (m) { creditPairs.push([m[1], m[2]]); return; }
+      // "Commissioned by X" and friends read as a pair without a colon
+      const by = seg.match(/^(Commissioned by|Supported by|Presented by|Produced by|Released on|Curated by|In collaboration with)\s+(.+)$/i);
+      if (by) { creditPairs.push([by[1], by[2]]); return; }
+      creditNotes.push(seg);
+    });
+    const creditsHTML = creditParts.length
+      ? `${creditPairs.length
+            ? `<div class="project-credits">${creditPairs
+                .map(([role, name]) => `<div class="credit"><span class="credit-role">${esc(role)}</span><span class="credit-name">${esc(name)}</span></div>`)
+                .join("")}</div>`
+            : ""}${creditNotes.length
+            ? `<p class="credit-notes">${creditNotes.map((n) => esc(n) + ".").join(" ")}</p>`
+            : ""}`
       : "";
-    const bodyHTML = stHTML
+    /* The credits sit OUTSIDE the text block, so they can use the whole page
+       width. Inside .project-info they had half of it, which is why they
+       wrapped into a ragged shape with a lone pair stranded on a second row. */
+    const bodyHTML = (stHTML
       ? `<div class="project-body has-statement">
-          <div class="project-info">${infoHTML}${creditsHTML}</div>
+          <div class="project-info">${infoHTML}</div>
           <aside class="project-statement">${stHTML}</aside>
         </div>`
-      : `<div class="project-body">${infoHTML}${creditsHTML}</div>`;
+      : `<div class="project-body">${infoHTML}</div>`) + creditsHTML;
 
     // Pictures listed in a project's "nocrop" (posters, graphic work) always
     // show complete; the layout may never trim them.
@@ -1003,8 +1019,8 @@
       <div class="wrap">
         ${bodyHTML}
         ${p.pointcloud ? `<div class="project-pointcloud"><canvas class="pc-canvas" aria-label="Interactive point cloud"></canvas><p class="pc-label">${esc(p.pointcloud.label || "Drag to turn the scan, scroll to come closer.")}</p></div>` : ""}
-        ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${regie ? storyHTML : gallery ? `<div class="project-gallery"${p.galleryRows ? ` data-rows="${esc(String(p.galleryRows))}"` : ""}>${gallery}</div>` : ""}
+        ${extraVideos ? `<div class="project-clips">${extraVideos}</div>` : ""}
         ${presskitHTML}
         ${insightHTML}
         <nav class="project-nav">

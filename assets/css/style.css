@@ -702,13 +702,25 @@ p { margin: 0 0 1.2em; }
 .fact-link { margin-left: auto; }
 /* the credits under the project text: each role a labeled credit with the
    name in full ink, set like the facts row. The credits dial sizes the names. */
+/* Credits divide the width evenly instead of packing left and wrapping. As a
+   flex-wrap row inside the half-width text column they came out ragged, with
+   the last pair stranded alone on a second line under nothing. The column
+   floor is in vw so the count is the same on every screen: about seven at
+   most, four when there are four. */
+/* The notes are their own line under the credits, not cells inside them. */
+.credit-notes {
+  margin: calc(0.9rem * var(--ts, 1)) 0 0;
+  color: var(--muted);
+  font-size: max(calc(12px * var(--fl, 1)), calc(var(--fx-label) * 0.8rem));
+}
 .project-credits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: calc(1rem * var(--ts, 1)) calc(var(--ts, 1) * clamp(2rem, 4vw, 4.5rem));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(150px, 13vw)), 1fr));
+  gap: calc(1.4rem * var(--ts, 1)) calc(var(--ts, 1) * clamp(1.5rem, 3vw, 3rem));
   margin-top: 1.6em;
   padding-top: 1.1em;
   border-top: 1px solid var(--line);
+  align-items: start;
 }
 .credit-role {
   display: block;
@@ -811,22 +823,29 @@ p { margin: 0 0 1.2em; }
   gap: calc(var(--x-gap, 1) * var(--ts, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
   margin-bottom: calc(var(--x-gap, 1) * var(--ts, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
 }
+/* A clip is shown at its OWN shape. It used to be poured into a fixed box,
+   3/2 for a pair and 3/1 for a lone one, and then letterboxed to fit: a 16:9
+   clip alone on the page became 1841 wide with the picture filling the middle
+   1091 and 375px of black down either side, the largest and emptiest thing on
+   the page. There is no box now, so there is nothing to letterbox against.
+   The clip scales to the column and stops at the height cap, whichever comes
+   first, and it can neither be cropped nor distorted. */
+.project-clips { --clip: 0.46; }
 .project-clips > * {
-  aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: #000;
   margin: 0;
   min-width: 0;
+  display: flex;
+  justify-content: center;
 }
-.project-clips > *:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  aspect-ratio: 3 / 1;
-}
+.project-clips > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .project-clips video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* never crop a film; letterbox on black instead */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(var(--clip) * 100dvh);
   display: block;
+  margin-inline: auto;
   background: #000;
 }
 
@@ -840,7 +859,7 @@ p { margin: 0 0 1.2em; }
 
 @media (max-width: 600px) {
   .project-clips { grid-template-columns: 1fr; }
-  .project-clips > *:last-child:nth-child(odd) { aspect-ratio: 3 / 2; }
+  .project-clips > *:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 .project-nav {
@@ -1205,6 +1224,8 @@ p { margin: 0 0 1.2em; }
 .project-clips,
 .project-gallery,
 .project-body,
+.project-credits,
+.credit-notes,
 .project-insight,
 .project-nav {
   --gw: min(calc(var(--vw, 100vw) - 2 * var(--gutter)), var(--page-max));
