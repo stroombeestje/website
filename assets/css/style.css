@@ -513,7 +513,10 @@ p { margin: 0 0 1.2em; }
   align-items: center;
   gap: calc(0.5rem * var(--ts, 1));
   color: var(--muted);
-  flex: 0 1 calc(260px * var(--ts, 1));
+  /* 260px * --ts left a 129px field at 1920 holding 13px type. The basis
+     carries the same floor as the text inside it, so the box and its
+     contents stop shrinking together. */
+  flex: 0 1 max(calc(190px * var(--fl, 1)), calc(380px * var(--ts, 1)));
   border-bottom: 1px solid var(--line);
   padding-bottom: 3px;
 }
@@ -522,7 +525,7 @@ p { margin: 0 0 1.2em; }
   outline: none;
   background: none;
   font: inherit;
-  font-size: max(calc(13px * var(--fl, 1)), calc(0.9rem * var(--ts, 1)));
+  font-size: max(calc(13px * var(--fl, 1)), calc(var(--fx-label) * 0.9rem));
   color: var(--fg);
   width: 100%;
 }
@@ -534,7 +537,13 @@ p { margin: 0 0 1.2em; }
   border-radius: 999px;
   cursor: pointer;
   font: inherit;
-  font-size: max(calc(11.5px * var(--fl, 1)), calc(0.72rem * var(--ts, 1)));
+  /* This was max(11.5px, 0.72rem * --ts). At 4K the proportional half comes
+     to 11.47px, so the FLOOR won even on the wall and these controls were
+     11.5px on every screen that has ever rendered them -- a ratio of exactly
+     1.0, the thing the proportion law exists to prevent. On the label dial
+     they read 15.6px on the wall and fall back to the floor on a laptop.
+     The padding is in em, so the chip grows with its own text. */
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
@@ -557,7 +566,7 @@ p { margin: 0 0 1.2em; }
   white-space: nowrap;
 }
 .work-count {
-  font-size: max(calc(11.5px * var(--fl, 1)), calc(0.72rem * var(--ts, 1)));
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
