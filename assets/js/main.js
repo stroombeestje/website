@@ -189,44 +189,111 @@
   function initLivingTiles() {
     if (window.matchMedia("(max-width: 600px)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (navigator.connection && navigator.connection.saveData) return;
-    const seen = new WeakSet();
+    const conn = navigator.connection;
+    if (conn && conn.saveData) return;
+    if (conn && /(^|-)2g$/.test(conn.effectiveType || "")) return;
+
+    /* The films wait for the pictures, and only a few run at once.
+
+       Both mattered. Every tile on screen used to wake the moment the grid
+       existed, so the home started three films, about 730KB, while its six
+       covers were still arriving, and the covers did not finish for seven
+       seconds. The work wall was worse: 26 of its 43 tiles carry a film and
+       the whole wall is on screen at once, so opening Work began 7.4MB of
+       video immediately. That is the slow first load.
+
+       So: nothing starts until the page's own images are done, and at most
+       MAX_LIVE films exist at any moment. On a wall with more candidates than
+       slots the live ones are handed on every few seconds, which keeps the
+       wall alive without ever holding more than a handful of videos. A tile
+       that leaves the screen gives its video up entirely rather than pausing
+       it, because a paused video has still been downloaded. */
+    const MAX_LIVE = 5;
+    const SWAP_MS = 7000;
+    const visible = new Set();
+    const live = [];
+
+    const wake = (card) => {
+      if (live.includes(card)) return;
+      const media = card.querySelector(".card-media");
+      if (!media) return;
+      let v = media.querySelector("video.card-preview");
+      if (!v) {
+        v = document.createElement("video");
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.preload = "auto";
+        v.className = "card-preview";
+        v.src = asset(card.dataset.preview);
+        media.appendChild(v);
+        // start each loop somewhere else, so a wall never pulses in step
+        v.addEventListener("loadedmetadata", () => {
+          v.currentTime = Math.random() * Math.max(0, v.duration - 0.5);
+        }, { once: true });
+      }
+      live.push(card);
+      v.play().then(() => v.classList.add("on")).catch(() => {});
+    };
+
+    const sleep = (card) => {
+      const i = live.indexOf(card);
+      if (i >= 0) live.splice(i, 1);
+      const v = card.querySelector("video.card-preview");
+      if (!v) return;
+      v.classList.remove("on");
+      v.pause();
+      // drop the source as well, or the download stays bought and held
+      window.setTimeout(() => {
+        if (!live.includes(card) && v.parentNode) v.remove();
+      }, 420); // after the fade out
+    };
+
+    const fill = () => {
+      live.slice().forEach((c) => { if (!visible.has(c)) sleep(c); });
+      if (live.length >= MAX_LIVE) return;
+      for (const c of visible) {
+        if (live.length >= MAX_LIVE) break;
+        if (!live.includes(c)) wake(c);
+      }
+    };
+
+    // hand the slots on, so a big wall does not only ever move in one corner
+    window.setInterval(() => {
+      if (visible.size <= MAX_LIVE || !live.length) return;
+      sleep(live[0]);
+      const waiting = [...visible].filter((c) => !live.includes(c));
+      if (waiting.length) wake(waiting[Math.floor(Math.random() * waiting.length)]);
+    }, SWAP_MS);
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         const card = e.target;
-        const grid = card.closest("#featured-grid, #work-grid");
-        if (!grid) return;
-        let v = card.querySelector("video.card-preview");
-        if (e.isIntersecting) {
-          if (!v) {
-            const media = card.querySelector(".card-media");
-            if (!media) return;
-            v = document.createElement("video");
-            v.muted = true;
-            v.loop = true;
-            v.playsInline = true;
-            v.className = "card-preview";
-            v.src = asset(card.dataset.preview);
-            media.appendChild(v);
-            // start each loop somewhere else, so a wall never pulses in step
-            v.addEventListener("loadedmetadata", () => {
-              v.currentTime = Math.random() * Math.max(0, v.duration - 0.5);
-            }, { once: true });
-          }
-          v.play().then(() => v.classList.add("on")).catch(() => {});
-        } else if (v) {
-          v.classList.remove("on");
-          v.pause();
-        }
+        if (!card.closest("#featured-grid, #work-grid")) return;
+        if (e.isIntersecting) visible.add(card);
+        else visible.delete(card);
       });
+      fill();
     }, { threshold: 0.35 });
+
+    const seen = new WeakSet();
     const arm = () => {
       $$(".card[data-preview]").forEach((c) => {
         if (!seen.has(c)) { seen.add(c); io.observe(c); }
       });
     };
-    arm();
-    new MutationObserver(arm).observe(document.body, { childList: true, subtree: true });
+
+    /* Only once the pictures are in. load fires after the images, and the idle
+       callback gives the browser a moment past that; the timeout is the
+       fallback for browsers without one, and for a page whose load never
+       fires. */
+    const begin = () => {
+      const go = () => { arm(); new MutationObserver(arm).observe(document.body, { childList: true, subtree: true }); };
+      if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 2500 });
+      else window.setTimeout(go, 900);
+    };
+    if (document.readyState === "complete") begin();
+    else window.addEventListener("load", begin, { once: true });
   }
 
   /* ---- scroll-revealed text: words turn from faint to ink as the scroll
