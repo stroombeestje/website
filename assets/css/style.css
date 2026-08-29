@@ -864,6 +864,13 @@ p { margin: 0 0 1.2em; }
 }
 .about-portrait {
   width: 100%;
+  /* The portrait is a head-and-shoulders shot, 2:3 upright. At the full
+     column width that is 897px across and 1346 tall at 1920, a poster that
+     pushes the whole bio below the fold -- which is why a landscape venue
+     photo had taken its place. A share of the COLUMN keeps it a portrait and
+     stays proportional on its own, since the column already scales: 377px at
+     1920, 756 on the 4K wall, 19.6% of the screen at both. */
+  max-width: 42%;
   display: block;
   margin-bottom: calc(var(--ts, 1) * clamp(1.25rem, 3vw, 2rem));
   background: var(--tile);
