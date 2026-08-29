@@ -1366,11 +1366,11 @@
   }
 
   /* ---- the light switch ----
-     The work is light in a dark room, so a visitor can see the site either
-     way. Paper is the default; the choice is remembered in this browser only.
-     The <html data-theme> attribute is set by a tiny inline script in each
-     page's <head> before first paint, so a returning visitor never sees the
-     wrong room flash past. */
+     The dark room is the default, because the work is light in a dark space.
+     A visitor can switch to paper and that choice is remembered in this
+     browser only. The <html data-theme="light"> attribute is set by a tiny
+     inline script in each page's <head> before first paint, so a returning
+     visitor never sees the wrong room flash past. */
   function initTheme() {
     const root = document.documentElement;
     const nav = $(".nav");
@@ -1388,21 +1388,25 @@
       '<span class="theme-moon" aria-hidden="true">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
       '<path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z"></path>' +
-      "</svg></span>";
+      "</svg></span>" +
+      '<span class="theme-label"></span>';
 
+    const word = btn.querySelector(".theme-label");
     const label = () => {
-      const dark = root.dataset.theme === "dark";
-      btn.setAttribute("aria-pressed", String(dark));
-      btn.setAttribute("aria-label", dark ? "Switch to the light room" : "Switch to the dark room");
+      const light = root.dataset.theme === "light";
+      // the button names where it takes you, not where you are
+      word.textContent = light ? "Dark" : "Light";
+      btn.setAttribute("aria-pressed", String(!light));
+      btn.setAttribute("aria-label", light ? "Switch to the dark room" : "Switch to the light room");
       btn.title = btn.getAttribute("aria-label");
     };
     label();
 
     btn.addEventListener("click", () => {
-      const dark = root.dataset.theme === "dark";
-      if (dark) delete root.dataset.theme;
-      else root.dataset.theme = "dark";
-      try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch (_) {}
+      const light = root.dataset.theme === "light";
+      if (light) delete root.dataset.theme;
+      else root.dataset.theme = "light";
+      try { localStorage.setItem("theme", light ? "dark" : "light"); } catch (_) {}
       label();
       window.dispatchEvent(new Event("themechange"));
     });

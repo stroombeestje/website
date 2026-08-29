@@ -3,22 +3,22 @@
    Design system
    ========================================================================== */
 
+/* The dark room is the default: the work is light in a dark space, and the
+   photography carries it. A visitor can switch to paper from the bar, and
+   that choice is remembered. Light lives in [data-theme="light"] below. */
 :root {
-  --bg: #f7f6f4;
-  --fg: #141414;
-  /* the quiet grey still has to be readable: #8a8a86 measured 3.21:1 on the
-     paper, under the 4.5 minimum. This is the lightest grey that passes
-     (4.75:1), so secondary text stays secondary but legible in daylight. */
-  --muted: #6e6e69;
-  --line: #e3e1dd;
-  --accent: #141414;
+  --bg: #0e0f11;
+  --fg: #f2f1ee;
+  --muted: #a3a39d; /* 7.5:1 on the dark ground */
+  --line: #2c2d30;
+  --accent: #f2f1ee;
   /* the empty frame a picture loads into, and the cloud's own two colours,
      which main.js reads so the canvas follows the theme */
-  --tile: #e9e7e3;
-  --cloud-bg: #f7f6f4;
-  --cloud-ink: #20201f;
+  --tile: #17181b;
+  --cloud-bg: #0e0f11;
+  --cloud-ink: #e8e7e3;
 
-  color-scheme: light;
+  color-scheme: dark;
 
   --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * var(--ts, 1) * clamp(1.25rem, 4vw, 4rem));
@@ -31,20 +31,21 @@
   --t-med: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* The dark room. The work is light in a dark space, so the site can be shown
-   that way too: the visitor chooses, the choice is remembered, and the paper
-   version stays the default. Only the tokens change, never a size. */
-:root[data-theme="dark"] {
-  --bg: #0e0f11;
-  --fg: #f2f1ee;
-  --muted: #a3a39d; /* 7.4:1 on the dark ground */
-  --line: #2c2d30;
-  --accent: #f2f1ee;
-  --tile: #17181b;
-  --cloud-bg: #0e0f11;
-  --cloud-ink: #e8e7e3;
+/* The paper room, one click away. Only the tokens change, never a size. */
+:root[data-theme="light"] {
+  --bg: #f7f6f4;
+  --fg: #141414;
+  /* the quiet grey still has to be readable: #8a8a86 measured 3.21:1 on the
+     paper, under the 4.5 minimum. This is the lightest grey that passes
+     (4.75:1), so secondary text stays secondary but legible in daylight. */
+  --muted: #6e6e69;
+  --line: #e3e1dd;
+  --accent: #141414;
+  --tile: #e9e7e3;
+  --cloud-bg: #f7f6f4;
+  --cloud-ink: #20201f;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 *,
@@ -217,31 +218,43 @@ p { margin: 0 0 1.2em; }
 .nav-links a:hover::after,
 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
 
-/* the light switch: a quiet glyph in the bar, sized off the chrome scale */
+/* The light switch: a named control, not a glyph to be discovered. It reads
+   as the door out of the room you are in, so it carries the destination's
+   icon and word, on the same pill language as the filters. */
 .theme-toggle {
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  gap: max(calc(6px * var(--fl, 1)), calc(8px * var(--ui, 1)));
   background: none;
-  border: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   cursor: pointer;
-  color: var(--muted);
-  padding: 0;
+  color: var(--fg);
+  font: inherit;
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--x-nav, 2) * 0.72rem * var(--ui, 1)));
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: max(calc(8px * var(--fl, 1)), calc(11px * var(--ui, 1)))
+    max(calc(13px * var(--fl, 1)), calc(18px * var(--ui, 1)));
   margin-left: calc(var(--ui, 1) * clamp(1rem, 3vw, 2.5rem));
-  width: max(calc(34px * var(--fl, 1)), calc(46px * var(--ui, 1)));
-  height: max(calc(34px * var(--fl, 1)), calc(46px * var(--ui, 1)));
-  border-radius: 50%;
-  transition: color var(--t-fast), background var(--t-fast);
+  transition: color var(--t-fast), background var(--t-fast), border-color var(--t-fast);
 }
-.theme-toggle:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.theme-toggle:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
 .theme-toggle svg {
-  width: max(calc(17px * var(--fl, 1)), calc(23px * var(--ui, 1)));
+  width: max(calc(15px * var(--fl, 1)), calc(20px * var(--ui, 1)));
   height: auto;
   display: block;
 }
-/* each room shows the door to the other one */
+.theme-label { display: block; white-space: nowrap; }
+/* each room shows the door to the other one: the dark room offers the sun */
 .theme-toggle .theme-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .theme-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .theme-moon { display: block; }
+:root[data-theme="light"] .theme-toggle .theme-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .theme-moon { display: block; }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--fg); margin: 5px 0; transition: var(--t-fast); }
@@ -961,9 +974,11 @@ p { margin: 0 0 1.2em; }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
   /* a finger needs a real target, and --fl is 0 here so the desktop floor
-     does not apply: give the switch its own phone size */
-  .theme-toggle { width: 44px; height: 44px; margin-left: auto; margin-right: 4px; }
+     does not apply: give the switch its own phone size. The word is dropped
+     on a phone bar, where there is no room for it beside the hamburger. */
+  .theme-toggle { padding: 0; width: 44px; height: 44px; justify-content: center; margin-left: auto; margin-right: 6px; border-color: transparent; }
   .theme-toggle svg { width: 20px; }
+  .theme-label { display: none; }
   /* 3 squares across on phones — compact, legible one-line captions */
   .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 0.7rem 0.45rem; }
   .card-meta { gap: 0.1rem; margin-top: 0.4rem; }
