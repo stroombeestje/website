@@ -1038,8 +1038,20 @@ p { margin: 0 0 1.2em; }
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: max-content 1fr;
+  /* year, kind, entry: three tracks, the first two sized to their widest row */
+  grid-template-columns: max-content max-content 1fr;
 }
+/* what a row IS: quiet, so the entry still leads */
+.detail-list .k {
+  color: var(--muted);
+  white-space: nowrap;
+  padding-right: calc(1.2rem * var(--ts, 1));
+  font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+#cv-filters { margin-bottom: calc(1rem * var(--ts, 1)); }
+.detail-list li[hidden] { display: none; }
 .detail-list li { display: contents; }
 /* a group heading inside the CV: spans both tracks, and carries the rule so
    the section reads as a break rather than another row */

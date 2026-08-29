@@ -1320,27 +1320,23 @@
     const s = await loadJSON("data/site.json");
 
     const aboutParas = (s.about || "").split("\n").filter((l) => l.trim()).map((l) => `<p>${esc(l)}</p>`).join("");
-    /* A CV row is title, venue, location -- three fields rather than one
-       sentence, so the same data can be grouped, filtered or exported later.
-       `entry` is still honoured for anything written the old way. */
+    /* ONE list, with a column saying what each row IS, and the same filter
+       chips the work wall uses. It was six separate blocks -- a CV grouped
+       under three headings, plus residencies, live shows and teaching -- which
+       is a great deal of text to meet at once. Now: Work, Curation, Live show,
+       Residency, Teaching, Education, and you read the one you came for. */
     const cvLine = (r) =>
       r.entry ? r.entry : [r.title, r.venue, r.location].filter(Boolean).join(", ");
-    const CV_GROUPS = [["work", "Work"], ["curation", "Curation"], ["education", "Education"]];
-    const cvRows = (rs) =>
-      rs.map((r) => `<li><span class="y">${esc(r.year)}</span><span>${esc(cvLine(r))}</span></li>`).join("");
-    const cv = CV_GROUPS.map(([key, label]) => {
-      const rows = (s.cv || []).filter((r) => (r.category || "work") === key);
-      if (!rows.length) return "";
-      // forty-eight rows read as a list; under three headings they read as a CV
-      return `<li class="detail-head"><span>${esc(label)}</span></li>${cvRows(rows)}`;
-    }).join("") || cvRows(s.cv || []);
-
-    const simpleRows = (rs) =>
-      (rs || [])
-        .map((r) => `<li><span class="y">${esc(r.year)}</span><span>${esc([r.title, r.location].filter(Boolean).join(", "))}</span></li>`)
-        .join("");
-    const residencies = simpleRows(s.residencies_and_support);
-    const boards = simpleRows(s.teaching_and_boards);
+    const cvRow = (r) =>
+      `<li data-kind="${esc(r.kind || "Work")}"><span class="y">${esc(r.year)}</span>` +
+      `<span class="k">${esc(r.kind || "Work")}</span><span>${esc(cvLine(r))}</span></li>`;
+    const cvAll = s.cv || [];
+    const cv = cvAll.map(cvRow).join("");
+    const cvKinds = [];
+    cvAll.forEach((r) => {
+      const k = r.kind || "Work";
+      if (!cvKinds.includes(k)) cvKinds.push(k);
+    });
     const services = (s.services || []).map((x) => `<li>${esc(x)}</li>`).join("");
 
     $("#about-bio").innerHTML = aboutParas;
@@ -1351,8 +1347,23 @@
       portrait.hidden = false;
     }
     if ($("#cv-list")) $("#cv-list").innerHTML = cv;
-    if ($("#residencies-list")) $("#residencies-list").innerHTML = residencies;
-    if ($("#boards-list")) $("#boards-list").innerHTML = boards;
+    // the chips, built from the kinds the CV actually contains
+    const cvFilters = $("#cv-filters");
+    if (cvFilters && cvKinds.length) {
+      cvFilters.innerHTML =
+        `<button class="filter" type="button" aria-pressed="true" data-kind="All">All</button>` +
+        cvKinds.map((k) => `<button class="filter" type="button" aria-pressed="false" data-kind="${esc(k)}">${esc(k)}</button>`).join("");
+      cvFilters.addEventListener("click", (e) => {
+        const btn = e.target.closest(".filter");
+        if (!btn) return;
+        $$(".filter", cvFilters).forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        const want = btn.dataset.kind;
+        $$("#cv-list li").forEach((li) => {
+          li.hidden = want !== "All" && li.dataset.kind !== want;
+        });
+      });
+    }
     /* The live shows are a LIST, like the residencies above them and the
        services below. As one middot-joined string it was the only run-on
        block in a column of ruled lists, and it wrapped mid-name: "Club" ended
