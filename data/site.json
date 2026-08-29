@@ -2,7 +2,7 @@
   "name": "Studio Schilp",
   "tagline": "Media artist, light designer & curator",
   "intro": "I create art that lets you step inside the image.",
-  "about": "Jaco Schilp (1989) is a contemporary artist, curator and light designer, specialised in multidisciplinary projects within immersive art, installation art, performance and animation.\n\nI'm Jaco Schilp, and this is Studio Schilp. I create art that lets you step inside the image. I'm largely self-taught: most of what I know I found by making, and by learning from my father and my mother. My hands learned first, as a historical iron maker and blacksmith, before light and code became my material. The name carries a small piece of family history, my grandfather ran a photo studio under it in the 1950s, but the practice is my own.\n\nThe core of my work is one question I have carried for ten years: what does a place become once it is only measurement and light? I scan cities, buildings and landscapes into point clouds and give the data new bodies. Panorama Utrecht turned 1.1 billion LiDAR points into a light sculpture on the Stationsplein for the city's 900th anniversary. Points of Light brings that research into the Grote Kerk in The Hague with fourteen laser projectors. In Mexico City the same material became Aquí y Ahora and my own scans of the city, and it keeps moving.\n\nThe work is often live. With composer Rafael Anton Irisarri I made Points of Inaccessibility, an audiovisual performance released on Black Knoll Editions. With choreographer Alejandra Metztli I made Somnia, where dance drives real-time visuals through digital scanners. As a light and live visual artist I've played Boiler Room, Le Guess Who?, the 3FM Awards and Dekmantel, made the immersive visuals for Circle of Live at MUTEK Mexico and Cervantino, and projected on buildings from the Kunsthal Rotterdam and the Van Gogh Museum to the St Bavo Cathedral in Haarlem and the NCCA in Nizhny Novgorod. Since 2017 I've been the resident light artist of Club WAS Utrecht.\n\nCuration is the other half of the practice. With Skander Jaïbi I co-founded Uncloud, a foundation and platform for interdisciplinary art and experimental sound in Utrecht: festival editions, concert series, residencies and museum collaborations. With Alejandra Metztli I co-direct Data Uotan, a festival and exhibition platform in Mexico City. I co-founded LiGHT-UP Collective in 2016: six artists working where art, technology and social responsibility meet, who settled into the former Pieter Baan Centrum years before Uncloud filled the building with Transliminal. I serve on the artist board of Art Utrecht.\n\nIn 2016 I graduated from the Reinwardt Academie with a BA in Cultural Heritage, specialising in exhibition design, narrative space, intangible heritage and archaeological reconstruction. It still shows: every installation I build is a story told by where you are standing.",
+  "about": "Jaco Schilp (1989) is a contemporary artist, curator and light designer, specialised in multidisciplinary projects within immersive art, installation art, performance and animation.\n\nI'm Jaco Schilp, and this is Studio Schilp. I create art that lets you step inside the image. I'm largely self-taught, but I did not start from nothing: I'm the third generation to work this way. My mother is a decor designer, visual artist, clothes maker and singer. My father is a sound engineer and technical theatre maker. One grandfather was a photographer, and this studio carries his name from the one he ran in the 1950s; my other grandfather was an in-house architect. Picture, sound, and the room they happen in were simply what was around.\n\nMy own hands learned first. I trained as a historical iron maker and blacksmith in Germany at the Georg Petau Kunstschmiede, and for a time I was one of the youngest traditional steel makers in Europe. I spent much of my youth living and sleeping in Iron Age houses and open-air museums. Light and code came later.\n\nThe core of my work is one question I have carried for ten years: what does a place become once it is only measurement and light? I scan cities, buildings and landscapes into point clouds and give the data new bodies. Panorama Utrecht turned 1.1 billion LiDAR points into a light sculpture on the Stationsplein for the city's 900th anniversary. Points of Light brings that research into the Grote Kerk in The Hague with fourteen laser projectors. In Mexico City the same material became Aquí y Ahora and my own scans of the city, and it keeps moving.\n\nThe work is often live. With composer Rafael Anton Irisarri I made Points of Inaccessibility, an audiovisual performance released on Black Knoll Editions. With choreographer Alejandra Metztli I made Somnia, where dance drives real-time visuals through digital scanners. As a light and live visual artist I've played Boiler Room, Le Guess Who?, the 3FM Awards and Dekmantel, made the immersive visuals for Circle of Live at MUTEK Mexico and Cervantino, and projected on buildings from the Kunsthal Rotterdam and the Van Gogh Museum to the St Bavo Cathedral in Haarlem and the NCCA in Nizhny Novgorod. Since 2017 I've been the resident light artist of Club WAS Utrecht.\n\nCuration is the other half of the practice. With Skander Jaïbi I co-founded Uncloud, a foundation and platform for interdisciplinary art and experimental sound in Utrecht: festival editions, concert series, residencies and museum collaborations. With Alejandra Metztli I co-direct Data Uotan, a festival and exhibition platform in Mexico City. I co-founded LiGHT-UP Collective in 2016: six artists working where art, technology and social responsibility meet, who settled into the former Pieter Baan Centrum years before Uncloud filled the building with Transliminal. I serve on the artist board of Art Utrecht.\n\nIn 2016 I graduated from the Reinwardt Academie with a BA in Cultural Heritage, specialising in exhibition design, narrative space, intangible heritage and archaeological reconstruction. It still shows: every installation I build is a story told by where you are standing.",
   "email": "jaco@jacoschilp.nl",
   "instagram": "https://www.instagram.com/studioschilp/",
   "portrait": "media/about/portrait.jpg",
@@ -23,14 +23,7 @@
   "cv": [
     {
       "year": "2026",
-      "title": "Uncloud, 10 Years of Breaking the Binary",
-      "venue": "Beatrixgebouw",
-      "location": "Utrecht",
-      "category": "curation"
-    },
-    {
-      "year": "2026",
-      "title": "Rafael Anton Irisarri & Jaco Schilp, installation + live AV",
+      "title": "Rafael Anton Irisarri & Jaco Schilp, installation + live AV from the 2025 residency",
       "venue": "Uncloud",
       "location": "Utrecht",
       "category": "work"
@@ -106,20 +99,6 @@
       "category": "work"
     },
     {
-      "year": "2024–25",
-      "title": "Dekmantel, Rader stage",
-      "venue": "",
-      "location": "Amsterdam",
-      "category": "work"
-    },
-    {
-      "year": "2024–ongoing",
-      "title": "Data Uotan, co-founder & curator",
-      "venue": "",
-      "location": "Mexico City",
-      "category": "curation"
-    },
-    {
       "year": "2024",
       "title": "Ka'An, site-specific light installation",
       "venue": "No Es Una Galería",
@@ -127,10 +106,10 @@
       "category": "work"
     },
     {
-      "year": "2024",
-      "title": "Somnia, premiere, with Alejandra Metztli",
-      "venue": "Le Guess Who?",
-      "location": "Utrecht",
+      "year": "2024–ongoing",
+      "title": "Somnia, with Alejandra Metztli",
+      "venue": "Le Guess Who? and MUTEK MX",
+      "location": "",
       "category": "work"
     },
     {
@@ -156,24 +135,17 @@
     },
     {
       "year": "2024",
-      "title": "Orbit Festival",
-      "venue": "Fort Vechten",
-      "location": "Utrecht",
-      "category": "work"
-    },
-    {
-      "year": "2024",
       "title": "Best Kept Secret",
       "venue": "",
       "location": "Hilvarenbeek",
       "category": "work"
     },
     {
-      "year": "2024",
-      "title": "Uncloud, Degeneracy Regeneracy",
-      "venue": "",
+      "year": "2023–2026",
+      "title": "Orbit Festival, designer",
+      "venue": "Fort Vechten",
       "location": "Utrecht",
-      "category": "curation"
+      "category": "work"
     },
     {
       "year": "2023",
@@ -211,13 +183,6 @@
       "category": "work"
     },
     {
-      "year": "2023",
-      "title": "Uncloud, Physical Digital",
-      "venue": "",
-      "location": "Utrecht",
-      "category": "curation"
-    },
-    {
       "year": "2022",
       "title": "Panorama Utrecht, panoramic light sculpture",
       "venue": "Hoog Catharijne",
@@ -225,25 +190,11 @@
       "category": "work"
     },
     {
-      "year": "2022",
-      "title": "No-Art Festival, Synergy",
-      "venue": "NDSM",
-      "location": "Amsterdam",
-      "category": "curation"
-    },
-    {
       "year": "2021",
       "title": "Le Guess Who?, Reports from Other Continents",
       "venue": "",
       "location": "Utrecht",
       "category": "work"
-    },
-    {
-      "year": "2021",
-      "title": "Uncloud, Transliminal",
-      "venue": "",
-      "location": "Utrecht",
-      "category": "curation"
     },
     {
       "year": "2020–ongoing",
@@ -258,20 +209,6 @@
       "venue": "",
       "location": "Utrecht",
       "category": "work"
-    },
-    {
-      "year": "2020",
-      "title": "Uncloud, Unshaping",
-      "venue": "Pieter Baan Centrum",
-      "location": "Utrecht",
-      "category": "curation"
-    },
-    {
-      "year": "2020",
-      "title": "Bring Your Own Beamer, 10 years",
-      "venue": "",
-      "location": "Utrecht",
-      "category": "curation"
     },
     {
       "year": "2019",
@@ -321,6 +258,69 @@
       "venue": "",
       "location": "Utrecht",
       "category": "work"
+    },
+    {
+      "year": "2026",
+      "title": "Uncloud, 10 Years of Breaking the Binary",
+      "venue": "Beatrixgebouw",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2024–ongoing",
+      "title": "Data Uotan, co-founder & curator",
+      "venue": "",
+      "location": "Mexico City",
+      "category": "curation"
+    },
+    {
+      "year": "2024",
+      "title": "Uncloud, Degeneracy Regeneracy",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2023",
+      "title": "Uncloud, Physical Digital",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2022",
+      "title": "No-Art Festival, Synergy",
+      "venue": "NDSM",
+      "location": "Amsterdam",
+      "category": "curation"
+    },
+    {
+      "year": "2022–2025",
+      "title": "Orbit Festival, curator of the art programme",
+      "venue": "Fort Vechten",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2021",
+      "title": "Uncloud, Transliminal",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2020",
+      "title": "Uncloud, Unshaping",
+      "venue": "Pieter Baan Centrum",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2020",
+      "title": "Bring Your Own Beamer, 10 years",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
     },
     {
       "year": "2014–15",
@@ -413,6 +413,11 @@
       "location": "Mexico City"
     },
     {
+      "year": "2025",
+      "title": "Uncloud international residency, with Rafael Anton Irisarri",
+      "location": "Utrecht"
+    },
+    {
       "year": "2024",
       "title": "Arthouse Pani artist residency",
       "location": "Mexico"
@@ -426,11 +431,6 @@
       "year": "2024",
       "title": "Somnia, supported by Sistema de Apoyos a la Creación y Proyectos Culturales (MX)",
       "location": ""
-    },
-    {
-      "year": "2024",
-      "title": "Uncloud international residency",
-      "location": "Utrecht"
     }
   ],
   "live_shows": "Dekmantel · Boiler Room · Mysteryland · Best Kept Secret · Welcome to the Future · Le Guess Who? · Mutek México · 3FM Awards · Club WAS (2018–ongoing)",
