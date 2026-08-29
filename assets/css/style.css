@@ -356,7 +356,13 @@ p { margin: 0 0 1.2em; }
    pictures stand full ink from the first frame over the cloud. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
-    body:not(.page-home) .card-media,
+    /* NOT the work wall. A scroll-driven animation on a page that cannot
+       scroll never finishes: the wall is built to fit one screen, so its lower
+       rows sat forever partway through their entry, at 95% opacity in the third
+       row and 71% in the last, and the grid looked like it faded out towards
+       the bottom. The cards keep the .reveal fade, which the observer in
+       main.js drives and which does not need a scroll to complete. The press
+       page does scroll and Jaco likes the reveal there, so it keeps it. */
     .press-media,
     .project-gallery img,
     .project-hero img,
@@ -382,6 +388,7 @@ p { margin: 0 0 1.2em; }
     .project-gallery img:nth-child(3n + 1) { animation-name: scroll-slide-l; }
     .project-gallery img:nth-child(3n) { animation-name: scroll-slide-r; }
     .press-media:nth-child(odd of .press-item) { animation-name: scroll-rise; }
+
   }
 }
 @keyframes scroll-rise {
