@@ -130,6 +130,12 @@
       "hoverStart": 144,
       "presskit": {
         "intro": "Somnia is available for presenters through 2026. The kit below carries what a programme or an article needs; the technical rider follows on request.",
+        "quotes": [
+          {
+            "text": "Op het scherm zie je de geboorte van een universum, in onpeilbare dieptes, met daarvoor de danseres die langzame lijnen tekent, als een lichaam dat ontwaakt in het niets.",
+            "outlet": "de Volkskrant"
+          }
+        ],
         "downloads": [
           {
             "label": "Hi-res photos (zip)",
