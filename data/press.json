@@ -2,6 +2,15 @@
   "intro": "Selected press & coverage, from newspaper features on my Utrecht work to international reviews of the audiovisual collaboration Points of Inaccessibility with composer Rafael Anton Irisarri.",
   "items": [
     {
+      "outlet": "RTV Utrecht",
+      "title": "Waar criminelen werden geobserveerd is nu kunst: 'De weg kwijtraken is de bedoeling'",
+      "date": "Nov 2021",
+      "quote": "Transliminal is de ondertitel van Uncloud 2021. Het gaat over de transitie van een leegstaande plek naar iets anders.",
+      "url": "https://www.rtvutrecht.nl/nieuws/3211463/waar-criminelen-werden-geobserveerd-is-nu-kunst-de-weg-kwijtraken-is-de-bedoeling",
+      "project": "uncloud-transliminal",
+      "image": "media/press/rtvutrecht-transliminal-2021.jpg"
+    },
+    {
       "outlet": "Haagse Dingen",
       "title": "Watch: Points of Light, Grote Kerk Den Haag",
       "date": "Jan 2026",
@@ -82,27 +91,21 @@
       "project": "uncloud-lgw-2022"
     },
     {
-      "outlet": "RTV Utrecht",
-      "title": "Waar criminelen werden geobserveerd is nu kunst: 'De weg kwijtraken is de bedoeling'",
-      "date": "Nov 2021",
-      "quote": "Transliminal is de ondertitel van Uncloud 2021. Het gaat over de transitie van een leegstaande plek naar iets anders.",
-      "url": "https://www.rtvutrecht.nl/nieuws/3211463/waar-criminelen-werden-geobserveerd-is-nu-kunst-de-weg-kwijtraken-is-de-bedoeling",
-      "project": "uncloud-transliminal"
-    },
-    {
       "outlet": "De Nuk",
       "title": "Bevrijding van het Pieter Baan",
       "date": "May 2020",
       "quote": "Deze interacties geven nieuwe inzichten en geeft de bezoeker een immersieve ervaring die je niet vindt in een traditionele expositie.",
       "url": "https://denuk.nl/bevrijding-van-het-pieter-baan/",
-      "project": "uncloud-transliminal"
+      "project": "uncloud-transliminal",
+      "image": "media/press/denuk-2020.jpg"
     },
     {
       "outlet": "Nieuwe Instituut",
       "title": "Nieuwe Instituut opent nieuwe Collection Gallery",
       "date": "May 2026",
       "quote": "Ruimtelijk ontwerp en interactie-ontwerp door Space Popular met Mariana Lobão en Jaco Schilp.",
-      "url": "https://nieuweinstituut.nl/articles/persbericht-opening-collection-gallery"
+      "url": "https://nieuweinstituut.nl/articles/persbericht-opening-collection-gallery",
+      "image": "media/press/nieuweinstituut-2026.jpg"
     }
   ]
 }
