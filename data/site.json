@@ -432,7 +432,17 @@
       "location": ""
     }
   ],
-  "live_shows": "Dekmantel · Boiler Room · Mysteryland · Best Kept Secret · Welcome to the Future · Le Guess Who? · Mutek México · 3FM Awards · Club WAS (2018–ongoing)",
+  "live_shows": [
+    "Dekmantel",
+    "Boiler Room",
+    "Mysteryland",
+    "Best Kept Secret",
+    "Welcome to the Future",
+    "Le Guess Who?",
+    "Mutek México",
+    "3FM Awards",
+    "Club WAS, resident since 2018"
+  ],
   "teaching_and_boards": [
     {
       "year": "2023–ongoing",

@@ -738,6 +738,8 @@ p { margin: 0 0 1.2em; }
   margin-bottom: calc(0.9rem * var(--ts, 1));
 }
 #about .about-line { border-bottom: 1px solid var(--line); padding-bottom: calc(0.85rem * var(--ts, 1)); }
+/* whatever follows the bio starts on a clean line, not beside the portrait */
+#about .about-sub { clear: left; }
 
 .about-sub { margin-top: calc(2.6rem * var(--ts, 1)); }
 
@@ -919,6 +921,13 @@ p { margin: 0 0 1.2em; }
   align-items: start;
 }
 .about-portrait {
+  /* The text runs BESIDE the portrait. At 42% of the column and 581px tall it
+     left an empty 377x581 block to its right, under a rule that spans the
+     whole column: a hole at the top of the page, next to Jaco's face. Floating
+     it lets the bio fill that space and close up beneath. */
+  float: left;
+  margin-right: calc(var(--ts, 1) * clamp(1.25rem, 2.5vw, 2.25rem));
+  shape-margin: 1rem;
   width: 100%;
   /* The portrait is a head-and-shoulders shot, 2:3 upright. At the full
      column width that is 897px across and 1346 tall at 1920, a poster that

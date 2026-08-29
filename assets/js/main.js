@@ -1353,7 +1353,16 @@
     if ($("#cv-list")) $("#cv-list").innerHTML = cv;
     if ($("#residencies-list")) $("#residencies-list").innerHTML = residencies;
     if ($("#boards-list")) $("#boards-list").innerHTML = boards;
-    if ($("#live-shows") && s.live_shows) $("#live-shows").textContent = s.live_shows;
+    /* The live shows are a LIST, like the residencies above them and the
+       services below. As one middot-joined string it was the only run-on
+       block in a column of ruled lists, and it wrapped mid-name: "Club" ended
+       a line and "WAS" began the next. A string still works if one is given. */
+    if ($("#live-shows") && s.live_shows) {
+      const shows = Array.isArray(s.live_shows) ? s.live_shows : String(s.live_shows).split(/\s*·\s*/);
+      $("#live-shows").outerHTML = `<ul id="live-shows" class="services-list reveal">${shows
+        .map((x) => `<li>${esc(x)}</li>`)
+        .join("")}</ul>`;
+    }
     if ($("#tools") && s.tools) $("#tools").textContent = s.tools;
     if ($("#services-list")) $("#services-list").innerHTML = services;
     if ($("#contact-email")) {
