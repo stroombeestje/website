@@ -1022,13 +1022,15 @@
       </div>
       ${mainVideo
         ? `<div class="wrap"><div class="project-videos is-main">${mainVideo}</div></div>`
-        : p.cover && !p.coverGridOnly
-        /* coverGridOnly: the cover identifies the work in the grid but does not
-           open the page. Buy or Burn's cover is a 1600px photograph of the
-           light box on the wall, and the hero column is 2033px, so opening the
-           project blew it up a quarter past its own pixels and it went soft.
-           The work itself is three sharp strips, so the page opens on those. */
-        ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
+        : p.heroImage || p.cover
+        /* The picture at the top is not always the cover. The cover's job is to
+           identify the work in the grid, where it is a small square; the top of
+           the page wants the work itself, big. Buy or Burn is the case that
+           made the difference: the grid shows the photograph of the light box
+           hanging on the brick wall, and the page opens on the point-cloud
+           strip that the light box actually shows. heroImage carries that
+           second choice; without it the cover opens the page as before. */
+        ? `<div class="wrap"><div class="project-hero"><img class="reveal" src="${asset(esc(p.heroImage || p.cover))}" alt="${esc(p.title)}" onerror="window.__phErr(this)"></div></div>`
         : ""}
       <div class="wrap">
         ${bodyHTML}
