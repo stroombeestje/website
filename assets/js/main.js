@@ -1468,8 +1468,16 @@
 
     mount.innerHTML = ordered
       .map((it) => {
-        const href = it.url || (it.image ? asset(it.image) : null);
-        const cta = it.url ? "Read ↗" : it.image ? "View clipping ↗" : "";
+        /* A "clipping" wins over a "url". Some of this coverage is print, and
+           some of the papers put their own page behind a paywall -- the
+           Volkskrant Transliminal piece is both -- so a link that says Read
+           and lands on a subscription wall is worse than none. Where the
+           scan of the page is the readable version, name it as `clipping`
+           and the card opens that instead. The `url` stays in the data as
+           the article's canonical home. */
+        const clip = it.clipping ? asset(esc(it.clipping)) : null;
+        const href = clip || it.url || (it.image ? asset(it.image) : null);
+        const cta = clip ? "View clipping ↗" : it.url ? "Read ↗" : it.image ? "View clipping ↗" : "";
         const inner = `
             ${
               it.image
