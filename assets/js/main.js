@@ -626,6 +626,8 @@
         mount.style.height = "";
         mount.style.justifyContent = "";
         mount.style.alignContent = "";
+        mount.style.columnGap = "";
+        mount.style.rowGap = "";
         return;
       }
       const n = mount.querySelectorAll(".card").length;
@@ -636,13 +638,25 @@
         mount.style.height = "";
         mount.style.justifyContent = "";
         mount.style.alignContent = "";
+        mount.style.columnGap = "";
+        mount.style.rowGap = "";
         return;
       }
       mount.style.gridTemplateColumns = "";
       mount.style.height = "";
+      mount.style.columnGap = "";
+      mount.style.rowGap = "";
+      /* The gap is a share of the TILE, not of the screen. It used to be
+         clamp(...) * --ts, which is proportional to the viewport and so holds
+         still while the tiles shrink: at 43 works the gap was 13% of a tile,
+         at 200 works it was 34% and the gaps were eating the wall. Reading it
+         as a ratio keeps the rhythm identical at every count AND at every
+         screen size, since the tile is itself proportional. The two ratios
+         are taken from the wall as Jaco tuned it at 43 works, so nothing
+         moves at today's count. */
       const cs = getComputedStyle(mount);
-      const gx = parseFloat(cs.columnGap) || 0;
-      const gy = parseFloat(cs.rowGap) || 0;
+      const kx = parseFloat(cs.getPropertyValue("--wall-gap-x")) || 0.133;
+      const ky = parseFloat(cs.getPropertyValue("--wall-gap-y")) || 0.186;
       const W = mount.clientWidth;
       if (!W) return; // a background tab reports zero; leave the layout alone
       /* The footer's HEIGHT only. Its margin-top is `auto` -- that is what
@@ -685,14 +699,21 @@
          fills the space, not that each picture grows a lot. Genuinely bigger
          pictures for a small set would mean letting the tiles stop being
          squares -- Jaco's call, not a thing to sneak in. */
+      /* With the gap expressed as a ratio of the tile, the tile is no longer
+         W minus fixed gaps: it solves out of
+             W = cols * tile + (cols - 1) * kx * tile
+         which is why neither term is circular. */
       let best = n, bestTile = 0, bestByHeight = false;
       for (let cols = 1; cols <= n; cols++) {
         const rows = Math.ceil(n / cols);
-        const byW = (W - (cols - 1) * gx) / cols;
-        const byH = (avail - (rows - 1) * gy) / rows;
+        const byW = W / (cols + (cols - 1) * kx);
+        const byH = avail / (rows + (rows - 1) * ky);
         const tile = Math.min(byW, byH);
         if (tile > bestTile) { bestTile = tile; best = cols; bestByHeight = byH < byW; }
       }
+      // the solved gap, in pixels, for the tile that won
+      mount.style.columnGap = `${(kx * bestTile).toFixed(2)}px`;
+      mount.style.rowGap = `${(ky * bestTile).toFixed(2)}px`;
       // the grid owns exactly the space between the toolbar and the footer,
       // so align-content has something real to centre inside
       mount.style.height = `${Math.max(0, Math.floor(avail))}px`;

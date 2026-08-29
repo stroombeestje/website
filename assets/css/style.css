@@ -1295,6 +1295,10 @@ p { margin: 0 0 1.2em; }
 /* The whole work grid keeps the clean look Jaco chose: no captions under
    the tiles, the title lives INSIDE the image, appearing over a dark
    gradient on hover, in the one-screen wall and the browse grid alike. */
+/* The wall's gaps as a share of the TILE, so the rhythm is the same whether
+   the wall holds 43 works or 200 -- fit() solves the tile and writes the two
+   gaps back in pixels. Taken from the wall as tuned at 43 works. */
+#work-grid { --wall-gap-x: 0.133; --wall-gap-y: 0.186; }
 #work-grid .card { position: relative; }
 #work-grid .card-meta { display: none; }
 #work-grid .card:hover .card-meta,
