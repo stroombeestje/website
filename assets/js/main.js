@@ -1285,7 +1285,27 @@
     const s = await loadJSON("data/site.json");
 
     const aboutParas = (s.about || "").split("\n").filter((l) => l.trim()).map((l) => `<p>${esc(l)}</p>`).join("");
-    const cv = (s.cv || []).map((r) => `<li><span class="y">${esc(r.year)}</span><span>${esc(r.entry)}</span></li>`).join("");
+    /* A CV row is title, venue, location -- three fields rather than one
+       sentence, so the same data can be grouped, filtered or exported later.
+       `entry` is still honoured for anything written the old way. */
+    const cvLine = (r) =>
+      r.entry ? r.entry : [r.title, r.venue, r.location].filter(Boolean).join(", ");
+    const CV_GROUPS = [["work", "Work"], ["curation", "Curation"], ["education", "Education"]];
+    const cvRows = (rs) =>
+      rs.map((r) => `<li><span class="y">${esc(r.year)}</span><span>${esc(cvLine(r))}</span></li>`).join("");
+    const cv = CV_GROUPS.map(([key, label]) => {
+      const rows = (s.cv || []).filter((r) => (r.category || "work") === key);
+      if (!rows.length) return "";
+      // forty-eight rows read as a list; under three headings they read as a CV
+      return `<li class="detail-head"><span>${esc(label)}</span></li>${cvRows(rows)}`;
+    }).join("") || cvRows(s.cv || []);
+
+    const simpleRows = (rs) =>
+      (rs || [])
+        .map((r) => `<li><span class="y">${esc(r.year)}</span><span>${esc([r.title, r.location].filter(Boolean).join(", "))}</span></li>`)
+        .join("");
+    const residencies = simpleRows(s.residencies_and_support);
+    const boards = simpleRows(s.teaching_and_boards);
     const services = (s.services || []).map((x) => `<li>${esc(x)}</li>`).join("");
 
     $("#about-bio").innerHTML = aboutParas;
@@ -1296,6 +1316,10 @@
       portrait.hidden = false;
     }
     if ($("#cv-list")) $("#cv-list").innerHTML = cv;
+    if ($("#residencies-list")) $("#residencies-list").innerHTML = residencies;
+    if ($("#boards-list")) $("#boards-list").innerHTML = boards;
+    if ($("#live-shows") && s.live_shows) $("#live-shows").textContent = s.live_shows;
+    if ($("#tools") && s.tools) $("#tools").textContent = s.tools;
     if ($("#services-list")) $("#services-list").innerHTML = services;
     if ($("#contact-email")) {
       $("#contact-email").innerHTML = `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`;

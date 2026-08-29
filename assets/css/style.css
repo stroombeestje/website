@@ -976,6 +976,26 @@ p { margin: 0 0 1.2em; }
   grid-template-columns: max-content 1fr;
 }
 .detail-list li { display: contents; }
+/* a group heading inside the CV: spans both tracks, and carries the rule so
+   the section reads as a break rather than another row */
+.detail-list .detail-head > * {
+  grid-column: 1 / -1;
+  padding-top: calc(2rem * var(--ts, 1));
+  padding-bottom: calc(0.5rem * var(--ts, 1));
+  border-bottom: 1px solid var(--fg);
+  font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.detail-list li:first-child.detail-head > * { padding-top: 0; }
+/* a one-line list: the live shows and the toolset */
+.about-line {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: calc(0.6rem * var(--ts, 1)) 0 0;
+  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
+}
 /* the rule under a row is drawn by its two cells; they touch, because the
    space between the columns is the year's padding rather than a grid gap,
    which would leave a gap in the line */

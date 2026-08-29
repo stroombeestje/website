@@ -23,75 +23,339 @@
   "cv": [
     {
       "year": "2026",
-      "entry": "Nieuwe Instituut, Collection Gallery: spatial & interaction design with Space Popular, Rotterdam"
+      "title": "Uncloud–10 Years of Breaking the Binary",
+      "venue": "Beatrixgebouw",
+      "location": "Utrecht",
+      "category": "curation"
     },
     {
       "year": "2026",
-      "entry": "Points of Light, Grote Kerk, Den Haag"
+      "title": "Rafael Anton Irisarri & Jaco Schilp, installation + live AV",
+      "venue": "Uncloud",
+      "location": "Utrecht",
+      "category": "work"
     },
     {
-      "year": "2024–2026",
-      "entry": "Somnia with Alejandra Metztli, Le Guess Who? & Centraal Museum Utrecht, MUTEK MX"
+      "year": "2026",
+      "title": "Points of Light",
+      "venue": "Grote Kerk",
+      "location": "The Hague",
+      "category": "work"
     },
     {
-      "year": "2025–2026",
-      "entry": "Archive Mirror, Treehouse NDSM Amsterdam & Pieterskerk, Leiden"
+      "year": "2025–26",
+      "title": "Archive Mirror",
+      "venue": "",
+      "location": "",
+      "category": "work"
+    },
+    {
+      "year": "2025–26",
+      "title": "Nieuwe Instituut, Collection Gallery with Space Popular",
+      "venue": "",
+      "location": "Rotterdam",
+      "category": "work"
     },
     {
       "year": "2025",
-      "entry": "Points of Inaccessibility with Rafael Anton Irisarri, Uncloud residency, Utrecht"
+      "title": "Points of Inaccessibility",
+      "venue": "with Rafael Anton Irisarri",
+      "location": "",
+      "category": "work"
     },
     {
       "year": "2025",
-      "entry": "Orbit Festival, light design & interactive installation"
+      "title": "Lely's Droom, 100 years Afsluitdijk",
+      "venue": "Oosterlanderkerk",
+      "location": "",
+      "category": "work"
     },
     {
       "year": "2025",
-      "entry": "Mutek Mexico & Cervantino, Circle of Live (Pantha du Prince, Sebastian Mullaert)"
+      "title": "Schiedam 750, city tour",
+      "venue": "",
+      "location": "Schiedam",
+      "category": "work"
     },
     {
       "year": "2025",
-      "entry": "Buy or Burn at Brutus, Rotterdam"
+      "title": "Buy or Burn",
+      "venue": "Brutus",
+      "location": "Rotterdam",
+      "category": "work"
     },
     {
       "year": "2025",
-      "entry": "Dekmantel, Rader stage, light operator (design by Studio Raito)"
+      "title": "Art Week Mexico City / NEUG",
+      "venue": "",
+      "location": "Mexico City",
+      "category": "work"
+    },
+    {
+      "year": "2025",
+      "title": "Soenda Presents",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2025",
+      "title": "Mutek",
+      "venue": "",
+      "location": "Mexico City",
+      "category": "work"
+    },
+    {
+      "year": "2024–25",
+      "title": "Dekmantel, Rader stage",
+      "venue": "",
+      "location": "Amsterdam",
+      "category": "work"
+    },
+    {
+      "year": "2024–ongoing",
+      "title": "Data Uotan, co-founder & curator",
+      "venue": "",
+      "location": "Mexico City",
+      "category": "curation"
     },
     {
       "year": "2024",
-      "entry": "Ka'An at Data Uotan festival, No Es Una Galería, Mexico City"
+      "title": "Ka'An, site-specific light installation",
+      "venue": "No Es Una Galería",
+      "location": "Mexico City",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Somnia, premiere, with Alejandra Metztli",
+      "venue": "Le Guess Who?",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Aquí Ahora, Arthouse Pani artist residency",
+      "venue": "",
+      "location": "Mexico",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Mutek",
+      "venue": "",
+      "location": "Mexico City",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Kabul a Gògo",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Orbit Festival",
+      "venue": "Fort Vechten",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Best Kept Secret",
+      "venue": "",
+      "location": "Hilvarenbeek",
+      "category": "work"
+    },
+    {
+      "year": "2024",
+      "title": "Uncloud, Degeneracy Regeneracy",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2023",
+      "title": "Van Gogh Museum, 50 years, visuals commission",
+      "venue": "",
+      "location": "Amsterdam",
+      "category": "work"
+    },
+    {
+      "year": "2023",
+      "title": "Le Guess Who?, Jacobikerk",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2023",
+      "title": "Utrecht 900, Stationsplein",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2023",
+      "title": "3FM Awards",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2023",
+      "title": "L'Oréal Paris Benelux, audiovisual show",
+      "venue": "",
+      "location": "",
+      "category": "work"
+    },
+    {
+      "year": "2023",
+      "title": "Uncloud, Physical Digital",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
     },
     {
       "year": "2022",
-      "entry": "Panorama Utrecht, 900th anniversary of the city"
+      "title": "Panorama Utrecht, panoramic light sculpture",
+      "venue": "Hoog Catharijne",
+      "location": "Utrecht",
+      "category": "work"
     },
     {
       "year": "2022",
-      "entry": "No Art Festival 'Synergy' (curator), NDSM Amsterdam"
-    },
-    {
-      "year": "2022",
-      "entry": "Jacobikerk, Le Guess Who?, Utrecht"
+      "title": "No-Art Festival, Synergy",
+      "venue": "NDSM",
+      "location": "Amsterdam",
+      "category": "curation"
     },
     {
       "year": "2021",
-      "entry": "Uncloud 'Transliminal' at Pieter Baan Centrum, Utrecht"
+      "title": "Le Guess Who?, Reports from Other Continents",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
     },
     {
       "year": "2021",
-      "entry": "3FM Awards, projections & live visuals"
+      "title": "Uncloud, Transliminal",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2020–24",
+      "title": "The Greenery, immersive projected space",
+      "venue": "Westergasfabriek",
+      "location": "Amsterdam",
+      "category": "work"
     },
     {
       "year": "2020",
-      "entry": "Uncloud 'Unshaping' & Bring Your Own Beamer, Utrecht"
+      "title": "Sonaural, 2nd edition, with Skander Jaïbi",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2020",
+      "title": "Projection on the municipal office",
+      "venue": "Stedelijk Museum Schiedam",
+      "location": "Schiedam",
+      "category": "work"
+    },
+    {
+      "year": "2020",
+      "title": "Uncloud, Unshaping",
+      "venue": "Pieter Baan Centrum",
+      "location": "Utrecht",
+      "category": "curation"
+    },
+    {
+      "year": "2020",
+      "title": "Bring Your Own Beamer, 10 years",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "curation"
     },
     {
       "year": "2019",
-      "entry": "NCCA, Nizhny Novgorod (RU); Boiler Room, ADE"
+      "title": "National Centre for Contemporary Arts (NCCA)",
+      "venue": "",
+      "location": "Nizhny Novgorod",
+      "category": "work"
     },
     {
-      "year": "2016",
-      "entry": "BA Cultural Heritage, Reinwardt Academie, Amsterdam"
+      "year": "2019",
+      "title": "Museumnacht",
+      "venue": "Bonnefanten",
+      "location": "Maastricht",
+      "category": "work"
+    },
+    {
+      "year": "2018",
+      "title": "Boiler Room, ADE, IS BURNING",
+      "venue": "",
+      "location": "Amsterdam",
+      "category": "work"
+    },
+    {
+      "year": "2018",
+      "title": "Museumnacht",
+      "venue": "NEMO",
+      "location": "Amsterdam",
+      "category": "work"
+    },
+    {
+      "year": "2017",
+      "title": "Museumnacht",
+      "venue": "Kunsthal",
+      "location": "Rotterdam",
+      "category": "work"
+    },
+    {
+      "year": "2017–20",
+      "title": "Tekenen onder Invloed, with Willum Geerts",
+      "venue": "",
+      "location": "",
+      "category": "work"
+    },
+    {
+      "year": "2016–19",
+      "title": "Netherlands Film Festival",
+      "venue": "",
+      "location": "Utrecht",
+      "category": "work"
+    },
+    {
+      "year": "2011–16",
+      "title": "BA Cultural Heritage, minor Exhibition design, Reinwardt Academie",
+      "venue": "",
+      "location": "Amsterdam",
+      "category": "education"
+    },
+    {
+      "year": "2014–15",
+      "title": "Sarawak State Museum / IMPACT Design, exhibition design internship",
+      "venue": "",
+      "location": "Kuching",
+      "category": "education"
+    },
+    {
+      "year": "2008–11",
+      "title": "Blacksmith, Georg Petau Kunstschmiede",
+      "venue": "",
+      "location": "Polle (DE)",
+      "category": "education"
+    },
+    {
+      "year": "2006–10",
+      "title": "MBO Land, Water & Environment, Wellantcollege",
+      "venue": "",
+      "location": "Houten",
+      "category": "education"
     }
   ],
   "expertise": [
@@ -148,5 +412,51 @@
         "uncloud-2022"
       ]
     }
-  ]
+  ],
+  "residencies_and_support": [
+    {
+      "year": "2024",
+      "title": "Arthouse Pani artist residency",
+      "location": "Mexico"
+    },
+    {
+      "year": "2024",
+      "title": "Data Uotan, supported by the Netherlands Embassy in Mexico",
+      "location": "Mexico City"
+    },
+    {
+      "year": "2024",
+      "title": "Somnia, supported by Sistema de Apoyos a la Creación y Proyectos Culturales (MX)",
+      "location": ""
+    },
+    {
+      "year": "2024",
+      "title": "Uncloud international residency",
+      "location": "Utrecht"
+    }
+  ],
+  "live_shows": "Dekmantel · Boiler Room · Mysteryland · Best Kept Secret · Welcome to the Future · Le Guess Who? · Mutek México · 3FM Awards · Club WAS (2018–ongoing)",
+  "teaching_and_boards": [
+    {
+      "year": "2023–ongoing",
+      "title": "Board member, Stichting Art Utrecht"
+    },
+    {
+      "year": "2016–ongoing",
+      "title": "Co-founder & curator, Stichting Uncloud"
+    },
+    {
+      "year": "2016–ongoing",
+      "title": "Co-founder, LiGHT-UP Collective"
+    },
+    {
+      "year": "2019",
+      "title": "Workshops, NCCA Nizhny Novgorod"
+    },
+    {
+      "year": "2012–17",
+      "title": "Faculty council & guest teacher, Reinwardt Academie"
+    }
+  ],
+  "tools": "TouchDesigner · Resolume · Avolites Titan · Cinema 4D · CloudCompare · Adobe CC · OBS · LiDAR and point-cloud capture"
 }
