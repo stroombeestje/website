@@ -707,6 +707,23 @@ p { margin: 0 0 1.2em; }
    the last pair stranded alone on a second line under nothing. The column
    floor is in vw so the count is the same on every screen: about seven at
    most, four when there are four. */
+/* A heading that continues a column, rather than opening one. The page label
+   "About" and the column label "Selected CV" used to sit 30px apart, because
+   one was outside the two-column block and one inside it, which is the
+   "weird distance" Jaco kept seeing. Everything is a column label now, so
+   both tops line up, and the blocks that used to sit in a section of their
+   own carry on down the columns instead: the bio ended at 1717 while the CV
+   ran to 2001, leaving a 333px void under his own text. */
+/* The Instagram link was an INLINE font-size of 0.85rem * --ts and nothing
+   else: 6.7px at 1920, too small to read and far too small to click, on the
+   one line of the site that asks a stranger to get in touch. Inline sizes
+   need the floor as much as the stylesheet does. It is a pill now, the same
+   control the filters use, so it looks like something you press. */
+.contact-social { margin-top: calc(1.75rem * var(--ts, 1)); }
+.contact-social .pill { display: inline-block; }
+
+.about-sub { margin-top: calc(2.6rem * var(--ts, 1)); }
+
 /* The notes are their own line under the credits, not cells inside them. */
 .credit-notes {
   margin: calc(0.9rem * var(--ts, 1)) 0 0;

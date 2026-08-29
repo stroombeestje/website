@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20260901a">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260901d">
 </head>
 <body data-root="" class="page-wide">
 
@@ -30,31 +30,22 @@
 
   <main id="about">
     <section class="wrap">
-      <p class="eyebrow reveal">About</p>
       <div class="two-col">
         <div>
+          <p class="eyebrow reveal">About</p>
           <img id="about-portrait" class="about-portrait reveal" alt="Jaco Schilp" hidden>
           <div id="about-bio" class="about-text reveal"></div>
+          <p class="eyebrow reveal about-sub">Residencies &amp; support</p>
+          <ul id="residencies-list" class="detail-list reveal"></ul>
+          <p class="eyebrow reveal about-sub">Live shows</p>
+          <p id="live-shows" class="about-line reveal"></p>
         </div>
         <div>
           <p class="eyebrow reveal">Selected CV</p>
           <ul id="cv-list" class="detail-list reveal"></ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap" style="padding-top:0">
-      <div class="two-col">
-        <div>
-          <p class="eyebrow reveal">Residencies &amp; support</p>
-          <ul id="residencies-list" class="detail-list reveal"></ul>
-          <p class="eyebrow reveal" style="margin-top:calc(2.5rem * var(--ts,1))">Live shows</p>
-          <p id="live-shows" class="about-line reveal"></p>
-        </div>
-        <div>
-          <p class="eyebrow reveal">Teaching &amp; boards</p>
+          <p class="eyebrow reveal about-sub">Teaching &amp; boards</p>
           <ul id="boards-list" class="detail-list reveal"></ul>
-          <p class="eyebrow reveal" style="margin-top:calc(2.5rem * var(--ts,1))">Tools</p>
+          <p class="eyebrow reveal about-sub">Tools</p>
           <p id="tools" class="about-line reveal"></p>
         </div>
       </div>
@@ -71,7 +62,7 @@
           <p class="contact-big reveal">For commissions, collaborations &amp; enquiries<br>
             <span id="contact-email"></span>
           </p>
-          <p class="reveal" style="margin-top:calc(1.75rem * var(--ts,1))"><a data-site-instagram target="_blank" rel="noopener" style="border-bottom:1px solid var(--line);text-transform:uppercase;letter-spacing:0.08em;font-size:calc(0.85rem * var(--ts,1))">Instagram ↗</a></p>
+          <p class="reveal contact-social"><a class="pill" data-site-instagram target="_blank" rel="noopener">Instagram ↗</a></p>
         </div>
       </div>
     </section>
@@ -84,6 +75,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260901a"></script>
+  <script src="assets/js/main.js?v=20260901d"></script>
 </body>
 </html>
