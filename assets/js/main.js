@@ -1374,7 +1374,7 @@
         .map((x) => `<li>${esc(x)}</li>`)
         .join("")}</ul>`;
     }
-    if ($("#tools") && s.tools) $("#tools").textContent = s.tools;
+
     if ($("#services-list")) $("#services-list").innerHTML = services;
     if ($("#contact-email")) {
       const to = addrOf(s, "emailUser", "emailDomain");
