@@ -109,7 +109,8 @@
       "kind": "Live show",
       "title": "Mutek MX",
       "venue": "",
-      "location": "Mexico City"
+      "location": "Mexico City",
+      "slug": "mutek-circle-of-live"
     },
     {
       "year": "2025",
@@ -147,7 +148,8 @@
       "kind": "Live show",
       "title": "Mutek MX",
       "venue": "InSpace",
-      "location": "Mexico City"
+      "location": "Mexico City",
+      "slug": "somnia"
     },
     {
       "year": "2024",
