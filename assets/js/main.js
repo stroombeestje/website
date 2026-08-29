@@ -1255,10 +1255,18 @@
     // taller than the screen. The films are preload="none", so they report no
     // size until they play; the poster is cut from the film and has the same
     // proportions, and the browser has it already.
+    /* The film's own proportions, read off its poster, so the height cap can
+       hold for ANY shape. Capping the width alone only works for 16:9: a 4:3
+       film at the 16:9 width is taller than the cap, which is how sonaural
+       came out at 80% of the window with its description below the fold.
+       Portrait keeps its class as well, for the rules that want it. */
     mount.querySelectorAll(".project-video-file[poster]").forEach((v) => {
       const probe = new Image();
-      probe.onload = () =>
+      probe.onload = () => {
+        if (!probe.naturalWidth || !probe.naturalHeight) return;
         v.classList.toggle("is-portrait", probe.naturalHeight > probe.naturalWidth);
+        v.style.setProperty("--vid-ar", (probe.naturalWidth / probe.naturalHeight).toFixed(4));
+      };
       probe.src = v.getAttribute("poster");
     });
 

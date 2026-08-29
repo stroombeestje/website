@@ -1249,7 +1249,11 @@ p { margin: 0 0 1.2em; }
      36% of the 4K wall looking lost; Jaco has already said he would rather
      have a slightly soft upscale than a small picture. */
   width: 100%;
-  max-width: calc(var(--film) * 100dvh * 16 / 9);
+  /* the cap is a HEIGHT, converted to a width through the film's own
+     proportions. --vid-ar is set from the poster; 16:9 until it is known, and
+     max-height holds the line in the meantime. */
+  max-width: calc(var(--film) * 100dvh * var(--vid-ar, 1.7778));
+  max-height: calc(var(--film) * 100dvh);
   height: auto;
   margin-inline: auto;
 }
@@ -1258,9 +1262,15 @@ p { margin: 0 0 1.2em; }
   max-width: calc(var(--film) * 100dvh * 16 / 9);
   margin-inline: auto;
 }
+/* An upright film obeys the same cap as a wide one. It had max-height:80vh of
+   its own, which beat the cap and put flip-mode, schiedam-750 and sonaural at
+   79-80% of the window with the description below the fold: exactly the
+   problem the cap exists to prevent, on the three pages nobody thought to
+   check. Width auto so it is never stretched. */
 .project-videos.is-main .project-video-file.is-portrait {
   width: auto;
-  max-height: 80vh;
+  max-width: 100%;
+  max-height: calc(var(--film) * 100dvh);
   margin-inline: auto;
 }
 /* The cover fills the page width like every other block, so the page keeps
