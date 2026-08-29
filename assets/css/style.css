@@ -591,6 +591,11 @@ p { margin: 0 0 1.2em; }
    footer must stay on the floor -- otherwise the whole page jumps every time
    a chip is pressed. Only the pictures change size, which is the point. */
 @media (min-width: 1000px) {
+  .page-press { min-height: 100dvh; display: flex; flex-direction: column; }
+  .page-press .site-footer { margin-top: auto; }
+}
+
+@media (min-width: 1000px) {
   /* The footer holds the floor. height:100% on the grid was tried here and
      was wrong: the grid took 100% of a section that carries its own bottom
      padding, so the wall overran the page and the 4K filtered view scrolled.
@@ -893,10 +898,18 @@ p { margin: 0 0 1.2em; }
   margin: calc(var(--ts, 1) * clamp(2rem, 5vw, 3.5rem)) 0 0;
   padding: 0;
   display: grid;
-  /* cards stay modest: the wide page gets more columns, not bigger pictures */
-  /* the card floor matches the type floor: once the text stops shrinking, a
-     card that keeps shrinking can no longer hold its outlet and date line */
-  grid-template-columns: repeat(auto-fill, minmax(max(calc(250px * var(--fl, 1)), calc(300px * var(--ts, 1))), 1fr));
+  /* The column COUNT is solved by fitPress() so the page never scrolls, and
+     the cards then scale with the screen like everything else.
+
+     This used to read minmax(max(250px * --fl, 300px * --ts), 1fr), which is
+     a fixed pixel card: 294px at 1920 and 307px at 3840, so the card was 15%
+     of a laptop screen and 8% of the 4K wall -- eleven columns of confetti,
+     the exact ratio-of-1.0 the proportion law exists to stop. It broke the
+     titles too: the card stayed ~300px while the title type scaled to 28px,
+     so a long Dutch headline could not fit its own card on the wall.
+
+     The fallback below is only for first paint and no-JS. */
+  grid-template-columns: repeat(auto-fill, minmax(calc(300px * var(--ts, 1)), 1fr));
   gap: calc(var(--ts, 1) * clamp(1.2rem, 2.5vw, 2rem));
 }
 @media (max-width: 600px) { .press-list { grid-template-columns: 1fr; } }
@@ -917,11 +930,11 @@ p { margin: 0 0 1.2em; }
 }
 .press-link:hover .press-media img { transform: scale(1.04); }
 .press-head { display: flex; align-items: baseline; justify-content: space-between; gap: calc(1rem * var(--ts, 1)); }
-.press-outlet { font-size: max(calc(11.5px * var(--fl, 1)), calc(0.8rem * var(--ts, 1))); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
-.press-date { font-size: max(calc(11.5px * var(--fl, 1)), calc(0.78rem * var(--ts, 1))); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.press-outlet { font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.8rem)); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
+.press-date { font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.78rem)); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .press-title { font-size: max(calc(15px * var(--fl, 1)), calc(var(--fx-text) * 1.12rem)); line-height: 1.35; margin: calc(0.5rem * var(--ts, 1)) 0 0; font-weight: 600; }
 .press-quote { color: var(--muted); font-family: var(--font-serif); font-style: italic; margin: calc(0.7rem * var(--ts, 1)) 0 0; line-height: 1.5; font-size: max(calc(13.5px * var(--fl, 1)), calc(var(--fx-text) * 0.92rem)); }
-.press-cta { display: inline-block; margin-top: calc(0.9rem * var(--ts, 1)); font-size: max(calc(11.5px * var(--fl, 1)), calc(0.8rem * var(--ts, 1))); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.press-cta { display: inline-block; margin-top: calc(0.9rem * var(--ts, 1)); font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.8rem)); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .press-link:hover .press-cta { color: var(--fg); }
 
 .press-empty { color: var(--muted); padding: 1.5rem 0; }

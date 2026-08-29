@@ -1469,6 +1469,67 @@
       })
       .join("");
     observeReveals(mount);
+
+    /* Press holds one screen too. A press card is not a square, so its height
+       is not a closed form the way the work wall's is -- the picture is 16:10
+       of the width but the outlet line, the headline and the pull quote each
+       wrap differently. So this measures instead of solving, taking the
+       FEWEST columns that still fit, which is the same as the biggest cards.
+       That is safe here because it only ever runs on a settled frame (see
+       scheduleFitPress) and costs at most ten reflows once.
+
+       Solving the COUNT rather than fixing a pixel card is also what keeps
+       the page proportional: the card width and the type inside it both
+       scale with the screen, so the same count wins at 1920 and at 3840 and
+       the wall shows the laptop composition enlarged, not eleven columns of
+       confetti. */
+    const fitPress = () => {
+      if (window.matchMedia("(max-width: 1000px)").matches) {
+        mount.style.gridTemplateColumns = "";
+        return;
+      }
+      const n = mount.querySelectorAll(".press-item").length;
+      if (!n) return;
+      mount.style.gridTemplateColumns = "";
+      const foot = $(".site-footer");
+      const footBox = foot ? foot.offsetHeight : 0; // margin-top:auto resolves; height only
+      const slack = 24 * Math.min(1, window.innerWidth / 3840) + 8;
+      const top = mount.getBoundingClientRect().top + window.scrollY;
+      const sec = mount.parentElement;
+      const padB = sec ? parseFloat(getComputedStyle(sec).paddingBottom) || 0 : 0;
+      const avail = window.innerHeight - top - footBox - padB - slack;
+      if (!(avail > 0)) return;
+      /* Capped at six. A press card carries a headline and a pull quote, so
+         it cannot be squeezed the way a square cover can: past six columns
+         the text has no measure left. Uncapped, this page solved to TWELVE
+         columns of 153px cards, because that one row of postage stamps was
+         the only layout that fit -- the page header takes 310px and the
+         footer another 137, leaving 633px for cards that are 378px tall, so
+         two rows need 771 and never fit. Twelve narrow columns is worse than
+         a short scroll, so the cap wins and the page scrolls the little it
+         needs to. */
+      const most = Math.min(n, 6);
+      for (let cols = 2; cols <= most; cols++) {
+        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+        if (mount.getBoundingClientRect().height <= avail) return;
+      }
+      mount.style.gridTemplateColumns = `repeat(${most}, 1fr)`;
+    };
+
+    let pressRaf = 0;
+    const scheduleFitPress = () => {
+      cancelAnimationFrame(pressRaf);
+      pressRaf = requestAnimationFrame(() => {
+        pressRaf = requestAnimationFrame(fitPress);
+      });
+    };
+    scheduleFitPress();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFitPress);
+    // the pictures decide the card height, so re-solve as they land
+    mount.querySelectorAll("img").forEach((im) => {
+      if (!im.complete) im.addEventListener("load", scheduleFitPress, { once: true });
+    });
+    window.addEventListener("resize", scheduleFitPress, { passive: true });
   }
 
   /* ---- shared site chrome from site.json (brand, footer) ---- */
