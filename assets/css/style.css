@@ -921,6 +921,9 @@ p { margin: 0 0 1.2em; }
   background: var(--tile);
   margin-bottom: calc(0.9rem * var(--ts, 1));
 }
+/* A cutting we do not have yet still holds its place, so one missing picture
+   cannot make the whole row read as broken. */
+.press-media--empty { background: var(--tile); }
 .press-media img {
   width: 100%;
   height: 100%;

@@ -2,33 +2,6 @@
   "intro": "Selected press & coverage, from newspaper features on my Utrecht work to international reviews of the audiovisual collaboration Points of Inaccessibility with composer Rafael Anton Irisarri.",
   "items": [
     {
-      "outlet": "Stationary Travels",
-      "title": "Through a Musical Lens: Points of Inaccessibility",
-      "date": "May 2026",
-      "quote": "Schilp processed the material through point-cloud software, generating abstract imagery in a state of constant flux.",
-      "url": "https://stationarytravels.wordpress.com/2026/05/25/through-a-musical-lens-points-of-inaccessibility-by-rafael-anton-irisarri/",
-      "image": "media/press/01.jpg",
-      "project": "points-of-inaccessibility"
-    },
-    {
-      "outlet": "oowlr music magazine",
-      "title": "Rafael Anton Irisarri interview",
-      "date": "Feb 2026",
-      "quote": "Points of Inaccessibility began organically out of a chance encounter with Dutch media artist Jaco Schilp.",
-      "url": "https://oowlr.gr/rafael-anton-irisarri-interview/",
-      "image": "media/press/02.jpg",
-      "project": "points-of-inaccessibility"
-    },
-    {
-      "outlet": "a closer listen",
-      "title": "Rafael Anton Irisarri ~ Points of Inaccessibility",
-      "date": "Feb 2026",
-      "quote": "Jaco Schilp was developing real-time, reactive, audio-driven point cloud projections, some of which adorn the album's artwork.",
-      "url": "https://acloserlisten.com/2026/02/05/rafael-anton-irisarri-points-of-inaccessibility/",
-      "image": "media/press/03.jpg",
-      "project": "points-of-inaccessibility"
-    },
-    {
       "outlet": "Haagse Dingen",
       "title": "Watch: Points of Light, Grote Kerk Den Haag",
       "date": "Jan 2026",
@@ -96,7 +69,8 @@
       "date": "Nov 2021",
       "quote": "A press review of Uncloud's Transliminal, staged in the former Pieter Baan Centrum, Utrecht.",
       "image": "media/press/transliminal-2021.jpg",
-      "project": "uncloud-transliminal"
+      "project": "uncloud-transliminal",
+      "url": "https://www.volkskrant.nl/cultuur-media/transliminal-laat-de-bewogen-geschiedenis-van-het-pieter-baan-centrum-zien~b0d6e1f8/"
     },
     {
       "outlet": "Le Guess Who?",
@@ -106,6 +80,29 @@
       "url": "https://leguesswho.com/news/watch-uncloud-contemporary-art-music-by-juri-hiensch",
       "image": "media/press/12.jpg",
       "project": "uncloud-lgw-2022"
+    },
+    {
+      "outlet": "RTV Utrecht",
+      "title": "Waar criminelen werden geobserveerd is nu kunst: 'De weg kwijtraken is de bedoeling'",
+      "date": "Nov 2021",
+      "quote": "Transliminal is de ondertitel van Uncloud 2021. Het gaat over de transitie van een leegstaande plek naar iets anders.",
+      "url": "https://www.rtvutrecht.nl/nieuws/3211463/waar-criminelen-werden-geobserveerd-is-nu-kunst-de-weg-kwijtraken-is-de-bedoeling",
+      "project": "uncloud-transliminal"
+    },
+    {
+      "outlet": "De Nuk",
+      "title": "Bevrijding van het Pieter Baan",
+      "date": "May 2020",
+      "quote": "Deze interacties geven nieuwe inzichten en geeft de bezoeker een immersieve ervaring die je niet vindt in een traditionele expositie.",
+      "url": "https://denuk.nl/bevrijding-van-het-pieter-baan/",
+      "project": "uncloud-transliminal"
+    },
+    {
+      "outlet": "Nieuwe Instituut",
+      "title": "Nieuwe Instituut opent nieuwe Collection Gallery",
+      "date": "May 2026",
+      "quote": "Ruimtelijk ontwerp en interactie-ontwerp door Space Popular met Mariana Lobão en Jaco Schilp.",
+      "url": "https://nieuweinstituut.nl/articles/persbericht-opening-collection-gallery"
     }
   ]
 }

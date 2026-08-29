@@ -1453,7 +1453,11 @@
         const href = it.url || (it.image ? asset(it.image) : null);
         const cta = it.url ? "Read ↗" : it.image ? "View clipping ↗" : "";
         const inner = `
-            ${it.image ? `<div class="press-media"><img src="${asset(esc(it.image))}" alt="${esc(it.outlet)}: ${esc(it.title)}" loading="lazy" onerror="window.__phErr(this)"></div>` : ""}
+            ${
+              it.image
+                ? `<div class="press-media"><img src="${asset(esc(it.image))}" alt="${esc(it.outlet)}: ${esc(it.title)}" loading="lazy" onerror="window.__phErr(this)"></div>`
+                : `<div class="press-media press-media--empty" aria-hidden="true"></div>`
+            }
             <div class="press-head">
               <span class="press-outlet">${esc(it.outlet)}</span>
               <span class="press-date">${esc(it.date || "")}</span>
