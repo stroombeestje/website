@@ -959,16 +959,36 @@ p { margin: 0 0 1.2em; }
 
 .press-empty { color: var(--muted); padding: 1.5rem 0; }
 
-.detail-list { list-style: none; margin: 0; padding: 0; }
-.detail-list li {
+/* The year column sizes to the widest YEAR IN THE LIST, not per row. It was
+   a fixed 4.5rem, which is 35.7px at 1920: enough for "2025" and not for a
+   RANGE, so the moment work spanning "2024-2026" went in every range broke
+   over two lines. Making each row its own max-content grid fixed the wrap and
+   broke the alignment instead -- single years got a 32px column and ranges
+   71px, so no two entries started at the same place. The LIST owns the grid
+   and the rows are display:contents, which is the only way one track can
+   measure every row at once. Proportional on its own, since the type it
+   measures is. */
+.detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  grid-template-columns: calc(4.5rem * var(--ts, 1)) 1fr;
-  gap: calc(1.5rem * var(--ts, 1));
-  padding: calc(0.85rem * var(--ts, 1)) 0;
+  grid-template-columns: max-content 1fr;
+}
+.detail-list li { display: contents; }
+/* the rule under a row is drawn by its two cells; they touch, because the
+   space between the columns is the year's padding rather than a grid gap,
+   which would leave a gap in the line */
+.detail-list li > * {
+  padding-block: calc(0.85rem * var(--ts, 1));
   border-bottom: 1px solid var(--line);
   font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
 }
-.detail-list .y { color: var(--muted); }
+.detail-list .y {
+  color: var(--muted);
+  white-space: nowrap;
+  padding-right: calc(1.5rem * var(--ts, 1));
+}
 
 .services-list { list-style: none; margin: 0; padding: 0; }
 .services-list li { padding: calc(0.6rem * var(--ts, 1)) 0; border-bottom: 1px solid var(--line); }
