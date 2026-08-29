@@ -714,6 +714,10 @@ p { margin: 0 0 1.2em; }
    both tops line up, and the blocks that used to sit in a section of their
    own carry on down the columns instead: the bio ended at 1717 while the CV
    ran to 2001, leaving a 333px void under his own text. */
+/* the footer's Instagram is the same control as the one on About, so it is
+   the same pill; the separator beside it goes, since a button needs no dot */
+.footer-inner .pill { display: inline-block; vertical-align: middle; }
+
 /* The Instagram link was an INLINE font-size of 0.85rem * --ts and nothing
    else: 6.7px at 1920, too small to read and far too small to click, on the
    one line of the site that asks a stranger to get in touch. Inline sizes

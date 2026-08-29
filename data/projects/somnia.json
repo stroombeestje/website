@@ -41,7 +41,8 @@
         "file": "media/projects/somnia/presskit-photos.zip"
       }
     ],
-    "contact": "jaco@jacoschilp.nl"
+    "contactUser": "jaco",
+    "contactDomain": "jacoschilp.nl"
   },
   "story": true,
   "regie": [

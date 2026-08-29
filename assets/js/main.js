@@ -255,6 +255,15 @@
   // Lay the gallery out as justified rows: each row is flush on both sides, and
   // inside a row every picture keeps its own proportions at a shared height.
   // flex-grow = aspect ratio does the width math; equal heights follow from it.
+  /* The address is never written down whole. It is stored as a user and a
+     domain, joined at run time, and SHOWN as "jaco at jacoschilp.nl" so the
+     visible text carries no @ for a scraper to match. The mailto still works
+     on a click, because the href is assembled in script rather than served in
+     the HTML. This raises the cost of harvesting it; it does not make it
+     impossible, and nothing can. */
+  const addrOf = (o, a, b) => (o && o[a] && o[b] ? o[a] + String.fromCharCode(64) + o[b] : "");
+  const addrShown = (o, a, b) => (o && o[a] && o[b] ? o[a] + " at " + o[b] : "");
+
   function layoutGallery(el) {
     if (!el) return;
     const imgs = [...el.querySelectorAll("img")];
@@ -893,7 +902,7 @@
             ${(kit.downloads || [])
               .map((dl) => `<a class="pill" href="${asset(esc(dl.file))}" download>${esc(dl.label)} ↓</a>`)
               .join("")}
-            ${kit.contact ? `<a class="pill" href="mailto:${esc(kit.contact)}">Request the technical rider</a>` : ""}
+            ${addrOf(kit, "contactUser", "contactDomain") ? `<a class="pill" href="mailto:${esc(addrOf(kit, "contactUser", "contactDomain"))}">Request the technical rider</a>` : ""}
           </div>
         </section>`
       : "";
@@ -1348,7 +1357,10 @@
     if ($("#tools") && s.tools) $("#tools").textContent = s.tools;
     if ($("#services-list")) $("#services-list").innerHTML = services;
     if ($("#contact-email")) {
-      $("#contact-email").innerHTML = `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`;
+      const to = addrOf(s, "emailUser", "emailDomain");
+      $("#contact-email").innerHTML = to
+        ? `<a href="mailto:${esc(to)}">${esc(addrShown(s, "emailUser", "emailDomain"))}</a>`
+        : "";
     }
     observeReveals(mount);
   }
@@ -1626,8 +1638,8 @@
       const s = await loadJSON("data/site.json");
       $$("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
       $$("[data-site-email]").forEach((el) => {
-        el.textContent = s.email;
-        el.setAttribute("href", "mailto:" + s.email);
+        el.textContent = addrShown(s, "emailUser", "emailDomain");
+        el.setAttribute("href", "mailto:" + addrOf(s, "emailUser", "emailDomain"));
       });
       $$("[data-site-instagram]").forEach((el) => {
         if (s.instagram) {

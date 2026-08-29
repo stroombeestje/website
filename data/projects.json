@@ -142,7 +142,8 @@
             "file": "media/projects/somnia/presskit-photos.zip"
           }
         ],
-        "contact": "jaco@jacoschilp.nl"
+        "contactUser": "jaco",
+        "contactDomain": "jacoschilp.nl"
       },
       "story": true,
       "regie": [
@@ -244,7 +245,8 @@
             "file": "media/projects/points-of-inaccessibility/presskit-photos.zip"
           }
         ],
-        "contact": "jaco@jacoschilp.nl"
+        "contactUser": "jaco",
+        "contactDomain": "jacoschilp.nl"
       },
       "coverThumb": "media/thumbs/points-of-inaccessibility-cover.jpg",
       "hoverPreview": "media/thumbs/points-of-inaccessibility-hover.mp4",
