@@ -23,7 +23,7 @@
   "cv": [
     {
       "year": "2026",
-      "title": "Uncloud–10 Years of Breaking the Binary",
+      "title": "Uncloud, 10 Years of Breaking the Binary",
       "venue": "Beatrixgebouw",
       "location": "Utrecht",
       "category": "curation"
@@ -246,7 +246,7 @@
       "category": "curation"
     },
     {
-      "year": "2020–24",
+      "year": "2020–ongoing",
       "title": "The Greenery, immersive projected space",
       "venue": "Westergasfabriek",
       "location": "Amsterdam",
@@ -257,13 +257,6 @@
       "title": "Sonaural, 2nd edition, with Skander Jaïbi",
       "venue": "",
       "location": "Utrecht",
-      "category": "work"
-    },
-    {
-      "year": "2020",
-      "title": "Projection on the municipal office",
-      "venue": "Stedelijk Museum Schiedam",
-      "location": "Schiedam",
       "category": "work"
     },
     {
@@ -330,17 +323,17 @@
       "category": "work"
     },
     {
-      "year": "2011–16",
-      "title": "BA Cultural Heritage, minor Exhibition design, Reinwardt Academie",
-      "venue": "",
-      "location": "Amsterdam",
-      "category": "education"
-    },
-    {
       "year": "2014–15",
       "title": "Sarawak State Museum / IMPACT Design, exhibition design internship",
       "venue": "",
       "location": "Kuching",
+      "category": "education"
+    },
+    {
+      "year": "2011–16",
+      "title": "BA Cultural Heritage, minor Exhibition design, Reinwardt Academie",
+      "venue": "",
+      "location": "Amsterdam",
       "category": "education"
     },
     {
