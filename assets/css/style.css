@@ -494,9 +494,17 @@ p { margin: 0 0 1.2em; }
      actually rendered, so the moment the floor engages the column stops being
      a share of the screen. It was 26rem * --ts before, which shrank with --ts
      while the type stopped at its floor and left a 206px column of five
-     ragged four-word lines at 1920. Below about 1500 the floored font is wide
-     enough that the longer sentence wraps; that is the floor working. */
-  max-width: 27vw;
+     ragged four-word lines at 1920.
+
+     No magic width. The <br> already says where the lines break, so
+     max-content asks for exactly the longer of the two sentences at whatever
+     size the type is actually rendering -- no number to guess, and it cannot
+     starve the text the way a 26rem, a 27vw or a 420px cap each did in turn.
+     max-width keeps it inside its column on a narrow window. The result is
+     still a constant share of the screen where it matters: 20.4% at 1920 and
+     at 3840, because above the floor the font itself is proportional. */
+  width: max-content;
+  max-width: 100%;
   line-height: 1.5;
 }
 .work-toolbar {
@@ -564,6 +572,24 @@ p { margin: 0 0 1.2em; }
   align-items: center;
   gap: calc(1.2rem * var(--ts, 1));
   white-space: nowrap;
+  /* the count is the one thing in this bar that must never be squeezed or
+     clipped: the chips give way first */
+  flex: 0 0 auto;
+}
+/* the chips are what yields when the bar runs out of room */
+.filters { min-width: 0; }
+
+/* The work page holds its frame. Filter the wall down to five performances
+   and the grid gets short, but the toolbar must stay where it is and the
+   footer must stay on the floor -- otherwise the whole page jumps every time
+   a chip is pressed. Only the pictures change size, which is the point. */
+@media (min-width: 1000px) {
+  /* The footer holds the floor. height:100% on the grid was tried here and
+     was wrong: the grid took 100% of a section that carries its own bottom
+     padding, so the wall overran the page and the 4K filtered view scrolled.
+     fit() gives the grid an explicit pixel box instead. */
+  .page-work { min-height: 100dvh; display: flex; flex-direction: column; }
+  .page-work .site-footer { margin-top: auto; }
 }
 .work-count {
   font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));

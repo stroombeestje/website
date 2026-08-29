@@ -623,43 +623,103 @@
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
         mount.style.gridTemplateColumns = "";
+        mount.style.height = "";
+        mount.style.justifyContent = "";
+        mount.style.alignContent = "";
         return;
       }
       const n = mount.children.length;
       if (!n) return;
       mount.style.gridTemplateColumns = "";
+      mount.style.height = "";
       const cs = getComputedStyle(mount);
       const gx = parseFloat(cs.columnGap) || 0;
       const gy = parseFloat(cs.rowGap) || 0;
       const W = mount.clientWidth;
       if (!W) return; // a background tab reports zero; leave the layout alone
+      /* The footer's HEIGHT only. Its margin-top is `auto` -- that is what
+         pins it to the floor -- and an auto margin RESOLVES to a real pixel
+         value once the flex column lays out. Adding it here read 512px of
+         resolved margin as if it were part of the footer's box, cut the
+         budget from 760 to 250, and laid five works out at 270px tiles
+         hugging the toolbar. Worse, it is a feedback loop: a starved grid
+         leaves more slack, which grows the auto margin, which starves it
+         further. With the footer pinned its top is simply innerHeight minus
+         its height, so the height is the only term that belongs here. */
       const foot = $(".site-footer");
-      // the footer's MARGIN counts too: offsetHeight alone leaves it out, and
-      // the wall then overruns by exactly that margin
-      const footBox = foot
-        ? foot.offsetHeight + (parseFloat(getComputedStyle(foot).marginTop) || 0)
-        : 0;
+      const footBox = foot ? foot.offsetHeight : 0;
       // a little slack so a layout that only just fits cannot flip its column
       // count when a font swap or rounding nudges it a pixel either way
       const slack = 24 * Math.min(1, window.innerWidth / 3840) + 8;
       const top = mount.getBoundingClientRect().top + window.scrollY;
-      const avail = window.innerHeight - top - footBox - slack;
+      // the section around the wall carries its own bottom padding, which
+      // sits between the grid and the footer and must come out of the budget
+      const padB = mount.parentElement
+        ? parseFloat(getComputedStyle(mount.parentElement).paddingBottom) || 0
+        : 0;
+      const avail = window.innerHeight - top - footBox - padB - slack;
       // Mid-resize the browser can report the new innerHeight while the head
       // and toolbar above still carry the old width's layout, which yields a
       // nonsense box and a wall of postage stamps. Leave it alone and wait
       // for the settled frame scheduleFit() asks for.
       if (!(avail > 0)) return;
-      let best = n; // one row of small tiles always fits across
+      /* Maximise the tile against BOTH edges of the box. A tile is square, so
+         its size is the smaller of what the width allows across that many
+         columns and what the height allows down that many rows. Taking only
+         the width answer, as this did before, meant a filtered wall of five
+         works sat as one row in the top half with 400px of dead space under
+         it: the tiles were as big as one row can be, but the BLOCK was not
+         filling its box. Two rows of three, capped by height, fill it.
+
+         Note the honest limit: five squares across the full width can never
+         exceed W/5 (356px at 1920). Breaking to two rows and capping by
+         height buys 371px, four per cent. The gain here is that the block
+         fills the space, not that each picture grows a lot. Genuinely bigger
+         pictures for a small set would mean letting the tiles stop being
+         squares -- Jaco's call, not a thing to sneak in. */
+      let best = n, bestTile = 0, bestByHeight = false;
       for (let cols = 1; cols <= n; cols++) {
-        // the tracks are 1fr, so each row can land a fraction of a pixel
-        // taller than the ideal; ceil the tile or the wall overflows by a
-        // pixel per row (it did, by 2px at 1366x700)
-        const tile = Math.ceil((W - (cols - 1) * gx) / cols);
         const rows = Math.ceil(n / cols);
-        if (rows * tile + (rows - 1) * gy <= avail) { best = cols; break; }
+        const byW = (W - (cols - 1) * gx) / cols;
+        const byH = (avail - (rows - 1) * gy) / rows;
+        const tile = Math.min(byW, byH);
+        if (tile > bestTile) { bestTile = tile; best = cols; bestByHeight = byH < byW; }
       }
-      mount.style.gridTemplateColumns = `repeat(${best}, 1fr)`;
+      // the grid owns exactly the space between the toolbar and the footer,
+      // so align-content has something real to centre inside
+      mount.style.height = `${Math.max(0, Math.floor(avail))}px`;
+      mount.style.alignContent = "center";
+      if (bestByHeight) {
+        // height-limited: fixed tracks, centred, so the block sits in the
+        // middle of its box instead of hugging the top-left
+        mount.style.gridTemplateColumns = `repeat(${best}, ${Math.floor(bestTile)}px)`;
+        mount.style.justifyContent = "center";
+      } else {
+        /* Width-limited (the full 43-work wall): 1fr keeps it flush to both
+           margins exactly as before. The tile cannot grow here -- 43 squares
+           at 11 across is 149px at 1920, and 10 across needs a fifth row that
+           does not fit -- so the leftover height is quantised and real. Centre
+           the rows in the box so that leftover reads as air above AND below
+           rather than a dead band sitting on the footer. */
+        mount.style.gridTemplateColumns = `repeat(${best}, 1fr)`;
+        mount.style.justifyContent = "";
+      }
     };
+
+    /* Solve only on a SETTLED frame, and from EVERY path that changes the
+       wall -- resize, webfont swap, and the re-render a filter or a search
+       triggers. Measuring synchronously right after innerHTML is replaced
+       reads the new contents against the old layout: pressing Performance
+       gave a grid top of 702 instead of 210, so the box came out at 270px
+       and the five works were laid out at 270px tiles instead of 376. Two
+       rAFs give the browser a full layout pass before anything is measured. */
+    let fitRaf = 0;
+    function scheduleFit() {
+      cancelAnimationFrame(fitRaf);
+      fitRaf = requestAnimationFrame(() => {
+        fitRaf = requestAnimationFrame(fit);
+      });
+    }
 
     // One list feeds the wall: the active category, narrowed by the search
     // over title, venue, year, role and category words.
@@ -675,23 +735,11 @@
             .filter(Boolean).join(" ").toLowerCase().includes(q));
       }
       mount.innerHTML = list.map(cardHTML).join("");
-      if (countEl) countEl.textContent = `${list.length} / ${projects.length} shown`;
+      if (countEl) countEl.textContent = `Showing ${list.length} of ${projects.length}`;
       observeReveals(mount);
-      fit();
+      scheduleFit();
     };
     render();
-    // Solve only on a SETTLED frame. Measuring inside the resize event reads
-    // the new viewport against the old layout: dragging the window from 1920
-    // to 3840 and back produced 8 columns and then 15, where the honest
-    // answer is 11 at both. Two rAFs give the browser a full layout pass at
-    // the new size before anything is measured.
-    let fitRaf = 0;
-    const scheduleFit = () => {
-      cancelAnimationFrame(fitRaf);
-      fitRaf = requestAnimationFrame(() => {
-        fitRaf = requestAnimationFrame(fit);
-      });
-    };
     // the toolbar's height, and so the wall's box, moves when Open Sans
     // swaps in for the fallback: solve again once it has
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFit);
