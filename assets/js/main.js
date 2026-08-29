@@ -1460,7 +1460,17 @@
     });
     const services = (s.services || []).map((x) => `<li>${esc(x)}</li>`).join("");
 
-    $("#about-bio").innerHTML = aboutParas;
+    /* The sign of the first Studio Schilp closes the bio: the photography
+       studio Jaco's grandfather ran, which this one is named after. It sits
+       after the last paragraph rather than beside the text, so it reads as the
+       end of the story instead of another illustration. */
+    const sign = s.bioSign;
+    const signHTML = sign && sign.file
+      ? `<figure class="bio-sign"><img class="reveal" src="${asset(esc(sign.file))}" alt="${esc(sign.caption || "Studio Schilp")}" loading="lazy" onerror="this.closest('figure').remove()">` +
+        (sign.caption ? `<figcaption>${esc(sign.caption)}</figcaption>` : "") +
+        `</figure>`
+      : "";
+    $("#about-bio").innerHTML = aboutParas + signHTML;
     const portrait = $("#about-portrait");
     if (portrait && s.portrait) {
       portrait.onerror = () => portrait.remove(); // hide if the photo isn't there yet

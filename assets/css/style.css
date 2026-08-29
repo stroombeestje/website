@@ -1710,3 +1710,31 @@ a.cv-link:hover { color: var(--fg); }
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/* The first Studio Schilp, closing the bio. It clears the floated portrait so
+   it starts on its own line, and its width is capped as a share of the text
+   column rather than in pixels, so it scales with everything else. */
+.bio-sign {
+  clear: both;
+  margin: calc(2.2rem * var(--ts, 1)) 0 0;
+}
+.bio-sign img {
+  display: block;
+  /* The full width of the text column. A rem cap was wrong here: 30rem scales
+     to 240px on a 1920 laptop against a column nearly 900px wide, so the sign
+     came out as a stamp. The column is already proportional, so following it
+     keeps the sign proportional too. */
+  width: 100%;
+  height: auto;
+  background: var(--tile);
+}
+.bio-sign figcaption {
+  margin-top: calc(0.6rem * var(--ts, 1));
+  color: var(--muted);
+  font-size: max(calc(12px * var(--fl, 1)), calc(0.78rem * var(--ts, 1)));
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .bio-sign { margin-top: 1.6rem; }
+  .bio-sign figcaption { font-size: 0.8rem; }
+}

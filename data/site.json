@@ -517,5 +517,9 @@
     "Club WAS, resident since 2018"
   ],
   "emailUser": "jaco",
-  "emailDomain": "jacoschilp.nl"
+  "emailDomain": "jacoschilp.nl",
+  "bioSign": {
+    "file": "media/about/studio-schilp-sign.jpg",
+    "caption": "The original Studio Schilp, my grandfather's photography studio."
+  }
 }
