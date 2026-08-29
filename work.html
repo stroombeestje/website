@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
   <link rel="stylesheet" href="assets/css/style.css?v=20260829h">
 </head>
 <body data-root="" class="page-wide">
@@ -28,9 +29,8 @@
   </header>
 
   <main>
-    <section class="wrap" style="padding-block:clamp(2rem,4vw,3rem) 0">
+    <section class="wrap" style="padding-block:calc(var(--ts,1) * clamp(2rem,4vw,3rem)) 0">
       <div class="work-head reveal">
-        <h1 class="work-title">A practice in light, space and immersive experience.</h1>
         <p class="work-intro">Installations, curated projects, artworks, performances and live shows. Filter by discipline or search by title, venue or year.</p>
       </div>
       <div class="work-toolbar reveal">
@@ -45,7 +45,7 @@
         </div>
       </div>
     </section>
-    <section class="wrap" style="padding-block:clamp(0.75rem,1.5vw,1.25rem) clamp(1.5rem,3vw,2.5rem)">
+    <section class="wrap" style="padding-block:calc(var(--ts,1) * clamp(0.75rem,1.5vw,1.25rem)) calc(var(--ts,1) * clamp(1.5rem,3vw,2.5rem))">
       <div id="work-grid" class="grid cols-3"></div>
     </section>
   </main>

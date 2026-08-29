@@ -18,7 +18,23 @@
      overflow. The observer watches the element itself, so it cannot go stale. */
   function trackViewportWidth() {
     const root = document.documentElement;
-    const set = () => root.style.setProperty("--vw", root.clientWidth + "px");
+    const set = () => {
+      root.style.setProperty("--vw", root.clientWidth + "px");
+      /* The proportion law, exact: the design is the 4K wall, every other
+         screen shows the SAME picture scaled down. --ts/--ui are simply
+         width/3840 — no steps, no compromise — so the whitespace fraction
+         matches the wall on any desktop. Floored so tablets stay readable;
+         phones (<600) keep their own tuned scale from the CSS fallback. */
+      const w = root.clientWidth;
+      if (w >= 600) {
+        const s = Math.min(1, Math.max(w / 3840, 0.35)).toFixed(4);
+        root.style.setProperty("--ts", s);
+        root.style.setProperty("--ui", s);
+      } else {
+        root.style.removeProperty("--ts");
+        root.style.removeProperty("--ui");
+      }
+    };
     set();
     if ("ResizeObserver" in window) new ResizeObserver(set).observe(root);
     else window.addEventListener("resize", set, { passive: true });
@@ -63,6 +79,18 @@
     if (!("IntersectionObserver" in window)) {
       els.forEach((el) => el.classList.add("in"));
       return;
+    }
+    /* What is already on screen at load is not an arrival, it is the first
+       impression: it appears at once, quickly and without stagger. Only the
+       hero fading in over a second and a half made the opening screen read
+       as a page that had not finished loading. */
+    const vh = window.innerHeight || 800;
+    for (let i = els.length - 1; i >= 0; i--) {
+      const el = els[i];
+      if (el.getBoundingClientRect().top < vh * 0.9) {
+        el.classList.add("at-once", "in");
+        els.splice(i, 1);
+      }
     }
     const io = new IntersectionObserver(
       (entries) => {
@@ -360,9 +388,24 @@
       const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
       return isNaN(v) ? fb : v;
     };
+    // the cloud takes its two colours from the theme, so the dark room is a
+    // real repaint (light dust in a dark space) and not an inverted picture
+    const tc = (name, fb) => {
+      const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      return v || fb;
+    };
     let W = 0, H = 0, pts = [];
     let dot; // pre-rendered round-dot sprite (fast to draw in bulk)
+    let trailRGB = "247, 246, 244"; // the ground the trails fade into
     const mouse = { x: -9999, y: -9999 };
+    const toRGB = (c) => {
+      const h = c.replace("#", "").trim();
+      if (h.length === 6) {
+        return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)).join(", ");
+      }
+      const m = c.match(/\d+/g);
+      return m ? m.slice(0, 3).join(", ") : "247, 246, 244";
+    };
 
     // organic granular nebula — soft 3D dust lobes that rotate slowly
     // (after the TouchDesigner renders: dense charcoal cores dissolving into stray grain)
@@ -371,13 +414,14 @@
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = "#f7f6f4"; ctx.fillRect(0, 0, W, H); // prime for trails
+      trailRGB = toRGB(tc("--cloud-bg", "#f7f6f4"));
+      ctx.fillStyle = `rgb(${trailRGB})`; ctx.fillRect(0, 0, W, H); // prime for trails
 
       // tiny round-dot sprite (drawImage is much faster than arc() in bulk)
       dot = document.createElement("canvas");
       dot.width = dot.height = 16;
       const dctx = dot.getContext("2d");
-      dctx.fillStyle = "#141414";
+      dctx.fillStyle = tc("--cloud-ink", "#20201f");
       dctx.beginPath(); dctx.arc(8, 8, 7, 0, Math.PI * 2); dctx.fill();
 
       const mobile = W < 600;
@@ -418,12 +462,14 @@
     function draw(t) {
       // fade the previous frame instead of clearing -> motion trails
       ctx.globalAlpha = 1;
-      ctx.fillStyle = `rgba(247, 246, 244, ${tv("--pc-trail", 0.03)})`;
+      ctx.fillStyle = `rgba(${trailRGB}, ${tv("--pc-trail", 0.03)})`;
       ctx.fillRect(0, 0, W, H);
-      ctx.fillStyle = "#141414";
-      const R = 210;
+      // the grain is tuned on the 4K wall; smaller screens scale the dots and
+      // the magnet with the viewport so the cloud reads the same, not chunkier
+      const vs = W < 600 ? 1 : Math.min(W, H) / 2160;
+      const R = 210 * vs;
       const TAU = Math.PI * 2;
-      const sizeMul = tv("--pc-size", 2.5);
+      const sizeMul = tv("--pc-size", 2.5) * vs;
       const spd = tv("--pc-speed", 3);
       // slow 3D rotation of the whole field
       const ay = reduced ? 0.6 : t * 0.00006 * spd;
@@ -455,7 +501,7 @@
         pt.ox += (dx * k - pt.ox) * ease;
         pt.oy += (dy * k - pt.oy) * ease;
         x += pt.ox; y += pt.oy;
-        const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / 60);
+        const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / (60 * vs));
         const depth = 0.55 + 0.45 * Math.max(0, Math.min(1, (1 - Z2 / SR) * 0.5)); // nearer = darker
         ctx.globalAlpha = Math.min(0.72, pt.w * 0.36 * depth + pull * 0.35);
         const pr = pt.s * persp * sizeMul;
@@ -483,6 +529,11 @@
     window.addEventListener("resize", () => {
       clearTimeout(rto);
       rto = setTimeout(build, 150);
+    });
+    // switching the room repaints the cloud in the new theme's two colours
+    window.addEventListener("themechange", () => {
+      build();
+      if (reduced) draw(0);
     });
 
     build();
@@ -1314,11 +1365,69 @@
     } catch (e) {}
   }
 
+  /* ---- the light switch ----
+     The work is light in a dark room, so a visitor can see the site either
+     way. Paper is the default; the choice is remembered in this browser only.
+     The <html data-theme> attribute is set by a tiny inline script in each
+     page's <head> before first paint, so a returning visitor never sees the
+     wrong room flash past. */
+  function initTheme() {
+    const root = document.documentElement;
+    const nav = $(".nav");
+    if (!nav) return;
+    const btn = document.createElement("button");
+    btn.className = "theme-toggle";
+    btn.type = "button";
+    // both glyphs ship; CSS shows whichever belongs to the current room
+    btn.innerHTML =
+      '<span class="theme-sun" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
+      '<circle cx="12" cy="12" r="4.4"></circle>' +
+      '<path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"></path>' +
+      "</svg></span>" +
+      '<span class="theme-moon" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">' +
+      '<path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z"></path>' +
+      "</svg></span>";
+
+    const label = () => {
+      const dark = root.dataset.theme === "dark";
+      btn.setAttribute("aria-pressed", String(dark));
+      btn.setAttribute("aria-label", dark ? "Switch to the light room" : "Switch to the dark room");
+      btn.title = btn.getAttribute("aria-label");
+    };
+    label();
+
+    btn.addEventListener("click", () => {
+      const dark = root.dataset.theme === "dark";
+      if (dark) delete root.dataset.theme;
+      else root.dataset.theme = "dark";
+      try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch (_) {}
+      label();
+      window.dispatchEvent(new Event("themechange"));
+    });
+
+    // sits in the bar next to the menu, before the phone's hamburger
+    const links = $(".nav-links");
+    if (links) nav.insertBefore(btn, links.nextSibling);
+    else nav.appendChild(btn);
+  }
+
   // The tune panel: opening any page with ?tune starts a live editing
   // session (dials for text sizes, whitespace, widths) that follows you
   // across pages until closed. Values preview only; Copy hands them over
   // to be baked into the stylesheet.
   function initTune() {
+    /* The panel is a studio instrument, never a visitor's business: it only
+       exists on a local dev server. A published page cannot show it even if
+       an old ?tune session is still remembered in that browser's storage —
+       which is exactly how it once turned up over the live work grid. */
+    const local = /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname) ||
+      location.protocol === "file:" || location.hostname.endsWith(".local");
+    if (!local) {
+      localStorage.removeItem("siteTune");
+      return;
+    }
     if (new URLSearchParams(location.search).has("tune")) localStorage.setItem("siteTune", "1");
     if (localStorage.getItem("siteTune") !== "1") return;
     try {
@@ -1337,6 +1446,7 @@
     initHoverPreviews();
     initLivingTiles();
     initHeader();
+    initTheme();
     initChrome();
     initHeroPoints();
     initHome();

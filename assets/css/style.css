@@ -6,9 +6,19 @@
 :root {
   --bg: #f7f6f4;
   --fg: #141414;
-  --muted: #8a8a86;
+  /* the quiet grey still has to be readable: #8a8a86 measured 3.21:1 on the
+     paper, under the 4.5 minimum. This is the lightest grey that passes
+     (4.75:1), so secondary text stays secondary but legible in daylight. */
+  --muted: #6e6e69;
   --line: #e3e1dd;
   --accent: #141414;
+  /* the empty frame a picture loads into, and the cloud's own two colours,
+     which main.js reads so the canvas follows the theme */
+  --tile: #e9e7e3;
+  --cloud-bg: #f7f6f4;
+  --cloud-ink: #20201f;
+
+  color-scheme: light;
 
   --maxw: calc(3000px * var(--x-width, 1));
   --gutter: calc(var(--x-gutter, 1) * var(--ts, 1) * clamp(1.25rem, 4vw, 4rem));
@@ -19,6 +29,22 @@
 
   --t-fast: 0.25s ease;
   --t-med: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The dark room. The work is light in a dark space, so the site can be shown
+   that way too: the visitor chooses, the choice is remembered, and the paper
+   version stays the default. Only the tokens change, never a size. */
+:root[data-theme="dark"] {
+  --bg: #0e0f11;
+  --fg: #f2f1ee;
+  --muted: #a3a39d; /* 7.4:1 on the dark ground */
+  --line: #2c2d30;
+  --accent: #f2f1ee;
+  --tile: #17181b;
+  --cloud-bg: #0e0f11;
+  --cloud-ink: #e8e7e3;
+
+  color-scheme: dark;
 }
 
 *,
@@ -43,15 +69,27 @@ html {
    live; chosen values get baked back here as new defaults. */
 html { font-size: calc(100% * var(--x-base, 1)); }
 
-/* Proportional presence: the design is tuned on the studio's 4K screen.
-   A smaller screen gets the SAME proportions, not the same pixels: --ts
-   scales the type and the air, --ui scales the chrome (bar, brand, menu),
-   stepping down with the window so a 1080p laptop sees the 4K balance. */
+/* Proportional presence: the design IS the 4K wall, and every other screen
+   shows the same picture scaled down — the whitespace fraction matches the
+   wall everywhere. main.js sets --ts/--ui exactly (width / 3840, floored at
+   0.35, phones excluded); these media steps are only the fallback for the
+   first paint and for no-JS, so they approximate the same line. */
 :root { --ts: 1; --ui: 1; }
-@media (max-width: 3400px) { :root { --ts: 0.9; --ui: 0.85; } }
-@media (max-width: 2600px) { :root { --ts: 0.8; --ui: 0.72; } }
-@media (max-width: 2100px) { :root { --ts: 0.7; --ui: 0.6; } }
-@media (max-width: 1500px) { :root { --ts: 0.66; --ui: 0.55; } }
+@media (max-width: 3400px) { :root { --ts: 0.85; --ui: 0.85; } }
+@media (max-width: 2600px) { :root { --ts: 0.65; --ui: 0.65; } }
+@media (max-width: 2100px) { :root { --ts: 0.5; --ui: 0.5; } }
+@media (max-width: 1500px) { :root { --ts: 0.39; --ui: 0.39; } }
+@media (max-width: 600px) { :root { --ts: 0.66; --ui: 0.55; } }
+
+/* THE READABLE FLOOR. Pure proportion is right until it makes text nobody
+   can read: at 1512 the tagline fell to 8.6px and the footer to 5.1px.
+   So every piece of type is written as max(floor, proportional) — the wall
+   and any wide screen keep exactly the tuned sizes, and only where the
+   proportional value would drop below legibility does the floor take over.
+   Whitespace stays fully proportional; only the letters stop shrinking.
+   --fl is 0 on phones, where max() then yields the phone-tuned size. */
+:root { --fl: 1; }
+@media (max-width: 600px) { :root { --fl: 0; } }
 :root {
   --fx-title: calc(var(--x-title, 1.02) * var(--ts));
   --fx-text: calc(var(--x-text, 1.58) * var(--ts));
@@ -65,7 +103,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: calc(17px * var(--fx-text));
+  font-size: max(calc(15px * var(--fl, 1)), calc(17px * var(--fx-text)));
   line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -87,18 +125,18 @@ section { padding-block: calc(var(--fx-space) * clamp(2.25rem, 5.5vw, 4.5rem)); 
 
 /* ---- Type ---- */
 .eyebrow {
-  font-size: calc(var(--fx-label) * 0.72rem);
+  font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 1.5rem;
+  margin: 0 0 calc(1.5rem * var(--ts, 1));
 }
 
 h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .display {
   font-family: var(--font-serif);
-  font-size: calc(var(--fx-title) * clamp(2.6rem, 8vw, 6.5rem));
+  font-size: max(calc(30px * var(--fl, 1)), calc(var(--fx-title) * clamp(2.6rem, 8vw, 6.5rem)));
   letter-spacing: -0.03em;
   font-weight: 700;
   line-height: 1.02;
@@ -106,13 +144,13 @@ h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.05; }
 
 .h-section {
   font-family: var(--font-serif);
-  font-size: calc(var(--fx-title) * clamp(1.8rem, 4vw, 3rem));
+  font-size: max(calc(21px * var(--fl, 1)), calc(var(--fx-title) * clamp(1.8rem, 4vw, 3rem)));
   letter-spacing: -0.02em;
   font-weight: 700;
 }
 
 .lead {
-  font-size: calc(var(--fx-text) * clamp(1.05rem, 2vw, 1.4rem));
+  font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.05rem, 2vw, 1.4rem)));
   line-height: 1.5;
   max-width: 32ch;
   color: var(--fg);
@@ -145,17 +183,17 @@ p { margin: 0 0 1.2em; }
 }
 .brand {
   font-family: var(--font-serif);
-  font-size: calc(var(--x-brand, 2.2) * 1.35rem * var(--ui, 1));
+  font-size: max(calc(19px * var(--fl, 1)), calc(var(--x-brand, 2.2) * 1.35rem * var(--ui, 1)));
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 .nav-links {
   display: flex;
-  gap: clamp(1rem, 3vw, 2.5rem);
+  gap: calc(var(--ui, 1) * clamp(1rem, 3vw, 2.5rem));
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: calc(var(--x-nav, 2) * 0.82rem * var(--ui, 1));
+  font-size: max(calc(12.5px * var(--fl, 1)), calc(var(--x-nav, 2) * 0.82rem * var(--ui, 1)));
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -179,6 +217,32 @@ p { margin: 0 0 1.2em; }
 .nav-links a:hover::after,
 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
 
+/* the light switch: a quiet glyph in the bar, sized off the chrome scale */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0;
+  margin-left: calc(var(--ui, 1) * clamp(1rem, 3vw, 2.5rem));
+  width: max(calc(34px * var(--fl, 1)), calc(46px * var(--ui, 1)));
+  height: max(calc(34px * var(--fl, 1)), calc(46px * var(--ui, 1)));
+  border-radius: 50%;
+  transition: color var(--t-fast), background var(--t-fast);
+}
+.theme-toggle:hover { color: var(--fg); background: color-mix(in srgb, var(--fg) 8%, transparent); }
+.theme-toggle svg {
+  width: max(calc(17px * var(--fl, 1)), calc(23px * var(--ui, 1)));
+  height: auto;
+  display: block;
+}
+/* each room shows the door to the other one */
+.theme-toggle .theme-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .theme-moon { display: block; }
+
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--fg); margin: 5px 0; transition: var(--t-fast); }
 
@@ -191,14 +255,22 @@ p { margin: 0 0 1.2em; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
-  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: calc(var(--ts, 1) * clamp(2rem, 5vw, 3.5rem));
+  padding-top: calc(var(--ts, 1) * clamp(1.5rem, 4vw, 2.5rem));
 }
 .hero .display { max-width: 16ch; text-shadow: 0 0 14px var(--bg); }
-.hero .eyebrow { color: #45453f; text-shadow: 0 0 10px var(--bg), 0 0 4px var(--bg); }
+/* mixed from the theme's own ink and paper, so it follows the room */
+.hero .eyebrow { color: color-mix(in srgb, var(--fg) 74%, var(--bg)); text-shadow: 0 0 10px var(--bg), 0 0 4px var(--bg); }
+/* the home statement leads on every layout, not only the one-view desktop:
+   between phone and desktop it still has to out-weigh everything around it */
+.home-hero .lead {
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: max(calc(20px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.05rem, 2vw, 1.4rem)));
+}
 .hero .lead {
-  margin-top: 1.75rem;
-  color: #3d3d3a;
+  margin-top: calc(1.75rem * var(--ts, 1));
+  color: var(--fg); /* the statement carries full ink, not a grey */
   text-shadow: 0 0 12px var(--bg), 0 0 5px var(--bg), 0 0 2px var(--bg);
 }
 
@@ -230,10 +302,18 @@ p { margin: 0 0 1.2em; }
   width: 100vw;
   height: 100dvh;
   z-index: -1;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
-  -webkit-mask-composite: source-over;
-  mask-composite: add;
+  /* The cloud must RESOLVE, never be chopped: the works row is opaque, so a
+     cloud still at full density where that row begins reads as a cut edge.
+     The vertical mask thins it out well above the row, and the horizontal
+     one keeps it off both margins. */
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 0, black 34%, transparent 62%),
+    linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, black 0, black 34%, transparent 62%),
+    linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  mask-composite: intersect;
 }
 
 /* ==========================================================================
@@ -250,7 +330,7 @@ p { margin: 0 0 1.2em; }
 .card-media {
   position: relative;
   overflow: hidden;
-  background: #e9e7e3;
+  background: var(--tile);
   aspect-ratio: 1 / 1;
 }
 .card-media img {
@@ -345,29 +425,29 @@ p { margin: 0 0 1.2em; }
 .card-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  margin-top: 0.85rem;
+  gap: calc(0.2rem * var(--ts, 1));
+  margin-top: calc(0.85rem * var(--ts, 1));
 }
 .card-title {
   font-family: var(--font-serif);
-  font-size: calc(var(--fx-label) * clamp(1.15rem, 1.7vw, 1.45rem));
+  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-label) * clamp(1.15rem, 1.7vw, 1.45rem)));
   font-weight: 600;
   letter-spacing: -0.01em;
   text-wrap: pretty; /* avoid stranded runt words in titles */
 }
-.card-sub { font-size: calc(var(--fx-label) * 0.78rem); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.card-cat { font-size: calc(var(--fx-label) * 0.78rem); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.card-sub { font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.78rem)); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.card-cat { font-size: max(calc(11.5px * var(--fl, 1)), calc(var(--fx-label) * 0.78rem)); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
 /* placeholder shimmer for missing images */
 .ph {
   width: 100%; height: 100%;
-  min-height: clamp(180px, 30vw, 360px);
+  min-height: calc(var(--ts, 1) * clamp(180px, 30vw, 360px));
   display: grid; place-items: center;
   background:
-    linear-gradient(135deg, #ecebe7 0%, #e2e0db 100%);
+    linear-gradient(135deg, var(--tile) 0%, color-mix(in srgb, var(--tile) 82%, var(--fg)) 100%);
   color: var(--muted);
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: calc(1.4rem * var(--ts, 1));
   letter-spacing: 0.04em;
 }
 
@@ -380,11 +460,11 @@ p { margin: 0 0 1.2em; }
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: clamp(2rem, 6vw, 8rem);
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  gap: calc(var(--ts, 1) * clamp(2rem, 6vw, 8rem));
+  margin-bottom: calc(var(--ts, 1) * clamp(1.5rem, 3vw, 2.5rem));
 }
 .work-title {
-  font-size: clamp(1.9rem, 3vw, 2.9rem);
+  font-size: max(calc(23px * var(--fl, 1)), calc(var(--ts, 1) * clamp(1.9rem, 3vw, 2.9rem)));
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -392,26 +472,26 @@ p { margin: 0 0 1.2em; }
   max-width: 22ch;
 }
 .work-intro {
-  margin: 0.5rem 0 0;
+  margin: calc(0.5rem * var(--ts, 1)) 0 0;
   color: var(--muted);
-  font-size: calc(var(--fx-text) * 0.95rem);
-  max-width: 26rem;
+  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
+  max-width: calc(26rem * var(--ts, 1));
 }
 .work-toolbar {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: calc(var(--ts, 1) * clamp(1rem, 2.5vw, 2.5rem));
   border-top: 1px solid var(--fg);
   border-bottom: 1px solid var(--line);
-  padding: 0.7rem 0;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  padding: calc(0.7rem * var(--ts, 1)) 0;
+  margin-bottom: calc(var(--ts, 1) * clamp(1rem, 2vw, 1.5rem));
 }
 .work-search {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: calc(0.5rem * var(--ts, 1));
   color: var(--muted);
-  flex: 0 1 260px;
+  flex: 0 1 calc(260px * var(--ts, 1));
   border-bottom: 1px solid var(--line);
   padding-bottom: 3px;
 }
@@ -420,7 +500,7 @@ p { margin: 0 0 1.2em; }
   outline: none;
   background: none;
   font: inherit;
-  font-size: calc(0.9rem * var(--ts, 1));
+  font-size: max(calc(13px * var(--fl, 1)), calc(0.9rem * var(--ts, 1)));
   color: var(--fg);
   width: 100%;
 }
@@ -432,7 +512,7 @@ p { margin: 0 0 1.2em; }
   border-radius: 999px;
   cursor: pointer;
   font: inherit;
-  font-size: calc(0.72rem * var(--ts, 1));
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(0.72rem * var(--ts, 1)));
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
@@ -451,17 +531,17 @@ p { margin: 0 0 1.2em; }
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: calc(1.2rem * var(--ts, 1));
   white-space: nowrap;
 }
 .work-count {
-  font-size: calc(0.72rem * var(--ts, 1));
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(0.72rem * var(--ts, 1)));
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
-.filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.filters { display: flex; flex-wrap: wrap; gap: calc(0.5rem * var(--ts, 1)); }
 @media (max-width: 900px) {
   .work-head { flex-direction: column; gap: 0.75rem; }
   .work-toolbar { flex-wrap: wrap; row-gap: 0.7rem; }
@@ -475,13 +555,13 @@ p { margin: 0 0 1.2em; }
 /* ==========================================================================
    Project detail
    ========================================================================== */
-.project-head { padding-top: clamp(2rem, 4.5vw, 3.5rem); padding-bottom: clamp(1.2rem, 2.5vw, 2rem); }
-.project-head .display { font-size: calc(var(--fx-title) * clamp(2.4rem, 7vw, 5.5rem)); max-width: 18ch; text-wrap: balance; }
+.project-head { padding-top: calc(var(--ts, 1) * clamp(2rem, 4.5vw, 3.5rem)); padding-bottom: calc(var(--ts, 1) * clamp(1.2rem, 2.5vw, 2rem)); }
+.project-head .display { font-size: max(calc(28px * var(--fl, 1)), calc(var(--fx-title) * clamp(2.4rem, 7vw, 5.5rem))); max-width: 18ch; text-wrap: balance; }
 /* a co-authored work is told from both makers: the byline under the title */
 .project-by {
-  margin: 1rem 0 0;
+  margin: calc(1rem * var(--ts, 1)) 0 0;
   font-family: var(--font-serif);
-  font-size: calc(var(--fx-text) * clamp(1.15rem, 1.6vw, 1.55rem));
+  font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.15rem, 1.6vw, 1.55rem)));
   font-weight: 600;
 }
 .project-by .by-x { color: var(--muted); font-weight: 400; padding-inline: 0.3em; }
@@ -490,13 +570,13 @@ p { margin: 0 0 1.2em; }
   flex-wrap: wrap;
   align-items: start;
   justify-content: space-between;
-  gap: 1.5rem clamp(2rem, 4vw, 5rem);
-  margin-top: 1.4rem;
-  padding-top: 1.2rem;
+  gap: calc(1.5rem * var(--ts, 1)) calc(var(--ts, 1) * clamp(2rem, 4vw, 5rem));
+  margin-top: calc(1.4rem * var(--ts, 1));
+  padding-top: calc(1.2rem * var(--ts, 1));
   border-top: 1px solid var(--line);
 }
-.fact-label { font-size: calc(var(--fx-label) * 0.72rem); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
-.fact-value { font-size: calc(var(--fx-label) * 0.95rem); }
+.fact-label { font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem)); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: calc(0.4rem * var(--ts, 1)); }
+.fact-value { font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-label) * 0.95rem)); }
 .fact-locations { line-height: 1.75; }
 
 /* under the page: the press that wrote about the work and its nearest
@@ -514,7 +594,7 @@ p { margin: 0 0 1.2em; }
 .rel-media {
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #e9e7e3;
+  background: var(--tile);
   margin-bottom: 0.6rem;
 }
 .rel-media img {
@@ -526,7 +606,7 @@ p { margin: 0 0 1.2em; }
 .rel-card:hover .rel-media img { transform: scale(1.04); }
 .rel-kicker {
   display: block;
-  font-size: calc(var(--fx-label) * 0.68rem);
+  font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.68rem));
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -535,7 +615,7 @@ p { margin: 0 0 1.2em; }
 .rel-title {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: calc(var(--fx-label) * 0.95rem);
+  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-label) * 0.95rem));
   line-height: 1.35;
 }
 /* the facts spread evenly; the link BLOCK closes the row at the right,
@@ -546,34 +626,34 @@ p { margin: 0 0 1.2em; }
 .project-credits {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem clamp(2rem, 4vw, 4.5rem);
+  gap: calc(1rem * var(--ts, 1)) calc(var(--ts, 1) * clamp(2rem, 4vw, 4.5rem));
   margin-top: 1.6em;
   padding-top: 1.1em;
   border-top: 1px solid var(--line);
 }
 .credit-role {
   display: block;
-  font-size: calc(var(--fx-label) * 0.72rem);
+  font-size: max(calc(11px * var(--fl, 1)), calc(var(--fx-label) * 0.72rem));
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
-.credit-name { font-size: calc(var(--fx-credits) * 1.05rem); color: var(--fg); }
+.credit-name { font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-credits) * 1.05rem)); color: var(--fg); }
 /* a credits sentence that is not a Role: Name pair reads as a quiet note */
 .credit-note {
   flex-basis: 100%;
   margin: 0;
   max-width: 70ch;
   color: var(--muted);
-  font-size: calc(var(--fx-label) * 0.85rem);
+  font-size: max(calc(13px * var(--fl, 1)), calc(var(--fx-label) * 0.85rem));
   line-height: 1.6;
 }
 
 .project-body {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: calc(var(--ts, 1) * clamp(1rem, 3vw, 2rem));
   max-width: 60ch;
   /* below the text sits the gallery: that white marge has its own dial
      and ships small */
@@ -607,7 +687,7 @@ p { margin: 0 0 1.2em; }
   width: 100%;
   height: auto;
   margin: 0;
-  background: #e9e7e3;
+  background: var(--tile);
   display: block;
 }
 
@@ -686,8 +766,8 @@ p { margin: 0 0 1.2em; }
   justify-content: space-between;
   border-top: 1px solid var(--line);
   margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
-  padding-top: 2rem;
-  font-size: calc(0.85rem * var(--ts, 1));
+  padding-top: calc(2rem * var(--ts, 1));
+  font-size: max(calc(12px * var(--fl, 1)), calc(0.85rem * var(--ts, 1)));
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -700,26 +780,26 @@ p { margin: 0 0 1.2em; }
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 6rem);
+  gap: calc(var(--ts, 1) * clamp(2rem, 6vw, 6rem));
   align-items: start;
 }
 .about-portrait {
   width: 100%;
   display: block;
-  margin-bottom: clamp(1.25rem, 3vw, 2rem);
-  background: #e9e7e3;
+  margin-bottom: calc(var(--ts, 1) * clamp(1.25rem, 3vw, 2rem));
+  background: var(--tile);
 }
-.about-text { font-size: calc(var(--fx-text) * clamp(1.1rem, 1.8vw, 1.35rem)); line-height: 1.6; font-family: var(--font-serif); }
+.about-text { font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.1rem, 1.8vw, 1.35rem))); line-height: 1.6; font-family: var(--font-serif); }
 .about-text p { margin-bottom: 1em; }
 
 /* The reading text on a project page runs larger than the site's base: the
    pages went wide and 17px drowned next to the pictures. */
-.project-body { font-size: calc(var(--fx-text) * clamp(1.1rem, 1.15vw, 1.3rem)); line-height: 1.65; }
+.project-body { font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.1rem, 1.15vw, 1.3rem))); line-height: 1.65; }
 
 /* artist statement inside a project description — set apart from the info text */
 .project-body .statement {
   font-style: italic;
-  color: #4a4a47;
+  color: color-mix(in srgb, var(--fg) 78%, var(--bg));
   border-left: 2px solid var(--line);
   padding-left: 1.25em;
   font-size: 1.05em;
@@ -729,7 +809,7 @@ p { margin: 0 0 1.2em; }
 .project-body.has-statement {
   grid-template-columns: 1fr 1fr;
   max-width: none;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  gap: calc(var(--ts, 1) * clamp(2rem, 5vw, 4.5rem));
   align-items: start;
 }
 .project-info p { margin-bottom: 1.1em; }
@@ -741,26 +821,28 @@ p { margin: 0 0 1.2em; }
 }
 
 /* ---- press ---- */
-#press .lead { color: var(--muted); margin-top: 1.25rem; }
+#press .lead { color: var(--muted); margin-top: calc(1.25rem * var(--ts, 1)); }
 /* Press as cards: each article carries its own picture, pulled from the
    article itself, with a black hairline on top like the approved board. */
 .press-list {
   list-style: none;
-  margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+  margin: calc(var(--ts, 1) * clamp(2rem, 5vw, 3.5rem)) 0 0;
   padding: 0;
   display: grid;
   /* cards stay modest: the wide page gets more columns, not bigger pictures */
-  grid-template-columns: repeat(auto-fill, minmax(calc(300px * var(--ts, 1)), 1fr));
-  gap: clamp(1.2rem, 2.5vw, 2rem);
+  /* the card floor matches the type floor: once the text stops shrinking, a
+     card that keeps shrinking can no longer hold its outlet and date line */
+  grid-template-columns: repeat(auto-fill, minmax(max(calc(250px * var(--fl, 1)), calc(300px * var(--ts, 1))), 1fr));
+  gap: calc(var(--ts, 1) * clamp(1.2rem, 2.5vw, 2rem));
 }
 @media (max-width: 600px) { .press-list { grid-template-columns: 1fr; } }
 .press-item { border-top: 1px solid var(--fg); }
-.press-link { display: block; padding: 0.9rem 0 0.4rem; text-decoration: none; color: var(--fg); }
+.press-link { display: block; padding: calc(0.9rem * var(--ts, 1)) 0 calc(0.4rem * var(--ts, 1)); text-decoration: none; color: var(--fg); }
 .press-media {
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #e9e7e3;
-  margin-bottom: 0.9rem;
+  background: var(--tile);
+  margin-bottom: calc(0.9rem * var(--ts, 1));
 }
 .press-media img {
   width: 100%;
@@ -770,12 +852,12 @@ p { margin: 0 0 1.2em; }
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .press-link:hover .press-media img { transform: scale(1.04); }
-.press-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-.press-outlet { font-size: calc(0.8rem * var(--ts, 1)); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
-.press-date { font-size: calc(0.78rem * var(--ts, 1)); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.press-title { font-size: calc(var(--fx-text) * 1.12rem); line-height: 1.35; margin: 0.5rem 0 0; font-weight: 600; }
-.press-quote { color: var(--muted); font-family: var(--font-serif); font-style: italic; margin: 0.7rem 0 0; line-height: 1.5; font-size: calc(var(--fx-text) * 0.92rem); }
-.press-cta { display: inline-block; margin-top: 0.9rem; font-size: calc(0.8rem * var(--ts, 1)); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.press-head { display: flex; align-items: baseline; justify-content: space-between; gap: calc(1rem * var(--ts, 1)); }
+.press-outlet { font-size: max(calc(11.5px * var(--fl, 1)), calc(0.8rem * var(--ts, 1))); letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); font-weight: 600; }
+.press-date { font-size: max(calc(11.5px * var(--fl, 1)), calc(0.78rem * var(--ts, 1))); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.press-title { font-size: max(calc(15px * var(--fl, 1)), calc(var(--fx-text) * 1.12rem)); line-height: 1.35; margin: calc(0.5rem * var(--ts, 1)) 0 0; font-weight: 600; }
+.press-quote { color: var(--muted); font-family: var(--font-serif); font-style: italic; margin: calc(0.7rem * var(--ts, 1)) 0 0; line-height: 1.5; font-size: max(calc(13.5px * var(--fl, 1)), calc(var(--fx-text) * 0.92rem)); }
+.press-cta { display: inline-block; margin-top: calc(0.9rem * var(--ts, 1)); font-size: max(calc(11.5px * var(--fl, 1)), calc(0.8rem * var(--ts, 1))); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .press-link:hover .press-cta { color: var(--fg); }
 
 .press-empty { color: var(--muted); padding: 1.5rem 0; }
@@ -783,20 +865,20 @@ p { margin: 0 0 1.2em; }
 .detail-list { list-style: none; margin: 0; padding: 0; }
 .detail-list li {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
-  gap: 1.5rem;
-  padding: 0.85rem 0;
+  grid-template-columns: calc(4.5rem * var(--ts, 1)) 1fr;
+  gap: calc(1.5rem * var(--ts, 1));
+  padding: calc(0.85rem * var(--ts, 1)) 0;
   border-bottom: 1px solid var(--line);
-  font-size: calc(var(--fx-text) * 0.95rem);
+  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
 }
 .detail-list .y { color: var(--muted); }
 
 .services-list { list-style: none; margin: 0; padding: 0; }
-.services-list li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+.services-list li { padding: calc(0.6rem * var(--ts, 1)) 0; border-bottom: 1px solid var(--line); }
 
 .contact-big {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-size: max(calc(24px * var(--fl, 1)), calc(var(--ts, 1) * clamp(1.5rem, 4vw, 2.8rem)));
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -809,16 +891,16 @@ p { margin: 0 0 1.2em; }
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--line);
-  padding-block: 3rem;
-  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-block: calc(3rem * var(--ts, 1));
+  margin-top: calc(var(--ts, 1) * clamp(2rem, 5vw, 4rem));
 }
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 2rem;
+  gap: calc(1rem * var(--ts, 1)) calc(2rem * var(--ts, 1));
   justify-content: space-between;
   align-items: center;
-  font-size: calc(0.82rem * var(--ts, 1));
+  font-size: max(calc(12px * var(--fl, 1)), calc(0.82rem * var(--ts, 1)));
   color: var(--muted);
   letter-spacing: 0.04em;
 }
@@ -837,6 +919,11 @@ p { margin: 0 0 1.2em; }
    small stagger per element so a row settles like a hand of cards, not a slab */
 .reveal { opacity: 0; transform: translateY(26px) scale(0.972); transition: opacity 1s ease, transform 1s cubic-bezier(0.22,1,0.36,1); }
 .reveal.in { opacity: 1; transform: none; }
+/* what is on screen at load arrives at once: a first impression may not
+   spend a second and a half being invisible */
+.reveal.at-once { transition-duration: 0.32s; transition-delay: 0s !important; }
+/* if the script is slow, blocked or broken, the words still show up */
+@media (scripting: none) { .reveal { opacity: 1; transform: none; } }
 /* on the HOME anything carrying a picture skips the fade entirely: the
    tiles stand at full ink over the cloud from the first frame */
 .page-home .reveal:has(img, video, canvas),
@@ -873,11 +960,15 @@ p { margin: 0 0 1.2em; }
   .nav-links.open { transform: none; visibility: visible; transition: transform var(--t-med); }
   .nav-links li { padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: block; }
+  /* a finger needs a real target, and --fl is 0 here so the desktop floor
+     does not apply: give the switch its own phone size */
+  .theme-toggle { width: 44px; height: 44px; margin-left: auto; margin-right: 4px; }
+  .theme-toggle svg { width: 20px; }
   /* 3 squares across on phones — compact, legible one-line captions */
   .grid, .grid.cols-3 { grid-template-columns: repeat(3, 1fr); gap: 0.7rem 0.45rem; }
   .card-meta { gap: 0.1rem; margin-top: 0.4rem; }
   .card-title { font-size: 0.72rem; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .card-cat { font-size: 0.62rem; letter-spacing: 0; text-transform: none; color: #4f4f4b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-cat { font-size: 0.62rem; letter-spacing: 0; text-transform: none; color: color-mix(in srgb, var(--fg) 74%, var(--bg)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 
 /* --------------------------------------------------------------------------
@@ -886,11 +977,11 @@ p { margin: 0 0 1.2em; }
 .project-insight {
   border-top: 1px solid var(--line);
   margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
-  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-top: calc(var(--ts, 1) * clamp(2rem, 4vw, 3.5rem));
 }
-.insight-head { max-width: 46rem; }
+.insight-head { max-width: calc(46rem * var(--ts, 1)); }
 .insight-head h2 {
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-size: max(calc(20px * var(--fl, 1)), calc(var(--ts, 1) * clamp(1.5rem, 3.2vw, 2.4rem)));
   line-height: 1.2;
   font-weight: 400;
   margin: 0.4rem 0 0;
@@ -898,52 +989,52 @@ p { margin: 0 0 1.2em; }
 }
 .insight-intro {
   color: var(--muted);
-  margin: 1rem 0 0;
-  max-width: 38rem;
+  margin: calc(1rem * var(--ts, 1)) 0 0;
+  max-width: calc(38rem * var(--ts, 1));
 }
 .insight-qa {
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: calc(var(--ts, 1) * clamp(2rem, 4vw, 3rem));
   display: grid;
-  gap: clamp(1.75rem, 3vw, 2.75rem);
+  gap: calc(var(--ts, 1) * clamp(1.75rem, 3vw, 2.75rem));
 }
 .insight-qa .qa {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.75rem;
-  padding-top: 1.5rem;
+  gap: calc(0.75rem * var(--ts, 1));
+  padding-top: calc(1.5rem * var(--ts, 1));
   border-top: 1px solid var(--line);
 }
 .insight-qa .qa:first-child { padding-top: 0; border-top: 0; }
 .insight-qa .q {
   margin: 0;
   color: var(--muted);
-  font-size: calc(0.82rem * var(--ts, 1));
+  font-size: max(calc(12px * var(--fl, 1)), calc(0.82rem * var(--ts, 1)));
   letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.5;
 }
 .insight-qa blockquote {
   margin: 0;
-  max-width: 42rem;
+  max-width: calc(42rem * var(--ts, 1));
 }
-.insight-qa blockquote + blockquote { margin-top: 1.1rem; }
+.insight-qa blockquote + blockquote { margin-top: calc(1.1rem * var(--ts, 1)); }
 .insight-qa blockquote p {
   margin: 0;
-  font-size: calc(var(--fx-text) * clamp(1.05rem, 1.6vw, 1.25rem));
+  font-size: max(calc(15px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.05rem, 1.6vw, 1.25rem)));
   line-height: 1.55;
 }
 .insight-qa cite {
   display: block;
   margin-top: 0.5rem;
   font-style: normal;
-  font-size: calc(0.8rem * var(--ts, 1));
+  font-size: max(calc(12px * var(--fl, 1)), calc(0.8rem * var(--ts, 1)));
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .insight-source {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
-  font-size: calc(0.85rem * var(--ts, 1));
+  margin: calc(var(--ts, 1) * clamp(2rem, 4vw, 3rem)) 0 0;
+  font-size: max(calc(13px * var(--fl, 1)), calc(0.85rem * var(--ts, 1)));
   color: var(--muted);
 }
 .insight-source a { border-bottom: 1px solid var(--line); }
@@ -951,8 +1042,8 @@ p { margin: 0 0 1.2em; }
 
 @media (min-width: 900px) {
   .insight-qa .qa {
-    grid-template-columns: 15rem minmax(0, 1fr);
-    gap: 0 clamp(2rem, 4vw, 4rem);
+    grid-template-columns: calc(15rem * var(--ts, 1)) minmax(0, 1fr);
+    gap: 0 calc(var(--ts, 1) * clamp(2rem, 4vw, 4rem));
   }
   .insight-qa .q { padding-top: 0.35rem; }
 }
@@ -999,7 +1090,7 @@ p { margin: 0 0 1.2em; }
   display: block;
   width: 100%;
   height: auto;
-  background: #e9e7e3;
+  background: var(--tile);
 }
 
 /* A wide page: every column on it, bar and footer included, runs the full
@@ -1044,7 +1135,7 @@ p { margin: 0 0 1.2em; }
 /* the home row sits tight: Jaco tuned its gaps to a fifth of the site's.
    The dial still works on top, everywhere else keeps the normal gap. */
 #featured-grid.grid {
-  gap: calc(var(--x-gap, 1) * 0.2 * clamp(1.25rem, 3.5vw, 3.5rem)) calc(var(--x-gap, 1) * 0.2 * clamp(1.25rem, 3vw, 2.5rem));
+  gap: calc(var(--x-gap, 1) * var(--ts, 1) * 0.2 * clamp(1.25rem, 3.5vw, 3.5rem)) calc(var(--x-gap, 1) * var(--ts, 1) * 0.2 * clamp(1.25rem, 3vw, 2.5rem));
 }
 
 /* The home is one view, like the old site: point cloud hero, one row of
@@ -1058,16 +1149,24 @@ p { margin: 0 0 1.2em; }
   .page-home { min-height: 100dvh; display: flex; flex-direction: column; }
   .page-home main { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
   .home-view { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; font-size: 17px; }
-  .page-home .site-footer { margin-top: 0; padding-block: 1rem; }
+  .page-home .site-footer { margin-top: 0; padding-block: calc(1rem * var(--ts, 1)); }
   .home-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(0.25rem, 1.5vh, 2rem); }
   .home-hero .lead { margin-top: 0.6rem; }
-  .home-hero .display { font-size: calc(var(--x-home-title, 1) * clamp(2rem, 4.2vh, 4.4rem)); margin-block: 0.4rem; }
-  .home-hero .lead { max-width: 56ch; font-size: calc(var(--x-home-lead, 1.5) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1.05rem)); margin-block: 0.3rem 0; }
+  .home-hero .display { font-size: max(calc(30px * var(--fl, 1)), calc(var(--x-home-title, 1) * clamp(2rem, 4.2vh, 4.4rem))); margin-block: 0.4rem; }
+  /* The tagline is the h1 and the only real statement on the home, so it is
+     the biggest text on the page, in full ink, on a short measure. */
+  .home-hero .lead {
+    max-width: 34ch;
+    font-size: max(calc(24px * var(--fl, 1)), calc(var(--x-home-lead, 2.35) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1.05rem)));
+    line-height: 1.3;
+    font-weight: 600;
+    margin-block: calc(0.6rem * var(--ts, 1)) 0;
+  }
   .home-works { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); }
   .home-works .card-cat { display: none; }
-  .home-works .card-meta { margin-top: 0.45rem; }
+  .home-works .card-meta { margin-top: calc(0.45rem * var(--ts, 1)); }
   .home-works .card-title {
-    font-size: calc(var(--x-home-cards, 1.5) * 0.85rem * var(--ts, 1));
+    font-size: max(calc(14px * var(--fl, 1)), calc(var(--x-home-cards, 1.5) * 0.85rem * var(--ts, 1)));
     /* one line, always: a wrapped title makes the row read ragged and the
        text look misaligned with the pictures */
     white-space: nowrap;
@@ -1077,30 +1176,30 @@ p { margin: 0 0 1.2em; }
   }
   /* the title's serif glyphs carry side bearing: a small negative pull
      puts the INK, not the glyph box, on the picture's left edge */
-  .home-works .card-meta { margin-top: 0.55rem; margin-left: -0.09em; }
-  .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); }
+  .home-works .card-meta { margin-top: calc(0.55rem * var(--ts, 1)); margin-left: -0.09em; }
+  .home-about { padding-block: 0 clamp(0.6rem, 1.5vh, 1.4rem); grid-template-columns: minmax(calc(140px * var(--ts, 1)), calc(180px * var(--ts, 1))) minmax(0, 1fr); }
   .home-about img { aspect-ratio: 3 / 2; }
-  .home-about-text { font-size: calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1rem)); }
+  .home-about-text { font-size: max(calc(14.5px * var(--fl, 1)), calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1rem))); }
 }
 /* every text element on the home listens to its own dial; the line under
    the title is BIG and has its own dial, the small labels stay small */
 .page-home .home-more,
-.page-home .home-works-head { font-size: calc(var(--x-home-cards, 1.5) * var(--ts, 1) * 0.8rem); }
+.page-home .home-works-head { font-size: max(calc(12px * var(--fl, 1)), calc(var(--x-home-cards, 1.5) * var(--ts, 1) * 0.8rem)); }
 .page-home .home-about .h-section,
-.page-home .home-about h2 { font-size: calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(1.3rem, 2.6vh, 1.9rem)); }
-.home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 0.6rem; margin-bottom: 0.6rem; }
-.home-more { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+.page-home .home-about h2 { font-size: max(calc(19px * var(--fl, 1)), calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(1.3rem, 2.6vh, 1.9rem))); }
+.home-works-head { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: calc(0.6rem * var(--ts, 1)); margin-bottom: calc(0.6rem * var(--ts, 1)); }
+.home-more { font-size: max(calc(12px * var(--fl, 1)), calc(0.8rem * var(--ts, 1))); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; }
 .home-more:hover { color: var(--fg); }
 .home-about {
   display: grid;
-  grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: minmax(calc(140px * var(--ts, 1)), calc(180px * var(--ts, 1))) minmax(0, 1fr);
+  gap: calc(var(--ts, 1) * clamp(1.5rem, 3vw, 3rem));
   align-items: center;
   border-top: 1px solid var(--line);
 }
 .home-about > div { padding-block: clamp(0.6rem, 1.5vh, 1.2rem); }
-.home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: #e9e7e3; }
-.home-about-text { margin: 0.4rem 0 0.8rem; max-width: 62ch; font-size: calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(0.95rem, 1.6vh, 1.08rem)); }
+.home-about img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; background: var(--tile); }
+.home-about-text { margin: calc(0.4rem * var(--ts, 1)) 0 calc(0.8rem * var(--ts, 1)); max-width: 62ch; font-size: max(calc(14.5px * var(--fl, 1)), calc(var(--x-home-about, 0.91) * var(--ts, 1) * clamp(0.95rem, 1.6vh, 1.08rem))); }
 @media (max-width: 999px) { .home-about { grid-template-columns: 1fr; } }
 @media (max-width: 600px) {
   #featured-grid.grid {
@@ -1115,7 +1214,7 @@ p { margin: 0 0 1.2em; }
 /* The whole work grid keeps the clean look Jaco chose: no captions under
    the tiles, the title lives INSIDE the image, appearing over a dark
    gradient on hover, in the one-screen wall and the browse grid alike. */
-#work-grid.compact { gap: 6px; }
+#work-grid.compact { gap: calc(6px * var(--ts, 1)); }
 #work-grid .card { position: relative; }
 #work-grid .card-meta { display: none; }
 #work-grid .card:hover .card-meta,
@@ -1132,7 +1231,7 @@ p { margin: 0 0 1.2em; }
 #work-grid .card:focus-visible .card-title { color: #f7f6f4; font-size: calc(var(--fx-label) * 0.72rem); line-height: 1.25; }
 #work-grid .card:hover .card-cat,
 #work-grid .card:focus-visible .card-cat { color: rgba(247, 246, 244, 0.75); font-size: calc(var(--fx-label) * 0.6rem); }
-#work-grid .card-media { background: #e9e7e3; }
+#work-grid .card-media { background: var(--tile); }
 
 /* Pages that fit the screen have no scroll to drive them, so the pictures
    breathe on their own: a very slow drift inside their crop, always moving,
@@ -1171,7 +1270,7 @@ p { margin: 0 0 1.2em; }
    A strip cover simply crops; the project page shows it whole. */
 
 /* the point cloud player: a dark room for the scan, page-wide like the rest */
-.project-pointcloud { margin-block: clamp(1.5rem, 3vw, 2.5rem); }
+.project-pointcloud { margin-block: calc(var(--ts, 1) * clamp(1.5rem, 3vw, 2.5rem)); }
 .pc-canvas {
   display: block;
   width: 100%;
@@ -1180,42 +1279,42 @@ p { margin: 0 0 1.2em; }
   cursor: grab;
 }
 .pc-canvas:active { cursor: grabbing; }
-.pc-label { margin: 0.6rem 0 0; font-size: calc(0.85rem * var(--ts, 1)); color: var(--muted); }
+.pc-label { margin: calc(0.6rem * var(--ts, 1)) 0 0; font-size: max(calc(13px * var(--fl, 1)), calc(0.85rem * var(--ts, 1))); color: var(--muted); }
 
 /* press kit under the pictures, in the insight section's voice */
 .project-presskit {
   border-top: 1px solid var(--line);
   margin-top: calc(var(--fx-space) * clamp(1.8rem, 3.5vw, 3rem));
-  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-top: calc(var(--ts, 1) * clamp(2rem, 4vw, 3.5rem));
 }
-.kit-quote { margin: 1.4rem 0 0; max-width: 46rem; }
-.kit-quote p { margin: 0; font-style: italic; font-size: calc(var(--fx-text) * 1.05rem); line-height: 1.55; }
+.kit-quote { margin: calc(1.4rem * var(--ts, 1)) 0 0; max-width: calc(46rem * var(--ts, 1)); }
+.kit-quote p { margin: 0; font-style: italic; font-size: max(calc(15px * var(--fl, 1)), calc(var(--fx-text) * 1.05rem)); line-height: 1.55; }
 .kit-quote cite {
   display: block;
   margin-top: 0.4rem;
   font-style: normal;
-  font-size: calc(0.78rem * var(--ts, 1));
+  font-size: max(calc(11.5px * var(--fl, 1)), calc(0.78rem * var(--ts, 1)));
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.kit-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.8rem; }
+.kit-actions { display: flex; flex-wrap: wrap; gap: calc(0.7rem * var(--ts, 1)); margin-top: calc(1.8rem * var(--ts, 1)); }
 .kit-actions .pill { text-decoration: none; display: inline-block; }
 
 /* the expertise pillars: title left, thinking right, projects a quiet line */
 .pillar {
   border-top: 2px solid var(--fg);
-  padding-top: 1.2rem;
-  margin-bottom: clamp(2.4rem, 4vw, 4rem);
+  padding-top: calc(1.2rem * var(--ts, 1));
+  margin-bottom: calc(var(--ts, 1) * clamp(2.4rem, 4vw, 4rem));
   display: grid;
   grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr);
-  gap: 1rem clamp(2rem, 5vw, 6rem);
+  gap: calc(1rem * var(--ts, 1)) calc(var(--ts, 1) * clamp(2rem, 5vw, 6rem));
 }
-.pillar h2 { margin: 0; font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 700; max-width: 14ch; }
-.pillar-insight { font-size: calc(var(--fx-text) * clamp(1.05rem, 1.1vw, 1.2rem)); line-height: 1.65; max-width: 62ch; }
+.pillar h2 { margin: 0; font-size: max(calc(19px * var(--fl, 1)), calc(var(--ts, 1) * clamp(1.3rem, 2vw, 1.8rem))); font-weight: 700; max-width: 14ch; }
+.pillar-insight { font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.05rem, 1.1vw, 1.2rem))); line-height: 1.65; max-width: 62ch; }
 .pillar-insight p { margin: 0 0 1em; }
 .pillar-insight p:last-child { margin-bottom: 0; }
-.pillar-links { grid-column: 2; margin: 0.4rem 0 0; font-size: calc(0.85rem * var(--ts, 1)); color: var(--muted); }
+.pillar-links { grid-column: 2; margin: 0.4rem 0 0; font-size: max(calc(13px * var(--fl, 1)), calc(0.85rem * var(--ts, 1))); color: var(--muted); }
 .pillar-links a { color: var(--fg); border-bottom: 1px solid var(--line); }
 .pillar-links a:hover { border-bottom-color: var(--fg); }
 @media (max-width: 800px) {
@@ -1279,7 +1378,7 @@ p { margin: 0 0 1.2em; }
   max-width: 64ch;
   max-height: 100%;
   overflow-y: auto;
-  font-size: calc(var(--fx-text) * clamp(1.05rem, 1.3vw, 1.35rem));
+  font-size: max(calc(16px * var(--fl, 1)), calc(var(--fx-text) * clamp(1.05rem, 1.3vw, 1.35rem)));
   line-height: 1.7;
 }
 .regie-text .statement { margin-top: 1.2em; }
