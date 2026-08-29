@@ -264,74 +264,67 @@
       if (w && h) return w / h;
       return im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5;
     });
-    // One picture, one moment: landscape and square pictures stand alone at
-    // full page width; only portraits pair up, two tall ones side by side,
-    // so nothing tall runs off the screen. Marked graphics still go solo.
+    const W = el.clientWidth;
+    if (!W) return; // a background tab reports zero; leave it alone
+
+    /* A JUSTIFIED gallery, sized against the window rather than the page width.
+
+       What it replaces: every landscape or square picture stood alone at full
+       page width, and only portraits paired. On Points of Light that produced
+       eighteen consecutive rows at 950px, 88% of the window each, and a page
+       19 screens long where every screen held exactly one picture. The pairs
+       were worse: two portraits side by side computed to 1373px, 127% of the
+       window, because flex-grow set the widths and the height just followed.
+
+       Now a row takes pictures until its height drops to the target, and the
+       row's HEIGHT is what gets set, so nothing can grow taller than the cap
+       however tall the pictures are. Rows stay flush left and right whenever
+       the target binds; only a row too tall for the cap pulls in and centres,
+       which is what stops a portrait pair filling the screen. Nothing is
+       cropped at all, where the old version cropped up to 10% to even the
+       rows out.
+
+       Jaco's rules, kept: never more than three in a row, and a graphic or
+       poster marked nocrop still stands alone at true proportions. */
+    const vv = (name, fb) => {
+      const v = parseFloat(getComputedStyle(el).getPropertyValue(name));
+      return isNaN(v) ? fb : v;
+    };
+    const TARGET = window.innerHeight * vv("--gal-row", 0.42);
+    const MAXH = window.innerHeight * vv("--gal-max", 0.66);
+    const PER_ROW = 3;
     const pinned = parseInt(el.dataset.rows || "", 10) || 0;
+
     const rows = [];
-    let pair = [];
+    let row = [], sum = 0;
+    const close = () => { if (row.length) { rows.push(row); row = []; sum = 0; } };
     ratios.forEach((r, i) => {
-      const portrait = ratios[i] < 1.02;
-      if (!portrait || imgs[i].dataset.nocrop || pinned === 1) {
-        if (pair.length) { rows.push(pair); pair = []; }
-        rows.push([i]);
-        return;
-      }
-      pair.push(i);
-      if (pair.length === 2) { rows.push(pair); pair = []; }
+      if (imgs[i].dataset.nocrop || pinned === 1) { close(); rows.push([i]); return; }
+      row.push(i); sum += r;
+      if (W / sum <= TARGET || row.length >= PER_ROW) close();
     });
-    if (pair.length) rows.push(pair);
-    const solo = (i) => ratios[i] >= 1.02 || !!imgs[i].dataset.nocrop;
-    // No ordinary picture stands alone: a stranded single joins the nearest
-    // ordinary row, looking past any solo rows in between.
-    for (let k = rows.length - 1; k >= 0; k--) {
-      if (rows[k].length !== 1 || solo(rows[k][0])) continue;
-      let home = null;
-      for (let d = 1; d < rows.length && !home; d++) {
-        for (const j of [k - d, k + d]) {
-          const cand = rows[j];
-          if (cand && cand.length && cand.length < 3 && !solo(cand[0])) { home = cand; break; }
-        }
-      }
-      if (home) { home.push(rows[k][0]); rows.splice(k, 1); }
-    }
-    // Rows may crop at most 10% to sit closer to a shared height. Each row's
-    // ratios are nudged toward the median row, clamped to 0.9..1.1, and the
-    // nudge is applied through aspect-ratio + object-fit so the crop is even.
-    const sums = rows.map((list) => list.reduce((a, i) => a + ratios[i], 0));
-    const perImg = rows.map((list, k) => sums[k] / list.length);
-    const median = [...perImg].sort((a, b) => a - b)[Math.floor(perImg.length / 2)];
+    close();
+
     el.textContent = "";
-    rows.forEach((list, k) => {
-      const soloRow = list.length === 1 && solo(list[0]);
-      // A poster or graphic in the row means the whole row keeps true proportions.
-      const hasNocrop = list.some((i) => imgs[i].dataset.nocrop);
-      const f = hasNocrop ? 1 : Math.min(1.1, Math.max(0.9, (median * list.length) / sums[k]));
-      // In a pair, nudge both pictures toward equal widths (within the same 10%)
-      // so the middle line runs straight down the page wherever it can.
-      const each = list.map(() => f);
-      if (list.length === 2 && !hasNocrop) {
-        const [a, b] = list.map((i) => ratios[i]);
-        // Meet in the middle: enough to make the pair equal, capped at 10% each.
-        const g = Math.min(1.1, Math.sqrt(Math.max(a, b) / Math.min(a, b)));
-        each[0] = a < b ? g : 1 / g;
-        each[1] = a < b ? 1 / g : g;
-      }
+    const built = rows.map((list) => {
       const d = document.createElement("div");
-      d.className = soloRow ? "grow solo" : "grow";
-      list.forEach((i, n) => {
-        const shown = ratios[i] * each[n];
-        imgs[i].style.flexGrow = shown.toFixed(4);
-        if (Math.abs(each[n] - 1) > 0.01) {
-          imgs[i].style.aspectRatio = shown.toFixed(4);
-          imgs[i].style.objectFit = "cover";
-        } else {
-          imgs[i].style.aspectRatio = "";
-          imgs[i].style.objectFit = "";
-        }
+      d.className = list.length === 1 ? "grow solo" : "grow";
+      list.forEach((i) => {
+        imgs[i].style.flexGrow = "";
+        imgs[i].style.aspectRatio = "";
+        imgs[i].style.objectFit = "";
         d.appendChild(imgs[i]);
       });
       el.appendChild(d);
+      return { d, list };
+    });
+
+    // the gap is CSS, so it can only be read once a row exists
+    const gap = built.length ? parseFloat(getComputedStyle(built[0].d).columnGap) || 0 : 0;
+    built.forEach(({ d, list }) => {
+      const sum2 = list.reduce((a, i) => a + ratios[i], 0);
+      const flush = (W - gap * (list.length - 1)) / sum2;
+      d.style.height = `${Math.round(Math.min(flush, MAXH))}px`;
     });
   }
 
@@ -1270,11 +1263,20 @@
           else { img.addEventListener("load", done, { once: true }); img.addEventListener("error", done, { once: true }); }
         });
       }
-      let wasNarrow = window.matchMedia("(max-width: 600px)").matches;
+      /* Re-lay out on EVERY resize, on a settled frame. This used to fire only
+         when the 600px phone breakpoint was crossed, which was safe while rows
+         were sized by flex-grow and adjusted themselves. Rows carry an explicit
+         pixel height now, so a height computed for one window survives into the
+         next: dragging 3840 down to 1366 left rows at 204% of the window and a
+         page ten screens long. Two rAFs, as everywhere else here, so nothing is
+         measured against a layout that has not settled. */
+      let galRaf = 0;
       window.addEventListener("resize", () => {
-        const narrow = window.matchMedia("(max-width: 600px)").matches;
-        if (narrow !== wasNarrow) { wasNarrow = narrow; layoutGallery(gal); }
-      });
+        cancelAnimationFrame(galRaf);
+        galRaf = requestAnimationFrame(() => {
+          galRaf = requestAnimationFrame(() => layoutGallery(gal));
+        });
+      }, { passive: true });
     }
   }
 

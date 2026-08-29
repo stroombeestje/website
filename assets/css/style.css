@@ -750,24 +750,22 @@ p { margin: 0 0 1.2em; }
   gap: calc(var(--x-gap, 1) * var(--ts, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
   margin-bottom: calc(var(--x-gap, 1) * var(--ts, 1) * clamp(0.6rem, 1.6vw, 1.1rem));
 }
-/* a solo row (panorama strip or poster) centres itself; posters cap at a
-   readable-but-sane height */
-.project-gallery .grow.solo img {
-  flex: 0 1 auto;
+/* Rows are sized by HEIGHT now, set by layoutGallery, so a picture can never
+   be taller than the cap however tall it is. The two dials live here:
+   --gal-row is the height a row aims for and --gal-except the height it may
+   never pass, both as a share of the window, so they hold on every screen. */
+.project-gallery { --gal-row: 0.42; --gal-max: 0.66; }
+.project-gallery .grow { justify-content: center; }
+.project-gallery .grow img {
+  flex: 0 0 auto;
+  height: 100%;
   width: auto;
   max-width: 100%;
-  height: auto;
-  /* a solo picture also stays within one screen */
-  max-height: 88vh;
-}
-.project-gallery .grow img {
-  flex: 1 1 0;
   min-width: 0;
-  width: 100%;
-  height: auto;
   margin: 0;
   background: var(--tile);
   display: block;
+  object-fit: contain;
 }
 
 /* video embeds (Vimeo/YouTube iframe or local <video>) — paired grid */
@@ -797,8 +795,13 @@ p { margin: 0 0 1.2em; }
 .project-video-ig { width: 100%; max-width: 480px; margin: 0 auto; }
 .project-video-ig iframe { width: 100%; min-height: 600px; border: 0; background: #fff; }
 
-/* the first video plays full width, on its own row */
-.project-videos.is-main { grid-template-columns: 1fr; }
+/* The film and what it is have to be readable together. It used to be full
+   page width: 1841x1036 at 1920, 96% of the window, so the description began
+   227px BELOW the fold and you could not watch the film and read what it was
+   at the same time. Capping the HEIGHT and letting the width follow puts the
+   first lines of text on screen with it. Credits stay below the fold, which
+   Jaco is happy with. */
+.project-videos.is-main { grid-template-columns: 1fr; justify-items: center; }
 
 /* further clips sit under the gallery at picture size, never full bleed */
 /* further clips use the same grid, so they line up with the pictures under them */
@@ -1208,13 +1211,30 @@ p { margin: 0 0 1.2em; }
   width: var(--gw);
   margin-inline: calc((100% - var(--gw)) / 2);
 }
-/* The main film runs exactly as wide as the text block under it: one
-   width, one straight edge, whatever the screen. */
+/* The film used to run exactly as wide as the text block under it: one
+   width, one straight edge down the page. That is a real idea and it was
+   Jaco's, but it cannot survive his other one. At full page width a 16:9 film
+   is 1036px tall at 1920 and there are only 1018px under the header, so the
+   description began 227px below the fold: you could watch the film or read
+   what it was, never both. He asked for both, so the film is capped by HEIGHT
+   and the width follows. It is narrower than the text now and centred, which
+   is the price of the description being on screen with it.
+
+   --film is the dial, a share of the window, so it holds on every screen. */
+.project-videos.is-main { --film: 0.6; }
 .project-videos.is-main .project-video-file {
+  /* driven from the WIDTH, not the height, so the film still grows to the cap
+     on a big screen. With width:auto it stopped at its own 1400px and sat at
+     36% of the 4K wall looking lost; Jaco has already said he would rather
+     have a slightly soft upscale than a small picture. */
   width: 100%;
-  max-width: 100%;
+  max-width: calc(var(--film) * 100dvh * 16 / 9);
   height: auto;
-  max-height: none;
+  margin-inline: auto;
+}
+/* an embedded player keeps its 16:9 box, so its height is capped through the width */
+.project-videos.is-main .project-video {
+  max-width: calc(var(--film) * 100dvh * 16 / 9);
   margin-inline: auto;
 }
 .project-videos.is-main .project-video-file.is-portrait {
