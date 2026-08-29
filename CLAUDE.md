@@ -75,3 +75,54 @@ Known-clean exceptions the script already skips: the tune panel (fixed-px dev
 tool), the phone nav-toggle and its spans (hidden on desktop), the vh-tuned
 one-view home (its 17px base is deliberate), and paragraph heights that differ
 by one wrapped line.
+
+**THE AUDIT IS BLIND ON THE HOME — do not read CLEAN as "the home is fine."**
+The script skips every element inside `.home-view, .home-works, .home-about,
+.home-hero`, and skips any font under 17px. At 1920 eight of the home's nine
+type sizes are under 17px, so the page Jaco complains about most is the one
+page the audit never checks. Measure the home by hand: read the computed
+font-size of the eyebrow, tagline, card title and footer at 3840 and at 1920
+and compare the ratios to each other, not just to --ts. In Aug 2026 they were
+0.50, 0.61, 0.69 and 0.92 — the hand-picked floors formed a DIFFERENT ramp
+from the 4K one, and two pairs inverted (the eyebrow rendered smaller than the
+footer, the nav smaller than the card title). A floor set is only correct if
+every size keeps its 4K ORDER and roughly its 4K spacing.
+
+## The home is anchored to the viewport (Aug 2026)
+
+Never centre the home statement in leftover flex space again. Leftover space
+shrinks faster than the screen does, so a centred block rides upward on every
+smaller laptop: it measured 30% of the screen at 4K, 25% at 1920 and 21% at
+1366, which walked it into the middle of the point cloud. The hero is
+`flex: 0 0 auto` with `padding-top: calc(22dvh - var(--bar-h))`, and
+`.home-works` carries `margin-top: auto` so the slack collects in the gap
+ABOVE the works row. The eyebrow then holds 22.0-22.1% of the screen from
+3840 down to 1366, and the works row lands at 61-63%.
+
+Two consequences worth keeping in mind. A measure written in `ch` follows the
+FLOORED font, so it grows as a share of the screen exactly when the floor
+engages — the tagline reached 24.3% of screen width at 1920 against 19.9% on
+the wall. Cap such a measure by screen share too: `min(34ch, 22vw)`. And the
+works row is sized by WIDTH while this budget is height, so a short wide
+window (1366x700) still rides up to 54%; the fix there is to pick the card
+count from the window's aspect ratio rather than fixing it at six.
+
+## The cloud fades by DENSITY, never by opacity
+
+`.page-home .hero-canvas` must not carry a vertical opacity mask. There used
+to be one (`black 34% -> transparent 62%`) and it was wrong twice over: its
+midpoint sat at 48% while the cloud's own centre is `CY = H * 0.47`, so the
+ramp lay straight across the densest band and discarded half the ink, and
+dimming a dense dot field uniformly reads as a grey GRADIENT rather than dust
+thinning out. Jaco saw both — "it cuts the middle of the pointcloud" and "now
+i see a gradient" are the same bug from two angles. It was invisible at 4K
+only because the opaque works row starts at 51% there and covered the ugly
+part of the ramp; every smaller screen exposed it.
+
+`draw()` in main.js drops points instead, on a stable per-point threshold
+(`pt.k`, assigned once in `build()` so the thinning does not flicker frame to
+frame). Every surviving dot keeps full ink and the mass dissolves into grain.
+The stops are dials: `--pc-fade0` (0.55) and `--pc-fade1` (0.95). Read them
+ONCE per frame — `tv()` calls getComputedStyle, and inside the 9000-point
+loop that is 18,000 calls a frame. Only the horizontal mask remains, to keep
+the cloud off both margins.
