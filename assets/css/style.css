@@ -726,6 +726,19 @@ p { margin: 0 0 1.2em; }
 .contact-social { margin-top: calc(1.75rem * var(--ts, 1)); }
 .contact-social .pill { display: inline-block; }
 
+/* Every block on About opens with the same white line. It existed on exactly
+   one thing, the CV's Work / Curation / Education heads, so half the page was
+   ruled and half was not: Residencies, Live shows, Teaching, Tools, Services
+   and Contact all opened with a bare label. And the lists closed with a line
+   while the two paragraph blocks just stopped, so blocks ended two different
+   ways as well. One rule to open, one to close, everywhere. */
+#about .eyebrow {
+  border-bottom: 1px solid var(--fg);
+  padding-bottom: calc(0.5rem * var(--ts, 1));
+  margin-bottom: calc(0.9rem * var(--ts, 1));
+}
+#about .about-line { border-bottom: 1px solid var(--line); padding-bottom: calc(0.85rem * var(--ts, 1)); }
+
 .about-sub { margin-top: calc(2.6rem * var(--ts, 1)); }
 
 /* The notes are their own line under the credits, not cells inside them. */
