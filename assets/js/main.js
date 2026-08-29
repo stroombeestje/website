@@ -1448,7 +1448,25 @@
     const introEl = $("#press-intro");
     if (introEl && data.intro) introEl.textContent = data.intro;
 
-    mount.innerHTML = (data.items || [])
+    /* Newest first, sorted here rather than in the file so the order cannot
+       drift as cuttings are added through the back office. Dates are written
+       for people ("May 2026", "Sep 2022", and La Jornada's bare "2024"), so
+       parse what is there and treat a missing month as the start of the
+       year -- an undated item sorts last rather than jumping the queue. */
+    const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+    const stamp = (d) => {
+      const t = String(d || "").toLowerCase();
+      const year = (t.match(/(19|20)\d{2}/) || [])[0];
+      if (!year) return -1;
+      const mi = MONTHS.findIndex((m) => t.includes(m));
+      return +year * 12 + (mi < 0 ? 0 : mi);
+    };
+    const ordered = (data.items || [])
+      .map((it, i) => ({ it, i }))
+      .sort((a, b) => stamp(b.it.date) - stamp(a.it.date) || a.i - b.i)
+      .map((x) => x.it);
+
+    mount.innerHTML = ordered
       .map((it) => {
         const href = it.url || (it.image ? asset(it.image) : null);
         const cta = it.url ? "Read ↗" : it.image ? "View clipping ↗" : "";

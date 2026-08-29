@@ -49,10 +49,11 @@
     {
       "outlet": "La Jornada",
       "title": "Data Uotan confirma la posibilidad de coexistencia entre el arte clásico y el digital",
-      "date": "2024",
+      "date": "Aug 2024",
       "quote": "Expresiones de performance, danza, fotografía, pintura y escultura se fusionan con la IA en el espacio cultural No Es Una Galería.",
       "image": "media/press/lajornada-2024.jpg",
-      "project": "data-utan"
+      "project": "data-utan",
+      "url": "https://www.jornada.com.mx/noticia/2024/08/17/cultura/data-uotan-confirma-la-posibilidad-de-coexistencia-entre-el-arte-clasico-y-el-digital-1677"
     },
     {
       "outlet": "RTV Utrecht",
@@ -106,6 +107,33 @@
       "quote": "Ruimtelijk ontwerp en interactie-ontwerp door Space Popular met Mariana Lobão en Jaco Schilp.",
       "url": "https://nieuweinstituut.nl/articles/persbericht-opening-collection-gallery",
       "image": "media/press/nieuweinstituut-2026.jpg"
+    },
+    {
+      "outlet": "3voor12 Utrecht",
+      "title": "Voormalig Pieter Baan Centrum fungeert een week als decor voor vijfde editie Uncloud",
+      "date": "Feb 2020",
+      "quote": "We hebben een grote stap gemaakt. Het team is groter, professioneler en het muzikale programma is dit jaar volwassen geworden.",
+      "url": "https://3voor12lokaal.vpro.nl/artikelen/voormalig-pieter-baan-centrum-fungeert-een-week-als-decor-voor-vijfde-editie-uncloud",
+      "image": "media/press/vpro-uncloud-2020.jpg",
+      "project": "uncloud-transliminal"
+    },
+    {
+      "outlet": "3voor12 Utrecht",
+      "title": "Watch: Uncloud, achter de muren van het voormalig Pieter Baan Centrum",
+      "date": "Apr 2021",
+      "quote": "Bekijk hier aflevering 1 met Jaco Schilp en Roel Weerdenburg, initiatiefnemers van Uncloud.",
+      "url": "https://www.youtube.com/watch?v=gD1SszDg8-0",
+      "image": "media/press/3voor12-uncloud-2021.jpg",
+      "project": "uncloud-transliminal"
+    },
+    {
+      "outlet": "3voor12 Utrecht",
+      "title": "Uncloud festival jubileert met meest ambitieuze editie tot nu toe",
+      "date": "Feb 2020",
+      "quote": "Uncloud begon ooit in ACU, als een studentenproject van Skander Jaïbi en Jaco Schilp.",
+      "url": "https://3voor12lokaal.vpro.nl/artikelen/uncloud-festival-jubileert-met-meest-ambitieuze-editie-tot-nu-toe",
+      "image": "media/press/3voor12-uncloud-jubileum-2020.jpg",
+      "project": "uncloud-transliminal"
     }
   ]
 }
