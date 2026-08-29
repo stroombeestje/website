@@ -369,7 +369,6 @@ p { margin: 0 0 1.2em; }
   }
 }
 /* the one-screen wall does not scroll, so nothing there may wait for scroll */
-#work-grid.compact .card-media { animation: none; }
 /* Framer-style variety: pictures grow in as the scroll carries them, but
    not all the same way. In a gallery row the left one leans in from the
    left, the right one from the right, the middle rises, at slightly
@@ -466,7 +465,7 @@ p { margin: 0 0 1.2em; }
    Filters
    ========================================================================== */
 /* All projects head: bold statement left, quiet intro right, then one toolbar
-   line with search, pill filters, the shown count and the compact switch */
+   line with search, pill filters and the shown count */
 .work-head {
   display: flex;
   justify-content: space-between;
@@ -485,8 +484,20 @@ p { margin: 0 0 1.2em; }
 .work-intro {
   margin: calc(0.5rem * var(--ts, 1)) 0 0;
   color: var(--muted);
-  font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
-  max-width: calc(26rem * var(--ts, 1));
+  /* Floor 12px, not 14: at 1920 the honest proportional value is 11.9px, so
+     12 lets the true value win there and the ratio to the 4K size stays 0.50.
+     A 14px floor rendered this line 17% larger than proportional, which is
+     visible next to everything around it. */
+  font-size: max(calc(12px * var(--fl, 1)), calc(var(--fx-text) * 0.95rem));
+  /* One line per sentence (the <br> in work.html), two lines on every screen.
+     The measure is in vw, NOT ch: a ch measure tracks the font that is
+     actually rendered, so the moment the floor engages the column stops being
+     a share of the screen. It was 26rem * --ts before, which shrank with --ts
+     while the type stopped at its floor and left a 206px column of five
+     ragged four-word lines at 1920. Below about 1500 the floored font is wide
+     enough that the longer sentence wraps; that is the floor working. */
+  max-width: 27vw;
+  line-height: 1.5;
 }
 .work-toolbar {
   display: flex;
@@ -1242,7 +1253,6 @@ p { margin: 0 0 1.2em; }
 /* The whole work grid keeps the clean look Jaco chose: no captions under
    the tiles, the title lives INSIDE the image, appearing over a dark
    gradient on hover, in the one-screen wall and the browse grid alike. */
-#work-grid.compact { gap: calc(6px * var(--ts, 1)); }
 #work-grid .card { position: relative; }
 #work-grid .card-meta { display: none; }
 #work-grid .card:hover .card-meta,

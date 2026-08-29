@@ -195,7 +195,7 @@
       entries.forEach((e) => {
         const card = e.target;
         const grid = card.closest("#featured-grid, #work-grid");
-        if (!grid || grid.classList.contains("compact")) return;
+        if (!grid) return;
         let v = card.querySelector("video.card-preview");
         if (e.isIntersecting) {
           if (!v) {
@@ -604,36 +604,61 @@
     // Two honest modes. "One screen" (default, the Compact pill pressed):
     // the whole set fits above the fold, captions only when they have room.
     // Unpressed: a comfortable captioned grid that simply scrolls.
-    let oneScreen = true;
+    /* The wall is SOLVED, not felt out. Every tile is a plain square -- the
+       captions under a work-grid card are display:none and come back only on
+       hover -- so the height of a layout is arithmetic and needs no trial
+       reflow:  rows * tile + (rows - 1) * rowGap,  tile = (W - gaps) / cols.
+       Take the FEWEST columns that still fit, which is the same as the
+       biggest tiles: filter the wall down to a handful of projects and they
+       grow to fill the same box.
+
+       The old version set a column count, measured, and kept the first that
+       fit. Two faults. It compared the grid's bottom against the viewport and
+       never subtracted the FOOTER, so the page overflowed by exactly the
+       footer's height (7px at 1920, where the footer is 59px and the slack
+       24px covered the rest). And a trial loop that forces 20-odd reflows
+       reads stale geometry during a resize burst: on a fresh load at 3840 it
+       settled on a correct 11 columns, but after dragging the window between
+       screens it landed on 8 and the page scrolled for 1.64 screens. */
     const fit = () => {
       if (window.matchMedia("(max-width: 1000px)").matches) {
-        mount.style.gridTemplateColumns = "";
-        mount.classList.remove("compact");
-        return;
-      }
-      if (!oneScreen) {
-        mount.classList.remove("compact");
         mount.style.gridTemplateColumns = "";
         return;
       }
       const n = mount.children.length;
       if (!n) return;
-      // 24px of slack: a layout that only just fits would flip its column
-      // count whenever a font swap or rounding nudges it a pixel either way
-      const fits = () =>
-        mount.getBoundingClientRect().bottom + window.scrollY <= window.innerHeight - 24;
-      // First with captions; when even small tiles cannot carry them, the wall
-      // drops the captions and shows covers alone (titles come back on hover).
-      mount.classList.remove("compact");
-      for (let cols = 2; cols <= 12; cols++) {
-        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        if (fits()) return;
+      mount.style.gridTemplateColumns = "";
+      const cs = getComputedStyle(mount);
+      const gx = parseFloat(cs.columnGap) || 0;
+      const gy = parseFloat(cs.rowGap) || 0;
+      const W = mount.clientWidth;
+      if (!W) return; // a background tab reports zero; leave the layout alone
+      const foot = $(".site-footer");
+      // the footer's MARGIN counts too: offsetHeight alone leaves it out, and
+      // the wall then overruns by exactly that margin
+      const footBox = foot
+        ? foot.offsetHeight + (parseFloat(getComputedStyle(foot).marginTop) || 0)
+        : 0;
+      // a little slack so a layout that only just fits cannot flip its column
+      // count when a font swap or rounding nudges it a pixel either way
+      const slack = 24 * Math.min(1, window.innerWidth / 3840) + 8;
+      const top = mount.getBoundingClientRect().top + window.scrollY;
+      const avail = window.innerHeight - top - footBox - slack;
+      // Mid-resize the browser can report the new innerHeight while the head
+      // and toolbar above still carry the old width's layout, which yields a
+      // nonsense box and a wall of postage stamps. Leave it alone and wait
+      // for the settled frame scheduleFit() asks for.
+      if (!(avail > 0)) return;
+      let best = n; // one row of small tiles always fits across
+      for (let cols = 1; cols <= n; cols++) {
+        // the tracks are 1fr, so each row can land a fraction of a pixel
+        // taller than the ideal; ceil the tile or the wall overflows by a
+        // pixel per row (it did, by 2px at 1366x700)
+        const tile = Math.ceil((W - (cols - 1) * gx) / cols);
+        const rows = Math.ceil(n / cols);
+        if (rows * tile + (rows - 1) * gy <= avail) { best = cols; break; }
       }
-      mount.classList.add("compact");
-      for (let cols = 6; cols <= 24; cols++) {
-        mount.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-        if (fits()) return;
-      }
+      mount.style.gridTemplateColumns = `repeat(${best}, 1fr)`;
     };
 
     // One list feeds the wall: the active category, narrowed by the search
@@ -655,17 +680,23 @@
       fit();
     };
     render();
-    window.addEventListener("resize", fit, { passive: true });
-    if (searchEl) searchEl.addEventListener("input", render);
-    const compactBtn = $("#work-compact");
-    if (compactBtn) {
-      compactBtn.setAttribute("aria-pressed", "true");
-      compactBtn.addEventListener("click", () => {
-        oneScreen = !oneScreen;
-        compactBtn.setAttribute("aria-pressed", String(oneScreen));
-        fit();
+    // Solve only on a SETTLED frame. Measuring inside the resize event reads
+    // the new viewport against the old layout: dragging the window from 1920
+    // to 3840 and back produced 8 columns and then 15, where the honest
+    // answer is 11 at both. Two rAFs give the browser a full layout pass at
+    // the new size before anything is measured.
+    let fitRaf = 0;
+    const scheduleFit = () => {
+      cancelAnimationFrame(fitRaf);
+      fitRaf = requestAnimationFrame(() => {
+        fitRaf = requestAnimationFrame(fit);
       });
-    }
+    };
+    // the toolbar's height, and so the wall's box, moves when Open Sans
+    // swaps in for the fallback: solve again once it has
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFit);
+    window.addEventListener("resize", scheduleFit, { passive: true });
+    if (searchEl) searchEl.addEventListener("input", render);
 
     if (filtersEl) {
       filtersEl.addEventListener("click", (e) => {
