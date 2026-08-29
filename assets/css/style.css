@@ -687,6 +687,16 @@ p { margin: 0 0 1.2em; }
   font-size: max(calc(14px * var(--fl, 1)), calc(var(--fx-label) * 0.95rem));
   line-height: 1.35;
 }
+/* A press card on a PROJECT page quotes the paper rather than repeating a
+   headline about something else. Set like the press page's own pull quote. */
+.rel-quote {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.45;
+  font-size: max(calc(13px * var(--fl, 1)), calc(var(--fx-label) * 0.88rem));
+}
 /* the facts spread evenly; the link BLOCK closes the row at the right,
    its text left-aligned like every other fact */
 .fact-link { margin-left: auto; }

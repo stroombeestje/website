@@ -1209,11 +1209,19 @@
         if (x.slug !== p.slug && !x.hidden && !rel.includes(x) && x.category === p.category && x.cover) rel.push(x);
       });
       const cards = [
+        /* On a PROJECT page the card carries what the paper said about THIS
+           work, not the article's headline. A headline covers whatever the
+           piece was about -- the Volkskrant one is "Echte headliners heeft Le
+           Guess Who niet...", a verdict on a whole festival -- which tells a
+           reader of the Somnia page nothing about Somnia. The quote does. The
+           headline still leads on the press page, where it belongs. */
         ...articles.map(
-          (it) => `<a class="rel-card" href="${it.url ? esc(it.url) : `${ROOT}press.html`}"${it.url ? ` target="_blank" rel="noopener"` : ""}>
+          (it) => `<a class="rel-card" href="${it.clipping ? asset(esc(it.clipping)) : it.url ? esc(it.url) : `${ROOT}press.html`}"${it.url || it.clipping ? ` target="_blank" rel="noopener"` : ""}>
             ${it.image ? `<div class="rel-media"><img src="${asset(esc(it.image))}" alt="" loading="lazy" onerror="window.__phErr(this)"></div>` : ""}
             <span class="rel-kicker">${esc(it.outlet)}${it.date ? ` · ${esc(it.date)}` : ""}</span>
-            <span class="rel-title">${escTitle(it.title)}</span>
+            ${it.quote
+              ? `<span class="rel-quote">“${esc(it.quote)}”</span>`
+              : `<span class="rel-title">${escTitle(it.title)}</span>`}
           </a>`
         ),
         ...rel.slice(0, 6).map(
