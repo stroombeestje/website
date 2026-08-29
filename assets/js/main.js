@@ -283,14 +283,35 @@
       });
     };
 
-    /* Only once the pictures are in. load fires after the images, and the idle
-       callback gives the browser a moment past that; the timeout is the
-       fallback for browsers without one, and for a page whose load never
-       fires. */
+    /* Only once the pictures are in, and the load event is NOT how to tell.
+       The tiles are lazy, so on the work wall load fired at 133ms with all 43
+       covers still to come, and the films started straight through the middle
+       of them. So wait for the covers themselves: every tile picture that is
+       on screen, actually decoded. The cap stops a page whose pictures never
+       arrive from holding the films back for ever. */
+    const picturesIn = () => {
+      const shots = $$(".card-media img").filter((im) => {
+        const r = im.getBoundingClientRect();
+        return r.bottom > 0 && r.top < window.innerHeight;
+      });
+      return shots.length === 0 || shots.every((im) => im.complete && im.naturalWidth > 0);
+    };
+    const go = () => {
+      arm();
+      new MutationObserver(arm).observe(document.body, { childList: true, subtree: true });
+    };
     const begin = () => {
-      const go = () => { arm(); new MutationObserver(arm).observe(document.body, { childList: true, subtree: true }); };
-      if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 2500 });
-      else window.setTimeout(go, 900);
+      let waited = 0;
+      const check = () => {
+        if (picturesIn() || waited > 8000) {
+          if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 2000 });
+          else window.setTimeout(go, 400);
+          return;
+        }
+        waited += 250;
+        window.setTimeout(check, 250);
+      };
+      check();
     };
     if (document.readyState === "complete") begin();
     else window.addEventListener("load", begin, { once: true });
