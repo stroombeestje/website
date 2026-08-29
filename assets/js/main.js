@@ -628,8 +628,16 @@
         mount.style.alignContent = "";
         return;
       }
-      const n = mount.children.length;
-      if (!n) return;
+      const n = mount.querySelectorAll(".card").length;
+      if (!n) {
+        // an empty result is not a one-tile wall: drop the solved box so the
+        // notice sits where the pictures would have started
+        mount.style.gridTemplateColumns = "";
+        mount.style.height = "";
+        mount.style.justifyContent = "";
+        mount.style.alignContent = "";
+        return;
+      }
       mount.style.gridTemplateColumns = "";
       mount.style.height = "";
       const cs = getComputedStyle(mount);
@@ -734,7 +742,9 @@
           [p.title, p.location, p.year, p.role, catsOf(p).join(" ")]
             .filter(Boolean).join(" ").toLowerCase().includes(q));
       }
-      mount.innerHTML = list.map(cardHTML).join("");
+      mount.innerHTML = list.length
+        ? list.map(cardHTML).join("")
+        : `<p class="work-empty">Nothing here by that name. Try another word, or press All.</p>`;
       if (countEl) countEl.textContent = `Showing ${list.length} of ${projects.length}`;
       observeReveals(mount);
       scheduleFit();
