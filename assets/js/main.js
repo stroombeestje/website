@@ -1218,7 +1218,7 @@
         ...articles.map(
           (it) => `<a class="rel-card" href="${it.clipping ? asset(esc(it.clipping)) : it.url ? esc(it.url) : `${ROOT}press.html`}"${it.url || it.clipping ? ` target="_blank" rel="noopener"` : ""}>
             ${it.image ? `<div class="rel-media"><img src="${asset(esc(it.image))}" alt="" loading="lazy" onerror="window.__phErr(this)"></div>` : ""}
-            <span class="rel-kicker">${esc(it.outlet)}${it.date ? ` · ${esc(it.date)}` : ""}</span>
+            <span class="rel-kicker">${esc(it.outlet)}${it.occasion ? ` · ${esc(it.occasion)}` : ""}${it.date ? ` · ${esc(it.date)}` : ""}</span>
             ${it.quote
               ? `<span class="rel-quote">“${esc(it.quote)}”</span>`
               : `<span class="rel-title">${escTitle(it.title)}</span>`}
