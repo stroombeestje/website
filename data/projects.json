@@ -93,9 +93,17 @@
           1125,
           2000
         ],
+        "media/projects/ka-an/film.jpg": [
+          1400,
+          788
+        ],
         "media/projects/ka-an/cover.jpg": [
           1920,
           1080
+        ],
+        "media/projects/ka-an/film.mp4": [
+          1600,
+          900
         ]
       }
     },
@@ -176,7 +184,15 @@
           1600,
           900
         ],
+        "media/projects/somnia/film.jpg": [
+          1400,
+          788
+        ],
         "media/projects/somnia/cover.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/somnia/film.mp4": [
           1600,
           900
         ]
@@ -492,7 +508,15 @@
           1600,
           844
         ],
+        "media/projects/le-guess-who-2019/aftermovie.jpg": [
+          1400,
+          738
+        ],
         "media/projects/lgw2019/cover.jpg": [
+          1600,
+          844
+        ],
+        "media/projects/le-guess-who-2019/aftermovie.mp4": [
           1600,
           844
         ]
@@ -561,9 +585,17 @@
           2000,
           1333
         ],
+        "media/projects/anonymous-project-2023/cube.jpg": [
+          1400,
+          542
+        ],
         "media/projects/anonymous-project-2023/cover.jpg": [
           1365,
           2048
+        ],
+        "media/projects/anonymous-project-2023/cube.mp4": [
+          1920,
+          744
         ]
       }
     },
@@ -686,9 +718,17 @@
           1335,
           2000
         ],
+        "media/projects/orbit-2022/clip.jpg": [
+          1400,
+          788
+        ],
         "media/projects/orbit-2022/cover.jpg": [
           1469,
           2200
+        ],
+        "media/projects/orbit-2022/clip.mp4": [
+          1280,
+          720
         ]
       }
     },
@@ -785,9 +825,33 @@
           2000,
           1333
         ],
+        "media/projects/data-utan/inauguracion.jpg": [
+          1400,
+          788
+        ],
+        "media/projects/data-utan/pintura.jpg": [
+          1400,
+          788
+        ],
+        "media/projects/data-utan/somnia-2.jpg": [
+          1400,
+          788
+        ],
         "media/projects/data-utan/cover.jpg": [
           2400,
           1600
+        ],
+        "media/projects/data-utan/inauguracion.mp4": [
+          1401,
+          788
+        ],
+        "media/projects/data-utan/pintura.mp4": [
+          1401,
+          788
+        ],
+        "media/projects/data-utan/somnia-2.mp4": [
+          1401,
+          788
         ]
       }
     },
@@ -923,9 +987,17 @@
           2000,
           1334
         ],
+        "media/projects/panorama-utrecht/aftermovie.jpg": [
+          1400,
+          552
+        ],
         "media/projects/panorama-utrecht/cover.jpg": [
           1356,
           1060
+        ],
+        "media/projects/panorama-utrecht/aftermovie.mp4": [
+          1920,
+          756
         ]
       }
     },
@@ -1277,8 +1349,8 @@
         "media/projects/flip-mode/07.jpg"
       ],
       "videos": [
-        "media/projects/flip-mode/film.mp4",
-        "media/projects/flip-mode/clip.mp4"
+        "media/projects/flip-mode/clip.mp4",
+        "media/projects/flip-mode/film.mp4"
       ],
       "credits": "An interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos. Commissioned by Stranded FM and Uncloud for Utrecht 900. Presented at TivoliVredenburg and Orbit Festival. Photography: Juri Hiensch, Paulus van Dorsten and Martijn.",
       "link": "",
@@ -1286,10 +1358,8 @@
         "Installation",
         "Artwork"
       ],
-      "nocrop": [
-        "media/projects/flip-mode/07.jpg"
-      ],
       "hoverStart": 2,
+      "heroImage": "media/projects/flip-mode/cover.jpg",
       "coverThumb": "media/thumbs/flip-mode-cover.jpg",
       "hoverPreview": "media/thumbs/flip-mode-hover.mp4",
       "sizes": {
@@ -1321,9 +1391,25 @@
           1333,
           2000
         ],
+        "media/projects/flip-mode/clip.jpg": [
+          1400,
+          2488
+        ],
+        "media/projects/flip-mode/film.jpg": [
+          1400,
+          2488
+        ],
         "media/projects/flip-mode/cover.jpg": [
           2400,
           1601
+        ],
+        "media/projects/flip-mode/clip.mp4": [
+          809,
+          1440
+        ],
+        "media/projects/flip-mode/film.mp4": [
+          1080,
+          1920
         ]
       }
     },
@@ -1834,6 +1920,14 @@
         "media/projects/uncloud-2024/spaces-2.jpg": [
           3238,
           2160
+        ],
+        "media/projects/uncloud-2024/film.jpg": [
+          1920,
+          1080
+        ],
+        "media/projects/uncloud-2024/film.mp4": [
+          1920,
+          1080
         ]
       }
     },
@@ -2011,6 +2105,22 @@
         "media/projects/orbit-installation/cover-w33.jpg": [
           1600,
           900
+        ],
+        "media/projects/orbit-installation/wall.mp4": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/wall.jpg": [
+          1600,
+          900
+        ],
+        "media/projects/orbit-installation/tracking.mp4": [
+          1099,
+          618
+        ],
+        "media/projects/orbit-installation/tracking.jpg": [
+          1099,
+          618
         ]
       }
     },
@@ -2041,6 +2151,7 @@
       "credits": "Light & design: Jaco Schilp. Photos: Elske Nissen. Production: ESWA licht en geluid. With Lammer at Soenda.",
       "link": "",
       "hoverStart": 13,
+      "heroImage": "media/projects/soenda-presents/01.jpg",
       "coverThumb": "media/thumbs/soenda-presents-cover.jpg",
       "hoverPreview": "media/thumbs/soenda-presents-hover.mp4",
       "sizes": {
@@ -2067,6 +2178,30 @@
         "media/projects/soenda-presents/cover.jpg": [
           2000,
           1333
+        ],
+        "media/projects/soenda-presents/clip.mp4": [
+          719,
+          720
+        ],
+        "media/projects/soenda-presents/clip.jpg": [
+          719,
+          720
+        ],
+        "media/projects/soenda-presents/clip2.mp4": [
+          719,
+          720
+        ],
+        "media/projects/soenda-presents/clip2.jpg": [
+          719,
+          720
+        ],
+        "media/projects/soenda-presents/clip3.mp4": [
+          719,
+          720
+        ],
+        "media/projects/soenda-presents/clip3.jpg": [
+          719,
+          720
         ]
       }
     },
@@ -2107,6 +2242,10 @@
         "media/projects/buy-or-burn/cover-wall2.jpg": [
           1600,
           1200
+        ],
+        "media/projects/buy-or-burn/strip.jpg": [
+          2000,
+          500
         ]
       }
     },
@@ -2507,9 +2646,17 @@
           1920,
           1080
         ],
+        "media/projects/circle-of-live-cervantino/aftermovie-sound.jpg": [
+          1400,
+          788
+        ],
         "media/projects/circle-of-live-cervantino/cover.jpg": [
           1440,
           961
+        ],
+        "media/projects/circle-of-live-cervantino/aftermovie-sound.mp4": [
+          1600,
+          900
         ]
       }
     },
@@ -2558,9 +2705,25 @@
           2000,
           2667
         ],
+        "media/projects/archive-mirror/film.jpg": [
+          1400,
+          788
+        ],
+        "media/projects/archive-mirror/looking-back.jpg": [
+          1400,
+          2490
+        ],
         "media/projects/archive-mirror/cover.jpg": [
           1600,
           900
+        ],
+        "media/projects/archive-mirror/film.mp4": [
+          1920,
+          1080
+        ],
+        "media/projects/archive-mirror/looking-back.mp4": [
+          478,
+          850
         ]
       }
     },
@@ -2688,9 +2851,25 @@
           1800,
           1800
         ],
+        "media/projects/points-of-light/film.jpg": [
+          1400,
+          788
+        ],
+        "media/projects/points-of-light/clip.jpg": [
+          1400,
+          1408
+        ],
         "media/projects/points-of-light/cover-f54.jpg": [
           1600,
           900
+        ],
+        "media/projects/points-of-light/film.mp4": [
+          1920,
+          1080
+        ],
+        "media/projects/points-of-light/clip.mp4": [
+          759,
+          764
         ]
       }
     },
@@ -2768,9 +2947,17 @@
           2000,
           1125
         ],
+        "media/projects/lelys-droom/film.jpg": [
+          1400,
+          788
+        ],
         "media/projects/lelys-droom/cover.jpg": [
           2400,
           1350
+        ],
+        "media/projects/lelys-droom/film.mp4": [
+          1920,
+          1080
         ]
       }
     },
@@ -2832,9 +3019,17 @@
           1080,
           1920
         ],
+        "media/projects/schiedam-750/film.jpg": [
+          1400,
+          2488
+        ],
         "media/projects/schiedam-750/cover.jpg": [
           1080,
           1920
+        ],
+        "media/projects/schiedam-750/film.mp4": [
+          810,
+          1440
         ]
       }
     },
@@ -2889,9 +3084,17 @@
           1600,
           1600
         ],
+        "media/projects/mexico/clip.jpg": [
+          1400,
+          788
+        ],
         "media/projects/mexico/cover.jpg": [
           1600,
           900
+        ],
+        "media/projects/mexico/clip.mp4": [
+          1067,
+          600
         ]
       }
     },
@@ -3053,6 +3256,14 @@
         "media/projects/sonaural/cover.jpg": [
           1440,
           1080
+        ],
+        "media/projects/sonaural/worm.mp4": [
+          1707,
+          960
+        ],
+        "media/projects/sonaural/worm.jpg": [
+          1707,
+          960
         ]
       }
     },
@@ -3140,9 +3351,17 @@
           2000,
           1333
         ],
+        "media/projects/universum/film.jpg": [
+          1400,
+          788
+        ],
         "media/projects/universum/cover.jpg": [
           2400,
           1600
+        ],
+        "media/projects/universum/film.mp4": [
+          1280,
+          720
         ]
       }
     },
@@ -3169,9 +3388,17 @@
       "coverThumb": "media/thumbs/stedelijk-museum-schiedam-2021-cover.jpg",
       "hoverPreview": "media/thumbs/stedelijk-museum-schiedam-2021-hover.mp4",
       "sizes": {
+        "media/projects/stedelijk-museum-schiedam-2021/aftermovie.jpg": [
+          1400,
+          788
+        ],
         "media/projects/stedelijk-museum-schiedam-2021/cover.jpg": [
           1920,
           1080
+        ],
+        "media/projects/stedelijk-museum-schiedam-2021/aftermovie.mp4": [
+          1600,
+          900
         ]
       }
     },
@@ -3225,9 +3452,17 @@
       "coverThumb": "media/thumbs/kunsthal-museumnacht-2017-cover.jpg",
       "hoverPreview": "media/thumbs/kunsthal-museumnacht-2017-hover.mp4",
       "sizes": {
+        "media/projects/kunsthal-museumnacht-2017/aftermovie.jpg": [
+          1400,
+          788
+        ],
         "media/projects/kunsthal-museumnacht-2017/cover.jpg": [
           1920,
           1080
+        ],
+        "media/projects/kunsthal-museumnacht-2017/aftermovie.mp4": [
+          1600,
+          900
         ]
       }
     },

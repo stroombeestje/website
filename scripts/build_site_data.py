@@ -9,6 +9,7 @@ site loads. It runs automatically on every deploy (see netlify.toml) and
 can also be run locally:  python scripts/build_site_data.py
 """
 import json
+import re
 import glob
 import os
 import subprocess
@@ -28,6 +29,42 @@ FFMPEG = os.path.join(
     "Lib", "site-packages", "imageio_ffmpeg", "binaries", "ffmpeg-win-x86_64-v7.1.exe")
 if not os.path.exists(FFMPEG):
     FFMPEG = None
+
+
+def video_size(path):
+    """The film's own width and height, read from the file.
+
+    The poster cannot be trusted for this. Soenda's clip.mp4 is 1280x1281,
+    square, while the poster cut for it is 1400x788,16:9, so laying the film
+    out to the poster's proportions squeezed it into a letterboxed strip:
+    Jaco's "movies are re-scaled in wrong aspect ratio". There is no ffprobe
+    beside the bundled ffmpeg, so the size is read from what ffmpeg prints
+    about the stream when asked to decode nothing.
+    """
+    if not FFMPEG or not os.path.exists(path):
+        return None
+    try:
+        r = subprocess.run([FFMPEG, "-hide_banner", "-i", path],
+                           capture_output=True, text=True,
+                           encoding="utf-8", errors="replace")
+    except Exception:
+        return None
+    m = re.search(
+        r"Stream #\d+:\d+.*?Video:.*?, (\d{2,5})x(\d{2,5})"
+        r"(?:\s*\[SAR \d+:\d+ DAR (\d+):(\d+)\])?",
+        r.stderr or "")
+    if not m:
+        return None
+    w, h = int(m.group(1)), int(m.group(2))
+    # The DISPLAY ratio, not the coded one. Soenda's clip is coded 1280x720 but
+    # carries DAR 20656:20673, so it plays square; laying it out at 16:9 was
+    # exactly the squeeze Jaco saw. Where a display ratio is declared, the
+    # width is recomputed from it so the stored proportions are what plays.
+    if m.group(3) and m.group(4) and int(m.group(4)):
+        dar = int(m.group(3)) / int(m.group(4))
+        if dar > 0:
+            w = max(1, int(round(h * dar)))
+    return [w, h]
 
 
 
@@ -96,7 +133,14 @@ def main():
                 os.makedirs(os.path.join(ROOT, "media", "thumbs"), exist_ok=True)
                 rel_prev = "media/thumbs/%s-hover.mp4" % p["slug"]
                 dst = os.path.join(ROOT, rel_prev.replace("/", os.sep))
-                if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                # Same trap as the cover thumbs: swapping which film comes
+                # first points this at a DIFFERENT file, which can easily be
+                # older than the clip cut from the previous one. Timestamps
+                # alone would then keep the old clip for ever, so the source
+                # path is recorded and compared as well.
+                if (not os.path.exists(dst)
+                        or os.path.getmtime(dst) < os.path.getmtime(src)
+                        or THUMB_SRC.get(rel_prev) != vids[0]):
                     # hoverStart: the second the clip starts at, chosen per film
                     # to match the cover picture; 3 when nothing better is known
                     r = subprocess.run(
@@ -109,6 +153,7 @@ def main():
                     if r.returncode:
                         print("  hover preview failed:", p["slug"], r.stderr.strip()[:120])
                 if os.path.exists(dst):
+                    THUMB_SRC[rel_prev] = vids[0]
                     p["hoverPreview"] = rel_prev
         # A clip can also exist without a local film: for YouTube/Vimeo-only
         # projects the clip is cut once from a downloaded copy and kept.
@@ -122,7 +167,21 @@ def main():
         # to fetch every full-size picture before it can draw a single row.
         if Image is not None:
             sizes = {}
-            for rel in list(p.get("images") or []) + ([p["cover"]] if p.get("cover") else []):
+            # A film's poster is measured too. The gallery can lay films out
+            # beside the pictures, and to do that without downloading anything
+            # it needs their proportions, which the poster carries because it
+            # is a frame cut from the film itself.
+            posters = []
+            for v in (p.get("videos") or []):
+                if isinstance(v, str) and not v.startswith("http"):
+                    stem = os.path.splitext(v)[0]
+                    for ext in (".jpg", ".jpeg", ".png"):
+                        if os.path.exists(os.path.join(ROOT, (stem + ext).replace("/", os.sep))):
+                            posters.append(stem + ext)
+                            break
+            for rel in (list(p.get("images") or []) + posters
+                        + ([p["cover"]] if p.get("cover") else [])
+                        + ([p["heroImage"]] if p.get("heroImage") else [])):
                 if not isinstance(rel, str) or rel.startswith("http"):
                     continue
                 path = os.path.join(ROOT, rel.replace("/", os.sep))
@@ -133,6 +192,53 @@ def main():
                         sizes[rel] = list(im.size)
                 except Exception:
                     pass
+            # The films' OWN proportions, so the gallery lays them out to the
+            # shape they really are rather than to the shape of their poster.
+            for v in (p.get("videos") or []):
+                if not isinstance(v, str) or v.startswith("http"):
+                    continue
+                vpath = os.path.join(ROOT, v.replace("/", os.sep))
+                vs = video_size(vpath)
+                if not vs:
+                    continue
+                sizes[v] = vs
+                # A poster is supposed to be a frame cut from the film, and the
+                # browser takes the film's intrinsic shape from it while the
+                # film itself is still unloaded. Soenda's posters were 16:9 for
+                # films that play square, so the films were laid out 16:9 and
+                # pushed the page sideways. Where a poster disagrees with its
+                # film, a fresh frame is cut from the film itself.
+                rel_poster = os.path.splitext(v)[0] + ".jpg"
+                ppath = os.path.join(ROOT, rel_poster.replace("/", os.sep))
+                want = vs[0] / float(vs[1])
+                have = None
+                if Image is not None and os.path.exists(ppath):
+                    try:
+                        with Image.open(ppath) as im:
+                            have = im.size[0] / float(im.size[1])
+                    except Exception:
+                        have = None
+                if FFMPEG and (have is None or abs(have - want) > 0.02 * want):
+                    r = subprocess.run(
+                        [FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
+                         "-ss", str(p.get("hoverStart", 3)), "-i", vpath,
+                         # scaled to the DISPLAY size, not the coded one, or a
+                         # film with a display aspect ratio would get a poster
+                         # of the wrong shape all over again
+                         "-vf", "scale=%d:%d" % (vs[0], vs[1]),
+                         "-frames:v", "1", "-q:v", "3", ppath],
+                        capture_output=True, text=True,
+                        encoding="utf-8", errors="replace")
+                    if r.returncode:
+                        print("  poster cut failed:", v, (r.stderr or "").strip()[:90])
+                    else:
+                        print("  re-cut poster to match the film:", rel_poster)
+                if Image is not None and os.path.exists(ppath):
+                    try:
+                        with Image.open(ppath) as im:
+                            sizes[rel_poster] = list(im.size)
+                    except Exception:
+                        pass
             if sizes:
                 p["sizes"] = sizes
 

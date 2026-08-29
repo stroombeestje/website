@@ -20,8 +20,8 @@
     "media/projects/flip-mode/07.jpg"
   ],
   "videos": [
-    "media/projects/flip-mode/film.mp4",
-    "media/projects/flip-mode/clip.mp4"
+    "media/projects/flip-mode/clip.mp4",
+    "media/projects/flip-mode/film.mp4"
   ],
   "credits": "An interactive light work by Jaco Schilp, Tijmen Lohmeijer and Merijn Hos. Commissioned by Stranded FM and Uncloud for Utrecht 900. Presented at TivoliVredenburg and Orbit Festival. Photography: Juri Hiensch, Paulus van Dorsten and Martijn.",
   "link": "",
@@ -29,8 +29,6 @@
     "Installation",
     "Artwork"
   ],
-  "nocrop": [
-    "media/projects/flip-mode/07.jpg"
-  ],
-  "hoverStart": 2
+  "hoverStart": 2,
+  "heroImage": "media/projects/flip-mode/cover.jpg"
 }

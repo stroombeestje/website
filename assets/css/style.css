@@ -369,7 +369,13 @@ p { margin: 0 0 1.2em; }
     .project-videos.is-main .project-video-file {
       animation: scroll-rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 42%;
+      /* Finish once the thing is fully on screen, rather than 42% into the
+         cover phase. "cover" needs scroll that the END of a page does not
+         have, so the last row could never complete: it stayed scaled down and
+         shifted 22px, which is how it came to sit over the related work at the
+         bottom of flip-mode. "entry 100%" is reached the moment the element is
+         wholly visible, which the last row does reach. */
+      animation-range: entry 0% entry 100%;
     }
   }
 }
@@ -815,7 +821,12 @@ p { margin: 0 0 1.2em; }
    never pass, both as a share of the window, so they hold on every screen. */
 .project-gallery { --gal-row: 0.42; --gal-max: 0.66; }
 .project-gallery .grow { justify-content: center; }
-.project-gallery .grow img {
+/* Films are laid out by the same justified rows as the pictures, so they take
+   the same rule. They used to sit in a two-column band of their own, where a
+   pair of 9:16 phone films each got half the page to stand in and came out as
+   two narrow strips with a hole between them. */
+.project-gallery .grow img,
+.project-gallery .grow video {
   flex: 0 0 auto;
   height: 100%;
   width: auto;

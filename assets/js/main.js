@@ -266,12 +266,16 @@
 
   function layoutGallery(el) {
     if (!el) return;
-    const imgs = [...el.querySelectorAll("img")];
+    // films sit in the rows beside the pictures, so they are items too
+    const imgs = [...el.querySelectorAll("img, video")];
     if (!imgs.length) return;
     const ratios = imgs.map((im) => {
       const w = +im.getAttribute("width"), h = +im.getAttribute("height");
       if (w && h) return w / h;
-      return im.naturalWidth ? im.naturalWidth / im.naturalHeight : 1.5;
+      // a <video> reports videoWidth, not naturalWidth, and neither before it loads
+      if (im.naturalWidth) return im.naturalWidth / im.naturalHeight;
+      if (im.videoWidth) return im.videoWidth / im.videoHeight;
+      return 1.5;
     });
     const W = el.clientWidth;
     if (!W) return; // a background tab reports zero; leave it alone
@@ -320,8 +324,17 @@
       d.className = list.length === 1 ? "grow solo" : "grow";
       list.forEach((i) => {
         imgs[i].style.flexGrow = "";
-        imgs[i].style.aspectRatio = "";
         imgs[i].style.objectFit = "";
+        /* A film states its own ratio and must keep it. The UA gives a video
+           with width/height attributes "aspect-ratio: auto W/H", and the auto
+           half means an intrinsic ratio WINS: a video showing a poster has the
+           poster's, so a 16:9 poster on a square film laid the film out 16:9
+           and pushed Soenda's page sideways. Setting it without auto settles
+           it. The reset below runs first because a previous pass may have left
+           a ratio on a picture, which must not persist. */
+        imgs[i].style.aspectRatio = imgs[i].dataset.ar
+          ? imgs[i].dataset.ar.replace("/", " / ")
+          : "";
         d.appendChild(imgs[i]);
       });
       el.appendChild(d);
@@ -872,20 +885,58 @@
     // downloads and the browser can keep every picture lazy. The attributes
     // also reserve the right space, so nothing jumps as they arrive.
     const sizes = p.sizes || {};
+
+    // The main film takes the cover's place at the top of the page; the cover
+    // survives as the film's poster frame (and in the grid when asked for).
+    const rawVids = (p.videos || []).filter((v) => typeof v === "string" && v.trim());
+    const vids = rawVids.map((v) => videoEmbedHTML(v, p.cover)).filter(Boolean);
+    /* A project can ask for a PICTURE at the top even though it has films.
+       flip-mode's films are both shot 9:16 on a phone, and a portrait film at
+       the top of a wide page is mostly empty margin, which Jaco put as "the
+       portrait file is not really working". So when heroImage is set here, the
+       photograph opens the page and every film moves down among the pictures. */
+    const heroWins = !!p.heroImage;
+    const mainVideo = heroWins ? "" : (vids[0] || "");
+    const restRaw = heroWins ? rawVids : rawVids.slice(1);
+
+    /* The films that are not the main one JOIN THE GALLERY rather than sitting
+       in a band of their own. That band was a two-column grid, so a pair of
+       9:16 phone films each got half the page to stand in and ended up as two
+       narrow strips with a hole between them: Jaco's "weird shit again" on
+       flip-mode and "still weird sizes of movies" on Soenda. In the gallery
+       they are packed by the same justified rows as the pictures, at the same
+       height, which is what he asked for: the two movies fitting next to the
+       last two pictures. Only local films can do this, because the row maths
+       needs proportions and a local film has a poster measured by the build.
+       YouTube and Vimeo embeds have no such frame and stay in the old band. */
+    const LOCAL = /\.(mp4|webm|mov|m4v)(\?|$)/i;
+    const galleryFilms = restRaw.filter((v) => LOCAL.test(v) && !v.startsWith("http"));
+    const embedOnly = restRaw.filter((v) => !(LOCAL.test(v) && !v.startsWith("http")));
+    const extraVideos = embedOnly.map((v) => videoEmbedHTML(v, p.cover)).filter(Boolean).join("");
+
     const gallery = galleryImgs
       .map((src) => {
         const d = sizes[src];
         const wh = d ? ` width="${d[0]}" height="${d[1]}"` : "";
         return `<img class="reveal"${nocrop.has(src) ? ` data-nocrop="1"` : ""}${wh} src="${asset(esc(src))}" alt="${esc(p.title)}" loading="lazy" onerror="window.__phErr(this)">`;
       })
+      .concat(
+        galleryFilms.map((src) => {
+          const poster = src.replace(/\.(mp4|webm|mov|m4v)(\?|$)/i, ".jpg");
+          // the FILM's own proportions, measured by the build; the poster is
+          // only a fallback, and on Soenda it disagrees with the film
+          const d = sizes[src] || sizes[poster];
+          const wh = d ? ` width="${d[0]}" height="${d[1]}"` : "";
+          /* aspect-ratio stated outright, so the row does not depend on the
+             poster. A <video preload="none"> takes its intrinsic shape from
+             the poster until the film loads, and a poster that disagrees with
+             its film laid the film out at the wrong shape. The build re-cuts
+             such posters, and this makes the layout right even if one slips. */
+          const ar = d ? ` data-ar="${d[0]}/${d[1]}"` : "";
+          return `<video class="project-video-file gallery-film" controls preload="none" playsinline${wh}${ar} poster="${asset(esc(poster))}" src="${asset(esc(src))}"></video>`;
+        })
+      )
       .join("");
-
-    // The main film takes the cover's place at the top of the page; the cover
-    // survives as the film's poster frame (and in the grid when asked for).
-    const vids = (p.videos || []).map((v) => videoEmbedHTML(v, p.cover)).filter(Boolean);
-    const mainVideo = vids[0] || "";
-    const extraVideos = vids.slice(1).join("");
-
     // A press kit for presenters and press, under the pictures: intro, press
     // quotes, downloads and a contact line. Only projects that carry one.
     const kit = p.presskit;
@@ -1298,6 +1349,34 @@
        first lines of text, and never go above the 0.6 Jaco tuned. The floor
        stops a very tall head from crushing the film instead. filmTop does not
        depend on the film's own height, so there is no feedback loop here. */
+    /* The picture at the top needs the same budget as a film. flip-mode opens
+       on a 3:2 photograph across the full column, which came to 1181px on a
+       1080 laptop, taller than the screen on its own, and Jaco's "main picture
+       is to big". It is capped by height like the film, and because the column
+       is wider than the cap allows, the width is capped through the picture's
+       own proportions so it stays centred instead of stretching. */
+    const heroBox = mount.querySelector(".project-hero");
+    const heroImg = heroBox && heroBox.querySelector("img");
+    if (heroImg) {
+      const fitHero = () => {
+        const vh = window.innerHeight;
+        const top = heroBox.getBoundingClientRect().top + window.scrollY;
+        const reserve = 0.15 * vh;
+        const cap = Math.max(0.34, Math.min(0.6, (vh - top - reserve) / vh)) * vh;
+        const ar = heroImg.naturalWidth && heroImg.naturalHeight
+          ? heroImg.naturalWidth / heroImg.naturalHeight
+          : 1.5;
+        heroImg.style.maxHeight = `${Math.round(cap)}px`;
+        heroImg.style.maxWidth = `${Math.round(cap * ar)}px`;
+        heroImg.style.marginInline = "auto";
+      };
+      const scheduleHero = () =>
+        requestAnimationFrame(() => requestAnimationFrame(fitHero));
+      if (heroImg.complete && heroImg.naturalWidth) scheduleHero();
+      else heroImg.addEventListener("load", scheduleHero, { once: true });
+      window.addEventListener("resize", scheduleHero);
+    }
+
     const film = mount.querySelector(".project-videos.is-main");
     if (film) {
       const fitFilm = () => {
@@ -1317,9 +1396,9 @@
     // Lay out the gallery once the pictures report their proportions, and on resize.
     const gal = mount.querySelector(".project-gallery");
     if (gal) {
-      const imgs = [...gal.querySelectorAll("img")];
+      const imgs = [...gal.querySelectorAll("img, video")];
       // Sizes from the build: lay out at once, download nothing.
-      if (imgs.every((img) => img.getAttribute("width"))) {
+      if (imgs.every((img) => img.getAttribute("width") || img.tagName === "VIDEO")) {
         layoutGallery(gal);
       } else {
         // A picture the build did not measure: fall back to waiting for it.
