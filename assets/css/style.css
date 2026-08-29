@@ -315,18 +315,16 @@ p { margin: 0 0 1.2em; }
   width: 100vw;
   height: 100dvh;
   z-index: -1;
-  /* The cloud must RESOLVE, never be chopped: the works row is opaque, so a
-     cloud still at full density where that row begins reads as a cut edge.
-     The vertical mask thins it out well above the row, and the horizontal
-     one keeps it off both margins. */
-  -webkit-mask-image:
-    linear-gradient(to bottom, black 0, black 34%, transparent 62%),
-    linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to bottom, black 0, black 34%, transparent 62%),
-    linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
-  mask-composite: intersect;
+  /* The cloud RESOLVES by losing POINTS, not by losing contrast. There used
+     to be a vertical opacity ramp here (black 34% -> transparent 62%), and it
+     was a mistake: its midpoint sat at 48% while the cloud's own centre is
+     0.47H, so the ramp lay straight across the densest band and threw away
+     half the ink. Dimming a dense field uniformly reads as a grey gradient,
+     not as dust thinning out. draw() in main.js now drops dots as a function
+     of their y instead, so every surviving dot keeps full ink. Only the
+     horizontal mask stays, to keep the cloud off both margins. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
 }
 
 /* ==========================================================================
@@ -1165,14 +1163,29 @@ p { margin: 0 0 1.2em; }
   .page-home main { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
   .home-view { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; font-size: 17px; }
   .page-home .site-footer { margin-top: 0; padding-block: calc(1rem * var(--ts, 1)); }
-  .home-hero { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(0.25rem, 1.5vh, 2rem); }
+  /* The statement is anchored to the VIEWPORT, not centred in what is left
+     over. Leftover space shrinks faster than the screen does, so a centred
+     block drifts upward on every smaller laptop -- it sat at 25% of the
+     screen at 1920 against 30% at 4K, which put it in the middle of the
+     cloud. Pinned at 22dvh the eyebrow holds 22.0-22.1% from 3840 down to
+     1366. The slack now collects in the gap ABOVE the works row, which also
+     keeps that row late enough (61-63%) that the cloud has resolved by the
+     time it arrives. */
+  .home-hero { flex: 0 0 auto; min-height: 0; display: flex; flex-direction: column; justify-content: flex-start; padding-top: calc(22dvh - var(--bar-h)); padding-bottom: 0; }
+  .home-works { margin-top: auto; }
   .home-hero .lead { margin-top: 0.6rem; }
   .home-hero .display { font-size: max(calc(30px * var(--fl, 1)), calc(var(--x-home-title, 1) * clamp(2rem, 4.2vh, 4.4rem))); margin-block: 0.4rem; }
   /* The tagline is the h1 and the only real statement on the home, so it is
      the biggest text on the page, in full ink, on a short measure. */
   .home-hero .lead {
-    max-width: 34ch;
-    font-size: max(calc(24px * var(--fl, 1)), calc(var(--x-home-lead, 2.35) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1.05rem)));
+    /* 34ch follows the FLOORED font, so on a laptop the block grew to 24.3%
+       of the screen width against 19.9% on the wall -- that is the "too big"
+       Jaco kept reporting. Capping the measure by screen share as well holds
+       it at ~20% everywhere. The floor is 20px, not 24: at 1920 the honest
+       proportional value is 19.6px and it wins, while 1512 and below still
+       get a readable 20. */
+    max-width: min(34ch, 22vw);
+    font-size: max(calc(20px * var(--fl, 1)), calc(var(--x-home-lead, 2.35) * var(--ts, 1) * clamp(0.9rem, 1.5vh, 1.05rem)));
     line-height: 1.3;
     font-weight: 600;
     margin-block: calc(0.6rem * var(--ts, 1)) 0;

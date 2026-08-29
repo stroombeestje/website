@@ -454,6 +454,7 @@
           w: 0.12 + 0.8 * Math.pow(Math.max(0, edge), 1.3),
           s: 0.7 + Math.random() * 0.9,
           p: L.ph + Math.random() * 0.8,
+          k: Math.random(), // stable cull threshold: see the density fade in draw()
           ox: 0, oy: 0, // magnetic offset (springs back on release)
         });
       }
@@ -471,6 +472,12 @@
       const TAU = Math.PI * 2;
       const sizeMul = tv("--pc-size", 2.5) * vs;
       const spd = tv("--pc-speed", 3);
+      // where the cloud starts thinning and where it is gone, as a share of
+      // the screen. Read once per frame: tv() hits getComputedStyle, which is
+      // far too expensive to call per point.
+      const f0 = tv("--pc-fade0", 0.55);
+      const fspan = 1 / Math.max(0.01, tv("--pc-fade1", 0.95) - f0);
+      const invH = 1 / H;
       // slow 3D rotation of the whole field
       const ay = reduced ? 0.6 : t * 0.00006 * spd;
       const axr = reduced ? -0.25 : 0.30 * Math.sin(t * 0.00003 * spd + 1.0);
@@ -501,6 +508,14 @@
         pt.ox += (dx * k - pt.ox) * ease;
         pt.oy += (dy * k - pt.oy) * ease;
         x += pt.ox; y += pt.oy;
+        /* The cloud resolves toward the bottom of the screen by losing POINTS,
+           not contrast. A CSS opacity ramp used to do this and it read as a
+           grey gradient laid across the cloud's densest band. Dropping dots on
+           a stable per-point threshold lets the mass dissolve into individual
+           grain instead, so the works row can sit over the tail of it without
+           a visible cut edge. */
+        const fade = (y * invH - f0) * fspan;
+        if (fade > 0 && pt.k < fade) continue;
         const pull = Math.min(1, (Math.abs(pt.ox) + Math.abs(pt.oy)) / (60 * vs));
         const depth = 0.55 + 0.45 * Math.max(0, Math.min(1, (1 - Z2 / SR) * 0.5)); // nearer = darker
         ctx.globalAlpha = Math.min(0.72, pt.w * 0.36 * depth + pull * 0.35);
