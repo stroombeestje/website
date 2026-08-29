@@ -1327,9 +1327,16 @@
        Residency, Teaching, Education, and you read the one you came for. */
     const cvLine = (r) =>
       r.entry ? r.entry : [r.title, r.venue, r.location].filter(Boolean).join(", ");
+    /* A row that has a project page ends with a link to it, at the far right
+       of the sheet. Rows without one keep the cell empty, so the arrows line
+       up in a column of their own rather than trailing after ragged text. */
     const cvRow = (r) =>
       `<li data-kind="${esc(r.kind || "Work")}"><span class="y">${esc(r.year)}</span>` +
-      `<span class="k">${esc(r.kind || "Work")}</span><span>${esc(cvLine(r))}</span></li>`;
+      `<span class="k">${esc(r.kind || "Work")}</span><span>${esc(cvLine(r))}</span>` +
+      (r.slug
+        ? `<a class="cv-link" href="${ROOT}project.html?p=${encodeURIComponent(r.slug)}" aria-label="${esc(cvLine(r))}">↗</a>`
+        : `<span class="cv-link is-empty" aria-hidden="true"></span>`) +
+      `</li>`;
     const cvAll = s.cv || [];
     const cv = cvAll.map(cvRow).join("");
     const cvKinds = [];

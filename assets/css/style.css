@@ -1038,8 +1038,9 @@ p { margin: 0 0 1.2em; }
   margin: 0;
   padding: 0;
   display: grid;
-  /* year, kind, entry: three tracks, the first two sized to their widest row */
-  grid-template-columns: max-content max-content 1fr;
+  /* year, kind, entry, link: the entry takes the slack so the arrows line up
+     hard right, in a column of their own */
+  grid-template-columns: max-content max-content 1fr max-content;
 }
 /* what a row IS: quiet, so the entry still leads */
 .detail-list .k {
@@ -1051,6 +1052,15 @@ p { margin: 0 0 1.2em; }
   text-transform: uppercase;
 }
 #cv-filters { margin-bottom: calc(1rem * var(--ts, 1)); }
+.cv-link {
+  justify-self: end;
+  padding-left: calc(1.2rem * var(--ts, 1));
+  color: var(--muted);
+  text-decoration: none;
+  font-size: max(calc(12px * var(--fl, 1)), calc(var(--fx-label) * 0.8rem));
+  transition: color var(--t-fast);
+}
+a.cv-link:hover { color: var(--fg); }
 .detail-list li[hidden] { display: none; }
 .detail-list li { display: contents; }
 /* a group heading inside the CV: spans both tracks, and carries the rule so

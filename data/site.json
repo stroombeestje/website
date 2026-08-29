@@ -32,7 +32,8 @@
       "kind": "Work",
       "title": "Points of Light",
       "venue": "Grote Kerk",
-      "location": "The Hague"
+      "location": "The Hague",
+      "slug": "points-of-light"
     },
     {
       "year": "2026",
@@ -46,7 +47,8 @@
       "kind": "Work",
       "title": "Archive Mirror, with Santiago Pani",
       "venue": "",
-      "location": ""
+      "location": "",
+      "slug": "archive-mirror"
     },
     {
       "year": "2025–26",
@@ -60,28 +62,32 @@
       "kind": "Work",
       "title": "Points of Inaccessibility",
       "venue": "with Rafael Anton Irisarri",
-      "location": ""
+      "location": "",
+      "slug": "points-of-inaccessibility"
     },
     {
       "year": "2025",
       "kind": "Work",
       "title": "Lely's Droom, 100 years Afsluitdijk",
       "venue": "Oosterlanderkerk",
-      "location": ""
+      "location": "",
+      "slug": "lelys-droom"
     },
     {
       "year": "2025",
       "kind": "Work",
       "title": "Schiedam 750, city tour",
       "venue": "",
-      "location": "Schiedam"
+      "location": "Schiedam",
+      "slug": "schiedam-750"
     },
     {
       "year": "2025",
       "kind": "Work",
       "title": "Buy or Burn",
       "venue": "Brutus",
-      "location": "Rotterdam"
+      "location": "Rotterdam",
+      "slug": "buy-or-burn"
     },
     {
       "year": "2025",
@@ -95,7 +101,8 @@
       "kind": "Live show",
       "title": "Soenda Presents",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "soenda-presents"
     },
     {
       "year": "2025",
@@ -116,21 +123,24 @@
       "kind": "Work",
       "title": "Ka'An, site-specific light installation",
       "venue": "No Es Una Galería",
-      "location": "Mexico City"
+      "location": "Mexico City",
+      "slug": "ka-an"
     },
     {
       "year": "2024–ongoing",
       "kind": "Work",
       "title": "Somnia, with Alejandra Metztli",
       "venue": "Le Guess Who? and MUTEK MX",
-      "location": ""
+      "location": "",
+      "slug": "somnia"
     },
     {
       "year": "2024",
       "kind": "Work",
       "title": "Aquí Ahora, Arthouse Pani artist residency",
       "venue": "",
-      "location": "Mexico"
+      "location": "Mexico",
+      "slug": "aqui-y-ahora"
     },
     {
       "year": "2024",
@@ -158,14 +168,16 @@
       "kind": "Curation",
       "title": "Data Uotan, co-founder & curator",
       "venue": "",
-      "location": "Mexico City"
+      "location": "Mexico City",
+      "slug": "data-utan"
     },
     {
       "year": "2024",
       "kind": "Curation",
       "title": "Uncloud, Degeneracy Regeneracy",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "uncloud-2024"
     },
     {
       "year": "2024",
@@ -179,35 +191,40 @@
       "kind": "Residency",
       "title": "Data Uotan, supported by the Netherlands Embassy in Mexico",
       "venue": "",
-      "location": "Mexico City"
+      "location": "Mexico City",
+      "slug": "data-utan"
     },
     {
       "year": "2024",
       "kind": "Residency",
       "title": "Somnia, supported by Sistema de Apoyos a la Creación y Proyectos Culturales (MX)",
       "venue": "",
-      "location": ""
+      "location": "",
+      "slug": "somnia"
     },
     {
       "year": "2023–2026",
       "kind": "Work",
       "title": "Orbit Festival, designer",
       "venue": "Fort Vechten",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "orbit-festival"
     },
     {
       "year": "2023",
       "kind": "Work",
       "title": "Van Gogh Museum, 50 years, visuals commission",
       "venue": "",
-      "location": "Amsterdam"
+      "location": "Amsterdam",
+      "slug": "van-gogh-museum"
     },
     {
       "year": "2023",
       "kind": "Work",
       "title": "Le Guess Who?, Jacobikerk",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "jacobikerk-le-guess-who"
     },
     {
       "year": "2023",
@@ -221,14 +238,16 @@
       "kind": "Live show",
       "title": "3FM Awards",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "3fm-awards"
     },
     {
       "year": "2023",
       "kind": "Work",
       "title": "L'Oréal Paris Benelux, audiovisual show",
       "venue": "",
-      "location": ""
+      "location": "",
+      "slug": "loreal"
     },
     {
       "year": "2023",
@@ -256,49 +275,56 @@
       "kind": "Work",
       "title": "Panorama Utrecht, panoramic light sculpture",
       "venue": "Hoog Catharijne",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "panorama-utrecht"
     },
     {
       "year": "2022",
       "kind": "Curation",
       "title": "No-Art Festival, Synergy",
       "venue": "NDSM",
-      "location": "Amsterdam"
+      "location": "Amsterdam",
+      "slug": "no-art-synergy"
     },
     {
       "year": "2022–2025",
       "kind": "Curation",
       "title": "Orbit Festival, curator of the art programme",
       "venue": "Fort Vechten",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "orbit-festival"
     },
     {
       "year": "2021",
       "kind": "Work",
       "title": "Le Guess Who?, Reports from Other Continents",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "reports-from-other-continents"
     },
     {
       "year": "2021",
       "kind": "Curation",
       "title": "Uncloud, Transliminal",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "uncloud-transliminal"
     },
     {
       "year": "2020–ongoing",
       "kind": "Work",
       "title": "The Greenery, immersive projected space",
       "venue": "Westergasfabriek",
-      "location": "Amsterdam"
+      "location": "Amsterdam",
+      "slug": "greenery-westergas"
     },
     {
       "year": "2020",
       "kind": "Work",
       "title": "Sonaural, 2nd edition, with Skander Jaïbi",
       "venue": "",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "sonaural"
     },
     {
       "year": "2020",
@@ -319,7 +345,8 @@
       "kind": "Work",
       "title": "National Centre for Contemporary Arts (NCCA)",
       "venue": "",
-      "location": "Nizhny Novgorod"
+      "location": "Nizhny Novgorod",
+      "slug": "ncca-nizhny-novgorod-2019"
     },
     {
       "year": "2019",
