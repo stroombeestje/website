@@ -68,6 +68,20 @@ def video_size(path):
 
 
 
+# What the LAST build measured, so a machine without Pillow or ffmpeg does not
+# throw it away. The picture and film sizes live only in the generated file,
+# never in the per-project sources, and the gallery needs them to lay a row out
+# without downloading anything first. Building on a laptop that happens to lack
+# Pillow used to drop all 44 of them silently.
+PREV_SIZES = {}
+try:
+    with open(os.path.join(ROOT, "data", "projects.json"), encoding="utf-8") as fh:
+        for _p in (json.load(fh).get("projects") or []):
+            if _p.get("slug") and _p.get("sizes"):
+                PREV_SIZES[_p["slug"]] = _p["sizes"]
+except Exception:
+    pass
+
 # Which cover each thumb was cut from, so a changed cover invalidates it.
 THUMB_SRC_PATH = os.path.join(ROOT, "media", "thumbs", "sources.json")
 try:
@@ -121,6 +135,15 @@ def main():
                         im.save(dst, "JPEG", quality=78, optimize=True)
                 THUMB_SRC[rel_thumb] = p["cover"]
                 p["coverThumb"] = rel_thumb
+        # A thumb that already exists is used whether or not this machine can
+        # make one. Without this, building on a laptop with no Pillow dropped
+        # coverThumb from all 44 projects and the grid fell back to the
+        # full-size covers, which is the whole weight the thumbs exist to
+        # avoid. The hover clips have used this shape all along.
+        if "coverThumb" not in p:
+            rel_thumb = "media/thumbs/%s-cover.jpg" % p["slug"]
+            if os.path.exists(os.path.join(ROOT, rel_thumb.replace("/", os.sep))):
+                p["coverThumb"] = rel_thumb
 
         # A short square preview of the project's film, played when the cover
         # is hovered in a grid. Six seconds from just past the opening, cropped
@@ -165,6 +188,8 @@ def main():
         # Record every picture's proportions here, once, so the page can lay the
         # gallery out without downloading a thing. Without this the browser has
         # to fetch every full-size picture before it can draw a single row.
+        if Image is None and PREV_SIZES.get(p["slug"]):
+            p["sizes"] = PREV_SIZES[p["slug"]]
         if Image is not None:
             sizes = {}
             # A film's poster is measured too. The gallery can lay films out
@@ -239,8 +264,11 @@ def main():
                             sizes[rel_poster] = list(im.size)
                     except Exception:
                         pass
-            if sizes:
-                p["sizes"] = sizes
+            # anything this run could not measure keeps what the last one knew
+            carried = dict(PREV_SIZES.get(p["slug"], {}))
+            carried.update(sizes)
+            if carried:
+                p["sizes"] = carried
 
         projects.append(p)
 
