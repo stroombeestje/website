@@ -932,8 +932,13 @@
 
        So they are separated at the source. The pairs divide the width evenly
        in one row; the notes follow underneath as one quiet line. */
+    /* A sentence can begin with a digit as easily as with a capital. Splitting
+       only before A-Z merged two credits into one on Lely's Droom, where "Rik
+       Rikken. 3D scan of the church..." stayed a single cell and buried Jaco's
+       largest credit on the piece inside the voice actor's. Five credit
+       sentences across the site start with a number. */
     const creditParts = String(p.credits || "")
-      .split(/\.\s+(?=[A-Z])/)
+      .split(/\.\s+(?=[A-Z0-9])/)
       .map((seg) => seg.replace(/\.\s*$/, "").trim())
       .filter(Boolean);
     const creditPairs = [], creditNotes = [];
