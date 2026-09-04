@@ -1,7 +1,7 @@
 {
   "slug": "panorama-utrecht",
   "title": "Panorama Utrecht",
-  "year": "2022–ongoing",
+  "year": "2022",
   "category": "Installation",
   "featured": true,
   "order": 9,
@@ -9,7 +9,7 @@
   "location": "Stationsplein, Utrecht Centraal · Uncloud",
   "cover": "media/projects/panorama-utrecht/cover.jpg",
   "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, on the Stationsplein for the city's 900th anniversary.",
-  "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal in 2022, as part of the city's 900th anniversary. The sculpture was shown again at Uncloud in 2023 and is still travelling. It is looking for a permanent location.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
+  "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal in 2022, as part of the city's 900th anniversary. The sculpture was shown again at Uncloud in 2023. It is looking for a permanent location.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
   "images": [
     "media/projects/panorama-utrecht/01.jpg",
     "media/projects/panorama-utrecht/02.jpg",

@@ -201,7 +201,7 @@
     {
       "slug": "points-of-inaccessibility",
       "title": "Points of Inaccessibility",
-      "year": "2025",
+      "year": "2025–ongoing",
       "category": "Performance",
       "featured": true,
       "order": 2,
@@ -857,7 +857,7 @@
     },
     {
       "slug": "momentum",
-      "title": "MoMentNu",
+      "title": "Een Mo Ment Nu, Willum Geerts",
       "year": "2021",
       "category": "Installation",
       "featured": false,
@@ -865,8 +865,8 @@
       "role": "Realisation, video & projections",
       "location": "Museum Jan Cunen, Oss",
       "cover": "media/projects/momentum/cover.jpg",
-      "excerpt": "Video and projections for MoMentNu, an immersive light installation with artist Willem Geerts.",
-      "description": "MoMentNu is an installation at Museum Jan Cunen in Oss, based on a concept by artist Willem Geerts. The imagery came from aerial LiDAR point clouds of the city of Oss, which I rendered in Cinema 4D. It is part of the long-running point-cloud research that also carries Panorama Utrecht, LiDAR Utrecht and Points of Light: scanning a place, then finding out what it becomes once it is only data and light. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\n> Visitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture. A quiet, immersive meditation on the present moment.",
+      "excerpt": "Video and projections for MoMentNu, an immersive light installation with artist Willum Geerts.",
+      "description": "MoMentNu is an installation at Museum Jan Cunen in Oss, based on a concept by artist Willum Geerts. The imagery came from aerial LiDAR point clouds of the city of Oss, which I rendered in Cinema 4D. It is part of the long-running point-cloud research that also carries Panorama Utrecht, LiDAR Utrecht and Points of Light: scanning a place, then finding out what it becomes once it is only data and light. Horizontal bands of moving light are wrapped around the wooden beams and pillars of the space, turning the architecture itself into a slow, drifting landscape of projected image.\n> Visitors move through the darkened room as the projections shift around them, blurring the line between the building and the picture. A quiet, immersive meditation on the present moment.",
       "images": [
         "media/projects/momentum/01.jpg",
         "media/projects/momentum/02.jpg",
@@ -875,7 +875,7 @@
         "media/projects/momentum/05.jpg"
       ],
       "videos": [],
-      "credits": "Concept: Willem Geerts. Realisation, video & projections: Jaco Schilp / Studio Schilp. Content built from aerial LiDAR point-cloud data of Oss, rendered in Cinema 4D. Presented at Museum Jan Cunen, Oss.",
+      "credits": "Concept: Willum Geerts. Realisation, video & projections: Jaco Schilp / Studio Schilp. Content built from aerial LiDAR point-cloud data of Oss, rendered in Cinema 4D. Presented at Museum Jan Cunen, Oss.",
       "link": "",
       "coverThumb": "media/thumbs/momentum-cover.jpg",
       "sizes": {
@@ -908,7 +908,7 @@
     {
       "slug": "panorama-utrecht",
       "title": "Panorama Utrecht",
-      "year": "2022–ongoing",
+      "year": "2022",
       "category": "Installation",
       "featured": true,
       "order": 9,
@@ -916,7 +916,7 @@
       "location": "Stationsplein, Utrecht Centraal · Uncloud",
       "cover": "media/projects/panorama-utrecht/cover.jpg",
       "excerpt": "A light sculpture of Utrecht built from 1.1 billion LiDAR data points, on the Stationsplein for the city's 900th anniversary.",
-      "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal in 2022, as part of the city's 900th anniversary. The sculpture was shown again at Uncloud in 2023 and is still travelling. It is looking for a permanent location.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
+      "description": "Panorama Utrecht stood on the Stationsplein at Utrecht Centraal in 2022, as part of the city's 900th anniversary. The sculpture was shown again at Uncloud in 2023. It is looking for a permanent location.\nThe composition of points is an artistic interpretation of aerial LiDAR data of Utrecht. For every point, a laser was fired at the city from a scanner in the air, and the height of that measuring point was derived from how long the reflection took. The 3D measurement of Utrecht holds roughly 1.1 billion points and comes from the Actueel Hoogtebestand Nederland dataset.\nThe audio composition is built from field recordings collected by cycling and walking through the city, switching between recognisable daily city sounds and composed ones. The contrast between them stands for the warm home feeling of Utrecht and the fast modern transformation of the city.\n> The light sculpture Panorama Utrecht shows the city from a digital perspective: a panoramic view of small luminous points that make all the walls disappear.\n> Aerial scanners fly over the Netherlands to collect billions of height data points. This work stands at the focal point between that digital world and the tangible city. A 360-degree sculpture you step into, where a play of light and a composition of city sounds together open a new perspective. You look straight through the walls of Utrecht.",
       "images": [
         "media/projects/panorama-utrecht/01.jpg",
         "media/projects/panorama-utrecht/02.jpg",
@@ -1585,7 +1585,7 @@
       "featured": false,
       "order": 12,
       "role": "Light Design",
-      "location": "",
+      "location": "Fort Vechten, Bunnik",
       "cover": "media/projects/orbit-festival/cover.jpg",
       "excerpt": "Light design for all stages of Orbit Festival.",
       "description": "I have been part of Orbit Festival for five editions, creating the light design for all stages, with light as the connective tissue between music, architecture and crowd, operated live to shape the energy of each space as the night unfolded.\n> Towering luminous totems, glowing canopies and beams cut through the haze of the festival's wooded grounds.",
@@ -1900,7 +1900,7 @@
       "location": "Utrecht",
       "cover": "media/projects/uncloud-2024/spaces-1.jpg",
       "excerpt": "The 2024 exhibition edition of Uncloud, the Utrecht platform for interdisciplinary art and experimental sound.",
-      "description": "The 2024 exhibition edition of Uncloud, the platform for interdisciplinary art and experimental sound Jaco Schilp co-founded with Skander Jaibi in Utrecht. The aftermovie carries the atmosphere; the full story of the edition follows.",
+      "description": "The 2024 exhibition edition of Uncloud, the platform for interdisciplinary art and experimental sound Jaco Schilp co-founded with Skander Jaïbi in Utrecht. The aftermovie carries the atmosphere; the full story of the edition follows.",
       "images": [
         "media/projects/uncloud-2024/spaces-1.jpg",
         "media/projects/uncloud-2024/spaces-2.jpg"
@@ -1957,7 +1957,7 @@
         "media/projects/uncloud-2022/11.jpg"
       ],
       "videos": [],
-      "credits": "A project by Uncloud, curated by Jaco Schilp and Skander Jaibi. Photography: Paulus van Dorsten and Ines Kooli.",
+      "credits": "A project by Uncloud, curated by Jaco Schilp and Skander Jaïbi. Photography: Paulus van Dorsten and Ines Kooli.",
       "link": "",
       "coverThumb": "media/thumbs/uncloud-2022-cover.jpg",
       "sizes": {
@@ -2207,7 +2207,7 @@
     },
     {
       "slug": "buy-or-burn",
-      "title": "Buy or Burn: 11.1 Rotterdam",
+      "title": "BUY OR BURN: Relics of the Future",
       "year": "2025",
       "category": "Artwork",
       "featured": false,
@@ -2221,7 +2221,7 @@
         "media/projects/buy-or-burn/01.jpg",
         "media/projects/buy-or-burn/02.jpg"
       ],
-      "credits": "Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
+      "credits": "11.1 Rotterdam. Black acrylic, LED panel, black aluminium frame. 120 × 30 cm. 3D-scanned point-cloud data (LAS), TouchDesigner.",
       "link": "",
       "nocrop": [
         "media/projects/buy-or-burn/01.jpg",
@@ -2251,13 +2251,13 @@
     },
     {
       "slug": "no-art-synergy",
-      "title": "No Art Festival: Synergy",
+      "title": "Art Festival Synergy",
       "year": "2022",
       "category": "Curated",
       "featured": false,
       "order": 18,
       "role": "Curator",
-      "location": "NDSM, Amsterdam",
+      "location": "NDSM-werf, Amsterdam",
       "cover": "",
       "excerpt": "A large-scale open-air exhibition of 10 installations at the NDSM werf, Amsterdam.",
       "description": "For the first edition of No Art Festival, I curated my first large-scale open-air exhibition at the NDSM werf in Amsterdam. The exhibition brought together 10 large-scale art installations in collaboration with music label No Art, with more than fifteen young contemporary visual artists and collectives from Amsterdam-North and surroundings.\n\nThe centrepiece was Boris Acket's WAAIWERK, 60 by 10 metres, an interactive work of sound and light controlled by the wind.",

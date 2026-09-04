@@ -138,7 +138,7 @@
     {
       "year": "2024",
       "kind": "Work",
-      "title": "Aquí Ahora, Arthouse Pani artist residency",
+      "title": "Aquí y Ahora, Arthouse Pani artist residency",
       "venue": "",
       "location": "Mexico",
       "slug": "aqui-y-ahora"
@@ -221,20 +221,12 @@
       "slug": "van-gogh-museum"
     },
     {
-      "year": "2023",
+      "year": "2022",
       "kind": "Work",
       "title": "Le Guess Who?, Jacobikerk",
       "venue": "",
       "location": "Utrecht",
       "slug": "jacobikerk-le-guess-who"
-    },
-    {
-      "year": "2023",
-      "kind": "Work",
-      "title": "Utrecht 900, Stationsplein",
-      "venue": "",
-      "location": "Utrecht",
-      "slug": "panorama-utrecht"
     },
     {
       "year": "2023",
@@ -276,8 +268,8 @@
     {
       "year": "2022",
       "kind": "Work",
-      "title": "Panorama Utrecht, panoramic light sculpture",
-      "venue": "Hoog Catharijne",
+      "title": "Panorama Utrecht, panoramic light sculpture, Stationsplein",
+      "venue": "Utrecht 900 · Hoog Catharijne",
       "location": "Utrecht",
       "slug": "panorama-utrecht"
     },
@@ -495,7 +487,7 @@
       "title": "Curation",
       "insight": [
         "Curation is a craft of its own in my practice: the same spatial thinking as installation, turned toward other artists. It means giving someone a room that restates them, whether that room is a former prison, a church during Le Guess Who?, or a club night across four venues in one year, and building the conditions around it, the technique, the programme and the trust, so the work can become what it wanted to be.",
-        "Uncloud, co-founded with Skander Jaibi in Utrecht, and Data Uotan, co-founded and co-directed with Alejandra Metztli in Mexico City, are its two running platforms; other rooms and cities have carried it before and more will. Being on the producer's side of the table this often is also what teaches me what artists need from one."
+        "Uncloud, co-founded with Skander Jaïbi in Utrecht, and Data Uotan, co-founded and co-directed with Alejandra Metztli in Mexico City, are its two running platforms; other rooms and cities have carried it before and more will. Being on the producer's side of the table this often is also what teaches me what artists need from one."
       ],
       "projects": [
         "uncloud-transliminal",
