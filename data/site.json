@@ -2,7 +2,7 @@
   "name": "Studio Schilp",
   "tagline": "Contemporary artist, curator & light designer",
   "intro": "I create art that lets you step inside the image.",
-  "about": "Jaco Schilp (1989) is a contemporary artist, curator and light designer, specialised in multidisciplinary projects within immersive art, installation art, performance, animation and art objects.\n\nI'm Jaco Schilp, and this is Studio Schilp. I create art that lets you step inside the image. I'm largely self-taught, but I did not start from nothing: I'm the third generation to work this way. My mother is a decor designer, visual artist, clothes maker and singer. My father is a sound engineer and technical theatre maker. One grandfather was a photographer, and this studio carries his name from the one he ran in the 1950s; my other grandfather was an in-house architect. Picture, sound, and the room they happen in were simply what was around.\n\nMy own hands learned first. I trained as a historical iron maker and blacksmith in Germany at the Georg Petau Kunstschmiede, and for a time I was one of the youngest traditional steel makers in Europe. I spent much of my youth living and sleeping in Iron Age houses and open-air museums. Light and code came later.\n\nWhen I enter a space I think in three dimensions. I can hold a room, turn it, and see the physical thing that could stand in it and how it would be lit, before anything is built. The core of my work is one question I have carried for ten years: what does a place become once it is only measurement and light? I scan cities, buildings and landscapes into point clouds and give the data new bodies. Panorama Utrecht turned 1.1 billion LiDAR points into a light sculpture on the Stationsplein for the city's 900th anniversary. Points of Light brings that research into the Grote Kerk in The Hague with fourteen laser projectors. In Mexico City the same material became Aquí y Ahora and my own scans of the city, and it keeps moving.\n\nThe work is often live. With composer Rafael Anton Irisarri I made Points of Inaccessibility, an audiovisual performance released on Black Knoll Editions. With choreographer Alejandra Metztli I made Somnia, where dance drives real-time visuals through digital scanners. As a light and live visual artist I've played Boiler Room, Le Guess Who?, the 3FM Awards and Dekmantel, made the immersive visuals for Circle of Live at MUTEK Mexico and Cervantino, and projected on buildings from the Kunsthal Rotterdam and the Van Gogh Museum to the St Bavo Cathedral in Haarlem and the NCCA in Nizhny Novgorod. Since 2017 I've been the resident light artist of Club WAS Utrecht.\n\nCuration is the other half of the practice. With Skander Jaïbi I co-founded Uncloud, a foundation and platform for interdisciplinary art and experimental sound in Utrecht: festival editions, concert series, residencies and museum collaborations. With Alejandra Metztli I co-direct Data Uotan, a festival and exhibition platform in Mexico City. I co-founded LiGHT-UP Collective in 2016: six artists working where art, technology and social responsibility meet, who settled into the former Pieter Baan Centrum years before Uncloud filled the building with Transliminal. I serve on the artist board of Art Utrecht.\n\nIn 2016 I graduated from the Reinwardt Academie with a BA in Cultural Heritage, specialising in exhibition design, narrative space, intangible heritage and archaeological reconstruction. It still shows: every installation I build is a story told by where you are standing.",
+  "about": "Jaco Schilp (1989) is a contemporary artist, curator and light designer, specialised in multidisciplinary projects within immersive art, installation art, performance, animation and art objects.\n\nI'm Jaco Schilp, and this is Studio Schilp. I create art that lets you step inside the image. I'm largely self-taught, but I did not start from nothing: I'm the third generation to work this way. My mother is a decor designer, visual artist, clothes maker and singer. My father is a sound engineer and technical theatre maker. One grandfather was a photographer, and this studio carries his name from the one he ran in the 1950s; my other grandfather was an in-house architect. Picture, sound, and the room they happen in were simply what was around.\n\nMy own hands learned first. I trained as a historical iron maker and blacksmith in Germany at the Georg Petau Kunstschmiede, and for a time I was one of the youngest traditional steel makers in Europe. I spent much of my youth living and sleeping in Iron Age houses and open-air museums. Light and code came later.\n\nWhen I enter a space I think in three dimensions. I can hold a room, turn it, and see the physical thing that could stand in it and how it would be lit, before anything is built. The core of my work is one question I have carried for ten years: what does a place become once it is only measurement and light? I scan cities, buildings and landscapes into point clouds and give the data new bodies. Panorama Utrecht turned 1.1 billion LiDAR points into a light sculpture on the Stationsplein for the city's 900th anniversary. Points of Light brings that research into the Grote Kerk in The Hague with fourteen laser projectors. In Mexico City the same material became Aquí y Ahora and my own scans of the city, and it keeps moving.\n\nThe work is often live. With composer Rafael Anton Irisarri I made Points of Inaccessibility, an audiovisual performance released on Black Knoll Editions. With choreographer Alejandra Metztli I made Somnia, where dance drives real-time visuals through digital scanners. As a light and live visual artist I've played Boiler Room, Le Guess Who?, the 3FM Awards and Dekmantel, made the immersive visuals for Circle of Live at MUTEK Mexico and Cervantino, and projected on buildings from the Kunsthal Rotterdam and the Van Gogh Museum to the St Bavo Cathedral in Haarlem and the NCCA in Nizhny Novgorod. Since 2017 I've been the resident light artist of Club WAS Utrecht.\n\nCuration is the other half of the practice. With Skander Jaïbi I co-founded Uncloud, a foundation and platform for interdisciplinary art and experimental sound in Utrecht: festival editions, concert series, residencies and museum collaborations. With Alejandra Metztli I co-direct Data Uotan, a festival and exhibition platform in Mexico City. I have been a member of LiGHT-UP Collective since 2016: artists working where art, technology and social responsibility meet, who settled into the former Pieter Baan Centrum years before Uncloud filled the building with Transliminal. I serve on the artist board of Art Utrecht.\n\nIn 2016 I graduated from the Reinwardt Academie with a BA in Cultural Heritage, specialising in exhibition design, narrative space, intangible heritage and archaeological reconstruction. It still shows: every installation I build is a story told by where you are standing.",
   "instagram": "https://www.instagram.com/studioschilp/",
   "portrait": "media/about/portrait.jpg",
   "categories": [
@@ -402,7 +402,7 @@
     {
       "year": "2016–ongoing",
       "kind": "Teaching",
-      "title": "Co-founder, LiGHT-UP Collective",
+      "title": "Member, LiGHT-UP Collective",
       "venue": "",
       "location": ""
     },
@@ -440,6 +440,13 @@
       "title": "MBO Land, Water & Environment, Wellantcollege",
       "venue": "",
       "location": "Houten"
+    },
+    {
+      "year": "2021",
+      "kind": "Work",
+      "title": "LiDAR 1.1, Dom Tower Utrecht, 60 × 60 cm, first laser-cut work of the series",
+      "venue": "",
+      "location": "Utrecht"
     }
   ],
   "expertise": [
@@ -513,5 +520,8 @@
   "bioSign": {
     "file": "media/about/studio-schilp-sign.jpg",
     "caption": "The original Studio Schilp, my grandfather's photography studio."
+  },
+  "cvPdf": {
+    "en": "media/docs/jaco-schilp-cv-2026-en.pdf"
   }
 }

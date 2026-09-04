@@ -1570,6 +1570,21 @@
       portrait.src = asset(s.portrait);
       portrait.hidden = false;
     }
+    /* The full CV as a file. The page carries a selection; a curator or a fund
+       wants the whole thing on paper, and asking them to copy a web page is
+       asking them not to bother. Only rendered when the file is actually
+       named in the data, so a missing PDF shows nothing rather than a dead
+       link. */
+    const pdf = s.cvPdf || {};
+    const cvDl = $("#cv-download");
+    if (cvDl && (pdf.en || pdf.nl)) {
+      cvDl.innerHTML = [
+        pdf.en ? `<a class="pill" href="${asset(esc(pdf.en))}" download>Full CV, English ↓</a>` : "",
+        pdf.nl ? `<a class="pill" href="${asset(esc(pdf.nl))}" download>Volledig cv, Nederlands ↓</a>` : "",
+      ].join("");
+      cvDl.hidden = false;
+    }
+
     if ($("#cv-list")) $("#cv-list").innerHTML = cv;
     // the chips, built from the kinds the CV actually contains
     const cvFilters = $("#cv-filters");
