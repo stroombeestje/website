@@ -2765,9 +2765,10 @@
         "media/projects/points-of-light/film.mp4",
         "media/projects/points-of-light/clip.mp4"
       ],
-      "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
+      "credits": "A LiGHT-UP Collective work: Jan Willem Campmans, Jaco Schilp, Sem Schreuder and Merijn Meijers. Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
       "link": "",
       "hoverStart": 53,
+      "with": "LiGHT-UP Collective",
       "coverThumb": "media/thumbs/points-of-light-cover.jpg",
       "hoverPreview": "media/thumbs/points-of-light-hover.mp4",
       "sizes": {
@@ -2985,9 +2986,10 @@
       "videos": [
         "media/projects/schiedam-750/film.mp4"
       ],
-      "credits": "Produced and commissioned by LightUp Collective.",
+      "credits": "Produced and commissioned by LiGHT-UP Collective.",
       "link": "https://www.instagram.com/reel/DHTt3x_tpNq/",
       "hoverStart": 0,
+      "with": "LiGHT-UP Collective",
       "coverThumb": "media/thumbs/schiedam-750-cover.jpg",
       "hoverPreview": "media/thumbs/schiedam-750-hover.mp4",
       "sizes": {

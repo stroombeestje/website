@@ -36,7 +36,8 @@
     "media/projects/points-of-light/film.mp4",
     "media/projects/points-of-light/clip.mp4"
   ],
-  "credits": "Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
+  "credits": "A LiGHT-UP Collective work: Jan Willem Campmans, Jaco Schilp, Sem Schreuder and Merijn Meijers. Video animations & custom calibration: Studio Schilp (TouchDesigner). Digital light animations: Sem Schreuder (Unreal Engine). Sound: Alejandra Metztli. Projectors sponsored by Epson. Hosted at Grote Kerk Den Haag / the Greanery. Film: Jokko Voogt.",
   "link": "",
-  "hoverStart": 53
+  "hoverStart": 53,
+  "with": "LiGHT-UP Collective"
 }
