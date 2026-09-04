@@ -517,10 +517,6 @@
   ],
   "emailUser": "jaco",
   "emailDomain": "jacoschilp.nl",
-  "bioSign": {
-    "file": "media/about/studio-schilp-sign.jpg",
-    "caption": "The original Studio Schilp, my grandfather's photography studio."
-  },
   "cvPdf": {
     "en": "media/docs/jaco-schilp-cv-2026-en.pdf"
   }
