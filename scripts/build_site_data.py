@@ -13,6 +13,9 @@ import re
 import glob
 import os
 import subprocess
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from PIL import Image
@@ -302,6 +305,16 @@ def main():
         print("  could not record thumb sources:", e)
 
     print(f"build_site_data: combined {len(projects)} projects -> data/projects.json")
+
+    # And write that content into the HTML, so the pages read without
+    # JavaScript. Part of the build rather than a separate step anyone has to
+    # remember: data that is not pre-rendered is data a crawler cannot see.
+    try:
+        import prerender
+        prerender.main()
+    except Exception as e:
+        print("  prerender skipped:", e)
+
 
 
 if __name__ == "__main__":
