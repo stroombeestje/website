@@ -360,6 +360,13 @@
     {
       "year": "2018",
       "kind": "Live show",
+      "title": "Boiler Room, ADE, IS BURNING",
+      "venue": "",
+      "location": "Amsterdam"
+    },
+    {
+      "year": "2018",
+      "kind": "Live show",
       "title": "Museumnacht",
       "venue": "NEMO",
       "location": "Amsterdam"
@@ -499,6 +506,7 @@
   ],
   "live_shows": [
     "Dekmantel",
+    "Boiler Room",
     "Mysteryland",
     "Best Kept Secret",
     "Welcome to the Future",
