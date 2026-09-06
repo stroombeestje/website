@@ -23,12 +23,12 @@
   "credits": "Concept, design and TouchDesigner: Jaco Schilp. Person detection: YOLO, open source. Commissioned by Orbit Festival, 2025. Film: Guillaume Versteeg.",
   "link": "",
   "videos": [
-    "media/projects/orbit-installation/wall.mp4",
+    "media/projects/orbit-installation/charged.mp4",
     "media/projects/orbit-installation/tracking.mp4"
   ],
   "categories": [
     "Installation",
     "Artwork"
   ],
-  "hoverStart": 18
+  "hoverStart": 6
 }
