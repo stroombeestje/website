@@ -1,5 +1,5 @@
 {
-  "slug": "orbit-installation",
+  "slug": "charged",
   "title": "Charged",
   "year": "2025–2026",
   "category": "Installation",
@@ -7,24 +7,24 @@
   "order": 15,
   "role": "Interactive light installation",
   "location": "Orbit Festival, Fort Vechten",
-  "cover": "media/projects/orbit-installation/cover-w33.jpg",
+  "cover": "media/projects/charged/cover-w33.jpg",
   "excerpt": "A public installation in which every body becomes a charge, pulling light towards it and pushing or pulling the strangers around it. The bigger the crowd, the more chaotic it gets.",
   "description": "I built Charged in TouchDesigner: the particle system, the charges, the way the light answers a body. The only part I didn't make is the eye. For that it uses an open-source AI vision model called YOLO, which has become the standard way for a machine to find people in a camera image. Its own creator walked away from it in 2020 because he could no longer ignore its military and surveillance uses. Here it is given a different job: it doesn't know who you are, only where you are and how you move, and it keeps no record.\n> Every person who walks into Charged becomes exactly that. A cloud of light gathers around you, pulled in by your presence, and moves when you move. Some people you meet in it carry the same charge as you, and so push each other's energy away. Others carry the opposite, and your clouds fold into each other before either of you has decided to merge. Like magnetic poles repel, opposites attract.\n> The work is about how we change each other's environment simply by being in it, positively or negatively, whether we mean to or not. Charging and discharging as a way of interacting between persons. The more people step in, the more chaotic it becomes. With only a few, it settles into something calm and connected.\n> Technology born for watching, reimagined as a tool for connection and play. As an artist, I feel it is important to explore how these systems can transform when placed in a different light.",
   "images": [
-    "media/projects/orbit-installation/01.jpg",
-    "media/projects/orbit-installation/02.jpg",
-    "media/projects/orbit-installation/03.jpg",
-    "media/projects/orbit-installation/04.jpg",
-    "media/projects/orbit-installation/05.jpg",
-    "media/projects/orbit-installation/06.jpg",
-    "media/projects/orbit-installation/07.jpg",
-    "media/projects/orbit-installation/08.jpg"
+    "media/projects/charged/01.jpg",
+    "media/projects/charged/02.jpg",
+    "media/projects/charged/03.jpg",
+    "media/projects/charged/04.jpg",
+    "media/projects/charged/05.jpg",
+    "media/projects/charged/06.jpg",
+    "media/projects/charged/07.jpg",
+    "media/projects/charged/08.jpg"
   ],
   "credits": "Concept, design and TouchDesigner: Jaco Schilp. Person detection: YOLO, open source. Commissioned by Orbit Festival, 2025. Film: Guillaume Versteeg.",
   "link": "",
   "videos": [
-    "media/projects/orbit-installation/charged.mp4",
-    "media/projects/orbit-installation/tracking.mp4"
+    "media/projects/charged/charged.mp4",
+    "media/projects/charged/tracking.mp4"
   ],
   "categories": [
     "Installation",

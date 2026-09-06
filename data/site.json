@@ -461,7 +461,7 @@
         "jacobikerk-le-guess-who",
         "points-of-light",
         "archive-mirror",
-        "orbit-installation"
+        "charged"
       ]
     },
     {
@@ -519,5 +519,9 @@
   "emailDomain": "jacoschilp.nl",
   "cvPdf": {
     "en": "media/docs/jaco-schilp-cv-2026-en.pdf"
+  },
+  "bioSign": {
+    "file": "media/about/fotostudio-gerrit-schilp.jpg",
+    "caption": "Fotostudio Gerrit Schilp, my grandfather's studio, the one this studio is named after."
   }
 }

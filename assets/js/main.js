@@ -1564,6 +1564,19 @@
         `</figure>`
       : "";
     $("#about-bio").innerHTML = aboutParas + signHTML;
+    /* An archive photograph is whatever size the archive scanned it at, and
+       the text column is wider than that. Left to fill the column, the sign
+       of Fotostudio Gerrit Schilp was blown up 1.42x past its own pixels and
+       went soft, the same fault the project heroes had. It stops at its own
+       width and sits left, where the text starts. */
+    const signImg = $("#about-bio .bio-sign img");
+    if (signImg) {
+      const capSign = () => {
+        if (signImg.naturalWidth) signImg.style.maxWidth = `${signImg.naturalWidth}px`;
+      };
+      if (signImg.complete && signImg.naturalWidth) capSign();
+      else signImg.addEventListener("load", capSign, { once: true });
+    }
     const portrait = $("#about-portrait");
     if (portrait && s.portrait) {
       portrait.onerror = () => portrait.remove(); // hide if the photo isn't there yet
