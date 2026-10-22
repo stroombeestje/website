@@ -6,18 +6,21 @@
   "featured": false,
   "order": 9000,
   "role": "Co-curator, artist & technical direction",
-  "location": "Beatrixgebouw, Utrecht",
+  "location": "Beatrixgebouw · De Helling · EKKO, Utrecht",
   "cover": "",
-  "excerpt": "The tenth year of Uncloud. Co-curated, with work shown and performed, the exhibition's control system built and the technical production run.",
-  "description": "Uncloud's tenth year, 1 to 11 October 2026, at the Beatrixgebouw in Utrecht, presented with Modulation.\nI co-curated the edition, showed work in it and performed live. I also built the main control system for the exhibition and ran the technical production, including arranging the sponsors.",
+  "excerpt": "Uncloud's tenth year: fourteen installations running as one continuous ninety-minute loop through the Beatrixgebouw, four nights of live performance, and two anniversaries.",
+  "description": "Uncloud's tenth year, 1 to 11 October 2026. Fourteen installations in the Beatrixgebouw beside Utrecht Centraal, four evenings of live performance, a concert night with Modulation. at De Helling, and a closing night at EKKO, which turned forty the same year.\nI co-curate and organise Uncloud with Skander Jaïbi and Ines Kooli. For this edition I also built the main control system for the exhibition and ran the technical production, including arranging the sponsors.\nWith Rafael Anton Irisarri I closed the exhibition with Points of Inaccessibility, and we played the live version on 4 October. The work came out of his residency at Uncloud in the former Pieter Baan Centrum and was released on Black Knoll Editions.\n> For this edition we did not want to place different disciplines side by side, but to create an experience in which those distinctions are no longer relevant.\n> The fourteen works are not shown as separate installations. They hand over to one another and flow into each other: one continuous environment of scenography, installation, light and sound. Ninety minutes, no fixed beginning, several ways in, and every work a link in the same chain.\n> Ten years spent looking for the places where categories stop working: between concert and exhibition, between physical and digital, between spectator and participant. This edition asks what is left when you leave those lines out altogether.",
   "images": [],
-  "videos": [],
-  "credits": "Co-curation, exhibition control system, technical production and sponsors: Jaco Schilp. Work shown and live performance: Jaco Schilp. A project by Uncloud, with Modulation.",
-  "link": "https://uncloud.nl",
+  "videos": [
+    "https://youtu.be/uokcUxXMawE"
+  ],
+  "credits": "Co-curated and organised by Jaco Schilp, Skander Jaïbi and Ines Kooli. Exhibition control system, technical production and sponsors: Jaco Schilp. Work shown and live performance: Rafael Anton Irisarri & Jaco Schilp, Points of Inaccessibility. Exhibiting artists: Alina Tikhonova & Skander Ben Yahia (Near Stoic), Andreas Tegnander, Arnout Killian, Berkveldt, Corey Schneider, Lena Kuzmich, MONOCOLOR, Pavel Zmunchila, Pim Boreel, Rafael Anton Irisarri & Jaco Schilp, Rym Hayouni, SPIME.IM, Tewa Barnosa, Victor Dissel & Wes Broersen. Live: Concepción Huerta, LASALTAS & Guillermo Martín-Viana, Ambassade, MONOCOLOR, Paula Montecinos Oliva, SPIME.IM, Pandelis Diamantides & Kristia Michael. Main location: Beatrixgebouw, Royal Dutch Jaarbeurs. With Modulation. at De Helling and EKKO.",
+  "link": "https://uncloud.nl/2026/",
   "hidden": true,
   "categories": [
     "Curated",
     "Installation",
     "Performance"
-  ]
+  ],
+  "with": "Skander Jaïbi & Ines Kooli"
 }
