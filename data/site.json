@@ -25,7 +25,8 @@
       "kind": "Work",
       "title": "Rafael Anton Irisarri & Jaco Schilp, installation + live AV from the 2025 residency",
       "venue": "Uncloud",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "uncloud-2026"
     },
     {
       "year": "2026",
@@ -38,9 +39,10 @@
     {
       "year": "2026",
       "kind": "Curation",
-      "title": "Uncloud, 10 Years of Breaking the Binary",
+      "title": "Uncloud, 10 Years of Breaking the Binary, co-curator",
       "venue": "Beatrixgebouw",
-      "location": "Utrecht"
+      "location": "Utrecht",
+      "slug": "uncloud-2026"
     },
     {
       "year": "2025–26",
