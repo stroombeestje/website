@@ -2,6 +2,16 @@
   "intro": "Utrecht papers, Mexican press, international reviews.",
   "items": [
     {
+      "outlet": "AT5",
+      "title": "ADE Lab Village: dé plek voor jong muziektalent tijdens ADE",
+      "date": "Oct 2026",
+      "quote": "Tijdens ons bezoek spraken we ook met Jaco Schilp, de maker van de interactieve lichtinstallatie Charged. De installatie staat tijdens ADE gratis in het ADE Lab Village in Westerpark en reageert op de aanwezigheid en beweging van bezoekers.",
+      "url": "https://www.at5.nl/artikelen/240591/ade-lab-village-de-plek-voor-jong-muziektalent-tijdens-ade",
+      "project": "charged",
+      "occasion": "ADE",
+      "image": "media/projects/charged/02.jpg"
+    },
+    {
       "outlet": "RTV Utrecht",
       "title": "Waar criminelen werden geobserveerd is nu kunst: 'De weg kwijtraken is de bedoeling'",
       "date": "Nov 2021",
