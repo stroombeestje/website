@@ -55,3 +55,10 @@ media/_picker_mex.html
 media/_picker_aqui2.html
 media/_picker_pol.html
 media/_picker_mutek.html
+# Working files: contact sheets, pickers, selection folders. They are tools for
+# choosing pictures, never part of the site, and .nojekyll means GitHub would
+# publish them. In October 2026 they had grown to 374 MB and pushed the
+# published site over the 1 GB limit Pages enforces.
+media/_*
+scripts/_*
+scripts/cloudflared.exe
